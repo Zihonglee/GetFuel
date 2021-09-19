@@ -1,6 +1,8 @@
 package com.example.demoSERVICE;
 
 import java.util.ArrayList;
+import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,7 +17,7 @@ public class PersonService
 	private final PersonDAO personDAO;
 	
 	@Autowired	
-	public PersonService(@Qualifier("address") PersonDAO	 personDAO)
+	public PersonService(@Qualifier("address") PersonDAO personDAO)
 	{
 		this.personDAO = personDAO;
 	}
@@ -28,5 +30,20 @@ public class PersonService
 	public ArrayList<Person> GetAllPeople()
 	{
 		return personDAO.selectPerson();	
+	}
+	
+	public Optional<Person> getPersonById(UUID id)
+	{
+		return personDAO.selectPersonByid(id);
+	}
+	
+	public int deletePerson(UUID id)
+	{
+		return personDAO.deletePersonID(id);
+	}
+	
+	public int updatePerson(UUID id, Person newPerson)
+	{
+		return personDAO.updatePersonID(id, newPerson);
 	}
 }
