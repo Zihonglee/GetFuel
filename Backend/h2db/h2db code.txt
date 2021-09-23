@@ -1,0 +1,65 @@
+
+Status
+create table status (
+statusID int IDENTITY(1,1),
+statusName longtext,
+PRIMARY KEY (statusid),
+UNIQUE (statusName)
+)
+insert into status (statusName) values ('admin');
+insert into status (statusName) values ('support');
+insert into status (statusName) values ('user');
+select* from status;
+
+Cuisines
+create table cuisines( cuisinesID int IDENTITY(1,1) PRIMARY KEY, cuisinesType varchar(255));
+insert into cuisines(cuisinesType) values ('chinese');
+insert into cuisines(cuisinesType) values ('thai');
+insert into cuisines(cuisinesType) values ('vietnam');
+select* from cuisines;
+
+User
+create table user (
+userid int IDENTITY(1,1),
+email longtext,
+username longtext,
+password longtext,
+statusid int,
+timeCreated smalldatetime,
+PRIMARY KEY (userid),
+UNIQUE (email),
+FOREIGN KEY (statusid ) REFERENCES STATUS (STATUSID)
+)
+
+insert into user(email, username, password, statusid, timecreated)values('gsos@gmail.com','gsos1','gsos123', 1, now());
+insert into user(email, username, password, statusid, timecreated)values('gsos+1@gmail.com','gsos2','gsos123', 2, now());
+insert into user(email, username, password, statusid, timecreated)values('gsos+2@gmail.com','gsos3','gsos123', 3, now());
+select* from user;
+
+Review
+create table review(
+reviewid int IDENTITY(1,1),
+comments longtext,
+userid int,	
+timeCreated smalldatetime,
+PRIMARY KEY (reviewid),
+FOREIGN KEY (userid ) REFERENCES user (userid)
+)
+
+insert into review (comments, userid, timecreated) values ( 'the food r the best', 1, now())
+insert into review (comments, userid, timecreated) values ( 'the food r the best', 1, now())
+insert into review (comments, userid, timecreated) values ( 'the food r the best', 1, now())
+
+Restaurant
+create table Restaurant(
+restid int IDENTITY(1,1),
+price int,
+rating int,
+cuisineid int,
+reviewid int,
+PRIMARY KEY (restid),
+FOREIGN KEY (cuisneid) REFERENCES CUISINES (CUISINESID ),
+FOREIGN KEY (reviewid) REFERENCES review(reviewid)
+)
+
+insert into Restaurant( price, rating, cuisineid, reviewid) values ( 5, 4, 2, 3)
