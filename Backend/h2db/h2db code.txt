@@ -1,4 +1,3 @@
-
 Status
 create table status (
 statusID int IDENTITY(1,1),
@@ -53,6 +52,7 @@ insert into review (comments, userid, timecreated) values ( 'the food r the best
 Restaurant
 create table Restaurant(
 restid int IDENTITY(1,1),
+name long,
 price double,
 rating double,
 cuisineid int,
@@ -62,4 +62,4 @@ FOREIGN KEY (cuisneid) REFERENCES CUISINES (CUISINESID ),
 FOREIGN KEY (reviewid) REFERENCES review(reviewid)
 )
 
-insert into Restaurant( price, rating, cuisineid, reviewid) values ( 5, 4, 2, 3)
+insert into Restaurant(name, price, rating, cuisineid, reviewid) values ('feedme',5, 4, 2, 3)
