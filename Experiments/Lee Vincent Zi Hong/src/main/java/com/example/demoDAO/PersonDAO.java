@@ -1,6 +1,7 @@
 package com.example.demoDAO;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.UUID;
 
 import com.example.demoMODEL.Person;
@@ -16,4 +17,10 @@ public interface PersonDAO
 	}
 	
 	ArrayList<Person> selectPerson();
+	
+	public int deletePersonID(UUID id);
+	
+	public int updatePersonID(UUID id, Person person);
+	
+	public Optional<Person> selectPersonByid(UUID id);
 }
