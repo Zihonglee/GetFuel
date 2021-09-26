@@ -11,9 +11,9 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText userName;
-    private EditText password;
-    private Button login;
+    private EditText Name;
+    private EditText Password;
+    private Button Login;
     private TextView Info;
     private int counter = 3; //number of login attempts
 
@@ -23,26 +23,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        userName = (EditText)findViewById(R.id.etUserName);
-        password = (EditText)findViewById(R.id.etPassword);
-        login = (Button)findViewById(R.id.btnLogin);
+        Name = (EditText)findViewById(R.id.etName);
+        Password = (EditText)findViewById(R.id.etPassword);
+        Login = (Button)findViewById(R.id.btnLogin);
         Info = (TextView)findViewById(R.id.tvInfo);
 
         Info.setText("Number of attempts remaining: 3");
 
-        login.setOnClickListener(new View.OnClickListener()
+        Login.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                checkInfo(userName.getText().toString(), password.getText().toString());
+                checkInfo(Name.getText().toString(), Password.getText().toString());
             }
         });
     }
 
-    private void checkInfo(String username, String userPassword)
+    private void checkInfo(String userName, String userPassword)
     {
-        if((username == "userName") && (userPassword == "1111"))
+        if((userName.equals("userName")) && (userPassword.equals("1111")))
         {
             //need to let user enter app
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
@@ -54,12 +54,12 @@ public class MainActivity extends AppCompatActivity {
         {
             counter--;
 
-            Info.setText("Number of attempts remaining:" + String.valueOf(counter));
+            Info.setText("Number of attempts remaining: " + String.valueOf(counter));
 
             //disable button
             if(counter == 0)
             {
-                login.setEnabled(false);
+                Login.setEnabled(false);
             }
         }
 
