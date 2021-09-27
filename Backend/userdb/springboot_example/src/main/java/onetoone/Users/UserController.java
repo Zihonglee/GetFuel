@@ -2,8 +2,9 @@ package onetoone.Users;
 
 import java.util.List;
 
+import onetoone.Reviews.Review;
+import onetoone.Reviews.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,8 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    ReviewRepository reviewRepository;
 
     private String success = "{\"message\":\"success\"}";
     private String failure = "{\"message\":\"failure\"}";
@@ -54,6 +57,18 @@ public class UserController {
             return null;
         userRepository.save(request);
         return userRepository.findById(id);
+    }
+
+    @PutMapping("/users/{userId}/reviews/{reviewid}")
+    String assignLaptopToUser(@PathVariable int userId,@PathVariable int reviewid){
+        User user = userRepository.findById(userId);
+        Review review = reviewRepository.findById(reviewid);
+        if(user == null || review == null)
+            return failure;
+        review.setUser(user);
+        user.setReview(review);
+        userRepository.save(user);
+        return success;
     }
 
     @DeleteMapping(path = "/users/{id}")

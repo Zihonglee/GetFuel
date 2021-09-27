@@ -1,9 +1,9 @@
 package onetoone.Users;
 
 import javax.persistence.*;
-
-
 import java.time.LocalDateTime;
+import javax.persistence.Id;
+import onetoone.Reviews.Review;
 
 
 
@@ -19,10 +19,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String username;
-    @Column(unique = true)
+    @Column(unique = true) // no need oso can
     private String email;
     private String password;
     private LocalDateTime timecreated = LocalDateTime.now();
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "review_id")
+    private Review review;
+
 
 
     /*
@@ -82,7 +86,13 @@ public class User {
         this.email = email;
     }
 
+    public Review getReview(){
+        return review;
+    }
 
+    public void setReview(Review review){
+        this.review = review;
+    }
 
 
 }
