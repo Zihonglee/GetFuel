@@ -1,4 +1,4 @@
-package onetoone.Reviews;
+package New.Users;
 
 
 import javax.persistence.Entity;
@@ -9,24 +9,27 @@ import java.time.LocalDateTime;
 
 
 @Entity
-public class Review {
+public class User {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String comments;
+    private String username;
+    private String email;
+    private String password;
     private LocalDateTime timeCreated = LocalDateTime.now();
 
 
 
 
-    public Review(String comments) {
-        this.comments = comments;
-
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
     }
 
-    public Review() {
+    public User() {
     }
 
     // =============================== Getters and Setters for each field ================================== //
@@ -39,12 +42,28 @@ public class Review {
         this.id = id;
     }
 
-    public String getComments() {
-        return comments;
+    public String getName(){
+        return username;
     }
 
-    public void setComments(String comments) {
-        this.comments = comments;
+    public void setName(String username){
+        this.username = username;
+    }
+
+    public String getEmailId(){
+        return email;
+    }
+
+    public void setEmailId(String email){
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public LocalDateTime getTimeCreated() {
