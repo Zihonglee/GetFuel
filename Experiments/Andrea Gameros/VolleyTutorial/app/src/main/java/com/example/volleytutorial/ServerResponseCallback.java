@@ -6,6 +6,6 @@ import org.json.JSONObject;
 public interface ServerResponseCallback
 {
     public void onJSONResponse(JSONObject jsonObject);
-    public void onJS0NArrayResponse(JSONArray jsonArray);
-    public void onJS0NResponse(Exception e);
+    public void onJSONArrayResponse(JSONArray jsonArray);
+    public void onError(Exception e);
 }
