@@ -62,7 +62,9 @@ public class LoginPage extends AppCompatActivity
         }
 
         //if info wrong, let user know
-        else{    counter--;
+        else{
+
+            counter--;
 
             Info.setText("Number of attempts remaining: " + String.valueOf(counter));
 
