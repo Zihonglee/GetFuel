@@ -47,6 +47,7 @@ public class LoginPage extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+                //Intent newIntent = new Intent()
                 Intent newIntent = new Intent(view.getContext(), CreateAccountPage.class);
                 startActivity(newIntent);
             }

@@ -7,26 +7,34 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 
-//this is if user enters login info right and they procede to enter the app
+//this is if user enters login info right and they s to enter the app
 public class SecondActivity extends AppCompatActivity
 {
+    private Button Click;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        Button Click = (Button)findViewById(R.id.btnClick);
+        Click = (Button) findViewById(R.id.btnClick);
 
         Click.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View view) {
-
-                startActivity(new Intent(SecondActivity.this,ThirdActivity.class));
-
+            public void onClick(View view)
+            {
+                openActivity2();
             }
         });
+    }
+
+        public void openActivity2()
+        {
+            Intent newIntent = new Intent(SecondActivity.this, ThirdActivity.class);
+            startActivity(newIntent);
+        }
 
 
         /**
@@ -52,5 +60,4 @@ public class SecondActivity extends AppCompatActivity
             }
         });
          **/
-    }
 }
