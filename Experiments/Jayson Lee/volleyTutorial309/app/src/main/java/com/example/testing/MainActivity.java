@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getName();
     private Button btnRequest;
-
     private RequestQueue mRequestQueue;
     private StringRequest mStringRequest;
     private String url = "https://run.mocky.io/v3/a75b07be-0352-4bd4-86b0-ea15b0365170";
@@ -51,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
-                Toast.makeText(getApplicationContext(), "Response :" + response.toString(), Toast.LENGTH_LONG).show();
+
             }
         }, new Response.ErrorListener() {
             @Override

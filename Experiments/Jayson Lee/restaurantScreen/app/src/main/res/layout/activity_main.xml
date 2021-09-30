@@ -117,4 +117,13 @@
         app:layout_constraintTop_toBottomOf="@+id/restaurantImage"
         app:layout_constraintVertical_bias="0.0" />
 
+    <Button
+        android:id="@+id/buttonResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="give me details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="608dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
