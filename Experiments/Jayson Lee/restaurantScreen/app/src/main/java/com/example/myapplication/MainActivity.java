@@ -19,15 +19,15 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
     private TextView Price, Cuisine, Location, Rating;
     private Button button;
-    private String url = ""
+    private String url = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button = (Button) findViewById(R.id.buttonResult)
+        button = (Button) findViewById(R.id.buttonResult);
         Price = (TextView) findViewById(R.id.priceText);
-        Cuisine = (TextView) findViewById(R.id.cuisineText;
+        Cuisine = (TextView) findViewById(R.id.cuisineText);
         Location = (TextView) findViewById(R.id.locationText);
         Rating = (TextView) findViewById(R.id.ratingText);
 
