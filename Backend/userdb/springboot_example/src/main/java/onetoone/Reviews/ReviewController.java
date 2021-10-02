@@ -1,11 +1,17 @@
 package onetoone.Reviews;
 
-import onetoone.Users.User;
-import onetoone.Users.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
 
 @RestController
 public class ReviewController {
@@ -13,11 +19,9 @@ public class ReviewController {
     @Autowired
     ReviewRepository reviewRepository;
 
-    @Autowired
-    UserRepository userRepository;
 
-    private String success = "{\"message\":\"success Review\"}";
-    private String failure = "{\"message\":\"failure Review\"}";
+    private String success = "{\"message\":\"success\"}";
+    private String failure = "{\"message\":\"failure\"}";
 
     @GetMapping(path = "/reviews")
     List<Review> getAllReview(){
@@ -46,15 +50,10 @@ public class ReviewController {
         return reviewRepository.findById(id);
     }
 
+
     @DeleteMapping(path = "/reviews/{id}")
     String deleteReview(@PathVariable int id){
-
-        User user = userRepository.findByReview_Id(id);
-        user.setReview(null);
-        userRepository.save(user);
-
         reviewRepository.deleteById(id);
         return success;
     }
-
 }
