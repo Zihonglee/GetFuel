@@ -1,19 +1,17 @@
 package com.example.getfueledrestaurantpage;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.Toast;
-import android.content.Intent;
-import android.view.View;
-
 import com.google.android.material.navigation.NavigationView;
 
-public class HomePage extends AppCompatActivity
+public class HomePagedelete extends AppCompatActivity
 {
     private DrawerLayout dl;
     private ActionBarDrawerToggle abdt;
@@ -22,8 +20,8 @@ public class HomePage extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.homepage);
-
+        setContentView(R.layout.homepage2);
+        /**
         dl = (DrawerLayout)findViewById(R.id.dl);
         abdt = new ActionBarDrawerToggle(this, dl, R.string.Open, R.string.Close);
         abdt.setDrawerIndicatorEnabled(true);
@@ -46,7 +44,6 @@ public class HomePage extends AppCompatActivity
                 {
                     //toast provides simple feedback about an operation of a small popup
                     Toast.makeText(HomePage.this, "HomePage", Toast.LENGTH_SHORT).show();
-                    //Intent intent = new Intent(view.getContext(), SearchPage.class);
                 }
 
                 if(id == R.id.map)
@@ -75,7 +72,10 @@ public class HomePage extends AppCompatActivity
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item)
+    {
         return abdt.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+    }
+    **/
     }
 }

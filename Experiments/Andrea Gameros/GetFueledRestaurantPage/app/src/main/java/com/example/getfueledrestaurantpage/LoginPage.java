@@ -18,7 +18,6 @@ public class LoginPage extends AppCompatActivity
     private TextView Info;
     private int counter = 3; //number of login attempts
     private Button CreateAccount;
-    private int t = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -56,22 +55,25 @@ public class LoginPage extends AppCompatActivity
     }
 
     //need to set this to check database of usernames and passwords
-    private void checkInfo(String userName, String userPassword) {
-        if ((userName.equals("userName")) && (userPassword.equals("1111"))) {
+    private void checkInfo(String userName, String userPassword)
+    {
+        if ((userName.equals("userName")) && (userPassword.equals("1111")))
+        {
             //need to let user enter app
             Intent intent = new Intent(LoginPage.this, HomePage.class);
             startActivity(intent);
         }
 
         //if info wrong, let user know
-        else{
-
+        else
+        {
             counter--;
 
             Info.setText("Number of attempts remaining: " + String.valueOf(counter));
 
             //disable button
-            if (counter == 0) {
+            if (counter == 0)
+            {
                 Login.setEnabled(false);
             }
         }
