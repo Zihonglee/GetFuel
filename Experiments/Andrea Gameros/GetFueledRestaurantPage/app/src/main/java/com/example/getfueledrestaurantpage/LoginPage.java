@@ -18,6 +18,7 @@ public class LoginPage extends AppCompatActivity
     private TextView Info;
     private int counter = 3; //number of login attempts
     private Button CreateAccount;
+    private int t = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
