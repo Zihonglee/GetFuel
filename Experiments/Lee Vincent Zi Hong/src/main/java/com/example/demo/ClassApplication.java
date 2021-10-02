@@ -12,10 +12,5 @@ public class ClassApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ClassApplication.class, args);
 	}
-	
-	@GetMapping
-	public String hello() {
-		return "Hello Sean";
-	}
 
 }

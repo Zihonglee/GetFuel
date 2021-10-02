@@ -1,13 +1,14 @@
-package New.Cuisines;
+package onetoone.Restaurants;
+
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface CuisineRepository  extends JpaRepository<Cuisine, Long> {
+public interface RestaurantRepository extends JpaRepository <Restaurant,Long>{
 
-
-    Cuisine findById(int id);
+    Restaurant findById(int id);
 
     @Transactional
     void deleteById(int id);
+
 }

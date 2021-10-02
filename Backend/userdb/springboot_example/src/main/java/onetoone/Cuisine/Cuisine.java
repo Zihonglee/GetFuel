@@ -1,19 +1,29 @@
-package New.Cuisines;
+package onetoone.Cuisine;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
+
+@Entity
 public class Cuisine {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String CuisineType;
+    private String cuisineType;
+
 
 
     public Cuisine(String cuisineType) {
-        CuisineType = cuisineType;
+        this.cuisineType = cuisineType;
+
+    }
+
+    public Cuisine() {
     }
 
     public int getId() {
@@ -25,10 +35,14 @@ public class Cuisine {
     }
 
     public String getCuisineType() {
-        return CuisineType;
+        return cuisineType;
     }
 
     public void setCuisineType(String cuisineType) {
-        CuisineType = cuisineType;
+        this.cuisineType = cuisineType;
     }
+
 }
+
+// =============================== Getters and Setters for each field ================================== //
+
