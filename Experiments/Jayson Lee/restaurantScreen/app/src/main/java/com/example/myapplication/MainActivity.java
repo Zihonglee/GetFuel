@@ -17,19 +17,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView Price, Cuisine, Location, Rating;
+    private TextView Price, Cuisine, Location, Rating, Name;
     private Button button;
-    private String url = ""
+    private String url = "http://localhost:8080/restaurants/2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button = (Button) findViewById(R.id.buttonResult)
+        button = (Button) findViewById(R.id.buttonResult);
         Price = (TextView) findViewById(R.id.priceText);
-        Cuisine = (TextView) findViewById(R.id.cuisineText;
-        Location = (TextView) findViewById(R.id.locationText);
+//        Cuisine = (TextView) findViewById(R.id.cuisineText);
+//        Location = (TextView) findViewById(R.id.locationText);
         Rating = (TextView) findViewById(R.id.ratingText);
+        Name = (TextView) findViewById(R.id.nameText);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,10 +47,13 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try{
-                            Price.setText(response.getString("Price"));
-                            Cuisine.setText(response.getString("Cuisine"));
-                            Location.setText(response.getString("Location"));
-                            Rating.setText(response.getString("Rating"));
+
+//                            Cuisine.setText(response.getString("Cuisine"));
+//                            Location.setText(response.getString("Location"));
+                            Name.setText(response.getString("restName"));
+                            Price.setText(response.getString("price"));
+                            Rating.setText(response.getString("rating"));
+
                         }catch (JSONException e){
                             e.printStackTrace();
                         }

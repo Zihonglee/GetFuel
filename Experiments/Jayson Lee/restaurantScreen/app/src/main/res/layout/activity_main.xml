@@ -21,10 +21,10 @@
         app:layout_constraintVertical_bias="0.799" />
 
     <TextView
-        android:id="@+id/locationText"
+        android:id="@+id/nameText"
         android:layout_width="86dp"
         android:layout_height="28dp"
-        android:text="Location:"
+        android:text="Name:"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

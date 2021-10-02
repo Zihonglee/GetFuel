@@ -1,72 +1,44 @@
 package onetoone.Users;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
-import javax.persistence.Id;
-import onetoone.Reviews.Review;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 
 @Entity
 public class User {
 
-    /*
-     * The annotation @ID marks the field below as the primary key for the table created by springboot
-     * The @GeneratedValue generates a value if not already present, The strategy in this case is to start from 1 and increment for each table
-     */
-    //id name cannot be change ?
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String username;
-    @Column(unique = true) // no need oso can
     private String email;
     private String password;
-    private LocalDateTime timecreated = LocalDateTime.now();
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "review_id")
-    private Review review;
+    private LocalDateTime timeCreated = LocalDateTime.now();
 
 
 
-    /*
-     * @OneToOne creates a relation between the current entity/table(Laptop) with the entity/table defined below it(User)
-     * cascade is responsible propagating all changes, even to children of the class Eg: changes made to laptop within a user object will be reflected
-     * in the database (more info : https://www.baeldung.com/jpa-cascade-types)
-     * @JoinColumn defines the ownership of the foreign key i.e. the user table will have a field called laptop_id
-     */
 
     public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
-
     }
 
-
-
-    public LocalDateTime getTimecreated() {
-        return timecreated;
+    public User() {
     }
 
-    public void setTimecreated(LocalDateTime timecreated) {
-        this.timecreated = timecreated;
-    }
-// =============================== Getters and Setters for each field ================================== //
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    // =============================== Getters and Setters for each field ================================== //
 
     public int getId(){
         return id;
     }
 
-    public void setId(int id){
+    public void setId(int id ){
         this.id = id;
     }
 
@@ -78,21 +50,27 @@ public class User {
         this.username = username;
     }
 
-    public String getEmail(){
+    public String getEmailId(){
         return email;
     }
 
-    public void setEmail(String email){
+    public void setEmailId(String email){
         this.email = email;
     }
 
-    public Review getReview(){
-        return review;
+    public String getPassword() {
+        return password;
     }
 
-    public void setReview(Review review){
-        this.review = review;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
+    public LocalDateTime getTimeCreated() {
+        return timeCreated;
+    }
 
+    public void setTimeCreated(LocalDateTime timeCreated) {
+        this.timeCreated = timeCreated;
+    }
 }

@@ -1,33 +1,41 @@
 package onetoone.Reviews;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import onetoone.Users.User;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
+
 
 @Entity
 public class Review {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String comments;
-    private LocalDateTime timecreated = LocalDateTime.now();
+    private LocalDateTime timeCreated = LocalDateTime.now();
 
-    @OneToOne
-    @JsonIgnore
-    private User user;
+
 
 
     public Review(String comments) {
         this.comments = comments;
+
     }
 
-    public int getId() {
+    public Review() {
+    }
+
+    // =============================== Getters and Setters for each field ================================== //
+
+    public int getId(){
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(int id ){
         this.id = id;
     }
 
@@ -39,19 +47,11 @@ public class Review {
         this.comments = comments;
     }
 
-    public LocalDateTime getTimecreated() {
-        return timecreated;
+    public LocalDateTime getTimeCreated() {
+        return timeCreated;
     }
 
-    public void setTimecreated(LocalDateTime timecreated) {
-        this.timecreated = timecreated;
-    }
-
-    public User getUser(){
-        return user;
-    }
-
-    public void setUser(User user){
-        this.user = user;
+    public void setTimeCreated(LocalDateTime timeCreated) {
+        this.timeCreated = timeCreated;
     }
 }

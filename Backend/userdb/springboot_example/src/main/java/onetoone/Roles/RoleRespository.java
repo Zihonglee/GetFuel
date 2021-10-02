@@ -1,20 +1,14 @@
-package New.Users;
+package onetoone.Roles;
+
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author Vivek Bengre
- *
- */
+public interface RoleRespository  extends JpaRepository <Role,Long>{
 
-public interface UserRepository extends JpaRepository<User, Long> {
-
-    User findById(int id);
+    Role findById(int id);
 
     @Transactional
     void deleteById(int id);
-
 
 }
