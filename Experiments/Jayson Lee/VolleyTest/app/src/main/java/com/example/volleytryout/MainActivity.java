@@ -41,23 +41,22 @@ public class MainActivity extends AppCompatActivity {
     }
     private void jsonParse(){
 
-        String url = "https://api.myjson.com/bins/kp9wz";
+        String url = "https://3568159c-cded-4b55-906d-558bb5599e6e.mock.pstmn.io/v1/home";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            JSONArray jsonArray = response.getJSONArray("employees");
+                            JSONArray jsonArray = response.getJSONArray("restaurants");
 
                             for(int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject employee = jsonArray.getJSONObject(i);
+                                JSONObject restaurant = jsonArray.getJSONObject(i);
+                                String restaurantName = restaurant.getString("restName");
+                                String price = restaurant.getString("price");
+                                String rating = restaurant.getString("rating");
 
-                                String firstName = employee.getString("firstname");
-                                int age = employee.getInt("age");
-                                String mail = employee.getString("mail");
-
-                                mTextViewResult.append(firstName + "," + String.valueOf(age) + ", "+ mail + "\n\n") ;
+                                mTextViewResult.append(restaurantName + "," + price+ ", "+ rating + "\n\n") ;
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
