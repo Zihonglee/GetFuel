@@ -4,6 +4,8 @@ import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
@@ -11,21 +13,26 @@ import javax.persistence.Id;
 public class Restaurant
 {
 	@Id
-	private final UUID id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private String id;
 	@Column(name="name")
-	private final String name;
+	private String name;
 	@Column(name="price")
-	private final double price;
+	private double price;
 	@Column(name="rating")
-	private final double rating;
+	private double rating;
 	@Column(name="cusineID")
-	private final int cuisineID;
+	private int cuisineID;
 	@Column(name="reviewID")
-	private final int reviewID;
+	private int reviewID;
 	
-	public Restaurant(UUID id, String name, double price, double rating, int cuisineID, int reviewID)
+	public Restaurant(){
+	}
+	
+	public Restaurant(String id, String name, double price, double rating, int cuisineID, int reviewID)
 	{
-		this.id = UUID.randomUUID();
+		UUID idUUID = UUID.randomUUID();
+		this.id = idUUID.toString();
 		this.name = name;
 		this.price = price;
 		this.rating = rating;
@@ -33,9 +40,14 @@ public class Restaurant
 		this.reviewID = reviewID;
 	}
 
-	public UUID getId()
+	public String getId()
 	{
 		return id;
+	}
+	
+	public void setId(String id)
+	{
+		this.id = id;
 	}
 
 	public String getName()

@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.example.RestAPI.restaurantRepository;
 import com.example.demoAPI.personRepository;
 import com.example.demoMODEL.Person;
 
@@ -17,7 +18,7 @@ public class ClassApplication
 	}
 	
 	@Bean
-	public CommandLineRunner initUser(personRepository userRepository)
+	public CommandLineRunner initUser(personRepository userRepository, restaurantRepository restRepository)
 	{
 		return args ->
 		{

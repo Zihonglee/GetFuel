@@ -20,14 +20,8 @@ public class Person
 	@Column(name="pasword")
 	private String password;
 	
-	public Person()
-	{
-		this.id = null;
-		this.name = "";
-		this.password = "";
-		
+	public Person(){
 	}
-	
 	public Person (String name, String password)
 	{
 		UUID idrandom = UUID.randomUUID();

@@ -1,7 +1,8 @@
 package com.example.RestAPI;
 
-import java.util.HashMap;
-import java.util.UUID;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.RestMODEL.Restaurant;
@@ -10,38 +11,56 @@ import com.example.RestMODEL.Restaurant;
 @RequestMapping (path = "api/restaurant")
 public class RestaurantController
 {
-	HashMap<UUID, Restaurant> restaurantList = new HashMap<>();
+	@Autowired
+	restaurantRepository restRepository;
 	
 	@PostMapping
-	public String addPerson(@RequestBody Restaurant restaurant)
+	public String addRestaurant(@RequestBody Restaurant restaurant)
 	{
-		restaurantList.put(restaurant.getId(), restaurant);
-		return "Restaurant saved";
+		if (restaurant == null)
+		{
+			return "Failure";
+		}
+		else
+		{
+			restRepository.save(restaurant);
+			return "Restaurant saved";
+		}
 	}
 	
 	@GetMapping
-	public HashMap<UUID, Restaurant> getAllPeople()
+	public List<Restaurant> getAllRestaurant()
 	{
-		return restaurantList;
+		return restRepository.findAll();
 	}
 	
 	@GetMapping (path = "{id}")
-	public Restaurant getRestaurantById(@PathVariable("id") UUID id)
+	public Restaurant getRestaurantById(@PathVariable("id") String id)
 	{
-		return restaurantList.get(id);
+		return restRepository.findRestaurantById(id);
 	}
 	
 	@DeleteMapping (path = "{id}")
-	public String deletePersonById(@PathVariable("id") UUID id)
+	public String deletePersonById(@PathVariable("id") String id)
 	{
-		restaurantList.remove(id);
+		restRepository.deleteRestaurantById(id);
 		return "Restaurant deleted";
 	}
 	
 	@PutMapping (path = "{id}")
-	public String updateRestaurantById(@PathVariable("id") UUID id, @RequestBody Restaurant restaurantToUpdate)
+	public String updateRestaurantById(@PathVariable("id") String id, @RequestBody Restaurant restaurantToUpdate)
 	{
-		restaurantList.replace(id, restaurantToUpdate);
-		return "Replacement was successful";
+		if (restaurantToUpdate == null)
+		{
+			return "Failure";
+		}
+		else
+		{
+			Restaurant restaurant = restRepository.findRestaurantById(id);
+			restaurant = restaurantToUpdate;
+			restaurant.setId(id);
+			restRepository.save(restaurant);
+			return "Replacement was successful";
+		}
 	}
 }

@@ -1,8 +1,6 @@
 package com.example.demoAPI;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +13,6 @@ public class PersonController
 {
 	@Autowired
 	personRepository userRepository;
-	
-	HashMap<UUID, Person> peopleList = new HashMap<>();
 	
 	@PostMapping
 	public String addPerson(@RequestBody Person person)
@@ -61,7 +57,6 @@ public class PersonController
 		else
 		{
 			Person person = userRepository.findPersonById(id);
-			System.out.println(person);
 			person = personToUpdate;
 			person.setId(id);
 			userRepository.save(person);
