@@ -69,7 +69,7 @@ public class CreateAccountPage extends AppCompatActivity
         //then store all information to database
         if(password.equals(password2))
         {
-
+            int t = 2;
         }
         //send error message
         else
