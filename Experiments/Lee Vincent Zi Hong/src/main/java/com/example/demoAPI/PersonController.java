@@ -1,6 +1,7 @@
 package com.example.demoAPI;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,33 +21,46 @@ public class PersonController
 	@PostMapping
 	public String addPerson(@RequestBody Person person)
 	{
-		peopleList.put(person.getId(), person);
-		return "User saved";
+		if (person == null)
+		{
+			return "Failure";
+		}
+		else
+		{
+			userRepository.save(person);
+			return "User saved";
+		}
 	}
 	
 	@GetMapping
-	public HashMap<UUID, Person> getAllPeople()
+	public List<Person> getAllPeople()
 	{
-		return peopleList;
+		return userRepository.findAll();
 	}
 	
 	@GetMapping ("get/{id}")
 	public Person getPersonById(@PathVariable("id") UUID id)
 	{
-		return peopleList.get(id);
+		return userRepository.getById(id);
 	}
 	
 	@DeleteMapping ("delete/{id}")
 	public String deletePersonById(@PathVariable("id") UUID id)
 	{
-		peopleList.remove(id);
+		userRepository.deleteById(id);
 		return "User deleted";
 	}
 	
 	@PutMapping ("reset/{id}")
 	public String updatePersonById(@PathVariable("id") UUID id, @RequestBody Person personToUpdate)
 	{
-		peopleList.replace(id, personToUpdate);
+		Person person = userRepository.getById(id);
+		
+		if (personToUpdate == null)
+		{
+			return "Failure";
+		}
+		userRepository.save(personToUpdate);
 		return "Replacement was successful";
 	}
 	

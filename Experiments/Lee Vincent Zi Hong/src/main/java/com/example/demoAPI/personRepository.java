@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demoMODEL.Person;
 
-public interface personRepository extends JpaRepository<Person, Long>
+public interface personRepository extends JpaRepository<Person, UUID>
 {
 	public Person findPersonById(UUID id);
 	
