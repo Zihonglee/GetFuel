@@ -54,14 +54,17 @@ public class PersonController
 	@PutMapping ("reset/{id}")
 	public String updatePersonById(@PathVariable("id") UUID id, @RequestBody Person personToUpdate)
 	{
-		Person person = userRepository.getById(id);
-		
 		if (personToUpdate == null)
 		{
 			return "Failure";
 		}
-		userRepository.save(personToUpdate);
-		return "Replacement was successful";
+		else
+		{
+			Person person = userRepository.getById(id);
+			person = personToUpdate;
+			userRepository.save(person);
+			return "Replacement was successful";
+		}
 	}
 	
 }
