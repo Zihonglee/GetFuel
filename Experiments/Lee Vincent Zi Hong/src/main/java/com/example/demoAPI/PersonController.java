@@ -2,6 +2,8 @@ package com.example.demoAPI;
 
 import java.util.HashMap;
 import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demoMODEL.Person;
@@ -10,6 +12,9 @@ import com.example.demoMODEL.Person;
 @RequestMapping (path = "api/person")
 public class PersonController
 {
+	@Autowired
+	personRepository userRepository;
+	
 	HashMap<UUID, Person> peopleList = new HashMap<>();
 	
 	@PostMapping
