@@ -1,11 +1,14 @@
-package onetoone.Reviews;
+package onetomany.Reviews;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import onetomany.Restaurants.Restaurant;
+import onetomany.Users.User;
+import org.springframework.jmx.export.annotation.ManagedAttribute;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Entity
@@ -19,7 +22,10 @@ public class Review {
     private LocalDateTime timeCreated = LocalDateTime.now();
 
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
 
+    private User user;
 
     public Review(String comments) {
         this.comments = comments;
@@ -29,7 +35,7 @@ public class Review {
     public Review() {
     }
 
-    // =============================== Getters and Setters for each field ================================== //
+
 
     public int getId(){
         return id;
@@ -54,4 +60,14 @@ public class Review {
     public void setTimeCreated(LocalDateTime timeCreated) {
         this.timeCreated = timeCreated;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
 }

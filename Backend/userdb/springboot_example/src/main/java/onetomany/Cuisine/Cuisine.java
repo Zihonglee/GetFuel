@@ -1,10 +1,12 @@
-package onetoone.Cuisine;
+package onetomany.Cuisine;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import onetomany.Restaurants.Restaurant;
+import onetomany.Restaurants.RestaurantRepository;
 
+
+import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -16,6 +18,9 @@ public class Cuisine {
     private int id;
     private String cuisineType;
 
+    @OneToMany
+    @JsonIgnore
+    private List<Restaurant> restaurants;
 
 
     public Cuisine(String cuisineType) {
@@ -42,7 +47,13 @@ public class Cuisine {
         this.cuisineType = cuisineType;
     }
 
+    public List<Restaurant> getRestaurants() {
+        return restaurants;
+    }
+
+    public void setRestaurants(List<Restaurant> restaurants) {
+        this.restaurants = restaurants;
+    }
 }
 
-// =============================== Getters and Setters for each field ================================== //
 

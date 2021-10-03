@@ -1,7 +1,8 @@
-package onetoone.Cuisine;
+package onetomany.Cuisine;
 
 import java.util.List;
 
+import onetomany.Restaurants.Restaurant;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -33,7 +34,7 @@ public class CuisineController {
         return cuisineRepository.findById(id);
     }
 
-    @PostMapping(path = "/cuisines")
+      @PostMapping(path = "/cuisines")
     String createCuisine(@RequestBody Cuisine cuisine){
         if (cuisine == null)
             return failure;

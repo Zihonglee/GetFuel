@@ -1,10 +1,10 @@
-package onetoone.Users;
+package onetomany.Users;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import onetomany.Roles.Role;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 
@@ -20,14 +20,23 @@ public class User {
     private String password;
     private LocalDateTime timeCreated = LocalDateTime.now();
 
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+
+    private Role role;
 
 
 
-    public User(String username, String email, String password) {
+
+    public User(String username, String email, String password, Role role) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.role = role;
+
     }
+
+
 
     public User() {
     }
@@ -40,22 +49,6 @@ public class User {
 
     public void setId(int id ){
         this.id = id;
-    }
-
-    public String getName(){
-        return username;
-    }
-
-    public void setName(String username){
-        this.username = username;
-    }
-
-    public String getEmailId(){
-        return email;
-    }
-
-    public void setEmailId(String email){
-        this.email = email;
     }
 
     public String getPassword() {
@@ -72,5 +65,29 @@ public class User {
 
     public void setTimeCreated(LocalDateTime timeCreated) {
         this.timeCreated = timeCreated;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

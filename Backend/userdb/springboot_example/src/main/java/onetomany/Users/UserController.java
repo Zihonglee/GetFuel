@@ -1,4 +1,4 @@
-package onetoone.Users;
+package onetomany.Users;
 
 import java.util.List;
 
@@ -37,6 +37,7 @@ public class UserController {
     String createUser(@RequestBody User user){
         if (user == null)
             return failure;
+
         userRepository.save(user);
         return success;
     }

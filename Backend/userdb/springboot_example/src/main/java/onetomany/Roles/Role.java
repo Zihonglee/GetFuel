@@ -1,9 +1,12 @@
-package onetoone.Roles;
+package onetomany.Roles;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import onetomany.Users.User;
+
+import javax.persistence.*;
+
+import java.util.List;
+
 
 
 @Entity
@@ -13,6 +16,12 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String roleType;
+
+    @OneToMany
+    @JsonIgnore
+    private List<User> users;
+
+
 
     public Role(String roleType) {
         this.roleType = roleType;
@@ -35,5 +44,13 @@ public class Role {
 
     public void setRoleType(String roleType) {
         this.roleType = roleType;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }
