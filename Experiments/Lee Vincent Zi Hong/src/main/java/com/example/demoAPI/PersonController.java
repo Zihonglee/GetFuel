@@ -1,7 +1,14 @@
 package com.example.demoAPI;
 
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.UUID;
+=======
+import java.util.ArrayList;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+>>>>>>> c1e1b52a41a2c7af3fb91af7ba724eca97f25288
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demoMODEL.Person;
@@ -45,4 +52,31 @@ public class PersonController
 		return "Replacement was successful";
 	}
 	
+<<<<<<< HEAD
+=======
+	@GetMapping
+	public ArrayList<Person> getAllPeople()
+	{
+		return personservice.GetAllPeople();
+	}
+	
+	@GetMapping (path = "{id}")
+	public Person getPersonById(@PathVariable("id") UUID id)
+	{
+		return personservice.getPersonById(id).orElse(null);
+	}
+	
+	@DeleteMapping (path = "{id}")
+	public void deletePersonById(@PathVariable("id") UUID id)
+	{
+		personservice.deletePerson(id);
+	}
+	
+	@PutMapping (path = "{id}")
+	public void updatePersonById(@PathVariable("id") UUID id, @RequestBody Person personToUpdate)
+	{
+		personservice.updatePerson(id, personToUpdate);
+	}
+	
+>>>>>>> c1e1b52a41a2c7af3fb91af7ba724eca97f25288
 }
