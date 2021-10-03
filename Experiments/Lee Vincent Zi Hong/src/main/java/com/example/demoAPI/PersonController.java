@@ -1,29 +1,48 @@
 package com.example.demoAPI;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.HashMap;
+import java.util.UUID;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.demoMODEL.Person;
-import com.example.demoSERVICE.PersonService;
 
-@RequestMapping("api/v1/person")
 @RestController
+@RequestMapping (path = "api/person")
 public class PersonController
 {
-	private final PersonService personservice;
-	
-	@Autowired
-	public PersonController(PersonService personservice)
-	{
-		this.personservice = personservice;
-	}
+	HashMap<UUID, Person> peopleList = new HashMap<>();
 	
 	@PostMapping
-	public void addPerson(@RequestBody Person person)
+	public String addPerson(@RequestBody Person person)
 	{
-		personservice.addPerson(person);
+		peopleList.put(person.getId(), person);
+		return "User saved";
 	}
+	
+	@GetMapping
+	public HashMap<UUID, Person> getAllPeople()
+	{
+		return peopleList;
+	}
+	
+	@GetMapping ("get/{id}")
+	public Person getPersonById(@PathVariable("id") UUID id)
+	{
+		return peopleList.get(id);
+	}
+	
+	@DeleteMapping ("delete/{id}")
+	public String deletePersonById(@PathVariable("id") UUID id)
+	{
+		peopleList.remove(id);
+		return "User deleted";
+	}
+	
+	@PutMapping ("reset/{id}")
+	public String updatePersonById(@PathVariable("id") UUID id, @RequestBody Person personToUpdate)
+	{
+		peopleList.replace(id, personToUpdate);
+		return "Replacement was successful";
+	}
+	
 }
