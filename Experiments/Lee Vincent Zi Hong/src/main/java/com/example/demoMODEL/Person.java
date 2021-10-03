@@ -4,29 +4,46 @@ import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Person
 {
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
-	private final UUID id;
+	private String id;
 	@Column(name="name")
-	private final String name;
+	private String name;
 	@Column(name="pasword")
-	private final String password;
+	private String password;
 	
-	public Person (UUID id, String name, String password)
+	public Person()
 	{
-		this.id = UUID.randomUUID();;
+		this.id = null;
+		this.name = "";
+		this.password = "";
+		
+	}
+	
+	public Person (String name, String password)
+	{
+		UUID idrandom = UUID.randomUUID();
+		this.id = idrandom.toString();
 		this.name = name;
 		this.password = password;
 	}
 	
-	public UUID getId()
+	public String getId()
 	{
 		return id;
+	}
+	
+	public void setId(String id)
+	{
+		this.id = id;
 	}
 	
 	public String getName()

@@ -38,21 +38,21 @@ public class PersonController
 		return userRepository.findAll();
 	}
 	
-	@GetMapping ("get/{id}")
-	public Person getPersonById(@PathVariable("id") UUID id)
+	@GetMapping ("{id}")
+	public Person getPersonById(@PathVariable("id") String id)
 	{
-		return userRepository.getById(id);
+		return userRepository.findPersonById(id);
 	}
 	
-	@DeleteMapping ("delete/{id}")
-	public String deletePersonById(@PathVariable("id") UUID id)
+	@DeleteMapping ("{id}")
+	public String deletePersonById(@PathVariable("id") String id)
 	{
 		userRepository.deleteById(id);
 		return "User deleted";
 	}
 	
-	@PutMapping ("reset/{id}")
-	public String updatePersonById(@PathVariable("id") UUID id, @RequestBody Person personToUpdate)
+	@PutMapping ("{id}")
+	public String updatePersonById(@PathVariable("id") String id, @RequestBody Person personToUpdate)
 	{
 		if (personToUpdate == null)
 		{
@@ -60,8 +60,10 @@ public class PersonController
 		}
 		else
 		{
-			Person person = userRepository.getById(id);
+			Person person = userRepository.findPersonById(id);
+			System.out.println(person);
 			person = personToUpdate;
+			person.setId(id);
 			userRepository.save(person);
 			return "Replacement was successful";
 		}

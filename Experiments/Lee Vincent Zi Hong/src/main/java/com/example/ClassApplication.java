@@ -1,7 +1,5 @@
 package com.example;
 
-import java.util.UUID;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,9 +21,9 @@ public class ClassApplication
 	{
 		return args ->
 		{
-			Person p1 = new Person(UUID.randomUUID(), "Vincent", "vincent");
-			Person p2 = new Person(UUID.randomUUID(), "Jayson", "jayson");
-			Person p3 = new Person(UUID.randomUUID(), "Cheehau", "cheehau");
+			Person p1 = new Person("Vincent", "vincent");
+			Person p2 = new Person("Jayson", "jayson");
+			Person p3 = new Person("Cheehau", "cheehau");
 			userRepository.save(p1);
 			userRepository.save(p2);
 			userRepository.save(p3);
