@@ -3,6 +3,8 @@ package com.example.jsontest;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -11,14 +13,18 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
-    private TextView printResult;
+    private TextView printResult, postResponse;
 
 
     @Override
@@ -26,8 +32,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        Button submitButton = findViewById(R.id.submitButton);
+        postResponse = findViewById(R.id.reviewComment);
         printResult = findViewById(R.id.result);
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                postRequest();
+            }
+        });
+
+
+
         RequestQueue queue = Volley.newRequestQueue(this);
 
         String url = "https://3568159c-cded-4b55-906d-558bb5599e6e.mock.pstmn.io/v1/home";
@@ -61,5 +78,29 @@ public class MainActivity extends AppCompatActivity {
         });
 
     queue.add(jsonRequest);
+    }
+
+    private void postRequest(){
+        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+        String url = "";
+        JsonArrayRequest jsonRequestComment = new JsonArrayRequest(Request.Method.POST, url, n ull, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String,String> params = new HashMap<String,String>();
+                return params;
+            }
+        };
+
+        requestQueue.add(jsonRequestComment);
     }
 }

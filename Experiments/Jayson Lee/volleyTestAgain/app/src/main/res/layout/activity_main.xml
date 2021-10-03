@@ -10,22 +10,41 @@
         android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="384dp"
+        android:layout_marginBottom="488dp"
+        android:gravity="center"
         android:text=""
         android:textAlignment="center"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/Restaurants"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/reviewText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Review"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="406dp" />
+
+    <EditText
+        android:id="@+id/reviewComment"
+        android:layout_width="355dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:hint="Type your comment here"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="449dp" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="submit"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="507dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
