@@ -1,54 +1,67 @@
 package com.example.demoAPI;
 
-import java.util.ArrayList;
-import java.util.UUID;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demoMODEL.Person;
-import com.example.demoSERVICE.PersonService;
 
 @RestController
 @RequestMapping (path = "api/person")
 public class PersonController
 {
-	private final PersonService personservice;
-	
 	@Autowired
-	public PersonController(PersonService personservice)
-	{
-		this.personservice = personservice;
-	}
+	personRepository userRepository;
 	
 	@PostMapping
-	public void addPerson(@RequestBody Person person)
+	public String addPerson(@RequestBody Person person)
 	{
-		personservice.addPerson(person);
+		if (person == null)
+		{
+			return "Failure";
+		}
+		else
+		{
+			userRepository.save(person);
+			return "User saved";
+		}
 	}
 	
 	@GetMapping
-	public ArrayList<Person> getAllPeople()
+	public List<Person> getAllPeople()
 	{
-		return personservice.GetAllPeople();
+		return userRepository.findAll();
 	}
 	
-	@GetMapping (path = "{id}")
-	public Person getPersonById(@PathVariable("id") UUID id)
+	@GetMapping ("{id}")
+	public Person getPersonById(@PathVariable("id") String id)
 	{
-		return personservice.getPersonById(id).orElse(null);
+		return userRepository.findPersonById(id);
 	}
 	
-	@DeleteMapping (path = "{id}")
-	public void deletePersonById(@PathVariable("id") UUID id)
+	@DeleteMapping ("{id}")
+	public String deletePersonById(@PathVariable("id") String id)
 	{
-		personservice.deletePerson(id);
+		userRepository.deleteById(id);
+		return "User deleted";
 	}
 	
-	@PutMapping (path = "{id}")
-	public void updatePersonById(@PathVariable("id") UUID id, @RequestBody Person personToUpdate)
+	@PutMapping ("{id}")
+	public String updatePersonById(@PathVariable("id") String id, @RequestBody Person personToUpdate)
 	{
-		personservice.updatePerson(id, personToUpdate);
+		if (personToUpdate == null)
+		{
+			return "Failure";
+		}
+		else
+		{
+			Person person = userRepository.findPersonById(id);
+			person = personToUpdate;
+			person.setId(id);
+			userRepository.save(person);
+			return "Replacement was successful";
+		}
 	}
 	
 }
