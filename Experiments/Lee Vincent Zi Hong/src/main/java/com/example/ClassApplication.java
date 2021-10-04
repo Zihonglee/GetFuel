@@ -11,7 +11,7 @@ import com.example.demoMODEL.Person;
 
 @SpringBootApplication
 public class ClassApplication 
-{
+{	
 	public static void main(String[] args) 
 	{
 		SpringApplication.run(ClassApplication.class, args);

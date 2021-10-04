@@ -1,8 +1,5 @@
 package com.example.RestMODEL;
 
-import java.util.UUID;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,25 +11,18 @@ public class Restaurant
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private String id;
-	@Column(name="name")
+	private Long id;
 	private String name;
-	@Column(name="price")
 	private double price;
-	@Column(name="rating")
 	private double rating;
-	@Column(name="cusineID")
 	private int cuisineID;
-	@Column(name="reviewID")
 	private int reviewID;
 	
 	public Restaurant(){
 	}
 	
-	public Restaurant(String id, String name, double price, double rating, int cuisineID, int reviewID)
+	public Restaurant(Long id, String name, double price, double rating, int cuisineID, int reviewID)
 	{
-		UUID idUUID = UUID.randomUUID();
-		this.id = idUUID.toString();
 		this.name = name;
 		this.price = price;
 		this.rating = rating;
@@ -40,12 +30,12 @@ public class Restaurant
 		this.reviewID = reviewID;
 	}
 
-	public String getId()
+	public Long getId()
 	{
 		return id;
 	}
 	
-	public void setId(String id)
+	public void setId(Long id)
 	{
 		this.id = id;
 	}

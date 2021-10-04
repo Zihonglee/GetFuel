@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.demoMODEL.Person;
 
 @RestController
-@RequestMapping (path = "api/person")
+@RequestMapping (path = "user")
 public class PersonController
 {
 	@Autowired
@@ -35,7 +35,7 @@ public class PersonController
 	}
 	
 	@GetMapping ("{id}")
-	public Person getPersonById(@PathVariable("id") String id)
+	public Person getPersonById(@PathVariable("id") Long id)
 	{
 		return userRepository.findPersonById(id);
 	}
@@ -48,7 +48,7 @@ public class PersonController
 	}
 	
 	@PutMapping ("{id}")
-	public String updatePersonById(@PathVariable("id") String id, @RequestBody Person personToUpdate)
+	public String updatePersonById(@PathVariable("id") Long id, @RequestBody Person personToUpdate)
 	{
 		if (personToUpdate == null)
 		{
