@@ -19,11 +19,11 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
     private TextView Price, Cuisine, Location, Rating, Name;
     private Button button;
-<<<<<<< HEAD
-    private String url = "";
-=======
-    private String url = "http://localhost:8080/restaurants/2";
->>>>>>> 25ccb4a2d1b52c6afd1f0ae3bf6e071fd0863e96
+
+
+
+    private String url = "https://3568159c-cded-4b55-906d-558bb5599e6e.mock.pstmn.io/v1/home";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +31,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         button = (Button) findViewById(R.id.buttonResult);
         Price = (TextView) findViewById(R.id.priceText);
-<<<<<<< HEAD
-        Cuisine = (TextView) findViewById(R.id.cuisineText);
-        Location = (TextView) findViewById(R.id.locationText);
-=======
+
+
+
 //        Cuisine = (TextView) findViewById(R.id.cuisineText);
 //        Location = (TextView) findViewById(R.id.locationText);
->>>>>>> 25ccb4a2d1b52c6afd1f0ae3bf6e071fd0863e96
+
         Rating = (TextView) findViewById(R.id.ratingText);
         Name = (TextView) findViewById(R.id.nameText);
 
