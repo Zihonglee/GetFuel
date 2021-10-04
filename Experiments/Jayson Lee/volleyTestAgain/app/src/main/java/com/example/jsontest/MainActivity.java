@@ -27,7 +27,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private TextView postResponse;
-    private Button restaurantButton, submitButton;
+    private Button  submitButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         submitButton = findViewById(R.id.submitButton);
-        restaurantButton = findViewById(R.id.goToRestBtn);
         postResponse = findViewById(R.id.reviewComment);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -45,13 +44,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        restaurantButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(MainActivity.this, restaurantInfo.class);
-                startActivity(intent);
-            }
-        });
     }
 
     private void postRequest(){

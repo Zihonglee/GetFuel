@@ -2,7 +2,10 @@ package com.example.jsontest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -18,6 +21,7 @@ import org.json.JSONObject;
 
 public class restaurantInfo extends AppCompatActivity {
     private TextView restaurantInfo;
+    private Button reviewPageBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +29,17 @@ public class restaurantInfo extends AppCompatActivity {
         setContentView(R.layout.activity_restaurant_info);
 
         restaurantInfo = findViewById(R.id.restInfo);
+        reviewPageBtn = findViewById(R.id.goToReviewPage);
 
         restaurantGetRequest();
 
+        reviewPageBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(restaurantInfo.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -49,7 +61,8 @@ public class restaurantInfo extends AppCompatActivity {
                                 String price = restaurants.getString("price");
                                 String rating = restaurants.getString("rating");
 
-                                restaurantInfo.append(firstName + "," + price + ", "+ rating + "\n\n") ;
+
+                                restaurantInfo.append(firstName + ", " + price + ", "+ rating + "\n\n"); ;
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
