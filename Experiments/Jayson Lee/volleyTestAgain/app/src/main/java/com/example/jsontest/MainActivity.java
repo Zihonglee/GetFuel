@@ -2,6 +2,7 @@ package com.example.jsontest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,17 +26,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView printResult, postResponse;
-
+    private TextView postResponse;
+    private Button restaurantButton, submitButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button submitButton = findViewById(R.id.submitButton);
+        submitButton = findViewById(R.id.submitButton);
+        restaurantButton = findViewById(R.id.goToRestBtn);
         postResponse = findViewById(R.id.reviewComment);
-        printResult = findViewById(R.id.result);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,41 +45,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-        RequestQueue queue = Volley.newRequestQueue(this);
-
-        String url = "https://3568159c-cded-4b55-906d-558bb5599e6e.mock.pstmn.io/v1/home";
-
-        JsonArrayRequest jsonRequest = new JsonArrayRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-//                        printResult.setText(response.toString());
-                        try {
-                            for(int i = 0; i < response.length(); i++) {
-
-                                JSONObject restaurants = response.getJSONObject(i);
-                                String firstName = restaurants.getString("restName");
-                                String price = restaurants.getString("price");
-                                String rating = restaurants.getString("rating");
-
-                                printResult.append(firstName + "," + price + ", "+ rating + "\n\n") ;
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        queue.stop();
-                    }
-                }, new Response.ErrorListener() {
+        restaurantButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-                queue.stop();
+            public void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, restaurantInfo.class);
+                startActivity(intent);
             }
         });
-
-    queue.add(jsonRequest);
     }
 
     private void postRequest(){
