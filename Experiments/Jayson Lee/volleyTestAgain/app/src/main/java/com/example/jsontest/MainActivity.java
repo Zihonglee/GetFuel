@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -82,21 +83,24 @@ public class MainActivity extends AppCompatActivity {
 
     private void postRequest(){
         RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
-        String url = "";
-        JsonArrayRequest jsonRequestComment = new JsonArrayRequest(Request.Method.POST, url, n ull, new Response.Listener<JSONArray>() {
+        String url = "https://jsonplaceholder.typicode.com/posts";
+        JsonArrayRequest jsonRequestComment = new JsonArrayRequest(Request.Method.POST, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
+                Toast.makeText(MainActivity.this, "Review Submitted", Toast.LENGTH_LONG).show();
+
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Toast.makeText(MainActivity.this, "Failed to submit review", Toast.LENGTH_LONG).show();
             }
         }){
             @Override
             protected Map<String, String> getParams(){
                 Map<String,String> params = new HashMap<String,String>();
+                params.put( "comments", postResponse.getText().toString());
                 return params;
             }
         };
