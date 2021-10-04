@@ -7,12 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import coms.example.CuisineAPI.Cuisine;
-import coms.example.ReviewsAPI.Review;
+import com.example.CuisineAPI.Cuisine;
+import com.example.ReviewsAPI.Review;
 
 
 @Entity
@@ -25,12 +24,12 @@ public class Restaurant
 	private double price;
 	private double rating;
 	
-    @ManyToOne
-    @JoinColumn(name = "cuisine_id")
+    @ManyToOne(targetEntity = Cuisine.class)
+//    @JoinColumn(name = "cuisine_id")
     private Cuisine cuisine;
-
-    @OneToMany
-    @JoinColumn(name ="review_id")
+    
+    @OneToMany(mappedBy = "id")
+//    @JoinColumn(name ="review_id")
     private List<Review> reviews;
     
 	public Restaurant(){

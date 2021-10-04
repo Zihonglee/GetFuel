@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping (path = "user")
+@RequestMapping (value = "/user")
 public class PersonController
 {
 	@Autowired
@@ -32,20 +32,20 @@ public class PersonController
 		return userRepository.findAll();
 	}
 	
-	@GetMapping ("{id}")
+	@GetMapping ("/{id}")
 	public Person getPersonById(@PathVariable("id") Long id)
 	{
 		return userRepository.findPersonById(id);
 	}
 	
-	@DeleteMapping ("{id}")
+	@DeleteMapping ("/{id}")
 	public String deletePersonById(@PathVariable("id") String id)
 	{
 		userRepository.deleteById(id);
 		return "User deleted";
 	}
 	
-	@PutMapping ("{id}")
+	@PutMapping ("/{id}")
 	public String updatePersonById(@PathVariable("id") Long id, @RequestBody Person personToUpdate)
 	{
 		if (personToUpdate == null)

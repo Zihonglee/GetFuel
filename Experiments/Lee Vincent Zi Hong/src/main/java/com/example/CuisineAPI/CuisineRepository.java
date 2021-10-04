@@ -1,14 +1,14 @@
-package coms.example.ReviewsAPI;
+package com.example.CuisineAPI;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public interface ReviewRepository extends JpaRepository<Review, Long> 
+public interface CuisineRepository extends JpaRepository<Cuisine, Long> 
 {
-    public Review findReviewById(Long id);
+    public Cuisine findCuisineById(Long id);
 
     @Transactional
-    public void deleteReviewById(Long id);
+    public void deleteCuisineById(Long id);
 }

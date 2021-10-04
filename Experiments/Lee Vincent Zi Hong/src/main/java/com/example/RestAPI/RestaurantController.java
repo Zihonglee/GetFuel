@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import coms.example.CuisineAPI.CuisineRepository;
+import com.example.CuisineAPI.CuisineRepository;
 
 @RestController
-@RequestMapping (path = "restaurant")
+@RequestMapping (value = "/restaurant")
 public class RestaurantController
 {
 	@Autowired
@@ -37,20 +37,20 @@ public class RestaurantController
 		return restRepository.findAll();
 	}
 	
-	@GetMapping ("{id}")
+	@GetMapping ("/{id}")
 	public Restaurant getRestaurantById(@PathVariable("id") Long id)
 	{
 		return restRepository.findRestaurantById(id);
 	}
 	
-	@DeleteMapping ("{id}")
+	@DeleteMapping ("/{id}")
 	public String deletePersonById(@PathVariable("id") Long id)
 	{
 		restRepository.deleteRestaurantById(id);
 		return "Restaurant deleted";
 	}
 	
-	@PutMapping ("{id}")
+	@PutMapping ("/{id}")
 	public String updateRestaurantById(@PathVariable("id") Long id, @RequestBody Restaurant restaurantToUpdate)
 	{
 		if (restaurantToUpdate == null)

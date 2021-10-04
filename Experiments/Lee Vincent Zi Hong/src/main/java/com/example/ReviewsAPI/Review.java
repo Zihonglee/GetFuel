@@ -1,4 +1,4 @@
-package coms.example.ReviewsAPI;
+package com.example.ReviewsAPI;
 
 
 import com.example.demoAPI.Person;
@@ -16,9 +16,8 @@ public class Review
     private String comments;
     private LocalDateTime timeCreated = LocalDateTime.now();
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-
+    @ManyToOne(targetEntity = Person.class)
+//    @JoinColumn(name = "user_id")
     private Person user;
 
     public Review(String comments) 

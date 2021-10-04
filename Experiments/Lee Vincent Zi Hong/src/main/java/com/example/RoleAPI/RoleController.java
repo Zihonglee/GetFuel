@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "roles")
-public class RoleController {
+@RequestMapping(value = "/roles")
+public class RoleController
+{
 
     @Autowired
     public RoleRepository roleRespository;
@@ -41,13 +42,13 @@ public class RoleController {
         }
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Role getRoleById( @PathVariable Long id)
     {
         return roleRespository.findRoleById(id);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public Role updateRole(@PathVariable Long id, @RequestBody Role request)
     {
         Role role = roleRespository.findRoleById(id);
@@ -62,7 +63,7 @@ public class RoleController {
         }
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public String deleteRole(@PathVariable Long id)
     {
         roleRespository.deleteRoleById(id);
