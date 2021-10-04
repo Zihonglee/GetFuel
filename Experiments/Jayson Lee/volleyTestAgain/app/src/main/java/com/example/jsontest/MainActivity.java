@@ -83,26 +83,36 @@ public class MainActivity extends AppCompatActivity {
 
     private void postRequest(){
         RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
-        String url = "https://jsonplaceholder.typicode.com/posts";
-        JsonArrayRequest jsonRequestComment = new JsonArrayRequest(Request.Method.POST, url, null, new Response.Listener<JSONArray>() {
+        String url = "https://reqres.in/api/users";
+
+        JSONObject object = new JSONObject();
+        try{
+            object.put("comments","");
+        }
+        catch (JSONException e){
+            e.printStackTrace();
+        }
+
+
+        JsonObjectRequest jsonRequestComment = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
             @Override
-            public void onResponse(JSONArray response) {
+            public void onResponse(JSONObject response) {
                 Toast.makeText(MainActivity.this, "Review Submitted", Toast.LENGTH_LONG).show();
-
-
+                requestQueue.stop();
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(MainActivity.this, "Failed to submit review", Toast.LENGTH_LONG).show();
+                requestQueue.stop();
             }
         }){
-            @Override
-            protected Map<String, String> getParams(){
-                Map<String,String> params = new HashMap<String,String>();
-                params.put( "comments", postResponse.getText().toString());
-                return params;
-            }
+//            @Override
+//            protected Map<String, String> getParams(){
+//                Map<String,String> params = new HashMap<String,String>();
+//                params.put( "comments", postResponse.getText().toString());
+//                return params;
+//            }
         };
 
         requestQueue.add(jsonRequestComment);
