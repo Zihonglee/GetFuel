@@ -5,14 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.demoMODEL.Person;
-
 @RestController
 @RequestMapping (path = "user")
 public class PersonController
 {
 	@Autowired
-	personRepository userRepository;
+	public personRepository userRepository;
 	
 	@PostMapping
 	public String addPerson(@RequestBody Person person)
