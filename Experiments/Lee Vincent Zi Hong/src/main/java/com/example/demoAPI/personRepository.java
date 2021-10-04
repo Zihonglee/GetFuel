@@ -10,7 +10,7 @@ import com.example.demoMODEL.Person;
 @Repository
 public interface personRepository extends JpaRepository<Person, Long>
 {
-	public Person findPersonById(String id);
+	public Person findPersonById(Long id);
 	
 	@Transactional
 	public void deleteById(String id);

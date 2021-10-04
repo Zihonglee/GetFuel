@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.RestMODEL.Restaurant;
 
 @RestController
-@RequestMapping (path = "api/restaurant")
+@RequestMapping (path = "restaurant")
 public class RestaurantController
 {
 	@Autowired
@@ -35,20 +35,20 @@ public class RestaurantController
 	}
 	
 	@GetMapping (path = "{id}")
-	public Restaurant getRestaurantById(@PathVariable("id") String id)
+	public Restaurant getRestaurantById(@PathVariable("id") Long id)
 	{
 		return restRepository.findRestaurantById(id);
 	}
 	
 	@DeleteMapping (path = "{id}")
-	public String deletePersonById(@PathVariable("id") String id)
+	public String deletePersonById(@PathVariable("id") Long id)
 	{
 		restRepository.deleteRestaurantById(id);
 		return "Restaurant deleted";
 	}
 	
 	@PutMapping (path = "{id}")
-	public String updateRestaurantById(@PathVariable("id") String id, @RequestBody Restaurant restaurantToUpdate)
+	public String updateRestaurantById(@PathVariable("id") Long id, @RequestBody Restaurant restaurantToUpdate)
 	{
 		if (restaurantToUpdate == null)
 		{

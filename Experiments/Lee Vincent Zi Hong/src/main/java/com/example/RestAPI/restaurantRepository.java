@@ -10,8 +10,8 @@ import com.example.RestMODEL.Restaurant;
 @Repository
 public interface restaurantRepository extends JpaRepository<Restaurant, Long>
 {
-	public Restaurant findRestaurantById(String Id);
+	public Restaurant findRestaurantById(Long Id);
 
 	@Transactional
-	public void deleteRestaurantById(String Id);
+	public void deleteRestaurantById(Long Id);
 }
