@@ -1,4 +1,4 @@
-package coms.example.CuisineAPI;
+package com.example.CuisineAPI;
 
 import com.example.RestAPI.Restaurant;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -16,7 +16,7 @@ public class Cuisine
     private Long id;
     private String cuisineType;
 
-    @OneToMany
+    @OneToMany(targetEntity = Restaurant.class)
     @JsonIgnore
     private List<Restaurant> restaurants;
 

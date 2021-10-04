@@ -1,4 +1,4 @@
-package coms.example.CuisineAPI;
+package com.example.CuisineAPI;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("cuisines")
+@RequestMapping(value = "/cuisines")
 public class CuisineController 
 {
 
@@ -29,7 +29,7 @@ public class CuisineController
 		return cuisineRepository.findAll();
 	}
 
-	@GetMapping
+	@GetMapping("{id}")
 	public Cuisine getCuisineById(@PathVariable Long id)
 	{
 		return cuisineRepository.findCuisineById(id);
@@ -49,7 +49,7 @@ public class CuisineController
 		}
 	}
 
-	@PutMapping("{id}")
+	@PutMapping("/{id}")
 	public Cuisine updateCuisine(@PathVariable Long id, @RequestBody Cuisine request)
 	{
 		Cuisine cuisine = cuisineRepository.findCuisineById(id);
@@ -65,7 +65,7 @@ public class CuisineController
 	}
 
 
-	@DeleteMapping("{id}")
+	@DeleteMapping("/{id}")
 	public String deleteCuisine(@PathVariable Long id)
 	{
 		cuisineRepository.deleteCuisineById(id);

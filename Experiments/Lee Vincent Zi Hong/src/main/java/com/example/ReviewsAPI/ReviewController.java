@@ -1,4 +1,4 @@
-package coms.example.ReviewsAPI;
+package com.example.ReviewsAPI;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("reviews")
+@RequestMapping(value = "/reviews")
 public class ReviewController
 {
     @Autowired
@@ -27,7 +27,7 @@ public class ReviewController
         return reviewRepository.findAll();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Review getReviewById( @PathVariable Long id)
     {
         return reviewRepository.findReviewById(id);
@@ -47,7 +47,7 @@ public class ReviewController
         }
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public Review updateReview(@PathVariable Long id, @RequestBody Review request)
     {
         Review review = reviewRepository.findReviewById(id);
@@ -63,7 +63,7 @@ public class ReviewController
     }
 
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     String deleteReview(@PathVariable Long id)
     {
         reviewRepository.deleteReviewById(id);

@@ -15,7 +15,7 @@ public class Role {
     private Long id;
     private String roleType;
 
-    @OneToMany
+    @OneToMany(targetEntity = Person.class)
     @JsonIgnore
     private List<Person> users;
 

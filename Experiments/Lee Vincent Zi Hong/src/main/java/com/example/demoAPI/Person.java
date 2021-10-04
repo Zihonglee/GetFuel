@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.example.RoleAPI.Role;
@@ -23,8 +22,8 @@ public class Person
     private LocalDateTime timeCreated = LocalDateTime.now();
 	
 
-    @ManyToOne
-    @JoinColumn(name = "role_id")
+    @ManyToOne(targetEntity = Role.class)
+//    @JoinColumn(name = "role_id")
     private Role role;
     
 	public Person(){
