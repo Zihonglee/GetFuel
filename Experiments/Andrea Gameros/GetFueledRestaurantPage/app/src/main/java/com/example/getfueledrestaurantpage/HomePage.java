@@ -46,25 +46,38 @@ public class HomePage extends AppCompatActivity
                 {
                     //toast provides simple feedback about an operation of a small popup
                     Toast.makeText(HomePage.this, "HomePage", Toast.LENGTH_SHORT).show();
-                    //Intent intent = new Intent(view.getContext(), SearchPage.class);
+                }
+
+                if(id == R.id.search)
+                {
+                    //toast provides simple feedback about an operation of a small popup
+                    Toast.makeText(HomePage.this, "Search", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(HomePage.this, SearchPage.class);
+                    startActivity(intent);
                 }
 
                 if(id == R.id.map)
                 {
                     //toast provides simple feedback about an operation of a small popup
                     Toast.makeText(HomePage.this, "Map", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(HomePage.this, MapPage.class);
+                    startActivity(intent);
                 }
 
                 if(id == R.id.foodpicker)
                 {
                     //toast provides simple feedback about an operation of a small popup
                     Toast.makeText(HomePage.this, "FoodPicker", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(HomePage.this, FoodPickerPage.class);
+                    startActivity(intent);
                 }
 
                 if(id == R.id.logout)
                 {
                     //toast provides simple feedback about an operation of a small popup
                     Toast.makeText(HomePage.this, "Logout", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(HomePage.this, LoginPage.class);
+                    startActivity(intent);
                 }
 
 

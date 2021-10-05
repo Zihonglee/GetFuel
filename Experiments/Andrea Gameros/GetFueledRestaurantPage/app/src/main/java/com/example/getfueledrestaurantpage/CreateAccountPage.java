@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -29,6 +30,7 @@ import java.util.Map;
 public class CreateAccountPage extends AppCompatActivity
 {
     private EditText Email;
+    private EditText UserName;
     private EditText Password;
     private EditText Password2;
     private Button CreateAccount;
@@ -42,6 +44,7 @@ public class CreateAccountPage extends AppCompatActivity
         setContentView(R.layout.create_account_page);
 
         Email = (EditText)findViewById(R.id.etEmail);
+        UserName = (EditText)findViewById(R.id.etUserName);
         Password = (EditText)findViewById(R.id.etPassword);
         Password2 = (EditText)findViewById(R.id.etPassword2);
         CreateAccount = (Button)findViewById(R.id.btnCreateAccount);
@@ -55,7 +58,7 @@ public class CreateAccountPage extends AppCompatActivity
             {
                 //Intent newIntent = new Intent(view.getContext(), LoginPage.class);
                 //startActivity(newIntent);
-                createAccount(Email.getText().toString(), Password.getText().toString(), Password2.getText().toString());
+                createAccount(Email.getText().toString(),UserName.getText().toString(), Password.getText().toString(), Password2.getText().toString());
             }
         });
 
@@ -70,12 +73,18 @@ public class CreateAccountPage extends AppCompatActivity
         });
     }
 
-    private void createAccount(String email, String password, String password2)
+    private void createAccount(String email, String username, String password, String password2)
     {
         //sends alert
         if(checkPassword(password, password2) == false)
         {
             Toast.makeText(CreateAccountPage.this,"Passwords don't match", Toast.LENGTH_LONG).show();
+        }
+
+        else
+        {
+            //Toast.makeText(CreateAccountPage.this, "test", Toast.LENGTH_LONG).show();
+            PostRequest();
         }
     }
 
@@ -92,7 +101,7 @@ public class CreateAccountPage extends AppCompatActivity
 
     private void PostRequest()
     {
-        String url = "https://d94fb843-c270-4ed7-a3b3-640a9e0f4f0a.mock.pstmn.io/userIDs"; //url for info
+        String url = "https://8710b90a-ebe0-4f8f-956e-5c6998590fe8.mock.pstmn.io/Post"; //url for info
         //creates string request
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.POST, url, null,
                 new Response.Listener<JSONArray>()
@@ -116,6 +125,7 @@ public class CreateAccountPage extends AppCompatActivity
             protected Map<String, String> getParams() throws AuthFailureError
             {
                 Map<String, String> params = new HashMap<>();
+                params.put("username", UserName.getText().toString());
                 params.put("email", Email.getText().toString());
                 params.put("password", Password.getText().toString());
 

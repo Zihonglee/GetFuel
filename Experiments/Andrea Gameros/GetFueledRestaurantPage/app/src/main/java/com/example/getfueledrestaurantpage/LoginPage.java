@@ -14,7 +14,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,7 +37,7 @@ public class LoginPage extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
 
-        Name = (EditText)findViewById(R.id.etName);
+        Name = (EditText)findViewById(R.id.etUserName);
         Password = (EditText)findViewById(R.id.etPassword);
         Login = (Button)findViewById(R.id.btnLogin);
         Info = (TextView)findViewById(R.id.tvInfo);
@@ -95,7 +94,7 @@ public class LoginPage extends AppCompatActivity
                             //Intent intent = new Intent(LoginPage.this, HomePage.class);
                             //startActivity(intent);
                             msgResponse.append(emailJ + " " + passwordJ);
-                            System.out.println(msgResponse.toString());
+                            //System.out.println(msgResponse.toString());
                         }
 
                     }
