@@ -46,7 +46,7 @@ public class restaurantInfo extends AppCompatActivity {
     private void restaurantGetRequest(){
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        String url = "https://3568159c-cded-4b55-906d-558bb5599e6e.mock.pstmn.io/v1/home";
+        String url = "http://coms-309-059.cs.iastate.edu:8080/restaurant";
 
         JsonArrayRequest jsonRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
@@ -57,12 +57,12 @@ public class restaurantInfo extends AppCompatActivity {
                             for(int i = 0; i < response.length(); i++) {
 
                                 JSONObject restaurants = response.getJSONObject(i);
-                                String firstName = restaurants.getString("restName");
+                                String firstName = restaurants.getString("name");
                                 String price = restaurants.getString("price");
                                 String rating = restaurants.getString("rating");
 
 
-                                restaurantInfo.append(firstName + ", " + price + ", "+ rating + "\n\n"); ;
+                                restaurantInfo.append(i+1 + ". "+ firstName + ", " + price + ", "+ rating + "\n\n"); ;
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

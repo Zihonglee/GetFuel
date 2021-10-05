@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -16,6 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -48,20 +50,20 @@ public class MainActivity extends AppCompatActivity {
 
     private void postRequest(){
         RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
-        String url = "https://reqres.in/api/users";
+        String url = "http://coms-309-059.cs.iastate.edu:8080/reviews";
 
-        JSONObject object = new JSONObject();
-        try{
-            object.put("comments","");
-        }
-        catch (JSONException e){
-            e.printStackTrace();
-        }
+//        JSONObject object = new JSONObject();
+//        try{
+//            object.put("comments",postResponse.getText());
+//        }
+//        catch (JSONException e){
+//            e.printStackTrace();
+//        }
 
 
-        JsonObjectRequest jsonRequestComment = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
+        StringRequest stringRequestComment = new StringRequest (Request.Method.POST, url, new Response.Listener<String>() {
             @Override
-            public void onResponse(JSONObject response) {
+            public void onResponse(String response) {
                 Toast.makeText(MainActivity.this, "Review Submitted", Toast.LENGTH_LONG).show();
                 requestQueue.stop();
             }
@@ -73,13 +75,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }){
 //            @Override
-//            protected Map<String, String> getParams(){
-//                Map<String,String> params = new HashMap<String,String>();
+//            protected Map<String, String> getParams() throws AuthFailureError{
+//                Map<String,String> params = new HashMap<>();
 //                params.put( "comments", postResponse.getText().toString());
 //                return params;
 //            }
         };
 
-        requestQueue.add(jsonRequestComment);
+        requestQueue.add(stringRequestComment);
     }
 }
