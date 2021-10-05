@@ -1,11 +1,9 @@
 package com.example.ReviewsAPI;
 
-
 import com.example.demoAPI.Person;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-
 
 @Entity
 public class Review
@@ -23,7 +21,6 @@ public class Review
     public Review(String comments) 
     {
         this.comments = comments;
-
     }
 
     public Review(){
