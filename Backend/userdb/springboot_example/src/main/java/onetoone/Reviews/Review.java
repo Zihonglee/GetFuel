@@ -1,9 +1,9 @@
-package onetomany.Reviews;
+package onetoone.Reviews;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import onetomany.Restaurants.Restaurant;
-import onetomany.Users.User;
+import onetoone.Restaurants.Restaurant;
+import onetoone.Users.User;
 import org.springframework.jmx.export.annotation.ManagedAttribute;
 
 import javax.persistence.*;

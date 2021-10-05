@@ -1,8 +1,8 @@
-package onetomany.Cuisine;
+package onetoone.Cuisine;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import onetomany.Restaurants.Restaurant;
-import onetomany.Restaurants.RestaurantRepository;
+import onetoone.Restaurants.Restaurant;
+import onetoone.Restaurants.RestaurantRepository;
 
 
 import javax.persistence.*;

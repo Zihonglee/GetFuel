@@ -1,4 +1,4 @@
-package onetomany.Users;
+package onetoone.Users;
 
 import java.util.List;
 

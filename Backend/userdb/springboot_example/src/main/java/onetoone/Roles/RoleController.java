@@ -1,10 +1,10 @@
-package onetomany.Roles;
+package onetoone.Roles;
 
 
 import java.util.List;
 
 
-import onetomany.Users.UserRepository;
+import onetoone.Users.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.DeleteMapping;

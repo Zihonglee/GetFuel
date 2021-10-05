@@ -1,8 +1,8 @@
-package onetomany.Users;
+package onetoone.Users;
 
 
 
-import onetomany.Roles.Role;
+import onetoone.Roles.Role;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

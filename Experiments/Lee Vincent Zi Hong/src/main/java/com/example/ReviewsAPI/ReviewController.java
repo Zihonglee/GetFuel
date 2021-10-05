@@ -28,7 +28,7 @@ public class ReviewController
     }
 
     @GetMapping("/{id}")
-    public Review getReviewById( @PathVariable Long id)
+    public Review getReviewById(@PathVariable Long id)
     {
         return reviewRepository.findReviewById(id);
     }

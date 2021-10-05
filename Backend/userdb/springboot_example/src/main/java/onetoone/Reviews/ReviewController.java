@@ -1,4 +1,4 @@
-package onetomany.Reviews;
+package onetoone.Reviews;
 
 import java.util.List;
 

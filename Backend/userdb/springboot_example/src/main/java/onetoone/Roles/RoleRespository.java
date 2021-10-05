@@ -1,12 +1,12 @@
-package onetomany.Restaurants;
+package onetoone.Roles;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface RestaurantRepository extends JpaRepository <Restaurant,Long>{
+public interface RoleRespository  extends JpaRepository <Role,Long>{
 
-    Restaurant findById(int id);
+    Role findById(int id);
 
     @Transactional
     void deleteById(int id);
