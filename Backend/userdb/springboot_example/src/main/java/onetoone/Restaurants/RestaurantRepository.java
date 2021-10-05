@@ -1,16 +1,14 @@
-package onetomany.Reviews;
+package onetoone.Restaurants;
+
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
+public interface RestaurantRepository extends JpaRepository <Restaurant,Long>{
 
-
-public interface ReviewRepository extends JpaRepository<Review, Long> {
-
-    Review findById(int id);
+    Restaurant findById(int id);
 
     @Transactional
     void deleteById(int id);
-
 
 }

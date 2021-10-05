@@ -1,7 +1,7 @@
-package onetomany.Restaurants;
+package onetoone.Restaurants;
 
-import onetomany.Cuisine.Cuisine;
-import onetomany.Reviews.Review;
+import onetoone.Cuisine.Cuisine;
+import onetoone.Reviews.Review;
 
 import javax.persistence.*;
 import java.util.ArrayList;

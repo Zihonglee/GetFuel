@@ -1,7 +1,7 @@
-package onetomany.Roles;
+package onetoone.Roles;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import onetomany.Users.User;
+import onetoone.Users.User;
 
 import javax.persistence.*;
 

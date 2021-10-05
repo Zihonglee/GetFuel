@@ -1,8 +1,8 @@
-package onetomany.Cuisine;
+package onetoone.Cuisine;
 
 import java.util.List;
 
-import onetomany.Restaurants.Restaurant;
+import onetoone.Restaurants.Restaurant;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
