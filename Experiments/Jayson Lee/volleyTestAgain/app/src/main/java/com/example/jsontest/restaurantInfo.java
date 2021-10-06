@@ -2,6 +2,8 @@ package com.example.jsontest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +25,7 @@ public class restaurantInfo extends AppCompatActivity {
     private TextView restaurantInfo;
     private Button reviewPageBtn, addRestaurantBtn;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,7 @@ public class restaurantInfo extends AppCompatActivity {
         restaurantInfo = findViewById(R.id.restInfo);
         reviewPageBtn = findViewById(R.id.goToReviewPage);
         addRestaurantBtn = findViewById(R.id.addRestBtn);
+
 
         restaurantGetRequest();
 
@@ -49,6 +53,7 @@ public class restaurantInfo extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
 
     }

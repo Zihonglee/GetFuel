@@ -77,7 +77,7 @@ public class addingRestaurantPage extends AppCompatActivity {
             }
         }
 
-        JSONArray array = new JSONArray();
+
         JSONObject object = new JSONObject();
 
         try{
@@ -87,7 +87,7 @@ public class addingRestaurantPage extends AppCompatActivity {
         }catch (JSONException e){
             e.printStackTrace();
         }
-        array.put(object);
+
         MyJsonArrayRequest jsonRequest = new MyJsonArrayRequest( Request.Method.POST, restUrl, object,
                 new Response.Listener<JSONArray>() {
                     @Override
