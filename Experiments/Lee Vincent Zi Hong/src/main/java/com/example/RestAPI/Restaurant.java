@@ -21,8 +21,8 @@ public class Restaurant
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private double price;
-	private double rating;
+	private String price;
+	private String rating;
 	
     @ManyToOne(targetEntity = Cuisine.class)
 //    @JoinColumn(name = "cuisine_id")
@@ -35,7 +35,7 @@ public class Restaurant
 	public Restaurant(){
 	}
 	
-	public Restaurant(String name, double price, double rating, Cuisine cuisine)
+	public Restaurant(String name, String price, String rating, Cuisine cuisine)
 	{
 		this.name = name;
 		this.price = price;
@@ -64,22 +64,22 @@ public class Restaurant
         this.name = restName;
     }
 
-	public double getPrice() 
+	public String getPrice() 
 	{
 		return price;
 	}
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
-	public double getRating() 
+	public String getRating() 
 	{
 		return rating;
 	}
 	
 
-    public void setRating(double rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 
