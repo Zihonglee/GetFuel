@@ -21,7 +21,7 @@ import org.json.JSONObject;
 
 public class restaurantInfo extends AppCompatActivity {
     private TextView restaurantInfo;
-    private Button reviewPageBtn;
+    private Button reviewPageBtn, addRestaurantBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,7 @@ public class restaurantInfo extends AppCompatActivity {
 
         restaurantInfo = findViewById(R.id.restInfo);
         reviewPageBtn = findViewById(R.id.goToReviewPage);
+        addRestaurantBtn = findViewById(R.id.addRestBtn);
 
         restaurantGetRequest();
 
@@ -40,6 +41,16 @@ public class restaurantInfo extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        addRestaurantBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(restaurantInfo.this, addingRestaurantPage.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
 
