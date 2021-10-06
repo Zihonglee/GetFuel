@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView postResponse;
+    private EditText postResponse;
     private Button  submitButton;
 
     @Override
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void postRequest(){
         RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
-        String url = "http://coms-309-059.cs.iastate.edu:8080/reviews";
+        String reviewUrl = "http://coms-309-059.cs.iastate.edu:8080/review";
 
 //        JSONObject object = new JSONObject();
 //        try{
@@ -61,9 +62,9 @@ public class MainActivity extends AppCompatActivity {
 //        }
 
 
-        StringRequest stringRequestComment = new StringRequest (Request.Method.POST, url, new Response.Listener<String>() {
+        JsonArrayRequest jsonArrayRequestComment = new JsonArrayRequest (Request.Method.POST, reviewUrl, null, new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(String response) {
+            public void onResponse(JSONArray response) {
                 Toast.makeText(MainActivity.this, "Review Submitted", Toast.LENGTH_LONG).show();
                 requestQueue.stop();
             }
@@ -74,14 +75,15 @@ public class MainActivity extends AppCompatActivity {
                 requestQueue.stop();
             }
         }){
-//            @Override
-//            protected Map<String, String> getParams() throws AuthFailureError{
-//                Map<String,String> params = new HashMap<>();
-//                params.put( "comments", postResponse.getText().toString());
-//                return params;
-//            }
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+
         };
 
-        requestQueue.add(stringRequestComment);
+        requestQueue.add(jsonArrayRequestComment);
     }
 }
