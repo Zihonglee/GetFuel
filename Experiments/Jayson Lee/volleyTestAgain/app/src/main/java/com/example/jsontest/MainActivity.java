@@ -62,9 +62,9 @@ public class MainActivity extends AppCompatActivity {
 //        }
 
 
-        StringRequest stringRequestComment = new StringRequest (Request.Method.POST, reviewUrl, new Response.Listener<String>() {
+        JsonArrayRequest jsonArrayRequestComment = new JsonArrayRequest (Request.Method.POST, reviewUrl, null, new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(String response) {
+            public void onResponse(JSONArray response) {
                 Toast.makeText(MainActivity.this, "Review Submitted", Toast.LENGTH_LONG).show();
                 requestQueue.stop();
             }
@@ -84,6 +84,6 @@ public class MainActivity extends AppCompatActivity {
 
         };
 
-        requestQueue.add(stringRequestComment);
+        requestQueue.add(jsonArrayRequestComment);
     }
 }

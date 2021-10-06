@@ -19,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -54,6 +55,7 @@ public class addingRestaurantPage extends AppCompatActivity {
 
     }
 
+
     private void postRestaurant(){
 
         final String restaurantName, price, rating;
@@ -64,6 +66,16 @@ public class addingRestaurantPage extends AppCompatActivity {
         price= priceInput.getText().toString();
         rating= ratingInput.getText().toString();
 
+
+        abstract class MyJsonArrayRequest extends JsonRequest<JSONArray> {
+
+
+            public MyJsonArrayRequest(int method, String url, JSONObject jsonRequest,
+                                      Response.Listener<JSONArray> listener, Response.ErrorListener errorListener) {
+                super(method, url, (jsonRequest == null) ? null : jsonRequest.toString(), listener,
+                        errorListener);
+            }
+        }
 
         JSONArray array = new JSONArray();
         JSONObject object = new JSONObject();
@@ -76,7 +88,7 @@ public class addingRestaurantPage extends AppCompatActivity {
             e.printStackTrace();
         }
         array.put(object);
-        JsonArrayRequest jsonRequest = new JsonArrayRequest( Request.Method.POST, restUrl, array,
+        MyJsonArrayRequest jsonRequest = new MyJsonArrayRequest( Request.Method.POST, restUrl, object,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -139,6 +151,7 @@ public class addingRestaurantPage extends AppCompatActivity {
     }
 
     }
+
 
 
 
