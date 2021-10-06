@@ -64,6 +64,8 @@ public class restaurantInfo extends AppCompatActivity {
 
         String url = "http://coms-309-059.cs.iastate.edu:8080/restaurant";
 
+
+
         JsonArrayRequest jsonRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override
