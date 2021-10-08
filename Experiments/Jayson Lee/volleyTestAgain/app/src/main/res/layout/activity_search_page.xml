@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".SearchPage">
 
     <TextView
@@ -19,16 +21,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <SearchView
-        android:layout_width="359dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="72dp"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/searchview_background"
-        android:queryHint="Enter Restaurant"
-        android:iconifiedByDefault="false"
-        android:queryBackground="@android:color/transparent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:iconifiedByDefault="false"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:queryBackground="@android:color/transparent"
+        app:queryHint="Enter Restaurant" />
+
+    <ListView
+        android:id="@+id/listName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</LinearLayout>
