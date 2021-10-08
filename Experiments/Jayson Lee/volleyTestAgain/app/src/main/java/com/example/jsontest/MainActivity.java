@@ -32,7 +32,6 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private EditText postResponse;
-    private TextView listOfReviews;
     private Button  submitButton;
 
     @Override
@@ -41,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         submitButton = findViewById(R.id.submitButton);
-        listOfReviews = findViewById(R.id.listOfReview);
         postResponse = findViewById(R.id.reviewComment);
 
         submitButton.setOnClickListener(new View.OnClickListener() {

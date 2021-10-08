@@ -23,7 +23,7 @@ import org.json.JSONObject;
 
 public class restaurantInfo extends AppCompatActivity {
     private TextView restaurantInfo;
-    private Button reviewPageBtn, addRestaurantBtn;
+    private Button reviewPageBtn, addRestaurantBtn, searchBtn;
 
 
     @Override
@@ -34,7 +34,7 @@ public class restaurantInfo extends AppCompatActivity {
         restaurantInfo = findViewById(R.id.restInfo);
         reviewPageBtn = findViewById(R.id.goToReviewPage);
         addRestaurantBtn = findViewById(R.id.addRestBtn);
-
+        searchBtn = findViewById(R.id.testSearch);
 
         restaurantGetRequest();
 
@@ -50,6 +50,14 @@ public class restaurantInfo extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(restaurantInfo.this, addingRestaurantPage.class);
+                startActivity(intent);
+            }
+        });
+
+        searchBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(restaurantInfo.this, SearchPage.class);
                 startActivity(intent);
             }
         });
