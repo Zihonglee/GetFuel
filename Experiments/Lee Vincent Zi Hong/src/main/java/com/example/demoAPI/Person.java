@@ -23,7 +23,6 @@ public class Person
 	
 
     @ManyToOne(targetEntity = Role.class)
-//    @JoinColumn(name = "role_id")
     private Role role;
     
 	public Person(){
