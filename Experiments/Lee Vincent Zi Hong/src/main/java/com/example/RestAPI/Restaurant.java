@@ -25,11 +25,9 @@ public class Restaurant
 	private String rating;
 	
     @ManyToOne(targetEntity = Cuisine.class)
-//    @JoinColumn(name = "cuisine_id")
     private Cuisine cuisine;
     
     @OneToMany(mappedBy = "id")
-//    @JoinColumn(name ="review_id")
     private List<Review> reviews;
     
 	public Restaurant(){
