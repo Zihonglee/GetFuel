@@ -15,7 +15,6 @@ public class Review
     private LocalDateTime timeCreated = LocalDateTime.now();
 
     @ManyToOne(targetEntity = Person.class)
-//    @JoinColumn(name = "user_id")
     private Person user;
 
     public Review(String comments) 
