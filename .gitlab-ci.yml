@@ -18,7 +18,7 @@ autoDeploy:
   tags:
    - spring_tag
   script:
-    - cd Backend
+    - cd "Experiments/Lee Vincent Zi Hong"
     - mvn package
     - sudo mv target/*.jar /target/web-demo.jar 
     - sudo systemctl stop system-web-demo
