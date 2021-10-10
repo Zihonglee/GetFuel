@@ -5,7 +5,7 @@ stages:
 maven-build:
   stage: mavenbuild
   tags:
-    - springboot_tag
+    - spring_tag
   script:
     - cd Backend
     - mvn package -B
@@ -13,7 +13,7 @@ maven-build:
 maven-test:
   stage: maventest
   tags:
-    - springboot_tag
+    - spring_tag
   script:
     - cd Backend
     - mvn test
