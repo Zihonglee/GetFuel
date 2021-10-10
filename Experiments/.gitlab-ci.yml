@@ -5,7 +5,7 @@ stages:
 maven-build:   #this is a JOB
   stage: maventry
   tags:
-    - springboot_tag  # this is LINK to the shell runner on the remote-server 
+    - spring_tag  # this is LINK to the shell runner on the remote-server 
   script:
     - cd Backend
     - mvn package
