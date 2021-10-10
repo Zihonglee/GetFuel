@@ -16,7 +16,7 @@ maven-test:
   tags:
     - spring_tag
   script:
-    - cd Backend
+    - cd "Experiments/Lee Vincent Zi Hong"
     - mvn test
   artifacts:
     paths:
