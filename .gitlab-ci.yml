@@ -3,7 +3,7 @@ stages:
   - androidtry
 
 maven-build:
-  stage: mavenbuild
+  stages: mavenbuild
   tags:
     - spring_tag
   script:
@@ -11,7 +11,7 @@ maven-build:
     - mvn package -B
   
 maven-test:
-  stage: maventest
+  stages: maventest
   tags:
     - spring_tag
   script:
