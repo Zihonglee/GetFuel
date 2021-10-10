@@ -8,7 +8,7 @@ maven-build:
   tags:
     - spring_tag
   script:
-    - cd  Experiment/Lee\Vincent\Zi\Hong
+    - cd  "Experiment/Lee Vincent Zi Hong"
     - mvn package -B
   
 maven-test:
