@@ -32,7 +32,7 @@ public class SecondActivity extends AppCompatActivity
 
         public void openActivity2()
         {
-            Intent newIntent = new Intent(SecondActivity.this, ThirdActivity.class);
+            Intent newIntent = new Intent(SecondActivity.this, ThirdActivity3.class);
             startActivity(newIntent);
         }
 
