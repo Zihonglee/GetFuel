@@ -1,20 +1,15 @@
-package onetoone.Users;
+package com.example.demoAPI;
+
+import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author Vivek Bengre
- *
- */
-
-public interface UserRepository extends JpaRepository<User, Long> {
-
-    User findById(int id);
-
-    @Transactional
-    void deleteById(int id);
-
-
+@Repository
+public interface personRepository extends JpaRepository<Person, Long>
+{
+	public Person findPersonById(Long id);
+	
+	@Transactional
+	public void deleteById(String id);
 }

@@ -1,14 +1,15 @@
-package onetoone.Roles;
-
+package com.example.RoleAPI;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface RoleRespository  extends JpaRepository <Role,Long>{
+@Repository
+public interface RoleRepository  extends JpaRepository <Role, Long>{
 
-    Role findById(int id);
+    public Role findRoleById(Long id);
 
     @Transactional
-    void deleteById(int id);
+    public void deleteRoleById(Long id);
 
 }

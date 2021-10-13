@@ -1,14 +1,15 @@
-package onetoone.Restaurants;
+package com.example.RestAPI;
 
+import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Repository;
 
-public interface RestaurantRepository extends JpaRepository <Restaurant,Long>{
+@Repository
+public interface restaurantRepository extends JpaRepository<Restaurant, Long>
+{
+	public Restaurant findRestaurantById(Long Id);
 
-    Restaurant findById(int id);
-
-    @Transactional
-    void deleteById(int id);
-
+	@Transactional
+	public void deleteRestaurantById(Long Id);
 }

@@ -1,11 +1,14 @@
-package onetoone.Cuisine;
+package com.example.CuisineAPI;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface CuisineRepository extends JpaRepository<Cuisine, Long> {
-    Cuisine findById(int id);
+@Repository
+public interface CuisineRepository extends JpaRepository<Cuisine, Long> 
+{
+    public Cuisine findCuisineById(Long id);
 
     @Transactional
-    void deleteById(int id);
+    public void deleteCuisineById(Long id);
 }
