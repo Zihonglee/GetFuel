@@ -81,8 +81,8 @@ public class LoginPage extends AppCompatActivity
         RequestQueue queue = Volley.newRequestQueue(this);
         //boolean accountFound = false;
 
-        //String url = "https://8710b90a-ebe0-4f8f-956e-5c6998590fe8.mock.pstmn.io/Post";
-        String url = "http://coms-309-059.cs.iastate.edu:8080/user";
+        String url = "https://8710b90a-ebe0-4f8f-956e-5c6998590fe8.mock.pstmn.io/Post";
+        //String url = "http://coms-309-059.cs.iastate.edu:8080/user";
 
         String name = Name.getText().toString();
         String password = Password.getText().toString();
@@ -99,7 +99,7 @@ public class LoginPage extends AppCompatActivity
                             {
 
                                 JSONObject users = response.getJSONObject(i);
-                                String usernameJ = users.getString("name");
+                                String usernameJ = users.getString("username");
                                 String emailJ = users.getString("email");
                                 String passwordJ = users.getString("password");
 
