@@ -1,34 +1,66 @@
 stages:
-  - maventry
-  - androidtry
+  - mavenbuild
+  - maventest
+  - mavenDeploy
+  - androidbuild
+  - androidtest
+
 
 maven-build:
   stage: mavenbuild
   tags:
-    - springboot_tag
+    - spring_tag
   script:
-    - cd Backend
+    - cd  "Experiments/Lee Vincent Zi Hong"
     - mvn package -B
   
+
 maven-test:
   stage: maventest
   tags:
-    - springboot_tag
+    - spring_tag
   script:
-    - cd Backend
+    - cd Experiments/"Lee Vincent Zi Hong"
     - mvn test
   artifacts:
     paths:
-      - Backend/target/*.jar
+      - Experiments/"Lee Vincent Zi Hong"/target/*.jar
 
-android-build: #this is another job
-  image: javiersantos/android-ci:latest      # this is a directive to DOCKER
-  stage: androidtry
+autoDeploy:
+  stage: mavenDeploy  #do make a stage with same name!
   tags:
-   - android_tag         #this is LINK to the docker runner on the remote-server        
-  before_script:
-    - export GRADLE_USER_HOME=`pwd`/.gradle
-    - chmod +x ./Frontend/gradlew
+   - spring_tag
   script:
-    - cd Frontend
-    - ./gradlew assemble
+    - cd Experiments/"Lee Vincent Zi Hong"
+    - mvn package
+    - sudo mv target/*.jar /target/web-demo.jar
+    - sudo systemctl stop system-web-demo
+    - sudo systemctl start system-web-demo
+
+# android-build:
+#   image: javiersantos/android-ci:latest
+#   stage: androidbuild
+#   before_script:
+#     - export GRADLE_USER_HOME=`pwd`/.gradle
+#     - chmod +x ./Frontend/gradlew
+#   tags:
+#    - android_tag
+#   script:
+#     - cd Experiments/"Jayson Lee"
+#     - ./gradlew build
+#   artifacts:
+#     paths:
+#     - Android_test/app/build/outputs/
+
+# android-test:
+#   image: javiersantos/android-ci:latest
+#   stage: androidtest
+#   before_script:
+#     - export GRADLE_USER_HOME=`pwd`/.gradle
+#     - chmod +x ./Frontend/gradlew
+#   tags:
+#    - android_tag
+#   script:
+#     - cd Frontend
+#     - ./gradlew test
+
