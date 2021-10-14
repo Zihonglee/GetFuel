@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequestMapping(value = "/reviews")
 public class ReviewController
@@ -62,7 +61,10 @@ public class ReviewController
         }
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 691355e29cd7e52f9061ad10839e9e993ae823e2
     @DeleteMapping("/{id}")
     String deleteReview(@PathVariable Long id)
     {

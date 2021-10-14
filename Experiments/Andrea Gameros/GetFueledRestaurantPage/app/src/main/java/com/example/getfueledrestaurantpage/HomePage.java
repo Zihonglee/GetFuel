@@ -1,13 +1,15 @@
 package com.example.getfueledrestaurantpage;
 
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toast;
+import android.content.Intent;
+import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -17,7 +19,8 @@ public class HomePage extends AppCompatActivity
     private ActionBarDrawerToggle abdt;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage);
 
@@ -45,22 +48,36 @@ public class HomePage extends AppCompatActivity
                     Toast.makeText(HomePage.this, "HomePage", Toast.LENGTH_SHORT).show();
                 }
 
+                if(id == R.id.search)
+                {
+                    //toast provides simple feedback about an operation of a small popup
+                    Toast.makeText(HomePage.this, "Search", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(HomePage.this, SearchPage.class);
+                    startActivity(intent);
+                }
+
                 if(id == R.id.map)
                 {
                     //toast provides simple feedback about an operation of a small popup
                     Toast.makeText(HomePage.this, "Map", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(HomePage.this, MapPage.class);
+                    startActivity(intent);
                 }
 
                 if(id == R.id.foodpicker)
                 {
                     //toast provides simple feedback about an operation of a small popup
                     Toast.makeText(HomePage.this, "FoodPicker", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(HomePage.this, FoodPickerPage.class);
+                    startActivity(intent);
                 }
 
                 if(id == R.id.logout)
                 {
                     //toast provides simple feedback about an operation of a small popup
                     Toast.makeText(HomePage.this, "Logout", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(HomePage.this, LoginPage.class);
+                    startActivity(intent);
                 }
 
 

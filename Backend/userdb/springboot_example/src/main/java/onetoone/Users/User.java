@@ -8,10 +8,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+<<<<<<< HEAD
 import com.example.RoleAPI.Role;
 
 @Entity
 public class Person
+=======
+import onetoone.Roles.Role;
+
+@Entity
+public class User
+>>>>>>> 691355e29cd7e52f9061ad10839e9e993ae823e2
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -21,6 +28,7 @@ public class Person
 	private String password;
     private LocalDateTime timeCreated = LocalDateTime.now();
 	
+<<<<<<< HEAD
 
     @ManyToOne(targetEntity = Role.class)
     private Role role;
@@ -29,6 +37,15 @@ public class Person
 	}
 	
 	public Person (String name, String email, String password)
+=======
+    @ManyToOne(targetEntity = Role.class)
+    private Role role;
+    
+	public User(){
+	}
+	
+	public User (String name, String email, String password)
+>>>>>>> 691355e29cd7e52f9061ad10839e9e993ae823e2
 	{
 		role = new Role();
 		this.email = email;
