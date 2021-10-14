@@ -1,8 +1,9 @@
 package onetoone.Reviews;
 
+import javax.persistence.*;
+
 import onetoone.Users.User;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
 
@@ -15,8 +16,7 @@ public class Review
     private String comments;
     private LocalDateTime timeCreated = LocalDateTime.now();
 
-    @ManyToOne
-      @JoinColumn(name = "user_id")
+    @ManyToOne(targetEntity = User.class)
     private User user;
 
     public Review(String comments) 

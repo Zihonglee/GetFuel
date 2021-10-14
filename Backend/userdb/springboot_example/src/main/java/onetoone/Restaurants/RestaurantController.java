@@ -17,7 +17,6 @@ public class RestaurantController
     @Autowired
     public CuisineRepository cuisineRepository;
 	
-    
 	@PostMapping
 	public String addRestaurant(@RequestBody Restaurant restaurant)
 	{

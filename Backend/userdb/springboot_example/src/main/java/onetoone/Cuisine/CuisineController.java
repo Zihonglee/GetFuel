@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/cuisines")
 public class CuisineController 
 {
-
 	@Autowired
 	public CuisineRepository cuisineRepository;
 

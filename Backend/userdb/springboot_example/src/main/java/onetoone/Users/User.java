@@ -90,5 +90,4 @@ public class User
 	{
         return "id: " + getId() + ",/n name: " + getName() + "/n password: " + getPassword();  
     }
-
 }

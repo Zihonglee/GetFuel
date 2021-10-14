@@ -10,13 +10,12 @@ import java.util.List;
 @Entity
 public class Role 
 {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String roleType;
 
-    @OneToMany
+    @OneToMany(targetEntity = User.class)
     @JsonIgnore
     private List<User> users;
 

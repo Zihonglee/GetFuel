@@ -3,7 +3,6 @@ package onetoone.Cuisine;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import onetoone.Restaurants.Restaurant;
 
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -15,12 +14,10 @@ public class Cuisine
     private Long id;
     private String cuisineType;
 
-    @OneToMany
+    @OneToMany(targetEntity = Restaurant.class)
     @JsonIgnore
     private List<Restaurant> restaurants;
 
-  
-    
     public Cuisine(String cuisineType) 
     {
         this.cuisineType = cuisineType;

@@ -5,8 +5,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public interface RoleRepository  extends JpaRepository <Role, Long>{
-
+public interface RoleRepository  extends JpaRepository <Role, Long>
+{
     public Role findRoleById(Long id);
 
     @Transactional
