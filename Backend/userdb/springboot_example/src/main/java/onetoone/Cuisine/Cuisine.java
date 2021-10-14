@@ -2,7 +2,6 @@ package onetoone.Cuisine;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import onetoone.Restaurants.Restaurant;
-import onetoone.Restaurants.RestaurantRepository;
 
 
 import javax.persistence.*;

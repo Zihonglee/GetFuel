@@ -8,7 +8,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Role {
+public class Role 
+{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

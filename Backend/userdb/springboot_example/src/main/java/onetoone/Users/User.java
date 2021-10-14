@@ -21,7 +21,6 @@ public class User
 	private String password;
     private LocalDateTime timeCreated = LocalDateTime.now();
 	
-
     @ManyToOne(targetEntity = Role.class)
     private Role role;
     

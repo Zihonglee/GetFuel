@@ -11,4 +11,5 @@ public interface CuisineRepository extends JpaRepository<Cuisine, Long>
 
     @Transactional
     public void deleteCuisineById(Long id);
+    
 }
