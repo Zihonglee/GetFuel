@@ -1,7 +1,9 @@
-package com.example.CuisineAPI;
+package onetoone.Cuisine;
 
-import com.example.RestAPI.Restaurant;
+import onetoone.Restaurants.Restaurant;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import onetoone.Restaurants.RestaurantRepository;
+
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,18 +17,20 @@ public class Cuisine
     private Long id;
     private String cuisineType;
 
-    @OneToMany(targetEntity = Restaurant.class)
+    @OneToMany
     @JsonIgnore
     private List<Restaurant> restaurants;
 
-    public Cuisine() {
-    }
+  
     
     public Cuisine(String cuisineType) 
     {
         this.cuisineType = cuisineType;
+            }
+            
+  public Cuisine() {
     }
-
+    
     public Long getId() 
     {
         return id;
