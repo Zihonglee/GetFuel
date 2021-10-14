@@ -1,4 +1,4 @@
-package com.example.CuisineAPI;
+package onetoone.Cuisine;
 
 import java.util.List;
 

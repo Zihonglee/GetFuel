@@ -1,16 +1,9 @@
 package onetoone.Reviews;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import onetoone.Restaurants.Restaurant;
 import onetoone.Users.User;
-import org.springframework.jmx.export.annotation.ManagedAttribute;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
-
-
 
 @Entity
 public class Review

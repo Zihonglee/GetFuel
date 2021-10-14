@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long>
 {
 	public Restaurant findRestaurantById(Long Id);
-
+	
 	@Transactional
 	public void deleteRestaurantById(Long Id);
 }

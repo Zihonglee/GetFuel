@@ -1,4 +1,4 @@
-package onetoone.User;
+package onetoone.Users;
 
 import java.time.LocalDateTime;
 
@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import onetoone.Role;
+import onetoone.Roles.Role;
 
 @Entity
 public class User

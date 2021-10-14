@@ -8,7 +8,6 @@ import onetoone.Restaurants.RestaurantRepository;
 import javax.persistence.*;
 import java.util.List;
 
-
 @Entity
 public class Cuisine
 {

@@ -12,7 +12,7 @@ import onetoone.Cuisine.CuisineRepository;
 public class RestaurantController
 {
 	@Autowired
-	public restaurantRepository restRepository;
+	public RestaurantRepository restRepository;
 
     @Autowired
     public CuisineRepository cuisineRepository;
