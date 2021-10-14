@@ -1,11 +1,11 @@
-package com.example.RestAPI;
+package onetoone.Restaurants;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.CuisineAPI.CuisineRepository;
+import onetoone.Cuisine.CuisineRepository;
 
 @RestController
 @RequestMapping (value = "/restaurant")

@@ -1,4 +1,4 @@
-package com.example.ReviewsAPI;
+package onetoone.Reviews;
 
 import java.util.List;
 

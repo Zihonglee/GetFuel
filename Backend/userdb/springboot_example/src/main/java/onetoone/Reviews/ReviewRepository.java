@@ -1,4 +1,4 @@
-package com.example.ReviewsAPI;
+package onetoone.Reviews;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

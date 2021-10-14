@@ -1,9 +1,16 @@
-package com.example.ReviewsAPI;
+package onetoone.Reviews;
 
-import com.example.demoAPI.Person;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import onetoone.Restaurants.Restaurant;
+import onetoone.Users.User;
+import org.springframework.jmx.export.annotation.ManagedAttribute;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
+
+
 
 @Entity
 public class Review
@@ -14,8 +21,9 @@ public class Review
     private String comments;
     private LocalDateTime timeCreated = LocalDateTime.now();
 
-    @ManyToOne(targetEntity = Person.class)
-    private Person user;
+    @ManyToOne
+      @JoinColumn(name = "user_id")
+    private User user;
 
     public Review(String comments) 
     {
@@ -50,12 +58,12 @@ public class Review
         this.timeCreated = timeCreated;
     }
 
-    public Person getUser() 
+    public User getUser() 
     {
         return user;
     }
 
-    public void setUser(Person user) 
+    public void setUser(User user) 
     {
         this.user = user;
     }

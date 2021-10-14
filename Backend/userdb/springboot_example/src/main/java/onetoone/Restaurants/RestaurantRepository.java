@@ -1,4 +1,4 @@
-package com.example.RestAPI;
+package onetoone.Restaurants;
 
 import javax.transaction.Transactional;
 
@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface restaurantRepository extends JpaRepository<Restaurant, Long>
+public interface RestaurantRepository extends JpaRepository<Restaurant, Long>
 {
 	public Restaurant findRestaurantById(Long Id);
 

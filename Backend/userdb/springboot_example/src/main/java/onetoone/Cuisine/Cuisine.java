@@ -26,7 +26,7 @@ public class Cuisine
     public Cuisine(String cuisineType) 
     {
         this.cuisineType = cuisineType;
-            }
+     }
             
   public Cuisine() {
     }

@@ -1,34 +1,31 @@
-package com.example.RestAPI;
+package onetoone.Restaurants;
 
+import onetoone.Cuisine.Cuisine;
+import onetoone.Reviews.Review;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
-import com.example.CuisineAPI.Cuisine;
-import com.example.ReviewsAPI.Review;
 
 
 @Entity
 public class Restaurant
 {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private String price;
 	private String rating;
 	
-    @ManyToOne(targetEntity = Cuisine.class)
+    @ManyToOne   
+	 @JoinColumn(name = "cuisine_id")
     private Cuisine cuisine;
     
-    @OneToMany(mappedBy = "id")
+    @OneToMany   
+	 @JoinColumn(name ="review_id")
     private List<Review> reviews;
+
     
 	public Restaurant(){
 	}
@@ -85,6 +82,11 @@ public class Restaurant
 	{
 		return cuisine;
 	}
+
+	    public void setCuisine(Cuisine cuisine) {
+        this.cuisine = cuisine;
+    }
+
 
 	public List<Review> getReviews() 
 	{
