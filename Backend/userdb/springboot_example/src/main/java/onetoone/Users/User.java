@@ -1,4 +1,4 @@
-package com.example.demoAPI;
+package onetoone.demoAPI;
 
 import java.time.LocalDateTime;
 
@@ -8,10 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import com.example.RoleAPI.Role;
+import onetoone.Role;
 
 @Entity
-public class Person
+public class User
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -25,10 +25,10 @@ public class Person
     @ManyToOne(targetEntity = Role.class)
     private Role role;
     
-	public Person(){
+	public User(){
 	}
 	
-	public Person (String name, String email, String password)
+	public User (String name, String email, String password)
 	{
 		role = new Role();
 		this.email = email;
