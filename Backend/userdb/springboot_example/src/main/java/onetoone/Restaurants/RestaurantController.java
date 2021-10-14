@@ -2,63 +2,68 @@ package onetoone.Restaurants;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import onetoone.Cuisine.CuisineRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
 
 @RestController
-public class RestaurantController {
+@RequestMapping (value = "/restaurant")
+public class RestaurantController
+{
+	@Autowired
+	public restaurantRepository restRepository;
 
     @Autowired
-    RestaurantRepository restaurantRepository;
-
-    @Autowired
-    CuisineRepository cuisineRepository;
-
-    private String success = "{\"message\":\"success\"}";
-    private String failure = "{\"message\":\"failure\"}";
-
-    @GetMapping(path = "/restaurants")
-    List<Restaurant> getAllRestaurant(){
-        return restaurantRepository.findAll();
-    }
-
-    @GetMapping(path = "/restaurants/{id}")
-    Restaurant getRestaurantById( @PathVariable int id){
-        return restaurantRepository.findById(id);
-    }
-
-    @PostMapping(path = "/restaurants")
-    String createRestaurant(@RequestBody Restaurant restaurant){
-        if (restaurant == null)
-            return failure;
-        restaurantRepository.save(restaurant);
-        return success;
-    }
-
-    @PutMapping("/restaurants/{id}")
-    Restaurant updateRestaurant(@PathVariable int id, @RequestBody Restaurant request){
-        Restaurant restaurant = restaurantRepository.findById(id);
-        if(restaurant == null)
-            return null;
-        restaurantRepository.save(request);
-        return restaurantRepository.findById(id);
-    }
-
-
-    @DeleteMapping(path = "/restaurants/{id}")
-    String deleteRestaurant(@PathVariable int id){
-        restaurantRepository.deleteById(id);
-        return success;
-    }
-
+    public CuisineRepository cuisineRepository;
+	
+	@PostMapping
+	public String addRestaurant(@RequestBody Restaurant restaurant)
+	{
+		if (restaurant == null)
+		{
+			return "Failure";
+		}
+		else
+		{
+			restRepository.save(restaurant);
+			return "Restaurant saved";
+		}
+	}
+	
+	@GetMapping
+	public List<Restaurant> getAllRestaurant()
+	{
+		return restRepository.findAll();
+	}
+	
+	@GetMapping ("/{id}")
+	public Restaurant getRestaurantById(@PathVariable("id") Long id)
+	{
+		return restRepository.findRestaurantById(id);
+	}
+	
+	@DeleteMapping ("/{id}")
+	public String deletePersonById(@PathVariable("id") Long id)
+	{
+		restRepository.deleteRestaurantById(id);
+		return "Restaurant deleted";
+	}
+	
+	@PutMapping ("/{id}")
+	public String updateRestaurantById(@PathVariable("id") Long id, @RequestBody Restaurant restaurantToUpdate)
+	{
+		if (restaurantToUpdate == null)
+		{
+			return "Failure";
+		}
+		else
+		{
+			Restaurant restaurant = restRepository.findRestaurantById(id);
+			restaurant = restaurantToUpdate;
+			restaurant.setId(id);
+			restRepository.save(restaurant);
+			return "Replacement was successful";
+		}
+	}
 }
