@@ -1,6 +1,6 @@
 package com.example.RoleAPI;
 
-import com.example.demoAPI.Person;
+import com.example.demoAPI.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -15,9 +15,9 @@ public class Role {
     private Long id;
     private String roleType;
 
-    @OneToMany(targetEntity = Person.class)
+    @OneToMany(targetEntity = User.class)
     @JsonIgnore
-    private List<Person> users;
+    private List<User> users;
 
     public Role() 
     {
@@ -49,12 +49,12 @@ public class Role {
         this.roleType = roleType;
     }
 
-    public List<Person> getUsers() 
+    public List<User> getUsers() 
     {
         return users;
     }
 
-    public void setUsers(List<Person> users) 
+    public void setUsers(List<User> users) 
     {
         this.users = users;
     }

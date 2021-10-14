@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface personRepository extends JpaRepository<Person, Long>
+public interface UserRepository extends JpaRepository<User, Long>
 {
-	public Person findPersonById(Long id);
+	public User findPersonById(Long id);
 	
 	@Transactional
 	public void deleteById(String id);
