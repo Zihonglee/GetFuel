@@ -11,7 +11,7 @@ maven-build:
   tags:
     - spring_tag
   script:
-    - cd  "Experiments/Lee Vincent Zi Hong"
+    - cd  Backend/userdb/springboot_example
     - mvn package -B
   
 
@@ -20,18 +20,18 @@ maven-test:
   tags:
     - spring_tag
   script:
-    - cd Experiments/"Lee Vincent Zi Hong"
+    - cd Backend/userdb/springboot_example
     - mvn test
   artifacts:
     paths:
-      - Experiments/"Lee Vincent Zi Hong"/target/*.jar
+      - Backend/userdb/springboot_example/target/*.jar
 
 autoDeploy:
   stage: mavenDeploy  #do make a stage with same name!
   tags:
    - spring_tag
   script:
-    - cd Experiments/"Lee Vincent Zi Hong"
+    - cd Backend/userdb/springboot_example
     - mvn package
     - sudo mv target/*.jar /target/web-demo.jar
     - sudo systemctl stop system-web-demo
