@@ -32,7 +32,7 @@ autoDeploy:
    - spring_tag
   script:
     - cd Backend/userdb/springboot_example
-    - mvn package
+    - mvn build
     - sudo mv target/*.jar /target/web-demo.jar
     - sudo systemctl stop system-web-demo
     - sudo systemctl start system-web-demo
