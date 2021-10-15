@@ -873,3 +873,27 @@ Caused by: java.lang.ClassNotFoundException: Person
 2021-10-14 23:28:06.039  WARN 4776 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2021-10-14 23:28:06.344  INFO 4776 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
 2021-10-14 23:28:06.351  INFO 4776 --- [main] onetoone.Main                            : Started Main in 5.949 seconds (JVM running for 6.937)
+2021-10-14 23:35:56.297  INFO 4776 --- [RMI TCP Connection(11)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-10-14 23:35:56.321  INFO 4776 --- [RMI TCP Connection(11)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-14 23:35:56.322  INFO 4776 --- [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-14 23:35:56.560  INFO 4776 --- [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-10-14 23:36:03.051  INFO 29512 --- [main] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 29512 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-10-14 23:36:03.054  INFO 29512 --- [main] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-10-14 23:36:03.458  INFO 29512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-14 23:36:03.511  INFO 29512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 5 JPA repository interfaces.
+2021-10-14 23:36:03.953  INFO 29512 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-10-14 23:36:03.960  INFO 29512 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-14 23:36:03.960  INFO 29512 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-10-14 23:36:04.036  INFO 29512 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-14 23:36:04.037  INFO 29512 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 940 ms
+2021-10-14 23:36:04.163  INFO 29512 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-14 23:36:04.199  INFO 29512 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-14 23:36:04.302  INFO 29512 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-14 23:36:04.378  INFO 29512 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-14 23:36:05.080  INFO 29512 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-14 23:36:05.106  INFO 29512 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-10-14 23:36:06.417  INFO 29512 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-14 23:36:06.433  INFO 29512 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-14 23:36:07.176  WARN 29512 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-14 23:36:07.683  INFO 29512 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-10-14 23:36:07.697  INFO 29512 --- [main] onetoone.Main                            : Started Main in 4.916 seconds (JVM running for 5.493)
