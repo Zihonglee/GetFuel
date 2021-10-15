@@ -10,7 +10,6 @@ import java.util.List;
 @Entity
 public class Cuisine
 {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

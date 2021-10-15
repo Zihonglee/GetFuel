@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping (value = "/user")
-public class PersonController
+public class UserController
 {
 	@Autowired
-	public personRepository userRepository;
+	public UserRepository userRepository;
 	
 	@PostMapping
-	public String addPerson(@RequestBody Person person)
+	public String addPerson(@RequestBody User person)
 	{
 		if (person == null)
 		{
@@ -27,13 +27,13 @@ public class PersonController
 	}
 	
 	@GetMapping
-	public List<Person> getAllPeople()
+	public List<User> getAllPeople()
 	{
 		return userRepository.findAll();
 	}
 	
 	@GetMapping ("/{id}")
-	public Person getPersonById(@PathVariable("id") Long id)
+	public User getPersonById(@PathVariable("id") Long id)
 	{
 		return userRepository.findPersonById(id);
 	}
@@ -46,7 +46,7 @@ public class PersonController
 	}
 	
 	@PutMapping ("/{id}")
-	public String updatePersonById(@PathVariable("id") Long id, @RequestBody Person personToUpdate)
+	public String updatePersonById(@PathVariable("id") Long id, @RequestBody User personToUpdate)
 	{
 		if (personToUpdate == null)
 		{
@@ -54,12 +54,11 @@ public class PersonController
 		}
 		else
 		{
-			Person person = userRepository.findPersonById(id);
+			User person = userRepository.findPersonById(id);
 			person = personToUpdate;
 			person.setId(id);
 			userRepository.save(person);
 			return "Replacement was successful";
 		}
 	}
-	
 }
