@@ -1,4 +1,4 @@
-package com.example.ReviewsAPI;
+package onetoone.Reviews;
 
 import java.util.List;
 
@@ -61,11 +61,7 @@ public class ReviewController
         	return reviewRepository.findReviewById(id);
         }
     }
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 691355e29cd7e52f9061ad10839e9e993ae823e2
+    
     @DeleteMapping("/{id}")
     String deleteReview(@PathVariable Long id)
     {

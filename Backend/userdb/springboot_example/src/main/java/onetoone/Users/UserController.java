@@ -1,4 +1,4 @@
-package com.example.demoAPI;
+package onetoone.Users;
 
 import java.util.List;
 
@@ -7,15 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping (value = "/user")
-<<<<<<< HEAD
-public class PersonController
-{
-	@Autowired
-	public personRepository userRepository;
-	
-	@PostMapping
-	public String addPerson(@RequestBody Person person)
-=======
 public class UserController
 {
 	@Autowired
@@ -23,7 +14,6 @@ public class UserController
 	
 	@PostMapping
 	public String addPerson(@RequestBody User person)
->>>>>>> 691355e29cd7e52f9061ad10839e9e993ae823e2
 	{
 		if (person == null)
 		{
@@ -37,21 +27,13 @@ public class UserController
 	}
 	
 	@GetMapping
-<<<<<<< HEAD
-	public List<Person> getAllPeople()
-=======
 	public List<User> getAllPeople()
->>>>>>> 691355e29cd7e52f9061ad10839e9e993ae823e2
 	{
 		return userRepository.findAll();
 	}
 	
 	@GetMapping ("/{id}")
-<<<<<<< HEAD
-	public Person getPersonById(@PathVariable("id") Long id)
-=======
 	public User getPersonById(@PathVariable("id") Long id)
->>>>>>> 691355e29cd7e52f9061ad10839e9e993ae823e2
 	{
 		return userRepository.findPersonById(id);
 	}
@@ -64,11 +46,7 @@ public class UserController
 	}
 	
 	@PutMapping ("/{id}")
-<<<<<<< HEAD
-	public String updatePersonById(@PathVariable("id") Long id, @RequestBody Person personToUpdate)
-=======
 	public String updatePersonById(@PathVariable("id") Long id, @RequestBody User personToUpdate)
->>>>>>> 691355e29cd7e52f9061ad10839e9e993ae823e2
 	{
 		if (personToUpdate == null)
 		{
@@ -76,11 +54,7 @@ public class UserController
 		}
 		else
 		{
-<<<<<<< HEAD
-			Person person = userRepository.findPersonById(id);
-=======
 			User person = userRepository.findPersonById(id);
->>>>>>> 691355e29cd7e52f9061ad10839e9e993ae823e2
 			person = personToUpdate;
 			person.setId(id);
 			userRepository.save(person);

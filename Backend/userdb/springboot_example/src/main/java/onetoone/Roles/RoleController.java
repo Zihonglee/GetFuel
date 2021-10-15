@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 package onetoone.Roles;
-=======
-package com.example.RoleAPI;
->>>>>>> d6fff4d9101be906ed18cbf242c239fcacc7d5fd
 
 import java.util.List;
 
