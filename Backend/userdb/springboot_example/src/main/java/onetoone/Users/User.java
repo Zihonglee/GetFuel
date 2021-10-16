@@ -1,93 +1,93 @@
 package onetoone.Users;
 
+import java.time.LocalDateTime;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import onetoone.Roles.Role;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
-
-
 @Entity
-public class User {
-
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String username;
+public class User
+{
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+	private String name;
     private String email;
-    private String password;
+	private String password;
     private LocalDateTime timeCreated = LocalDateTime.now();
 
-    @ManyToOne
-    @JoinColumn(name = "role_id")
-
+    @ManyToOne(targetEntity = Role.class)
     private Role role;
+    
+	public User(){
+	}
+	
+	public User (String name, String email, String password)
+	{
+		role = new Role();
+		this.email = email;
+		this.name = name;
+		this.password = password;
+	}
+	
+	public Long getId()
+	{
+		return id;
+	}
+	
+	public void setId(Long id)
+	{
+		this.id = id;
+	}
 
-
-
-
-    public User(String username, String email, String password, Role role) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-
-    }
-
-
-
-    public User() {
-    }
-
-    // =============================== Getters and Setters for each field ================================== //
-
-    public int getId(){
-        return id;
-    }
-
-    public void setId(int id ){
-        this.id = id;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public LocalDateTime getTimeCreated() {
+    public LocalDateTime getTimeCreated() 
+    {
         return timeCreated;
     }
 
-    public void setTimeCreated(LocalDateTime timeCreated) {
+    public void setTimeCreated(LocalDateTime timeCreated)
+    {
         this.timeCreated = timeCreated;
     }
+    
+	public String getName()
+	{
+		return name;
+	}	
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
+    public String getEmail() 
+    {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email) 
+    {
         this.email = email;
     }
+	
+	public String getPassword()
+	{
+		return password;
+	}
 
-    public Role getRole() {
+    public Role getRole()
+    {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(Role role) 
+    {
         this.role = role;
+    }
+	
+	@Override
+	public String toString()
+	{
+        return "id: " + getId() + ",/n name: " + getName() + "/n password: " + getPassword();  
     }
 }

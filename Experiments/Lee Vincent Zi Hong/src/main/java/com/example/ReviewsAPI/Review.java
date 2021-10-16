@@ -1,6 +1,6 @@
 package com.example.ReviewsAPI;
 
-import com.example.demoAPI.Person;
+import com.example.demoAPI.User;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -14,8 +14,8 @@ public class Review
     private String comments;
     private LocalDateTime timeCreated = LocalDateTime.now();
 
-    @ManyToOne(targetEntity = Person.class)
-    private Person user;
+    @ManyToOne(targetEntity = User.class)
+    private User user;
 
     public Review(String comments) 
     {
@@ -50,12 +50,12 @@ public class Review
         this.timeCreated = timeCreated;
     }
 
-    public Person getUser() 
+    public User getUser() 
     {
         return user;
     }
 
-    public void setUser(Person user) 
+    public void setUser(User user) 
     {
         this.user = user;
     }

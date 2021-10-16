@@ -1,16 +1,14 @@
 package onetoone.Reviews;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-
-
-public interface ReviewRepository extends JpaRepository<Review, Long> {
-
-    Review findById(int id);
+@Repository
+public interface ReviewRepository extends JpaRepository<Review, Long> 
+{
+    public Review findReviewById(Long id);
 
     @Transactional
-    void deleteById(int id);
-
-
+    public void deleteReviewById(Long id);
 }

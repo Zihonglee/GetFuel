@@ -1,47 +1,37 @@
 package onetoone.Reviews;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import onetoone.Restaurants.Restaurant;
-import onetoone.Users.User;
-import org.springframework.jmx.export.annotation.ManagedAttribute;
-
 import javax.persistence.*;
+import onetoone.Users.User;
+
 import java.time.LocalDateTime;
-import java.util.List;
 
 
 @Entity
-public class Review {
-
-
+public class Review
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String comments;
     private LocalDateTime timeCreated = LocalDateTime.now();
 
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-
+    @ManyToOne(targetEntity = User.class)
     private User user;
 
-    public Review(String comments) {
+    public Review(String comments) 
+    {
         this.comments = comments;
-
     }
 
-    public Review() {
+    public Review(){
     }
-
-
-
-    public int getId(){
+    
+    public Long getId()
+    {
         return id;
     }
 
-    public void setId(int id ){
+    public void setId(Long id){
         this.id = id;
     }
 
@@ -57,17 +47,18 @@ public class Review {
         return timeCreated;
     }
 
-    public void setTimeCreated(LocalDateTime timeCreated) {
+    public void setTimeCreated(LocalDateTime timeCreated) 
+    {
         this.timeCreated = timeCreated;
     }
-
-    public User getUser() {
+    
+    public User getUser() 
+    {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(User user) 
+    {
         this.user = user;
     }
-
-
 }
