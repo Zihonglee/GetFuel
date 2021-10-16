@@ -17,7 +17,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="367dp"
-        app:srcCompat="@drawable/img" />
+        app:srcCompat="@drawable/homerestimg" />
   </RelativeLayout>
 
   <com.google.android.material.navigation.NavigationView

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.GetFueledRestaurantPage"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".RestaurantPage"
+            android:exported="true" />
+        <activity
             android:name=".MapPage"
             android:exported="true" />
         <activity

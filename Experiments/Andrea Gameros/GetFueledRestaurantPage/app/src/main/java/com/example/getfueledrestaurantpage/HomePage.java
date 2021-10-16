@@ -7,6 +7,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import android.content.Intent;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class HomePage extends AppCompatActivity
 {
+    private ImageButton RestaurantImage;
     private DrawerLayout dl;
     private ActionBarDrawerToggle abdt;
 
@@ -23,6 +25,21 @@ public class HomePage extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage);
+
+        RestaurantImage = (ImageButton)findViewById(R.id.btnRestImg);
+
+
+        RestaurantImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent newIntent = new Intent(view.getContext(), RestaurantPage.class);
+                startActivity(newIntent);
+            }
+        });
+
+
+
 
         dl = (DrawerLayout)findViewById(R.id.dl);
         abdt = new ActionBarDrawerToggle(this, dl, R.string.Open, R.string.Close);

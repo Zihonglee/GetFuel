@@ -13,11 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageView"
+        <ImageButton
+            android:id="@+id/btnRestImg"
             android:layout_width="match_parent"
-            android:layout_height="367dp"
-            app:srcCompat="@drawable/img" />
+            android:layout_height="364dp"
+            app:srcCompat="@drawable/homerestimg" />
 
     </RelativeLayout>
 
