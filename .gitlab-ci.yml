@@ -58,11 +58,11 @@ android-test:
   stage: androidtest
   before_script:
     - export GRADLE_USER_HOME=`pwd`/.gradle
-    - chmod +x ./Frontend/gradlew
+    - chmod +x ./Frontend/GetFueled/gradlew
   tags:
    - android_tag
   script:
-    - cd Frontend
+    - cd Frontend/GetFueled
     - ./gradlew test
 
 
