@@ -46,11 +46,12 @@ android-build:
   tags:
    - android_tag
   script:
-    - cd Frontend/GetFueled
+    - cd Frontend
     - ./gradlew build
   artifacts:
     paths:
-    - app/build/outputs/apk/debug/app-debug.apk
+    - Android_test/app/build/outputs/
+
 
 android-test:
   image: javiersantos/android-ci:latest
@@ -61,6 +62,7 @@ android-test:
   tags:
    - android_tag
   script:
-    - cd Frontend/GetFueled
+    - cd Frontend
     - ./gradlew test
+
 
