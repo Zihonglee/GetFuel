@@ -61,6 +61,6 @@ android-test:
   tags:
    - android_tag
   script:
-    - cd Frontend
+    - cd Frontend/GetFueled
     - ./gradlew test
 
