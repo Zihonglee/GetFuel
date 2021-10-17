@@ -46,7 +46,7 @@ android-build:
   tags:
    - android_tag
   script:
-    - cd Experiments/"Jayson Lee"
+    - cd Frontend
     - ./gradlew build
   artifacts:
     paths:
