@@ -16,6 +16,7 @@ public class Restaurant
 	private String name;
 	private String price;
 	private String rating;
+	private String Url;
 	
 	@ManyToOne(targetEntity = Cuisine.class)
     private Cuisine cuisine;
@@ -26,12 +27,13 @@ public class Restaurant
 	public Restaurant(){
 	}
 	
-	public Restaurant(String name, String price, String rating, Cuisine cuisine)
+	public Restaurant(String name, String price, String rating, Cuisine cuisine, String imageUrl)
 	{
 		this.name = name;
 		this.price = price;
 		this.rating = rating;
 		this.cuisine = cuisine;
+		this.Url = imageUrl;
 		reviews = new ArrayList<>();
 	}
 
@@ -97,6 +99,11 @@ public class Restaurant
     public void addReviews(Review review)
     {
         this.reviews.add(review);
+    }
+    
+    public String getUrl()
+    {
+    	return Url;
     }
 
 	@Override
