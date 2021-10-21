@@ -10,6 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginScreenDemo">
         <activity
+            android:name=".NavBar"
+            android:exported="true"
+            android:label="@string/title_activity_nav_bar"
+            android:theme="@style/Theme.LoginScreenDemo.NoActionBar" />
+        <activity
+            android:name=".MainActivity2"
+            android:exported="true"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.LoginScreenDemo.NoActionBar" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="true"
+            android:label="@string/title_activity_login" />
+        <activity
             android:name=".ThirdActivity3"
             android:exported="true" />
         <activity
