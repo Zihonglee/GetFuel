@@ -13,9 +13,12 @@
         android:theme="@style/Theme.JsonTest"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".SearchPage"
-            android:theme="@style/Theme.JsonTest.NoActionBar"
+            android:name=".randomFoodPicker"
             android:exported="true" />
+        <activity
+            android:name=".SearchPage"
+            android:exported="true"
+            android:theme="@style/Theme.JsonTest.NoActionBar" />
         <activity
             android:name=".addingRestaurantPage"
             android:exported="true"

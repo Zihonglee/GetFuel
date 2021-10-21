@@ -37,30 +37,32 @@ autoDeploy:
     - sudo systemctl stop system-web-demo
     - sudo systemctl start system-web-demo
 
-# android-build:
-#   image: javiersantos/android-ci:latest
-#   stage: androidbuild
-#   before_script:
-#     - export GRADLE_USER_HOME=`pwd`/.gradle
-#     - chmod +x ./Frontend/gradlew
-#   tags:
-#    - android_tag
-#   script:
-#     - cd Experiments/"Jayson Lee"
-#     - ./gradlew build
-#   artifacts:
-#     paths:
-#     - Android_test/app/build/outputs/
+android-build:
+  image: javiersantos/android-ci:latest
+  stage: androidbuild
+  before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+    - chmod +x ./Frontend/GetFueled/gradlew
+  tags:
+   - android_tag
+  script:
+    - cd Frontend/GetFueled
+    - ./gradlew build
+  artifacts:
+    paths:
+    - app/build/outputs/
 
-# android-test:
-#   image: javiersantos/android-ci:latest
-#   stage: androidtest
-#   before_script:
-#     - export GRADLE_USER_HOME=`pwd`/.gradle
-#     - chmod +x ./Frontend/gradlew
-#   tags:
-#    - android_tag
-#   script:
-#     - cd Frontend
-#     - ./gradlew test
+
+android-test:
+  image: javiersantos/android-ci:latest
+  stage: androidtest
+  before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+    - chmod +x ./Frontend/GetFueled/gradlew
+  tags:
+   - android_tag
+  script:
+    - cd Frontend/GetFueled
+    - ./gradlew test
+
 
