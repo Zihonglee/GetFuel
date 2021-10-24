@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface RoleRepository  extends JpaRepository <Role, Long>
 {
-    public Role findRoleById(Long id);
+    public Role getRoleById(Long id);
 
     @Transactional
     public void deleteRoleById(Long id);

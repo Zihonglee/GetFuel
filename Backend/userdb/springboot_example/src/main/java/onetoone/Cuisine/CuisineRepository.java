@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface CuisineRepository extends JpaRepository<Cuisine, Long> 
 {
-    public Cuisine findCuisineById(Long id);
+    public Cuisine getCuisineById(Long id);
 
     @Transactional
     public void deleteCuisineById(Long id);

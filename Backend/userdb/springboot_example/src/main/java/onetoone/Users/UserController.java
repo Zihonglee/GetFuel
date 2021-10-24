@@ -35,7 +35,7 @@ public class UserController
 	@GetMapping ("/{id}")
 	public User getPersonById(@PathVariable("id") Long id)
 	{
-		return userRepository.findPersonById(id);
+		return userRepository.getUserById(id);
 	}
 	
 	@DeleteMapping ("/{id}")
@@ -54,7 +54,7 @@ public class UserController
 		}
 		else
 		{
-			User person = userRepository.findPersonById(id);
+			User person = userRepository.getUserById(id);
 			person = personToUpdate;
 			person.setId(id);
 			userRepository.save(person);

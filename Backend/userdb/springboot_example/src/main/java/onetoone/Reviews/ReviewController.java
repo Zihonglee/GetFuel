@@ -30,7 +30,7 @@ public class ReviewController
     @GetMapping("/{id}")
     public Review getReviewById(@PathVariable Long id)
     {
-        return reviewRepository.findReviewById(id);
+        return reviewRepository.getReviewById(id);
     }
 
     @PostMapping
@@ -50,7 +50,7 @@ public class ReviewController
     @PutMapping("/{id}")
     public Review updateReview(@PathVariable Long id, @RequestBody Review request)
     {
-        Review review = reviewRepository.findReviewById(id);
+        Review review = reviewRepository.getReviewById(id);
         if(review == null)
         {
         	return null;
@@ -58,7 +58,7 @@ public class ReviewController
         else
         {
         	reviewRepository.save(request);
-        	return reviewRepository.findReviewById(id);
+        	return reviewRepository.getReviewById(id);
         }
     }
     

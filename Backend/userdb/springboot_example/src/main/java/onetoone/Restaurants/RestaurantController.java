@@ -40,11 +40,11 @@ public class RestaurantController
 	@GetMapping ("/{id}")
 	public Restaurant getRestaurantById(@PathVariable("id") Long id)
 	{
-		return restRepository.findRestaurantById(id);
+		return restRepository.getRestaurantById(id);
 	}
 	
 	@DeleteMapping ("/{id}")
-	public String deletePersonById(@PathVariable("id") Long id)
+	public String deleteRestaurantById(@PathVariable("id") Long id)
 	{
 		restRepository.deleteRestaurantById(id);
 		return "Restaurant deleted";
@@ -59,7 +59,7 @@ public class RestaurantController
 		}
 		else
 		{
-			Restaurant restaurant = restRepository.findRestaurantById(id);
+			Restaurant restaurant = restRepository.getRestaurantById(id);
 			restaurant = restaurantToUpdate;
 			restaurant.setId(id);
 			restRepository.save(restaurant);

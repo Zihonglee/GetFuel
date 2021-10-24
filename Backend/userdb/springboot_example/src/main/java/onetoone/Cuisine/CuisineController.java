@@ -30,7 +30,7 @@ public class CuisineController
 	@GetMapping("{id}")
 	public Cuisine getCuisineById(@PathVariable Long id)
 	{
-		return cuisineRepository.findCuisineById(id);
+		return cuisineRepository.getCuisineById(id);
 	}
 
 	@PostMapping
@@ -50,7 +50,7 @@ public class CuisineController
 	@PutMapping("/{id}")
 	public Cuisine updateCuisine(@PathVariable Long id, @RequestBody Cuisine request)
 	{
-		Cuisine cuisine = cuisineRepository.findCuisineById(id);
+		Cuisine cuisine = cuisineRepository.getCuisineById(id);
 		if(cuisine == null)
 		{
 			return null;
@@ -58,7 +58,7 @@ public class CuisineController
 		else
 		{
 			cuisineRepository.save(request);
-			return cuisineRepository.findCuisineById(id);
+			return cuisineRepository.getCuisineById(id);
 		}
 	}
 
