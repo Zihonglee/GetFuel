@@ -1,6 +1,8 @@
 package com.example.volleytryout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +13,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -18,57 +21,71 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
-    private TextView mTextViewResult;
-    private RequestQueue mQueue;
+    private RecyclerView recyclerView;
+    private MyAdapter mExampleAdapter;
+    private ArrayList<ExampleItem> mExampleList;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTextViewResult = findViewById(R.id.text_view_result);
-        Button buttonParse = findViewById(R.id.button_parse);
+        recyclerView = findViewById(R.id.recyclerview);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mQueue = Volley.newRequestQueue(this);
+        mExampleList = new ArrayList<>();
 
-        buttonParse.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                jsonParse();
-            }
-        });
+        restaurantGetRequest();
     }
-    private void jsonParse(){
 
-        String url = "https://3568159c-cded-4b55-906d-558bb5599e6e.mock.pstmn.io/v1/home";
+        private void restaurantGetRequest(){
+            RequestQueue queue = Volley.newRequestQueue(this);
 
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray jsonArray = response.getJSONArray("restaurants");
+            String url = "http://coms-309-059.cs.iastate.edu:8080/restaurant";
 
-                            for(int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject restaurant = jsonArray.getJSONObject(i);
-                                String restaurantName = restaurant.getString("restName");
-                                String price = restaurant.getString("price");
-                                String rating = restaurant.getString("rating");
 
-                                mTextViewResult.append(restaurantName + "," + price+ ", "+ rating + "\n\n") ;
+
+            JsonArrayRequest jsonRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+                    new Response.Listener<JSONArray>() {
+                        @Override
+                        public void onResponse(JSONArray response) {
+//                        printResult.setText(response.toString());
+                            try {
+                                for(int i = 0; i < response.length(); i++) {
+
+                                    JSONObject restaurants = response.getJSONObject(i);
+                                    String imageUrl = restaurants.getString("imageUrl");
+                                    String restaurantName = restaurants.getString("name");
+                                    String price = restaurants.getString("price");
+
+                                    mExampleList.add(new ExampleItem(imageUrl, restaurantName, price));
+
+                                }
+
+                                mExampleAdapter = new MyAdapter(MainActivity.this, mExampleList);
+                                recyclerView.setAdapter(mExampleAdapter);
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                            queue.stop();
                         }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    queue.stop();
+                }
+            });
 
-        mQueue.add(request);
-    }
+            queue.add(jsonRequest);
+        }
+
 }
