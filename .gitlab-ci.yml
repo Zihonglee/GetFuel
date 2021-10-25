@@ -46,11 +46,11 @@ android-build:
   tags:
    - android_tag
   script:
-    - cd Frontend/GetFueled
+    - cd Frontend/GetFueled/app
     - ./gradlew build
   artifacts:
     paths:
-    - app/build/outputs/
+    - build/outputs/
 
 
 android-test:
