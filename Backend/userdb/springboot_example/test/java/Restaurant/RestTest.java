@@ -25,6 +25,7 @@ public class RestTest
 	@Mock
 	RestaurantRepository repo;
 
+	@SuppressWarnings("deprecation") //not needed
 	@Before
 	public void init() 
 	{
@@ -67,6 +68,7 @@ public class RestTest
 	public void getAllRestaurantTest() 
 	{
 		List<Restaurant> list = new ArrayList<Restaurant>();
+		
 		Cuisine cs = new Cuisine("Asian");
 		Restaurant rest1 = new Restaurant("US Pizza", "$7.00", "8.5", cs, "https://uspizzaco.net/");
 		Restaurant rest2 = new Restaurant("sze chuan", "$11.00", "9.0", cs, "https://www.szechuanhouseames.com/");

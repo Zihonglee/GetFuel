@@ -63,7 +63,7 @@ public class ReviewController
     }
     
     @DeleteMapping("/{id}")
-    String deleteReview(@PathVariable Long id)
+    public String deleteReview(@PathVariable Long id)
     {
         reviewRepository.deleteReviewById(id);
         return "Deleted successfully";
