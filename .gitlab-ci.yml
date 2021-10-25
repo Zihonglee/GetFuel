@@ -11,7 +11,7 @@ maven-build:
   tags:
     - spring_tag
   script:
-    - cd  Backend/userdb/springboot_example
+    - cd  Backend/userdb/springboot_example/src
     - mvn package -B
   
 
