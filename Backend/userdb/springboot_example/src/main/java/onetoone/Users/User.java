@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import onetoone.Roles.Role;
+import org.springframework.beans.factory.annotation.Value;
 
 @Entity
 public class User
@@ -19,6 +20,7 @@ public class User
 	private String name;
     private String email;
 	private String password;
+	private String roleType;
     private LocalDateTime timeCreated = LocalDateTime.now();
 
     @ManyToOne(targetEntity = Role.class)
@@ -29,12 +31,28 @@ public class User
 	
 	public User (String name, String email, String password)
 	{
-		role = new Role();
 		this.email = email;
 		this.name = name;
 		this.password = password;
+		this.roleType= "User";
 	}
-	
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getRoleType() {
+		return roleType;
+	}
+
+	public void setRoleType(String roleType) {
+		this.roleType = roleType;
+	}
+
 	public Long getId()
 	{
 		return id;
@@ -75,15 +93,6 @@ public class User
 		return password;
 	}
 
-    public Role getRole()
-    {
-        return role;
-    }
-
-    public void setRole(Role role) 
-    {
-        this.role = role;
-    }
 	
 	@Override
 	public String toString()
