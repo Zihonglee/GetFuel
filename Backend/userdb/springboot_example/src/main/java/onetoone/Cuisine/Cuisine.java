@@ -23,7 +23,7 @@ public class Cuisine
 		this.cuisineType = cuisineType;
 	}
 
-	public Cuisine() {
+	public Cuisine(){
 	}
 
 	public Long getId() 

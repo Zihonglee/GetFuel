@@ -32,7 +32,7 @@ public class CuisineTest
 	}
 
 	@Test
-	public void getRestaurantTest()
+	public void getCuisineTest()
 	{
 		assertNull(repo.getCuisineById(Long.valueOf(1)));
 		when(repo.getCuisineById(Long.valueOf(1))).thenReturn(new Cuisine("Japanese"));
@@ -45,13 +45,13 @@ public class CuisineTest
 	}
 	
 	@Test
-	public void deleteRestaurantTest()
+	public void deleteCuisineTest()
 	{
 		verify(repo, never()).deleteCuisineById(anyLong());
 		when(repo.getCuisineById(Long.valueOf(1))).thenReturn(new Cuisine("Asian"));
 		
 		doNothing().when(repo).deleteCuisineById(Long.valueOf(1));;
-		String cuisine = cuisineService.deleteCuisine(Long.valueOf(1));
+		String cuisine = cuisineService.deleteCuisineById(Long.valueOf(1));
 		
 		assertEquals("Deleted successfully", cuisine);
 		
@@ -60,7 +60,7 @@ public class CuisineTest
 	}
 
 	@Test
-	public void getAllRestaurantTest() 
+	public void getAllCuisineTest() 
 	{
 		List<Cuisine> list = new ArrayList<Cuisine>();
 		
@@ -79,5 +79,31 @@ public class CuisineTest
 		assertEquals(3, restList.size());
 		
 		verify(repo, never()).getCuisineById(anyLong());
+	}
+	
+	@Test
+	public void createCuisineTest()
+	{		
+		Cuisine cs = null;
+		String cuisineTest = cuisineService.createCuisine(cs);
+		assertEquals("failure", cuisineTest);
+
+		cs = new Cuisine("Japanese");
+		cuisineTest = cuisineService.createCuisine(cs);
+		assertEquals("success", cuisineTest);		
+	}
+	
+	@Test
+	public void updateTest()
+	{
+		Cuisine test = new Cuisine("Asian");
+		when(repo.getCuisineById(Long.valueOf(2))).thenReturn(test);
+		assertEquals(test, cuisineService.getCuisineById(Long.valueOf(2)));
+		
+		Cuisine newtest = new Cuisine("Japanese");
+		cuisineService.updateCuisine(Long.valueOf(2), newtest);
+		assertEquals(newtest.getCuisineType(), repo.getCuisineById(Long.valueOf(2)).getCuisineType());	
+		
+		verify(repo, times(6)).getCuisineById(anyLong());//running in class method as well
 	}
 }

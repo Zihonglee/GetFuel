@@ -22,7 +22,7 @@ public class RestaurantController
 	{
 		if (restaurant == null)
 		{
-			return "Failure";
+			return "failure";
 		}
 		else
 		{
@@ -53,16 +53,19 @@ public class RestaurantController
 	@PutMapping ("/{id}")
 	public String updateRestaurantById(@PathVariable("id") Long id, @RequestBody Restaurant restaurantToUpdate)
 	{
-		if (restaurantToUpdate == null)
+		Restaurant restaurant = restRepository.getRestaurantById(id);
+		if (restaurant == null || restaurantToUpdate == null)
 		{
 			return "Failure";
 		}
 		else
 		{
-			Restaurant restaurant = restRepository.getRestaurantById(id);
-			restaurant = restaurantToUpdate;
-			restaurant.setId(id);
-			restRepository.save(restaurant);
+			restRepository.getRestaurantById(id).setName(restaurantToUpdate.getName());
+			restRepository.getRestaurantById(id).setPrice(restaurantToUpdate.getPrice());
+			restRepository.getRestaurantById(id).setRating(restaurantToUpdate.getRating());
+			restRepository.getRestaurantById(id).setCuisine(restaurantToUpdate.getCuisine());
+			restRepository.getRestaurantById(id).setReviews(restaurantToUpdate.getReviews());
+			restRepository.getRestaurantById(id).setUrl(restaurantToUpdate.getUrl());
 			return "Replacement was successful";
 		}
 	}

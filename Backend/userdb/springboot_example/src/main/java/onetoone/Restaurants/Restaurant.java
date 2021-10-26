@@ -105,6 +105,11 @@ public class Restaurant
 	{
 		return Url;
 	}
+	
+	public void setUrl(String url)
+	{
+		this.Url = url;
+	}
 
 	@Override
 	public String toString()

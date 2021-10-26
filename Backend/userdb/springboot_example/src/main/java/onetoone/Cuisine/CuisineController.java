@@ -51,20 +51,21 @@ public class CuisineController
 	public Cuisine updateCuisine(@PathVariable Long id, @RequestBody Cuisine request)
 	{
 		Cuisine cuisine = cuisineRepository.getCuisineById(id);
-		if(cuisine == null)
+		if(cuisine == null || request == null)
 		{
 			return null;
 		}
 		else
 		{
-			cuisineRepository.save(request);
+			cuisineRepository.getCuisineById(id).setCuisineType(request.getCuisineType());
+			cuisineRepository.getCuisineById(id).setRestaurants(request.getRestaurants());
 			return cuisineRepository.getCuisineById(id);
 		}
 	}
 
 
 	@DeleteMapping("/{id}")
-	public String deleteCuisine(@PathVariable Long id)
+	public String deleteCuisineById(@PathVariable Long id)
 	{
 		cuisineRepository.deleteCuisineById(id);
 		return "Deleted successfully";
