@@ -4,34 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/etR1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Blaze"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.206"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.265"
-        android:onClick="onClick"
-        android:clickable="true"
-        tools:ignore="OnClick" />
-
-    <TextView
-        android:id="@+id/etR2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cafe Beaudelaire"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.674"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.266" />
+    tools:context=".RestaurantPage">
 
     <TextView
         android:id="@+id/etName"
@@ -124,6 +97,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.862" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
