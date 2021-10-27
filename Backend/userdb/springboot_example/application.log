@@ -163,3 +163,6 @@
 2021-10-27 14:41:07.813  INFO 15340 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
 2021-10-27 14:41:07.860  INFO 15340 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
 2021-10-27 14:41:07.876  INFO 15340 --- [restartedMain] onetoone.Main                            : Started Main in 5.201 seconds (JVM running for 5.819)
+2021-10-27 14:52:59.780  INFO 15340 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-27 14:52:59.780  INFO 15340 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-27 14:52:59.827  INFO 15340 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
