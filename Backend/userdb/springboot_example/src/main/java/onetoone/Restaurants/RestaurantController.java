@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import onetoone.Cuisine.CuisineRepository;
+//import onetoone.Cuisine.CuisineRepository;
 
 @RestController
 @RequestMapping (value = "/restaurant")
@@ -14,8 +14,8 @@ public class RestaurantController
 	@Autowired
 	public RestaurantRepository restRepository;
 
-    @Autowired
-    public CuisineRepository cuisineRepository;
+//    @Autowired
+//    public CuisineRepository cuisineRepository;
 	
 	@PostMapping
 	public String addRestaurant(@RequestBody Restaurant restaurant)
