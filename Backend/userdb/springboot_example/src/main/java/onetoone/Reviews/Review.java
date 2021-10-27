@@ -5,7 +5,6 @@ import onetoone.Users.User;
 
 import java.time.LocalDateTime;
 
-
 @Entity
 public class Review
 {
@@ -31,19 +30,23 @@ public class Review
         return id;
     }
 
-    public void setId(Long id){
+    public void setId(Long id)
+    {
         this.id = id;
     }
 
-    public String getComments() {
+    public String getComments()
+    {
         return comments;
     }
 
-    public void setComments(String comments) {
+    public void setComments(String comments)
+    {
         this.comments = comments;
     }
 
-    public LocalDateTime getTimeCreated() {
+    public LocalDateTime getTimeCreated()
+    {
         return timeCreated;
     }
 

@@ -43,21 +43,22 @@ public class RoleController
     @GetMapping("/{id}")
     public Role getRoleById( @PathVariable Long id)
     {
-        return roleRespository.findRoleById(id);
+        return roleRespository.getRoleById(id);
     }
 
     @PutMapping("/{id}")
     public Role updateRole(@PathVariable Long id, @RequestBody Role request)
     {
-        Role role = roleRespository.findRoleById(id);
-        if(role == null)
+        Role role = roleRespository.getRoleById(id);
+        if(role == null || request == null)
         {
         	return null;
         }
         else
         {
-        	roleRespository.save(request);
-        	return roleRespository.findRoleById(id);
+        	roleRespository.getRoleById(id).setRoleType(request.getRoleType());
+        	roleRespository.getRoleById(id).setUsers(request.getUsers());
+        	return roleRespository.getRoleById(id);
         }
     }
 

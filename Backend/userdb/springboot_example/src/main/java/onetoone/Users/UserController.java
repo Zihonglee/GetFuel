@@ -36,7 +36,7 @@ public class UserController
 	@GetMapping ("/{id}")
 	public User getPersonById(@PathVariable("id") Long id)
 	{
-		return userRepository.findPersonById(id);
+		return userRepository.getUserById(id);
 	}
 	
 	@DeleteMapping ("/{id}")
@@ -49,16 +49,16 @@ public class UserController
 	@PutMapping ("/{id}")
 	public String updatePersonById(@PathVariable("id") Long id, @RequestBody User personToUpdate)
 	{
-		if (personToUpdate == null)
+		User person = userRepository.getUserById(id);
+		if (person == null || personToUpdate == null)
 		{
 			return "Failure";
 		}
 		else
 		{
-			User person = userRepository.findPersonById(id);
-			person = personToUpdate;
-			person.setId(id);
-			userRepository.save(person);
+			userRepository.getUserById(id).setTimeCreated(personToUpdate.getTimeCreated());
+			userRepository.getUserById(id).setRole(personToUpdate.getRole());
+			userRepository.getUserById(id).setEmail(personToUpdate.getEmail());
 			return "Replacement was successful";
 		}
 	}

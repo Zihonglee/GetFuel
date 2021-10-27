@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long>
 {
-	public Restaurant findRestaurantById(Long Id);
+	public Restaurant getRestaurantById(Long Id);
 	
 	@Transactional
 	public void deleteRestaurantById(Long Id);

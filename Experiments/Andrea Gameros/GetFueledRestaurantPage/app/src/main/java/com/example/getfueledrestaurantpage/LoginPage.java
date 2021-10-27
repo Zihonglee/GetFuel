@@ -48,7 +48,7 @@ public class LoginPage extends AppCompatActivity
         Login = (Button)findViewById(R.id.btnLogin);
         Info = (TextView)findViewById(R.id.tvInfo);
         CreateAccount = (Button)findViewById(R.id.btnCreateAccount);
-        //msgResponse = (TextView)findViewById(R.id.msgResponse);
+        msgResponse = (TextView)findViewById(R.id.msgResponse);
 
         Info.setText("Number of attempts remaining: 3");
 
@@ -97,7 +97,6 @@ public class LoginPage extends AppCompatActivity
                         try {
                             for(int i = 0; i < response.length(); i++)
                             {
-
                                 JSONObject users = response.getJSONObject(i);
                                 String usernameJ = users.getString("username");
                                 String emailJ = users.getString("email");
@@ -106,7 +105,7 @@ public class LoginPage extends AppCompatActivity
                                 if(name.equals(usernameJ) && password.equals(passwordJ))
                                 {
                                     int t = 1;
-                                    //msgResponse.append(usernameJ + ", " + passwordJ + "\n\n");
+                                    msgResponse.append(usernameJ + ", " + passwordJ + "\n\n");
                                     Toast.makeText(LoginPage.this, "Account found!", Toast.LENGTH_LONG).show();
                                     accountFound = true;
                                     Intent newIntent = new Intent(LoginPage.this, HomePage.class);
