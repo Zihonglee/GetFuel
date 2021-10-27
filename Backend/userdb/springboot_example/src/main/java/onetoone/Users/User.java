@@ -23,18 +23,15 @@ public class User
 	private String roleType;
     private LocalDateTime timeCreated = LocalDateTime.now();
 
-    @ManyToOne(targetEntity = Role.class)
-    private Role role;
-    
 	public User(){
 	}
 	
-	public User (String name, String email, String password)
+	public User (String name, String email, String password, String roleType)
 	{
 		this.email = email;
 		this.name = name;
 		this.password = password;
-		this.roleType= "User";
+		this.roleType= roleType;
 	}
 
 	public void setName(String name) {

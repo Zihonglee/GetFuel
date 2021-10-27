@@ -1,23 +1,15 @@
 package onetoone.Roles;
 
-import onetoone.Users.User;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-
-import java.util.List;
 
 @Entity
 public class Role 
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String roleType;
 
-    @OneToMany(targetEntity = User.class)
-    @JsonIgnore
-    private List<User> users;
 
     public Role() 
     {
@@ -49,13 +41,5 @@ public class Role
         this.roleType = roleType;
     }
 
-    public List<User> getUsers() 
-    {
-        return users;
-    }
 
-    public void setUsers(List<User> users) 
-    {
-        this.users = users;
-    }
 }
