@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import onetoone.Cuisine.CuisineRepository;
+//import onetoone.Cuisine.CuisineRepository;
 
 @RestController
 @RequestMapping (value = "/restaurant")
@@ -14,15 +14,15 @@ public class RestaurantController
 	@Autowired
 	public RestaurantRepository restRepository;
 
-    @Autowired
-    public CuisineRepository cuisineRepository;
+//    @Autowired
+//    public CuisineRepository cuisineRepository;
 	
 	@PostMapping
 	public String addRestaurant(@RequestBody Restaurant restaurant)
 	{
 		if (restaurant == null)
 		{
-			return "Failure";
+			return "failure";
 		}
 		else
 		{
@@ -53,16 +53,19 @@ public class RestaurantController
 	@PutMapping ("/{id}")
 	public String updateRestaurantById(@PathVariable("id") Long id, @RequestBody Restaurant restaurantToUpdate)
 	{
-		if (restaurantToUpdate == null)
+		Restaurant restaurant = restRepository.getRestaurantById(id);
+		if (restaurant == null || restaurantToUpdate == null)
 		{
 			return "Failure";
 		}
 		else
 		{
-			Restaurant restaurant = restRepository.getRestaurantById(id);
-			restaurant = restaurantToUpdate;
-			restaurant.setId(id);
-			restRepository.save(restaurant);
+			restRepository.getRestaurantById(id).setName(restaurantToUpdate.getName());
+			restRepository.getRestaurantById(id).setPrice(restaurantToUpdate.getPrice());
+			restRepository.getRestaurantById(id).setRating(restaurantToUpdate.getRating());
+			restRepository.getRestaurantById(id).setCuisine(restaurantToUpdate.getCuisine());
+			restRepository.getRestaurantById(id).setReviews(restaurantToUpdate.getReviews());
+			restRepository.getRestaurantById(id).setUrl(restaurantToUpdate.getUrl());
 			return "Replacement was successful";
 		}
 	}

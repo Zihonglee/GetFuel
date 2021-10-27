@@ -1,6 +1,7 @@
 package Reviews;
 
 import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
@@ -82,5 +83,32 @@ public class ReviewTest
 		assertEquals(5, reviewList.size());
 		
 		verify(repo, never()).getReviewById(anyLong());
+	}
+	
+	@Test
+	public void createReviewTest()
+	{		
+		Review reviews = null;
+		String ReviewTest = reviewService.createReview(reviews);
+		assertEquals("failure", ReviewTest);
+
+		reviews = new Review("Nice Restaurant");
+		ReviewTest = reviewService.createReview(reviews);
+		assertEquals("success", ReviewTest);		
+	}
+	
+	@Test
+	public void updateTest()
+	{
+		Review test = new Review("Cool Restaurant");
+		when(repo.getReviewById(Long.valueOf(2))).thenReturn(test);
+		assertEquals(test, reviewService.getReviewById(Long.valueOf(2)));
+		
+		Review newtest = new Review("Awesome Restaurant");
+		reviewService.updateReview(Long.valueOf(2), newtest);
+		
+		assertEquals(newtest.getComments(), repo.getReviewById(Long.valueOf(2)).getComments());	
+		
+		verify(repo, times(7)).getReviewById(anyLong()); //running in class method as well
 	}
 }

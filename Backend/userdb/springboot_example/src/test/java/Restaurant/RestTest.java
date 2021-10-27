@@ -1,6 +1,7 @@
 package Restaurant;
 
 import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
@@ -85,6 +86,42 @@ public class RestTest
 		assertEquals(3, restList.size());
 		
 		verify(repo, never()).getRestaurantById(anyLong());
+	}
+	@Test
+	public void addRestaurantTest()
+	{		
+		Restaurant rest = null;
+		String RestService = restService.addRestaurant(rest);
+		assertEquals("failure", RestService);
+
+		Cuisine cs = new Cuisine("Asian");
+		rest = new Restaurant("Thai kitchen", "$10.00", "7.00", cs, "https://www.thaikitchenames.com/");
+		RestService = restService.addRestaurant(rest);
+		assertEquals("Restaurant saved", RestService);		
+	}
+	
+	@Test
+	public void updateTest()
+	{
+		Cuisine cs = new Cuisine("Asian");
+		Restaurant test = new Restaurant("Thai kitchen", "$10.00", "7.00", cs, "https://www.thaikitchenames.com/");
+		when(repo.getRestaurantById(Long.valueOf(2))).thenReturn(test);
+		assertEquals(test, restService.getRestaurantById(Long.valueOf(2)));
+
+		assertEquals("Thai kitchen", repo.getRestaurantById(Long.valueOf(2)).getName());
+		assertEquals("$10.00", repo.getRestaurantById(Long.valueOf(2)).getPrice());
+		assertEquals("7.00", repo.getRestaurantById(Long.valueOf(2)).getRating());
+		assertEquals("https://www.thaikitchenames.com/", repo.getRestaurantById(Long.valueOf(2)).getUrl());
+		
+		Restaurant newtest = new Restaurant("Little Taipei", "$10.00", "6.00", cs, "https://www.ameslittletaipei.com/");
+		restService.updateRestaurantById(Long.valueOf(2), newtest);
+
+		assertEquals("Little Taipei", repo.getRestaurantById(Long.valueOf(2)).getName());
+		assertEquals("$10.00", repo.getRestaurantById(Long.valueOf(2)).getPrice());
+		assertEquals("6.00", repo.getRestaurantById(Long.valueOf(2)).getRating());
+		assertEquals("https://www.ameslittletaipei.com/", repo.getRestaurantById(Long.valueOf(2)).getUrl());
+		
+		verify(repo, times(16)).getRestaurantById(anyLong()); //running in class method as well
 	}
 
 }

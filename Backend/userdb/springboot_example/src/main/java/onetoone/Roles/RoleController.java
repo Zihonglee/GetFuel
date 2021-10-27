@@ -50,13 +50,14 @@ public class RoleController
     public Role updateRole(@PathVariable Long id, @RequestBody Role request)
     {
         Role role = roleRespository.getRoleById(id);
-        if(role == null)
+        if(role == null || request == null)
         {
         	return null;
         }
         else
         {
-        	roleRespository.save(request);
+        	roleRespository.getRoleById(id).setRoleType(request.getRoleType());
+        	roleRespository.getRoleById(id).setUsers(request.getUsers());
         	return roleRespository.getRoleById(id);
         }
     }

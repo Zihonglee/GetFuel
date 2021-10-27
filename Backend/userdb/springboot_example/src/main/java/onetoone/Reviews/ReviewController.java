@@ -51,13 +51,15 @@ public class ReviewController
     public Review updateReview(@PathVariable Long id, @RequestBody Review request)
     {
         Review review = reviewRepository.getReviewById(id);
-        if(review == null)
+        if(review == null || request == null)
         {
         	return null;
         }
         else
         {
-        	reviewRepository.save(request);
+        	reviewRepository.getReviewById(id).setComments(request.getComments());
+        	reviewRepository.getReviewById(id).setTimeCreated(request.getTimeCreated());
+        	reviewRepository.getReviewById(id).setUser(request.getUser());
         	return reviewRepository.getReviewById(id);
         }
     }

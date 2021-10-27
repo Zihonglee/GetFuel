@@ -1,6 +1,6 @@
 package onetoone.Restaurants;
 
-import onetoone.Cuisine.Cuisine;
+//import onetoone.Cuisine.Cuisine;
 import onetoone.Reviews.Review;
 
 import javax.persistence.*;
@@ -18,8 +18,8 @@ public class Restaurant
 	private String rating;
 	private String Url;
 
-	@ManyToOne(targetEntity = Cuisine.class)
-	private Cuisine cuisine;
+//	@ManyToOne(targetEntity = Cuisine.class)
+	private String cuisine;
 
 	@OneToMany(mappedBy = "id")
 	private List<Review> reviews;
@@ -27,7 +27,7 @@ public class Restaurant
 	public Restaurant(){
 	}
 
-	public Restaurant(String name, String price, String rating, Cuisine cuisine, String imageUrl)
+	public Restaurant(String name, String price, String rating, String cuisine, String imageUrl)
 	{
 		this.name = name;
 		this.price = price;
@@ -76,12 +76,17 @@ public class Restaurant
 		this.rating = rating;
 	}
 
-	public Cuisine getCuisine()
+	public String getCuisine()
 	{
 		return cuisine;
 	}
 
-	public void setCuisine(Cuisine cuisine)
+//	public void setCuisine(Cuisine cuisine)
+//	{
+//		this.cuisine = cuisine;
+//	}
+	
+	public void setCuisine(String cuisine)
 	{
 		this.cuisine = cuisine;
 	}
@@ -104,6 +109,11 @@ public class Restaurant
 	public String getUrl()
 	{
 		return Url;
+	}
+	
+	public void setUrl(String url)
+	{
+		this.Url = url;
 	}
 
 	@Override
