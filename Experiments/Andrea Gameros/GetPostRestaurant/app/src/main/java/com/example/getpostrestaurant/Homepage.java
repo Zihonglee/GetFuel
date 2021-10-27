@@ -23,8 +23,7 @@ public class Homepage extends AppCompatActivity
 {
     public TextView r1;
     public TextView r2;
-    public String Name;
-    public String
+    public static String Name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -57,6 +56,7 @@ public class Homepage extends AppCompatActivity
     }
 
 
+    /**
     private void getInfo(String s)
     {
         RequestQueue queue = Volley.newRequestQueue(this);

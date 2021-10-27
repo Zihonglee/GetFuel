@@ -35,8 +35,19 @@ public class RestaurantPage extends AppCompatActivity
         Cuisine = (TextView)findViewById(R.id.etCuisine2);
         Rating = (TextView)findViewById(R.id.etRating2);
 
+        String name = getRestaurant();
+        getInfo(name);
+
         //String n = name.getText().toString();
         //getInfo(n);
+    }
+
+    //how to pull info from homepage
+    //put into get info which is called when made
+    public String getRestaurant()
+    {
+        String name = Homepage.Name;
+        return name;
     }
 
     private void getInfo(String s)
