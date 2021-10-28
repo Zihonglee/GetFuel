@@ -80,7 +80,8 @@ public class addingRestaurantPage extends AppCompatActivity {
             }
         }
 
-
+// need to do dropdown for cuisines, since we are fixed with a certain cuisine already
+// unless we are really adding a cuisine then we need to create a postCuisine method adding to cuisine url
         JSONObject object = new JSONObject();
 
         try{
