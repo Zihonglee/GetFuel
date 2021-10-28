@@ -64,5 +64,3 @@ android-test:
   script:
     - cd Frontend/GetFueled
     - ./gradlew test
-
-
