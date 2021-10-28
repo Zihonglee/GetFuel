@@ -57,8 +57,9 @@ public class UserController
 		else
 		{
 			userRepository.getUserById(id).setTimeCreated(personToUpdate.getTimeCreated());
-			userRepository.getUserById(id).setRole(personToUpdate.getRole());
+			userRepository.getUserById(id).setRoleType(personToUpdate.getRoleType());
 			userRepository.getUserById(id).setEmail(personToUpdate.getEmail());
+
 			return "Replacement was successful";
 		}
 	}
