@@ -110,6 +110,8 @@ public class LoginPage extends AppCompatActivity
                                     accountFound = true;
                                     Intent newIntent = new Intent(LoginPage.this, HomePage.class);
                                     startActivity(newIntent);
+                                    String role = users.getString("role");
+                                    //checkRole(role);
                                 }
                             }
 
@@ -154,6 +156,13 @@ public class LoginPage extends AppCompatActivity
             Toast.makeText(LoginPage.this, "Account not found", Toast.LENGTH_LONG).show();
         }
         **/
+    }
+
+    //will give different permissions
+    //will enable more screen choices
+    public void checkRole()
+    {
+
     }
 
     /**
