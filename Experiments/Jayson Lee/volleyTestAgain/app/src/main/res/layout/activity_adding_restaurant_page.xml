@@ -52,14 +52,28 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+<!--    <EditText-->
+<!--        android:id="@+id/inputImageUrl"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:layout_marginBottom="276dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Input url"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:minHeight="48dp"-->
+<!--        android:textColor="#000000"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
+
     <EditText
-        android:id="@+id/inputImageUrl"
+        android:id="@+id/inputCuisine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="276dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="228dp"
         android:ems="10"
-        android:hint="Input url"
+        android:hint="Input Cuisine"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColor="#000000"
@@ -104,13 +118,25 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/inputRating" />
 
+<!--    <TextView-->
+<!--        android:id="@+id/imageUrl"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="88dp"-->
+<!--        android:layout_marginBottom="288dp"-->
+<!--        android:text="ImageUrl:"-->
+<!--        android:textColor="#000000"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/inputRating" />-->
+
     <TextView
-        android:id="@+id/imageUrl"
+        android:id="@+id/cuisine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="88dp"
-        android:layout_marginBottom="288dp"
-        android:text="ImageUrl:"
+        android:layout_marginBottom="232dp"
+        android:text="Cuisine:"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -138,6 +164,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.625" />
+        app:layout_constraintVertical_bias="0.695" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13728470111448834" />
         <entry key="app/src/main/res/layout/create_account_screen.xml" value="0.39515072103908727" />
         <entry key="app/src/main/res/layout/home_screen.xml" value="0.13728470111448834" />
-        <entry key="app/src/main/res/layout/login_screen.xml" value="0.13728470111448834" />
+        <entry key="app/src/main/res/layout/login_screen.xml" value="0.25" />
         <entry key="app/src/main/res/layout/map_page.xml" value="0.13728470111448834" />
         <entry key="app/src/main/res/layout/random_restaurant_screen.xml" value="0.13728470111448834" />
         <entry key="app/src/main/res/layout/restaurant_screen.xml" value="0.13728470111448834" />

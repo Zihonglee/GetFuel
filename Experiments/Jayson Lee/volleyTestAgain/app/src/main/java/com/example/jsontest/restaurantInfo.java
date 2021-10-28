@@ -96,9 +96,10 @@ public class restaurantInfo extends AppCompatActivity {
                                 String firstName = restaurants.getString("name");
                                 String price = restaurants.getString("price");
                                 String rating = restaurants.getString("rating");
+                                String cuisine = restaurants.getString("cuisine");
 
 
-                                restaurantInfo.append(i+1 + ". "+ firstName + ", " + price + ", "+ rating + "\n\n"); ;
+                                restaurantInfo.append(i+1 + ". "+ firstName + ", " + price + ", "+ rating + ", " + cuisine + "\n\n"); ;
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

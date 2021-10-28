@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class addingRestaurantPage extends AppCompatActivity {
-    private EditText restaurantInput, ratingInput, priceInput, imageUrlInput;
+    private EditText restaurantInput, ratingInput, priceInput, imageUrlInput,cuisineInput;
     private Button saveRestaurantBtn;
 
     @Override
@@ -44,7 +44,7 @@ public class addingRestaurantPage extends AppCompatActivity {
         restaurantInput = findViewById(R.id.inputRestaurant);
         priceInput = findViewById(R.id.inputPrice);
         ratingInput = findViewById(R.id.inputRating);
-        imageUrlInput = findViewById(R.id.inputImageUrl);
+        cuisineInput = findViewById(R.id.inputCuisine);
 
         saveRestaurantBtn = findViewById(R.id.saveRestaurant);
 
@@ -60,14 +60,14 @@ public class addingRestaurantPage extends AppCompatActivity {
 
     private void postRestaurant(){
 
-        final String restaurantName, price, rating, imageUrl;
+        final String restaurantName, price, rating, cuisine;
         RequestQueue restQueue = Volley.newRequestQueue(this);
         String restUrl = "http://coms-309-059.cs.iastate.edu:8080/restaurant";
 
         restaurantName= restaurantInput.getText().toString();
         price= priceInput.getText().toString();
         rating= ratingInput.getText().toString();
-        imageUrl = imageUrlInput.getText().toString();
+        cuisine =  cuisineInput.getText().toString();
 
 
         abstract class MyJsonArrayRequest extends JsonRequest<JSONArray> {
@@ -87,7 +87,8 @@ public class addingRestaurantPage extends AppCompatActivity {
             object.put("name",restaurantName);
             object.put("price",price);
             object.put("rating", rating);
-            object.put("url", imageUrl);
+            object.put("cuisine", cuisine);
+
         }catch (JSONException e){
             e.printStackTrace();
         }
