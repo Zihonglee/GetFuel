@@ -30,7 +30,7 @@ public class ReviewController
     @GetMapping("/{id}")
     public Review getReviewById(@PathVariable Long id)
     {
-        return reviewRepository.findReviewById(id);
+        return reviewRepository.getReviewById(id);
     }
 
     @PostMapping
@@ -50,20 +50,22 @@ public class ReviewController
     @PutMapping("/{id}")
     public Review updateReview(@PathVariable Long id, @RequestBody Review request)
     {
-        Review review = reviewRepository.findReviewById(id);
-        if(review == null)
+        Review review = reviewRepository.getReviewById(id);
+        if(review == null || request == null)
         {
         	return null;
         }
         else
         {
-        	reviewRepository.save(request);
-        	return reviewRepository.findReviewById(id);
+        	reviewRepository.getReviewById(id).setComments(request.getComments());
+        	reviewRepository.getReviewById(id).setTimeCreated(request.getTimeCreated());
+        	reviewRepository.getReviewById(id).setUser(request.getUser());
+        	return reviewRepository.getReviewById(id);
         }
     }
     
     @DeleteMapping("/{id}")
-    String deleteReview(@PathVariable Long id)
+    public String deleteReview(@PathVariable Long id)
     {
         reviewRepository.deleteReviewById(id);
         return "Deleted successfully";
