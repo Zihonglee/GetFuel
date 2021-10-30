@@ -16,7 +16,7 @@ public class CuisineController
 	@GetMapping
 	public List<Cuisine> getAllCuisine()
 	{
-		return cuisineRepository.findAll(Sort.by(Sort.Direction.ASC, "cuisine_type"));
+		return cuisineRepository.findAll(Sort.by(Sort.Direction.ASC, "cuisineType"));
 	}
 
 	@GetMapping("{id}")
