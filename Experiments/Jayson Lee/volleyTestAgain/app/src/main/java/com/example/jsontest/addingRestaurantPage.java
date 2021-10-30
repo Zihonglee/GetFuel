@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -29,12 +31,16 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class addingRestaurantPage extends AppCompatActivity {
-    private EditText restaurantInput, ratingInput, priceInput, imageUrlInput,cuisineInput;
+    private EditText restaurantInput, ratingInput, priceInput, imageUrlInput;
+    private AutoCompleteTextView cuisineSelection;
     private Button saveRestaurantBtn;
+    private ArrayAdapter<String> arrayAdapter;
+    private ArrayList<String> cuisineList = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +50,10 @@ public class addingRestaurantPage extends AppCompatActivity {
         restaurantInput = findViewById(R.id.inputRestaurant);
         priceInput = findViewById(R.id.inputPrice);
         ratingInput = findViewById(R.id.inputRating);
-        cuisineInput = findViewById(R.id.inputCuisine);
+        cuisineSelection = findViewById(R.id.autoCompleteTextView);
+
+        getCuisine();
+
 
         saveRestaurantBtn = findViewById(R.id.saveRestaurant);
 
@@ -54,6 +63,48 @@ public class addingRestaurantPage extends AppCompatActivity {
                postRestaurant();
             }
         });
+
+    }
+
+    private void getCuisine(){
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        String url = "http://coms-309-059.cs.iastate.edu:8080/cuisines";
+
+
+
+        JsonArrayRequest jsonRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+//                        printResult.setText(response.toString());
+                        try {
+                            for(int i = 0; i < response.length(); i++) {
+
+                                JSONObject cuisines = response.getJSONObject(i);
+                                String cuisine = cuisines.getString("cuisineType");
+
+                                cuisineList.add(cuisine);
+
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        queue.stop();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                queue.stop();
+            }
+        });
+
+        arrayAdapter = new ArrayAdapter<String>(this, R.layout.dropdown_item, cuisineList);
+        cuisineSelection.setAdapter(arrayAdapter);
+
+
+        queue.add(jsonRequest);
 
     }
 
@@ -67,7 +118,7 @@ public class addingRestaurantPage extends AppCompatActivity {
         restaurantName= restaurantInput.getText().toString();
         price= priceInput.getText().toString();
         rating= ratingInput.getText().toString();
-        cuisine =  cuisineInput.getText().toString();
+
 
 
         abstract class MyJsonArrayRequest extends JsonRequest<JSONArray> {
@@ -88,7 +139,7 @@ public class addingRestaurantPage extends AppCompatActivity {
             object.put("name",restaurantName);
             object.put("price",price);
             object.put("rating", rating);
-            object.put("cuisine", cuisine);
+
 
         }catch (JSONException e){
             e.printStackTrace();
