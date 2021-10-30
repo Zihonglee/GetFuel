@@ -22,6 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+//@author-Andrea Gameros
 public class LoginScreen extends AppCompatActivity {
 
     private EditText Name;
@@ -31,7 +32,6 @@ public class LoginScreen extends AppCompatActivity {
     private int counter = 3; //number of login attempts
     private Button CreateAccount;
     private RequestQueue requestQueue;
-    private TextView msgResponse;
     boolean accountFound = false;
 
     @Override
@@ -45,7 +45,6 @@ public class LoginScreen extends AppCompatActivity {
         Login = (Button)findViewById(R.id.btnLogin);
         Info = (TextView)findViewById(R.id.tvInfo);
         CreateAccount = (Button)findViewById(R.id.btnCreateAccount);
-        msgResponse = (TextView)findViewById(R.id.msgResponse);
 
         Info.setText("Number of attempts remaining: 3");
 
@@ -92,12 +91,12 @@ public class LoginScreen extends AppCompatActivity {
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject users = response.getJSONObject(i);
                                 String usernameJ = users.getString("username");
-                                String emailJ = users.getString("email");
+                                //String emailJ = users.getString("email");
                                 String passwordJ = users.getString("password");
 
                                 if (name.equals(usernameJ) && password.equals(passwordJ)) {
                                     int t = 1;
-                                    msgResponse.append(usernameJ + ", " + passwordJ + "\n\n");
+                                    //msgResponse.append(usernameJ + ", " + passwordJ + "\n\n");
                                     Toast.makeText(LoginScreen.this, "Account found!", Toast.LENGTH_LONG).show();
                                     accountFound = true;
                                     Intent newIntent = new Intent(LoginScreen.this, HomeScreen.class);
