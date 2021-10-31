@@ -3,11 +3,16 @@ package com.example.mainscreen;
 //@author-Andrea Gameros
 public class Restaurant
 {
-    private String name;
-    private String cuisine;
-    private double rating;
+    public String name;
+    public String cuisine;
+    public String rating;
 
-   public Restaurant(String name, String cuisine, double rating)
+    public Restaurant()
+    {
+
+    }
+
+   public Restaurant(String name, String cuisine, String rating)
    {
         this.setName(name);
         this.setCuisine(cuisine);
@@ -34,12 +39,12 @@ public class Restaurant
         this.cuisine = cuisine;
     }
 
-    public double getRating()
+    public String getRating()
     {
         return rating;
     }
 
-    public void setRating(Double rating)
+    public void setRating(String rating)
     {
         this.rating = rating;
     }

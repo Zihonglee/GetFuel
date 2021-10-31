@@ -79,7 +79,7 @@ public class PullRestaurantList extends AsyncTask<Void, Restaurant, Void>
             String json_string = stringBuilder.toString().trim();
 
             JSONObject jsonObject = new JSONObject(json_string);
-            JSONArray jsonArray = jsonObject.getJSONArray("restaurant_list"); //this might cause problem
+            JSONArray jsonArray = jsonObject.getJSONArray("restaurant_list");
             int count = 0;
             while(count < jsonArray.length())
             {
@@ -88,7 +88,7 @@ public class PullRestaurantList extends AsyncTask<Void, Restaurant, Void>
 
                 String joNAME = JO.getString("name");
                 String joCUISINE = JO.getString("cuisine");
-                Double joRATING = JO.getDouble("rating");
+                String joRATING = JO.getString("rating");
 
                 Restaurant restaurant = new Restaurant(joNAME, joCUISINE, joRATING);
                 publishProgress(restaurant);
