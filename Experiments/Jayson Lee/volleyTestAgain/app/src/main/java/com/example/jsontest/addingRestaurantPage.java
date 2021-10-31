@@ -51,6 +51,7 @@ public class addingRestaurantPage extends AppCompatActivity {
         priceInput = findViewById(R.id.inputPrice);
         ratingInput = findViewById(R.id.inputRating);
         cuisineSelection = findViewById(R.id.autoCompleteTextView);
+        imageUrlInput = findViewById(R.id.inputImageUrl);
 
         getCuisine();
 
@@ -111,13 +112,15 @@ public class addingRestaurantPage extends AppCompatActivity {
 
     private void postRestaurant(){
 
-        final String restaurantName, price, rating, cuisine;
+        final String restaurantName, price, rating, imageUrl, cuisine;
         RequestQueue restQueue = Volley.newRequestQueue(this);
         String restUrl = "http://coms-309-059.cs.iastate.edu:8080/restaurant";
 
         restaurantName= restaurantInput.getText().toString();
         price= priceInput.getText().toString();
         rating= ratingInput.getText().toString();
+        cuisine = cuisineSelection.getText().toString();
+        imageUrl= imageUrlInput.getText().toString();
 
 
 
@@ -134,11 +137,15 @@ public class addingRestaurantPage extends AppCompatActivity {
 // need to do dropdown for cuisines, since we are fixed with a certain cuisine already
 // unless we are really adding a cuisine then we need to create a postCuisine method adding to cuisine url
         JSONObject object = new JSONObject();
+        JSONObject cuisineJSON = new JSONObject();
 
         try{
+            cuisineJSON.put("cuisineType", cuisine);
             object.put("name",restaurantName);
             object.put("price",price);
             object.put("rating", rating);
+            object.put("cuisine", cuisineJSON.getJSONObject("cuisine"));
+            object.put("url", imageUrl);
 
 
         }catch (JSONException e){
