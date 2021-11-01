@@ -43,8 +43,8 @@ public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteLis
         extractRestaurants();
 
         //recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //adapter = new Adapter(this,restaurants);
-        //recyclerView.setAdapter();
+        adapter = new Adapter(this,restaurants);
+        recyclerView.setAdapter(adapter);
     }
 
     private void extractRestaurants()
