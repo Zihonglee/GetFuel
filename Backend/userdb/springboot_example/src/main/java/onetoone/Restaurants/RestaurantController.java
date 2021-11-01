@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import onetoone.Cuisine.CuisineRepository;
+import onetoone.Cuisine.Cuisine;
 
 
 @RestController
@@ -50,7 +51,20 @@ public class RestaurantController
 		restRepository.deleteRestaurantById(id);
 		return "Restaurant deleted";
 	}
-	
+
+	@PutMapping("/{restid}/cusine/{cuisineid}")
+	String assigneCusinetoRest(@PathVariable Long restId,@PathVariable Long cusineId){
+		Restaurant restaurant = restRepository.getRestaurantById(restId);
+		Cuisine cuisine = cuisineRepository.getCuisineById(cusineId);
+		if(restaurant == null || cuisine == null)
+			return "failure";
+		cuisine.setRestaurants((List<Restaurant>) restaurant);
+		restaurant.setCuisine(cuisine);
+		restRepository.save(restaurant);
+		return "success";
+	}
+
+
 	@PutMapping ("/{id}")
 	public String updateRestaurantById(@PathVariable("id") Long id, @RequestBody Restaurant restaurantToUpdate)
 	{
