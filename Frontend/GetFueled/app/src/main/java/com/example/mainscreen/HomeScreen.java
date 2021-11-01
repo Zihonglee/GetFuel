@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -23,8 +24,9 @@ import java.util.List;
 
 //@author-Andrea Gameros
 //added implements...
-public class HomeScreen extends AppCompatActivity implements Adapter.OnNoteListener
+public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteListener
 {
+
     RecyclerView recyclerView;
     List<Restaurant> restaurants;
     private static String JSON_URL = "https://e29a5922-2c06-41b4-83a8-8141fc23a42b.mock.pstmn.io/restaurants";
@@ -56,9 +58,9 @@ public class HomeScreen extends AppCompatActivity implements Adapter.OnNoteListe
                 {
                     for(int i = 0; i < response.length(); i++)
                     {
-
                         JSONObject restaurantObject = response.getJSONObject(i);
 
+                        Toast.makeText(HomeScreen.this, "Restaurant", Toast.LENGTH_LONG).show();
                         Restaurant restaurant = new Restaurant();
                         restaurant.setName(restaurantObject.getString("name").toString());
                         restaurant.setCuisine(restaurantObject.getString("cuisine").toString());
@@ -70,18 +72,20 @@ public class HomeScreen extends AppCompatActivity implements Adapter.OnNoteListe
                 }
 
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                adapter = new Adapter(getApplicationContext(),restaurants, adapter.mOnNoteListener); //added mOnNote..
+                adapter = new Adapter(getApplicationContext(),restaurants); //adapter.mOnNoteListener); //added mOnNote..
                 recyclerView.setAdapter(adapter);
             }
             },new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Toast.makeText(HomeScreen.this, "Error", Toast.LENGTH_LONG).show();
                 error.printStackTrace();
             }
         });
         queue.add(jsonArrayRequest);
     }
 
+    /**
     //added everything below
     @Override
     public void onNoteClick(int position)
@@ -91,6 +95,7 @@ public class HomeScreen extends AppCompatActivity implements Adapter.OnNoteListe
         Intent intent = new Intent(this, RestaurantScreen.class);
         startActivity(intent);
     }
+
 
     /**
     @Override

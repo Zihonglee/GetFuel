@@ -16,20 +16,20 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
 {
     LayoutInflater inflater;
     List<Restaurant> restaurants;
-    OnNoteListener mOnNoteListener;
+    //OnNoteListener mOnNoteListener;
 
-    public Adapter(Context ctx, List<Restaurant> restaurants, OnNoteListener onNoteListener)
+    public Adapter(Context ctx, List<Restaurant> restaurants) // OnNoteListener onNoteListener)
     {
         this.inflater = LayoutInflater.from(ctx);
         this.restaurants = restaurants;
-        this.mOnNoteListener = onNoteListener; //added
+        //this.mOnNoteListener = onNoteListener; //added
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
-        View view = inflater.inflate(R.layout.custom_list_layout, parent, false);
+        View view = inflater.inflate(R.layout.storage, parent, false);
         return new ViewHolder(view);
     }
 
@@ -50,27 +50,28 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
     }
 
     //added implements...
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+    public class ViewHolder extends RecyclerView.ViewHolder //implements View.OnClickListener
     {
         TextView restaurantName;
         TextView restaurantCuisine;
         TextView restaurantRating;
-        ImageView restaurantImg;
-        OnNoteListener onNoteListener; //added
+        //ImageView restaurantImg;
+        //OnNoteListener onNoteListener; //added
 
-        public ViewHolder(View itemView)
-        {
+        public ViewHolder(View itemView) {
             super(itemView);
 
             restaurantName = itemView.findViewById(R.id.restaurantName);
             restaurantCuisine = itemView.findViewById(R.id.restaurantCuisine);
             restaurantRating = itemView.findViewById(R.id.restaurantRating);
-            restaurantImg = itemView.findViewById(R.id.restaurantImg);
-            this.onNoteListener = onNoteListener; //added
+            //restaurantImg = itemView.findViewById(R.id.restaurantImg);
+            //this.onNoteListener = onNoteListener; //added
 
-            itemView.setOnClickListener(this); //added
+            //itemView.setOnClickListener(this); //added
         }
+    }
 
+        /**
         //added everything below
         @Override
         public void onClick(View view)
@@ -83,5 +84,5 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
     {
         void onNoteClick(int position);
     }
-
+    **/
 }
