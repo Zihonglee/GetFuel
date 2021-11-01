@@ -12,6 +12,7 @@ import java.net.URL;
 public class DownloadUrl
 {
 
+    /**
     public String readUrl(String strUrl) throws IOException
     {
         String data = "";
@@ -53,5 +54,6 @@ public class DownloadUrl
         }
         return data;
     }
+     **/
 }
 

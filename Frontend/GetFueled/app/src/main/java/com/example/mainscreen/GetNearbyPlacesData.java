@@ -14,11 +14,27 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by navneet on 23/7/16.
- */
-public class GetNearbyPlacesData extends AsyncTask<Object, String, String> {
 
+public class GetNearbyPlacesData extends AsyncTask<Object, String, String>
+{
+    private String googlePlaceData;
+    private GoogleMap mMap;
+    private String url;
+
+
+    @Override
+    protected String doInBackground(Object... objects)
+    {
+        return null;
+    }
+
+    @Override
+    protected void onPostExecute(String s)
+    {
+        super.onPostExecute(s);
+    }
+
+    /**
     String googlePlacesData;
     GoogleMap mMap;
     String url;
@@ -67,4 +83,5 @@ public class GetNearbyPlacesData extends AsyncTask<Object, String, String> {
             mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
         }
     }
+    **/
 }
