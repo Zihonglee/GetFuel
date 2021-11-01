@@ -98,7 +98,7 @@ public class LoginScreen extends AppCompatActivity {
                                 if (name.equals(usernameJ) && password.equals(passwordJ)) {
                                     int t = 1;
                                     msgResponse.append(usernameJ + ", " + passwordJ + "\n\n");
-                                    Toast.makeText(LoginScreen.this, "Account found!", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(LoginScreen.this, "Account found!", Toast.LENGTH_SHORT).show();
                                     accountFound = true;
                                     Intent newIntent = new Intent(LoginScreen.this, HomeScreen.class);
                                     startActivity(newIntent);
