@@ -14,8 +14,8 @@ import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
 {
-    LayoutInflater inflater;
-    List<Restaurant> restaurants;
+    private LayoutInflater inflater;
+    private List<Restaurant> restaurants;
     //OnNoteListener mOnNoteListener;
 
     public Adapter(Context ctx, List<Restaurant> restaurants) // OnNoteListener onNoteListener)

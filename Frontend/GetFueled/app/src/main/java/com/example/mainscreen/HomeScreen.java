@@ -37,7 +37,7 @@ public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen2);
 
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView2);
         restaurants = new ArrayList<>();
         
         extractRestaurants();
