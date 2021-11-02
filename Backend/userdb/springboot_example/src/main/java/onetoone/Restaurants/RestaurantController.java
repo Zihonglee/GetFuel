@@ -63,12 +63,19 @@ public class RestaurantController
 		else
 		{
 			List<Restaurant> getall = cuisine.getRestaurants();
-			getall.add(restaurant);
-			cuisine.setRestaurants(getall);
-			restaurant.setCuisine(cuisine);
-			restRepository.save(restaurant);
-			cuisineRepository.save(cuisine);
-			return "success";
+			if (getall == null)
+			{
+				return "failure";
+			}
+			else
+			{
+				getall.add(restaurant);
+				cuisine.setRestaurants(getall);
+				restaurant.setCuisine(cuisine);
+				restRepository.save(restaurant);
+				cuisineRepository.save(cuisine);
+				return "success";
+			}
 		}
 	}
 

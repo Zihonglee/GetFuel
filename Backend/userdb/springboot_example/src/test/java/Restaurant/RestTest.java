@@ -14,6 +14,7 @@
 //import org.mockito.MockitoAnnotations;
 //
 //import onetoone.Cuisine.Cuisine;
+//import onetoone.Cuisine.CuisineRepository;
 //import onetoone.Restaurants.Restaurant;
 //import onetoone.Restaurants.RestaurantController;
 //import onetoone.Restaurants.RestaurantRepository;
@@ -22,6 +23,9 @@
 //{
 //	@InjectMocks
 //	RestaurantController restService;
+//
+//	@Mock
+//	CuisineRepository crepo;
 //
 //	@Mock
 //	RestaurantRepository repo;
@@ -122,5 +126,46 @@
 //		assertEquals("https://www.ameslittletaipei.com/", repo.getRestaurantById(Long.valueOf(2)).getUrl());
 //		
 //		verify(repo, times(10)).getRestaurantById(anyLong()); //running in class method as well
+//	}
+//	
+//	@Test
+//	public void assignTest()
+//	{
+//		when(repo.getRestaurantById(Long.valueOf(1))).thenReturn(null);
+//		when(crepo.getCuisineById(Long.valueOf(1))).thenReturn(null);
+//		String output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(1));
+//		assertEquals(output, "failure");
+//		
+//		when(crepo.getCuisineById(Long.valueOf(1))).thenReturn(new Cuisine("Japanese"));
+//		output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(1)); //since one of them is still null
+//		assertEquals(output, "failure");
+//
+//		when(repo.getRestaurantById(Long.valueOf(1))).thenReturn(new Restaurant("Thai kitchen", "$10.00", "7.00", new Cuisine("Japanese"), "https://www.thaikitchenames.com/"));
+//		when(crepo.getCuisineById(Long.valueOf(1))).thenReturn(null);
+//		output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(1)); //since one of them is still null
+//		assertEquals(output, "failure");
+//		
+//		Cuisine cs = new Cuisine("Chinese");
+//		when(repo.getRestaurantById(Long.valueOf(1))).thenReturn(new Restaurant("Thai kitchen", "$10.00", "7.00", null, "https://www.thaikitchenames.com/"));
+//		when(crepo.getCuisineById(Long.valueOf(1))).thenReturn(cs);
+//
+//		output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(1));
+//		assertEquals(output, "failure"); //since the list is an empty list
+//		
+//		List<Restaurant> restaurants = new ArrayList<>();
+//		restaurants.add(new Restaurant("Little Taipei", "$10.00", "6.00", cs, "https://www.ameslittletaipei.com/"));
+//		cs.setRestaurants(restaurants);
+//		crepo.save(cs);
+//		
+//		output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(1));
+//		assertEquals(output, "success");
+//		assertEquals(repo.getRestaurantById(Long.valueOf(1)).getCuisine().getCuisineType(), "Chinese");	
+//		
+////		cs = new Cuisine("Japanese");
+////		when(crepo.getCuisineById(Long.valueOf(2))).thenReturn(cs);
+////		output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(1));
+////		assertEquals(output, "success");
+////		assertEquals(repo.getRestaurantById(Long.valueOf(1)).getCuisine().getCuisineType(), "Japanese");
+////		//if got time include verify 
 //	}
 //}
