@@ -37,8 +37,8 @@ public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteLis
     RecyclerView recyclerView;
     List<Restaurant> restaurants;
     //private static String JSON_URL = "https://e29a5922-2c06-41b4-83a8-8141fc23a42b.mock.pstmn.io/restaurants";
-    //private static String JSON_URL = "http://coms-309-059.cs.iastate.edu:8080/restaurant";
-    private static String JSON_URL = "https://d75f244e-33fd-4efa-bc17-a3c5ae9ffdc5.mock.pstmn.io/restaurants";
+    //private static String JSON_URL = "https://d75f244e-33fd-4efa-bc17-a3c5ae9ffdc5.mock.pstmn.io/restaurants";
+    private static String JSON_URL = "http://coms-309-059.cs.iastate.edu:8080/restaurant";
     Adapter adapter;
 
     private ImageButton RestaurantImage;
@@ -51,22 +51,6 @@ public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteLis
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        /**
-<<<<<<< HEAD
-        setContentView(R.layout.home_screen);
-
-        button = (Button)findViewById(R.id.button2);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                Intent intent = new Intent(view.getContext(), MapPage.class);
-                startActivity(intent);
-            }
-        });
-        **/
-
         setContentView(R.layout.home_screen2);
 
         recyclerView = findViewById(R.id.recyclerView2);

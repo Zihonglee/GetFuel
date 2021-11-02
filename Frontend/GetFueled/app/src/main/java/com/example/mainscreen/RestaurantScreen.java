@@ -55,8 +55,9 @@ public class RestaurantScreen extends AppCompatActivity
     {
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        String url = "https://d75f244e-33fd-4efa-bc17-a3c5ae9ffdc5.mock.pstmn.io/restaurants";
+        //String url = "https://d75f244e-33fd-4efa-bc17-a3c5ae9ffdc5.mock.pstmn.io/restaurants";
         //String url = "https://2ae09dfa-c0e2-4a04-a9aa-66e4ada57766.mock.pstmn.io";
+        String url = "http://coms-309-059.cs.iastate.edu:8080/restaurant";
 
 
         JsonArrayRequest jsonRequest = new JsonArrayRequest(Request.Method.GET, url, null,
