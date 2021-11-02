@@ -75,8 +75,8 @@ public class LoginScreen extends AppCompatActivity {
         //boolean accountFound = false;
 
         //String url = "https://8710b90a-ebe0-4f8f-956e-5c6998590fe8.mock.pstmn.io/Post";
-        String url = "https://2ae09dfa-c0e2-4a04-a9aa-66e4ada57766.mock.pstmn.io/users";
-        //String url = "http://coms-309-059.cs.iastate.edu:8080/user";
+        //String url = "https://2ae09dfa-c0e2-4a04-a9aa-66e4ada57766.mock.pstmn.io/users";
+        String url = "https://coms-309-059.cs.iastate.edu:8080/user";
 
         String name = Name.getText().toString();
         String password = Password.getText().toString();
@@ -90,13 +90,13 @@ public class LoginScreen extends AppCompatActivity {
                         try {
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject users = response.getJSONObject(i);
-                                String usernameJ = users.getString("username");
+                                String usernameJ = users.getString("name");
                                 //String emailJ = users.getString("email");
                                 String passwordJ = users.getString("password");
 
-                                if (name.equals(usernameJ) && password.equals(passwordJ)) {
+                                if (name.equals(usernameJ) && password.equals(passwordJ))
+                                {
                                     int t = 1;
-                                    //msgResponse.append(usernameJ + ", " + passwordJ + "\n\n");
                                     Toast.makeText(LoginScreen.this, "Account found!", Toast.LENGTH_LONG).show();
                                     accountFound = true;
                                     Intent newIntent = new Intent(LoginScreen.this, HomeScreen.class);
@@ -124,7 +124,7 @@ public class LoginScreen extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(LoginScreen.this, "Account not found", Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginScreen.this, "Error", Toast.LENGTH_LONG).show();
                 error.printStackTrace();
                 queue.stop();
             }
