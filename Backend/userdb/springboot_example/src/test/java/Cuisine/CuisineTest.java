@@ -104,6 +104,6 @@
 //		cuisineService.updateCuisine(Long.valueOf(2), newtest);
 //		assertEquals(newtest.getCuisineType(), repo.getCuisineById(Long.valueOf(2)).getCuisineType());	
 //		
-//		verify(repo, times(6)).getCuisineById(anyLong());//running in class method as well
+//		verify(repo, times(3)).getCuisineById(anyLong());//running in class method as well
 //	}
 //}

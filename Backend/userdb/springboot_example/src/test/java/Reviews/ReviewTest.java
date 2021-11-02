@@ -109,6 +109,6 @@
 //		
 //		assertEquals(newtest.getComments(), repo.getReviewById(Long.valueOf(2)).getComments());	
 //		
-//		verify(repo, times(7)).getReviewById(anyLong()); //running in class method as well
+//		verify(repo, times(3)).getReviewById(anyLong()); //running in class method as well
 //	}
 //}
