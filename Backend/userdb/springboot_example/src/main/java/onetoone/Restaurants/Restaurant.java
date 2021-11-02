@@ -85,11 +85,6 @@ public class Restaurant
 	{
 		this.cuisine = cuisine;
 	}
-//	
-//	public void setCuisine(String cuisine)
-//	{
-//		this.cuisine = cuisine;
-//	}
 
 	public List<Review> getReviews() 
 	{

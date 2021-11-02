@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import onetoone.Cuisine.CuisineRepository;
 import onetoone.Cuisine.Cuisine;
 
-
 @RestController
 @RequestMapping (value = "/restaurant")
 public class RestaurantController
@@ -52,10 +51,10 @@ public class RestaurantController
 		return "Restaurant deleted";
 	}
 
-	@PutMapping("/{restid}/cuisine/{cuisineid}")
-	String assigneCusinetoRest(@PathVariable Long restId, @PathVariable Long cusineId)
+	@PutMapping("/{id}/{cusineId}")
+	public String assigneCusinetoRest(@PathVariable Long id, @PathVariable Long cusineId)
 	{
-		Restaurant restaurant = restRepository.getRestaurantById(restId);
+		Restaurant restaurant = restRepository.getRestaurantById(id);
 		Cuisine cuisine = cuisineRepository.getCuisineById(cusineId);
 		if(restaurant == null || cuisine == null)
 		{
