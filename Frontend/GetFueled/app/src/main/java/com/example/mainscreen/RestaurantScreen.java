@@ -70,17 +70,25 @@ public class RestaurantScreen extends AppCompatActivity
                             {
                                 JSONObject restaurants = response.getJSONObject(i);
                                 String nameJ = restaurants.getString("name");
-                                String priceJ = restaurants.getString("price");
-                                String cuisineJ = restaurants.getString("cuisine");
-                                String ratingJ = restaurants.getString("rating");
+                                //String priceJ = restaurants.getString("price");
+                                //String cuisineJ = restaurants.getString("cuisine");
+                                //String ratingJ = restaurants.getString("rating");
 
 
                                 if(s.equals(nameJ))
                                 {
+                                    String priceJ = restaurants.getString("price");
+                                    //String cuisineJ = restaurants.getString("cuisine");
+                                    String ratingJ = restaurants.getString("rating");
+
                                     Name.append(nameJ);
                                     Price.append(priceJ);
-                                    Cuisine.append(cuisineJ);
+                                    //Cuisine.append(cuisineJ);
                                     Rating.append(ratingJ);
+
+                                    JSONObject cuisine = restaurants.getJSONObject("cuisine");
+                                    String cuisineJ = cuisine.getString("cuisineType");
+                                    Cuisine.append(cuisineJ);
                                 }
                             }
                         }

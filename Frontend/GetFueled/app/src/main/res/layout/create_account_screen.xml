@@ -44,7 +44,7 @@
         android:backgroundTint="#F4F4F4"
         android:text="CREATE ACCOUNT"
         android:textColor="#FF0000"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnSigninHere"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,8 +55,6 @@
         android:id="@+id/etPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:layout_marginBottom="424dp"
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
@@ -66,7 +64,7 @@
         app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etUserName"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.059" />
 
     <EditText
         android:id="@+id/etPassword2"
@@ -81,35 +79,33 @@
         app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword"
-        app:layout_constraintVertical_bias="0.122" />
+        app:layout_constraintVertical_bias="0.09" />
 
     <TextView
         android:id="@+id/tvAccountExists"
-        android:layout_width="202dp"
-        android:layout_height="43dp"
+        android:layout_width="179dp"
+        android:layout_height="49dp"
         android:text="Already have an account?"
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintEnd_toStartOf="@+id/btnSigninHere"
+        app:layout_constraintHorizontal_bias="0.615"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword2"
-        app:layout_constraintVertical_bias="0.663" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCreateAccount"
+        app:layout_constraintVertical_bias="0.514" />
 
     <Button
         android:id="@+id/btnSigninHere"
-        android:layout_width="193dp"
-        android:layout_height="41dp"
-        android:layout_marginBottom="100dp"
+        android:layout_width="171dp"
+        android:layout_height="52dp"
         android:backgroundTint="#F4F4F4"
         android:text="Sign in here"
         android:textColor="#FF0000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.926"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvAccountExists"
         app:layout_constraintTop_toBottomOf="@+id/btnCreateAccount"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="TouchTargetSizeCheck" />
+        app:layout_constraintVertical_bias="0.967" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
