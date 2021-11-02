@@ -51,7 +51,7 @@ public class RestaurantController
 		return "Restaurant deleted";
 	}
 
-	@PutMapping("/{restaurantsId}/{cuisineId}")
+	@PutMapping("/{restaurantsId}/cuisine/{cuisineId}")
 	public String assigneCusinetoRest(@PathVariable Long restaurantsId, @PathVariable Long cuisineId)
 	{
 		Restaurant restaurant = restRepository.getRestaurantById(restaurantsId);
