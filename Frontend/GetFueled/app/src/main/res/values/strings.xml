@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">MainScreen</string>
+    <string name="Open">NavBar</string>
+    <string name="Close">NavBar</string>
     <string name="title_activity_random_restaurant_screen">RandomRestaurantScreen</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

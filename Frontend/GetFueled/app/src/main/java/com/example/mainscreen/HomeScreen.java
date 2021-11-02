@@ -1,11 +1,16 @@
 package com.example.mainscreen;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -14,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,6 +40,10 @@ public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteLis
     private static String JSON_URL = "https://d75f244e-33fd-4efa-bc17-a3c5ae9ffdc5.mock.pstmn.io/restaurants";
     Adapter adapter;
 
+    private ImageButton RestaurantImage;
+    private DrawerLayout dl;
+    private ActionBarDrawerToggle abdt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -48,7 +58,77 @@ public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteLis
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new Adapter(this,restaurants);
         recyclerView.setAdapter(adapter);
+
+
+        dl = (DrawerLayout)findViewById(R.id.dl);
+        abdt = new ActionBarDrawerToggle(this, dl, R.string.Open, R.string.Close);
+        abdt.setDrawerIndicatorEnabled(true);
+
+        dl.addDrawerListener(abdt);
+        abdt.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        final NavigationView nav_view = (NavigationView) findViewById(R.id.nav_view);
+
+        nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
+        {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item)
+            {
+                int id = item.getItemId();
+
+                if(id == R.id.home)
+                {
+                    //toast provides simple feedback about an operation of a small popup
+                    Toast.makeText(HomeScreen.this, "HomePage", Toast.LENGTH_SHORT).show();
+                }
+
+                if(id == R.id.search)
+                {
+                    //toast provides simple feedback about an operation of a small popup
+                    Toast.makeText(HomeScreen.this, "Search", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(HomeScreen.this, SearchScreen.class);
+                    startActivity(intent);
+                }
+
+                if(id == R.id.map)
+                {
+                    //toast provides simple feedback about an operation of a small popup
+                    Toast.makeText(HomeScreen.this, "Map", Toast.LENGTH_SHORT).show();
+                    //Intent intent = new Intent(HomeScreen.this, MapPage.class);
+                    //startActivity(intent);
+                }
+
+                if(id == R.id.foodpicker)
+                {
+                    //toast provides simple feedback about an operation of a small popup
+                    Toast.makeText(HomeScreen.this, "FoodPicker", Toast.LENGTH_SHORT).show();
+                    //Intent intent = new Intent(HomeScreen.this, FoodPickerPage.class);
+                   // startActivity(intent);
+                }
+
+                if(id == R.id.logout)
+                {
+                    //toast provides simple feedback about an operation of a small popup
+                    Toast.makeText(HomeScreen.this, "Logout", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(HomeScreen.this, LoginScreen.class);
+                    startActivity(intent);
+                }
+
+
+                return true;
+            }
+        });
+
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item)
+    {
+        return abdt.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+    }
+
 
     private void extractRestaurants()
     {
