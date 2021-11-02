@@ -3,19 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/create_account_screen.xml" value="0.20742753623188406" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/activity_main.xml" value="0.26766304347826086" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/activity_test.xml" value="0.302536231884058" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/create_account_screen.xml" value="0.25" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/custom_list_layout.xml" value="0.22" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/header_layout.xml" value="0.23867753623188406" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/home_screen.xml" value="0.20742753623188406" />
-        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/login_screen.xml" value="0.20742753623188406" />
-        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/map_page.xml" value="0.36666666666666664" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/home_screen2.xml" value="0.24320652173913043" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/login_screen.xml" value="0.22" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/map_page2.xml" value="0.23020833333333332" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/navigation_header.xml" value="0.1" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/restaurant_screen.xml" value="0.20742753623188406" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/row_layout.xml" value="0.23867753623188406" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/search_screen.xml" value="0.20742753623188406" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/search_screen2.xml" value="0.23867753623188406" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/storage.xml" value="0.25" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/menu/navigation_header.xml" value="0.1" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/menu/navigation_menu.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13728470111448834" />
-        <entry key="app/src/main/res/layout/create_account_screen.xml" value="0.39515072103908727" />
-        <entry key="app/src/main/res/layout/home_screen.xml" value="0.13728470111448834" />
-        <entry key="app/src/main/res/layout/login_screen.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/map_page.xml" value="0.13728470111448834" />
-        <entry key="app/src/main/res/layout/random_restaurant_screen.xml" value="0.13728470111448834" />
-        <entry key="app/src/main/res/layout/restaurant_screen.xml" value="0.13728470111448834" />
       </map>
     </option>
   </component>

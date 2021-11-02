@@ -9,15 +9,21 @@
     android:orientation = "vertical"
     android:id="@+id/dl">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageButton
-            android:id="@+id/imageButton"
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="303dp"
-            app:srcCompat="@drawable/restimg" />
+            android:layout_height="match_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -25,21 +31,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/imageButton"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="147dp"
-            android:layout_marginTop="154dp"
-            android:layout_marginEnd="170dp"
-            android:layout_marginBottom="-101dp"
-            android:text="Button" />
-
     </RelativeLayout>
-
-
 </androidx.drawerlayout.widget.DrawerLayout>
 

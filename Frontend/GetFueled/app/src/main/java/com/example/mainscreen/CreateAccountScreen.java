@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -17,8 +16,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -29,6 +26,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+//@author-Andrea Gameros
 public class CreateAccountScreen extends AppCompatActivity {
 
     private EditText Email;
@@ -37,7 +35,6 @@ public class CreateAccountScreen extends AppCompatActivity {
     private EditText Password2;
     private Button CreateAccount;
     private Button SigninHere;
-    private TextView msgResponse;
     RequestQueue requestQueue;
 
     @Override
@@ -51,7 +48,6 @@ public class CreateAccountScreen extends AppCompatActivity {
         Password2 = (EditText)findViewById(R.id.etPassword2);
         CreateAccount = (Button)findViewById(R.id.btnCreateAccount);
         SigninHere = (Button)findViewById(R.id.btnSigninHere);
-        msgResponse = (TextView)findViewById(R.id.msgResponse);
 
         //stores info into database
         CreateAccount.setOnClickListener(new View.OnClickListener()
@@ -129,6 +125,7 @@ public class CreateAccountScreen extends AppCompatActivity {
             object.put("name", username);
             object.put("email", email);
             object.put("password", password);
+            object.put("role", "user");
         }
 
         catch (JSONException e)

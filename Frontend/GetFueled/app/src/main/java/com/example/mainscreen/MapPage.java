@@ -19,14 +19,14 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.example.mainscreen.databinding.MapPageBinding;
+import com.example.mainscreen.databinding.MapPage2Binding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
 public class MapPage extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private MapPageBinding binding;
+    private MapPage2Binding binding;
     private int ACCESS_LOCATION_REQUEST_CODE = 10001;
     FusedLocationProviderClient fusedLocationProviderClient;
 
@@ -34,7 +34,7 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = MapPageBinding.inflate(getLayoutInflater());
+        binding = MapPage2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
