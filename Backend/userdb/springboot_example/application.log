@@ -2142,3 +2142,5 @@ java.sql.SQLSyntaxErrorException: Table 'mydb.cuisine_restaurants' doesn't exist
 2021-11-01 23:49:19.273  INFO 8816 --- [restartedMain] onetoone.Main                            : Started Main in 2.167 seconds (JVM running for 510.449)
 2021-11-01 23:49:19.274  INFO 8816 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
 2021-11-01 23:49:33.683  INFO 8816 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-01 23:49:33.683  INFO 8816 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-01 23:49:33.685  INFO 8816 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
