@@ -19,13 +19,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
 {
     private LayoutInflater inflater;
     private List<Restaurant> restaurants;
-    //OnNoteListener mOnNoteListener;
+    public static String Name;
 
     public Adapter(Context ctx, List<Restaurant> restaurants)
     {
         this.inflater = LayoutInflater.from(ctx);
         this.restaurants = restaurants;
-        //this.mOnNoteListener = onNoteListener; //added
     }
 
     @NonNull
@@ -33,11 +32,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
         View view = inflater.inflate(R.layout.storage, parent, false);
-        return new ViewHolder(view); // mOnNoteListener);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position)
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position)
     {
         //bind the data
         holder.restaurantName.setText(restaurants.get(position).getName());
@@ -48,7 +47,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
         holder.itemView.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
+                Name =  restaurants.get(position).getName();
                 Intent intent = new Intent(v.getContext(), RestaurantScreen.class);
                 //intent.putExtra("name", restaurants.get(position).getName());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -71,7 +72,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
         TextView restaurantRating;
         //ConstraintLayout mainLayout;
         //ImageView restaurantImg;
-        //OnNoteListener onNoteListener; //added
+
 
         public ViewHolder(View itemView) //OnNoteListener onNoteListener)
         {
@@ -81,44 +82,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
             restaurantCuisine = itemView.findViewById(R.id.restaurantCuisine);
             restaurantRating = itemView.findViewById(R.id.restaurantRating);
             //restaurantImg = itemView.findViewById(R.id.restaurantImg);
-            //this.onNoteListener = onNoteListener; //added
-
-            //itemView.setOnClickListener(this); //added
         }
 
-    }//delete if reimplement override
-
-        /**
-        @Override
-        public void onClick(View view)
-        {
-            onNoteListener.onNoteClick(getAdapterPosition());
-            //itemView.setOnClickListener(this);
-        }
     }
-
-
-    public interface OnNoteListener
-    {
-        void onNoteClick(int position);
-    }
-
-
-    /**
-        //added everything below
-        @Override
-        public void onClick(View view)
-        {
-            onNoteListener.onNoteClick(getAdapterPosition());
-        }
-    }
-
-
-
-    public interface OnNoteListener
-    {
-        void onNoteClick(int position);
-    }
-
-    **/
 }

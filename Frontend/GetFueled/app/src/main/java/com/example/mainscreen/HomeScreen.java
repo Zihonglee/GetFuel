@@ -35,7 +35,8 @@ public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteLis
     Adapter adapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen2);
 
@@ -45,7 +46,7 @@ public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteLis
         extractRestaurants();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new Adapter(this,restaurants); // adapter.mOnNoteListener);
+        adapter = new Adapter(this,restaurants);
         recyclerView.setAdapter(adapter);
     }
 
@@ -62,7 +63,7 @@ public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteLis
                     {
                         JSONObject restaurantObject = response.getJSONObject(i);
 
-                        Toast.makeText(HomeScreen.this, "Restaurant", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(HomeScreen.this, "Restaurant", Toast.LENGTH_LONG).show();
                         Restaurant restaurant = new Restaurant();
                         restaurant.setName(restaurantObject.getString("name").toString());
                         restaurant.setCuisine(restaurantObject.getString("cuisine").toString());
@@ -74,7 +75,7 @@ public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteLis
                 }
 
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                adapter = new Adapter(getApplicationContext(),restaurants); //adapter.mOnNoteListener); //added mOnNote..
+                adapter = new Adapter(getApplicationContext(),restaurants);
                 recyclerView.setAdapter(adapter);
             }
             },new Response.ErrorListener() {

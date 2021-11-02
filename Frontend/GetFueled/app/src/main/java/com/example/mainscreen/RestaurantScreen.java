@@ -36,8 +36,8 @@ public class RestaurantScreen extends AppCompatActivity
         Cuisine = (TextView)findViewById(R.id.etCuisine2);
         Rating = (TextView)findViewById(R.id.etRating2);
 
-        //String name = getRestaurant();
-        //getInfo(name);
+        String name = getRestaurant();
+        getInfo(name);
 
         //String n = name.getText().toString();
         //getInfo(n);
@@ -47,8 +47,7 @@ public class RestaurantScreen extends AppCompatActivity
     //put into get info which is called when made
     public String getRestaurant()
     {
-        //String name = HomeScreen.Name;
-        String name = "";
+        String name = Adapter.Name;
         return name;
     }
 
@@ -56,7 +55,7 @@ public class RestaurantScreen extends AppCompatActivity
     {
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        String url = "https://e29a5922-2c06-41b4-83a8-8141fc23a42b.mock.pstmn.io/restaurants";
+        String url = "https://d75f244e-33fd-4efa-bc17-a3c5ae9ffdc5.mock.pstmn.io/restaurants";
 
         JsonArrayRequest jsonRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
@@ -79,7 +78,6 @@ public class RestaurantScreen extends AppCompatActivity
                                     Price.append(priceJ);
                                     Cuisine.append(cuisineJ);
                                     Rating.append(ratingJ);
-                                    //Toast.makeText(MainActivity.this,"Equal found",Toast.LENGTH_LONG).show();
                                 }
                             }
                         }
