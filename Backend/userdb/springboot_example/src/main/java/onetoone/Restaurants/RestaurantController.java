@@ -51,11 +51,11 @@ public class RestaurantController
 		return "Restaurant deleted";
 	}
 
-	@PutMapping("/{id}/{cusineId}")
-	public String assigneCusinetoRest(@PathVariable Long id, @PathVariable Long cusineId)
+	@PutMapping("/{restaurantsId}/{cuisineId}")
+	public String assigneCusinetoRest(@PathVariable Long restaurantsId, @PathVariable Long cuisineId)
 	{
-		Restaurant restaurant = restRepository.getRestaurantById(id);
-		Cuisine cuisine = cuisineRepository.getCuisineById(cusineId);
+		Restaurant restaurant = restRepository.getRestaurantById(restaurantsId);
+		Cuisine cuisine = cuisineRepository.getCuisineById(cuisineId);
 		if(restaurant == null || cuisine == null)
 		{
 			return "failure";
