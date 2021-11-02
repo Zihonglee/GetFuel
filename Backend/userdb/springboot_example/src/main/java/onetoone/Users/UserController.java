@@ -55,10 +55,10 @@ public class UserController
 		}
 		else
 		{
-			userRepository.getUserById(id).setTimeCreated(personToUpdate.getTimeCreated());
-			userRepository.getUserById(id).setRoleType(personToUpdate.getRoleType());
-			userRepository.getUserById(id).setEmail(personToUpdate.getEmail());
-
+			person.setTimeCreated(personToUpdate.getTimeCreated());
+			person.setRoleType(personToUpdate.getRoleType());
+			person.setEmail(personToUpdate.getEmail());
+			userRepository.save(person);
 			return "Replacement was successful";
 		}
 	}

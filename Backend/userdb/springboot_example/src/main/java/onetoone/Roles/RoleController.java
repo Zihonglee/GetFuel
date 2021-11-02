@@ -1,4 +1,3 @@
-
 //package onetoone.Roles;
 //
 //import java.util.List;
@@ -48,7 +47,7 @@
 //    }
 //
 //    @PutMapping("/{id}")
-//    public Role updateRole(@PathVariable Long id, @RequestBody Role request)
+//    public String updateRole(@PathVariable Long id, @RequestBody Role request)
 //    {
 //        Role role = roleRespository.findRoleById(id);
 //        if(role == null)
@@ -57,8 +56,9 @@
 //        }
 //        else
 //        {
-//        	roleRespository.save(request);
-//        	return roleRespository.findRoleById(id);
+//        	role.setRoleType(request.getRoleType());
+//        	roleRespository.save(role);
+//        	return "Replacement was successful";
 //        }
 //    }
 //

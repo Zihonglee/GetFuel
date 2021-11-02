@@ -16,9 +16,9 @@ public class RestaurantController
 	@Autowired
 	public RestaurantRepository restRepository;
 
-    @Autowired
-    public CuisineRepository cuisineRepository;
-	
+	@Autowired
+	public CuisineRepository cuisineRepository;
+
 	@PostMapping
 	public String addRestaurant(@RequestBody Restaurant restaurant)
 	{
@@ -32,41 +32,49 @@ public class RestaurantController
 			return "Restaurant saved";
 		}
 	}
-	
+
 	@GetMapping
 	public List<Restaurant> getAllRestaurant()
 	{
 		return restRepository.findAll();
 	}
-	
+
 	@GetMapping ("/{id}")
-	public Restaurant getRestaurantById(@PathVariable("id") Long id)
+	public Restaurant getRestaurantById(@PathVariable Long id)
 	{
 		return restRepository.getRestaurantById(id);
 	}
-	
+
 	@DeleteMapping ("/{id}")
-	public String deleteRestaurantById(@PathVariable("id") Long id)
+	public String deleteRestaurantById(@PathVariable Long id)
 	{
 		restRepository.deleteRestaurantById(id);
 		return "Restaurant deleted";
 	}
 
 	@PutMapping("/{restid}/cuisine/{cuisineid}")
-	String assigneCusinetoRest(@PathVariable Long restId,@PathVariable Long cusineId){
+	String assigneCusinetoRest(@PathVariable Long restId, @PathVariable Long cusineId)
+	{
 		Restaurant restaurant = restRepository.getRestaurantById(restId);
 		Cuisine cuisine = cuisineRepository.getCuisineById(cusineId);
 		if(restaurant == null || cuisine == null)
+		{
 			return "failure";
-		cuisine.setRestaurants((List<Restaurant>) restaurant);
-		restaurant.setCuisine(cuisine);
-		restRepository.save(restaurant);
-		return "success";
+		}
+		else
+		{
+			List<Restaurant> getall = cuisine.getRestaurants();
+			getall.add(restaurant);
+			cuisine.setRestaurants(getall);
+			restaurant.setCuisine(cuisine);
+			restRepository.save(restaurant);
+			cuisineRepository.save(cuisine);
+			return "success";
+		}
 	}
 
-
 	@PutMapping ("/{id}")
-	public String updateRestaurantById(@PathVariable("id") Long id, @RequestBody Restaurant restaurantToUpdate)
+	public String updateRestaurantById(@PathVariable Long id, @RequestBody Restaurant restaurantToUpdate)
 	{
 		Restaurant restaurant = restRepository.getRestaurantById(id);
 		if (restaurant == null || restaurantToUpdate == null)
@@ -75,12 +83,13 @@ public class RestaurantController
 		}
 		else
 		{
-			restRepository.getRestaurantById(id).setName(restaurantToUpdate.getName());
-			restRepository.getRestaurantById(id).setPrice(restaurantToUpdate.getPrice());
-			restRepository.getRestaurantById(id).setRating(restaurantToUpdate.getRating());
-			restRepository.getRestaurantById(id).setCuisine(restaurantToUpdate.getCuisine());
-			restRepository.getRestaurantById(id).setReviews(restaurantToUpdate.getReviews());
-			restRepository.getRestaurantById(id).setUrl(restaurantToUpdate.getUrl());
+			restaurant.setName(restaurantToUpdate.getName());
+			restaurant.setPrice(restaurantToUpdate.getPrice());
+			restaurant.setRating(restaurantToUpdate.getRating());
+			restaurant.setCuisine(restaurantToUpdate.getCuisine());
+			restaurant.setReviews(restaurantToUpdate.getReviews());
+			restaurant.setUrl(restaurantToUpdate.getUrl());
+			restRepository.save(restaurant);
 			return "Replacement was successful";
 		}
 	}

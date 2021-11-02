@@ -41,7 +41,7 @@ public class CuisineController
 	}
 
 	@PutMapping("/{id}")
-	public Cuisine updateCuisine(@PathVariable Long id, @RequestBody Cuisine request)
+	public String updateCuisine(@PathVariable Long id, @RequestBody Cuisine request)
 	{
 		Cuisine cuisine = cuisineRepository.getCuisineById(id);
 		if(cuisine == null || request == null)
@@ -50,9 +50,10 @@ public class CuisineController
 		}
 		else
 		{
-			cuisineRepository.getCuisineById(id).setCuisineType(request.getCuisineType());
-			cuisineRepository.getCuisineById(id).setRestaurants(request.getRestaurants());
-			return cuisineRepository.getCuisineById(id);
+			cuisine.setCuisineType(request.getCuisineType());
+			cuisine.setRestaurants(request.getRestaurants());
+			cuisineRepository.save(cuisine);
+			return "Replacement was successful";
 		}
 	}
 

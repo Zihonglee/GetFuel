@@ -48,7 +48,7 @@ public class ReviewController
     }
 
     @PutMapping("/{id}")
-    public Review updateReview(@PathVariable Long id, @RequestBody Review request)
+    public String updateReview(@PathVariable Long id, @RequestBody Review request)
     {
         Review review = reviewRepository.getReviewById(id);
         if(review == null || request == null)
@@ -57,10 +57,11 @@ public class ReviewController
         }
         else
         {
-        	reviewRepository.getReviewById(id).setComments(request.getComments());
-        	reviewRepository.getReviewById(id).setTimeCreated(request.getTimeCreated());
-        	reviewRepository.getReviewById(id).setUser(request.getUser());
-        	return reviewRepository.getReviewById(id);
+        	review.setComments(request.getComments());
+        	review.setTimeCreated(request.getTimeCreated());
+        	review.setUser(request.getUser());
+        	reviewRepository.save(review);
+        	return "Replacement was successful";
         }
     }
     
