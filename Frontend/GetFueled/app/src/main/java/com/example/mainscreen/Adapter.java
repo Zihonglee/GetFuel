@@ -1,6 +1,8 @@
 package com.example.mainscreen;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -18,7 +21,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
     private List<Restaurant> restaurants;
     //OnNoteListener mOnNoteListener;
 
-    public Adapter(Context ctx, List<Restaurant> restaurants) // OnNoteListener onNoteListener)
+    public Adapter(Context ctx, List<Restaurant> restaurants)
     {
         this.inflater = LayoutInflater.from(ctx);
         this.restaurants = restaurants;
@@ -30,7 +33,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
         View view = inflater.inflate(R.layout.storage, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view); // mOnNoteListener);
     }
 
     @Override
@@ -40,7 +43,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
         holder.restaurantName.setText(restaurants.get(position).getName());
         holder.restaurantCuisine.setText(restaurants.get(position).getCuisine());
         holder.restaurantRating.setText(String.valueOf(restaurants.get(position).getRating()));
-        //Picasso.get().load(restaurants.get(position.getCoverImage().into(holder.restaurantImg)
+        //Picasso.get().load(restaurants.get(position.getCoverImage().into(holder.restaurantImg);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), RestaurantScreen.class);
+                //intent.putExtra("name", restaurants.get(position).getName());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -55,10 +69,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
         TextView restaurantName;
         TextView restaurantCuisine;
         TextView restaurantRating;
+        //ConstraintLayout mainLayout;
         //ImageView restaurantImg;
         //OnNoteListener onNoteListener; //added
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(View itemView) //OnNoteListener onNoteListener)
+        {
             super(itemView);
 
             restaurantName = itemView.findViewById(R.id.restaurantName);
@@ -69,9 +85,26 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
 
             //itemView.setOnClickListener(this); //added
         }
-    }
+
+    }//delete if reimplement override
 
         /**
+        @Override
+        public void onClick(View view)
+        {
+            onNoteListener.onNoteClick(getAdapterPosition());
+            //itemView.setOnClickListener(this);
+        }
+    }
+
+
+    public interface OnNoteListener
+    {
+        void onNoteClick(int position);
+    }
+
+
+    /**
         //added everything below
         @Override
         public void onClick(View view)
@@ -80,9 +113,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
         }
     }
 
+
+
     public interface OnNoteListener
     {
         void onNoteClick(int position);
     }
+
     **/
 }

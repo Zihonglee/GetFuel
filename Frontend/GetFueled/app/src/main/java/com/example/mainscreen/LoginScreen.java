@@ -74,7 +74,8 @@ public class LoginScreen extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         //boolean accountFound = false;
 
-        String url = "https://8710b90a-ebe0-4f8f-956e-5c6998590fe8.mock.pstmn.io/Post";
+        //String url = "https://8710b90a-ebe0-4f8f-956e-5c6998590fe8.mock.pstmn.io/Post";
+        String url = "https://2ae09dfa-c0e2-4a04-a9aa-66e4ada57766.mock.pstmn.io/users";
         //String url = "http://coms-309-059.cs.iastate.edu:8080/user";
 
         String name = Name.getText().toString();

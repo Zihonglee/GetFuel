@@ -29,7 +29,9 @@ public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteLis
 
     RecyclerView recyclerView;
     List<Restaurant> restaurants;
-    private static String JSON_URL = "https://e29a5922-2c06-41b4-83a8-8141fc23a42b.mock.pstmn.io/restaurants";
+    //private static String JSON_URL = "https://e29a5922-2c06-41b4-83a8-8141fc23a42b.mock.pstmn.io/restaurants";
+    //private static String JSON_URL = "http://coms-309-059.cs.iastate.edu:8080/restaurant";
+    private static String JSON_URL = "https://d75f244e-33fd-4efa-bc17-a3c5ae9ffdc5.mock.pstmn.io/restaurants";
     Adapter adapter;
 
     @Override
@@ -42,8 +44,8 @@ public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteLis
         
         extractRestaurants();
 
-        //recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new Adapter(this,restaurants);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new Adapter(this,restaurants); // adapter.mOnNoteListener);
         recyclerView.setAdapter(adapter);
     }
 
@@ -83,17 +85,6 @@ public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteLis
             }
         });
         queue.add(jsonArrayRequest);
-    }
-
-    /**
-    //added everything below
-    @Override
-    public void onNoteClick(int position)
-    {
-        //reference to selected restaurant
-        restaurants.get(position);
-        Intent intent = new Intent(this, RestaurantScreen.class);
-        startActivity(intent);
     }
 
 

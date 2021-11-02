@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/activity_main.xml" value="0.26766304347826086" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/activity_test.xml" value="0.302536231884058" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/create_account_screen.xml" value="0.25" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/custom_list_layout.xml" value="0.22" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/header_layout.xml" value="0.23867753623188406" />
@@ -14,7 +15,7 @@
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/row_layout.xml" value="0.23867753623188406" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/search_screen.xml" value="0.20742753623188406" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/search_screen2.xml" value="0.23867753623188406" />
-        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/storage.xml" value="0.23177083333333334" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/storage.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13728470111448834" />
       </map>
     </option>
