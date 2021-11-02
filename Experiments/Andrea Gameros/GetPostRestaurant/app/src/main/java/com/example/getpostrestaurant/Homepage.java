@@ -39,6 +39,7 @@ public class Homepage extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+                Name = r1.getText().toString();
                 Intent newIntent = new Intent(view.getContext(), RestaurantPage.class);
                 startActivity(newIntent);
             }
@@ -49,6 +50,7 @@ public class Homepage extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+                Name = r2.getText().toString();
                 Intent newIntent = new Intent(view.getContext(), RestaurantPage.class);
                 startActivity(newIntent);
             }
