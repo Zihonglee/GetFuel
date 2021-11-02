@@ -87,16 +87,4 @@ public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteLis
         });
         queue.add(jsonArrayRequest);
     }
-
-
-    /**
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_screen);
-        PullRestaurantList pullRestaurantList = new PullRestaurantList(HomeScreen.this);
-        pullRestaurantList.execute();
-    }
-    **/
 }
