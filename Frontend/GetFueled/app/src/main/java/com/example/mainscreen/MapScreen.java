@@ -166,17 +166,20 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
                     if(!TextUtils.isEmpty(searchAddress))
                     {
                         Geocoder geocoder = new Geocoder(this);
+                        int t = 1;
 
                         //gives 6 max results based on user input
                         try
                         {
-                            addressList = geocoder.getFromLocationName(searchAddress, 6);
+                            addressList = geocoder.getFromLocationName(searchAddress, 1);
+                            int n = 1;
 
                             if(addressList != null)
                             {
                                 for(int i = 0; i < addressList.size(); i++)
                                 {
                                     Address userAddress = addressList.get(i);
+                                    int s = 1;
 
                                     //creates latitute and longitute for every addresss
                                     LatLng latLng = new LatLng(userAddress.getLatitude(), userAddress.getLongitude());
@@ -198,6 +201,7 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
                         }
                         catch (IOException e)
                         {
+                            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
                             e.printStackTrace();
                         }
                     }
@@ -316,6 +320,8 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
             return;
         }
         Task<Location> locationTask = fusedLocationProviderClient.getLastLocation();
+        //Task<Location> locationTask = fusedLocationProviderClient.requestLocationUpdates();
+
         locationTask.addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location)
