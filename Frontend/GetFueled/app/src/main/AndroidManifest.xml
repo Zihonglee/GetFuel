@@ -42,8 +42,7 @@
 
         <activity
             android:name=".MapScreen"
-            android:exported="true"
-            android:label="@string/title_activity_map_page" />
+            android:exported="true"/>
         <activity
             android:name=".SearchScreen"
             android:exported="true" />

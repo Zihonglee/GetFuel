@@ -125,7 +125,7 @@ public class CreateAccountScreen extends AppCompatActivity {
             object.put("name", username);
             object.put("email", email);
             object.put("password", password);
-            object.put("role", "user");
+            object.put("roleType", "user");
         }
 
         catch (JSONException e)
