@@ -1,19 +1,24 @@
 package com.example.mainscreen;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationListener;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,11 +36,13 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.mainscreen.databinding.MapPageBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 
 import java.io.IOException;
 import java.util.List;
 
-public class MapPage extends FragmentActivity implements OnMapReadyCallback
+//@author-Andrea Gameros
+public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
 {
 
     private GoogleMap mMap;
@@ -46,6 +53,9 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback
     double latitude;
     double longitude;
     private int PROXIMITY_RADIUS = 10000;
+
+    private DrawerLayout dl;
+    private ActionBarDrawerToggle abdt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -61,6 +71,72 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
+        dl = (DrawerLayout)findViewById(R.id.dl);
+        abdt = new ActionBarDrawerToggle(this, dl, R.string.Open, R.string.Close);
+        abdt.setDrawerIndicatorEnabled(true);
+
+        dl.addDrawerListener(abdt);
+        abdt.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        final NavigationView nav_view = (NavigationView) findViewById(R.id.nav_view);
+
+        nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
+        {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item)
+            {
+                int id = item.getItemId();
+
+                if(id == R.id.home)
+                {
+                    //toast provides simple feedback about an operation of a small popup
+                    Toast.makeText(MapScreen.this, "Home", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MapScreen.this, HomeScreen.class);
+                    startActivity(intent);
+                }
+
+                if(id == R.id.search)
+                {
+                    //toast provides simple feedback about an operation of a small popup
+                    Toast.makeText(MapScreen.this, "Search", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MapScreen.this, SearchScreen.class);
+                    startActivity(intent);
+                }
+
+                if(id == R.id.map)
+                {
+                    //toast provides simple feedback about an operation of a small popup
+                    Toast.makeText(MapScreen.this, "Map", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MapScreen.this, MapScreen.class);
+                }
+
+                if(id == R.id.foodpicker)
+                {
+                    //toast provides simple feedback about an operation of a small popup
+                    Toast.makeText(MapScreen.this, "FoodPicker", Toast.LENGTH_SHORT).show();
+                    //Intent intent = new Intent(HomeScreen.this, FoodPickerPage.class);
+                    //startActivity(intent);
+                }
+
+                if(id == R.id.logout)
+                {
+                    //toast provides simple feedback about an operation of a small popup
+                    Toast.makeText(MapScreen.this, "Logout", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MapScreen.this, LoginScreen.class);
+                    startActivity(intent);
+                }
+
+                return true;
+            }
+        });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item)
+    {
+        return abdt.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
     public void onClick(View v)
@@ -177,7 +253,7 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback
                 Log.d("onClick", url);
                 GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
                 getNearbyPlacesData.execute(DataTransfer);
-                Toast.makeText(MapPage.this,"Nearby Restaurants", Toast.LENGTH_LONG).show();
+                Toast.makeText(MapScreen.this,"Nearby Restaurants", Toast.LENGTH_LONG).show();
             }
         });
     }
