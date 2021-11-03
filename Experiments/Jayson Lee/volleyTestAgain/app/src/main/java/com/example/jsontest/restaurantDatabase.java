@@ -30,7 +30,7 @@ import java.util.ArrayList;
 public class restaurantDatabase extends AppCompatActivity {
 
     ListView listView;
-    ArrayList<Restaurant> restaurantList = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

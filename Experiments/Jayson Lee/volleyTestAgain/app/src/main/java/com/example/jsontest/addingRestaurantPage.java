@@ -117,7 +117,7 @@ public class addingRestaurantPage extends AppCompatActivity {
     private void postRestaurant2(){
         final String cuisine;
         RequestQueue restQueue = Volley.newRequestQueue(this);
-        int id = 25;
+        int id = 5;
         String cuisineUrl = "http://coms-309-059.cs.iastate.edu:8080/restaurant";
 
         cuisine = cuisineSelection.getText().toString();
