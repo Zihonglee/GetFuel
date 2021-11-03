@@ -47,10 +47,10 @@
         android:textColor="#FF0000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintHorizontal_bias="0.408"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintVertical_bias="0.165" />
 
     <TextView
         android:id="@+id/tvInfo"
@@ -60,32 +60,32 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.373"
+        app:layout_constraintHorizontal_bias="0.273"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-        app:layout_constraintVertical_bias="0.155" />
+        app:layout_constraintVertical_bias="0.165" />
 
     <Button
         android:id="@+id/btnCreateAccount"
-        android:layout_width="173dp"
-        android:layout_height="43dp"
+        android:layout_width="182dp"
+        android:layout_height="58dp"
         android:backgroundTint="#F4F4F4"
         android:text="Create Account Here"
-        android:textSize="10dp"
         android:textColor="#FF0000"
+        android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.979"
         app:layout_constraintStart_toEndOf="@+id/tvNoAccount"
         app:layout_constraintTop_toBottomOf="@+id/tvInfo"
-        app:layout_constraintVertical_bias="0.388" />
+        app:layout_constraintVertical_bias="0.312" />
 
     <TextView
         android:id="@+id/tvNoAccount"
-        android:layout_width="154dp"
-        android:layout_height="47dp"
+        android:layout_width="160dp"
+        android:layout_height="49dp"
         android:text="Don't have an account?"
-        android:textSize="16dp"
+        android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnCreateAccount"
         app:layout_constraintHorizontal_bias="0.231"
@@ -99,11 +99,12 @@
         android:layout_height="wrap_content"
         android:text="Remember Me"
         android:textColor="#FF0000"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+        app:layout_constraintBottom_toTopOf="@+id/btnCreateAccount"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.864"
+        app:layout_constraintHorizontal_bias="0.919"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword"
-        app:layout_constraintVertical_bias="0.41" />
+        app:layout_constraintVertical_bias="0.087" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

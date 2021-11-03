@@ -19,13 +19,12 @@
         app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115" />
+        app:layout_constraintVertical_bias="0.13" />
 
     <EditText
         android:id="@+id/etUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="username"
         android:inputType="textPersonName"
@@ -35,7 +34,7 @@
         app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmail"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.04" />
 
     <Button
         android:id="@+id/btnCreateAccount"
@@ -44,12 +43,12 @@
         android:backgroundTint="#F4F4F4"
         android:text="CREATE ACCOUNT"
         android:textColor="#FF0000"
-        app:layout_constraintBottom_toTopOf="@+id/btnSigninHere"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword2"
-        app:layout_constraintVertical_bias="0.205" />
+        app:layout_constraintVertical_bias="0.21" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -86,13 +85,13 @@
         android:layout_width="179dp"
         android:layout_height="49dp"
         android:text="Already have an account?"
-        android:textSize="16dp"
+        android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnSigninHere"
         app:layout_constraintHorizontal_bias="0.615"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCreateAccount"
-        app:layout_constraintVertical_bias="0.514" />
+        app:layout_constraintVertical_bias="0.605" />
 
     <Button
         android:id="@+id/btnSigninHere"
@@ -106,6 +105,6 @@
         app:layout_constraintHorizontal_bias="0.926"
         app:layout_constraintStart_toEndOf="@+id/tvAccountExists"
         app:layout_constraintTop_toBottomOf="@+id/btnCreateAccount"
-        app:layout_constraintVertical_bias="0.967" />
+        app:layout_constraintVertical_bias="0.489" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
