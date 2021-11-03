@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:LuckyWheel="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FoodPicker">
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/fortuneWheel"-->
+    <!--        android:layout_width="320dp"-->
+    <!--        android:layout_height="313dp"-->
+    <!--        android:layout_centerInParent="true"-->
+    <!--        android:adjustViewBounds="true"-->
+    <!--        android:src="@drawable/roulette"></ImageView>-->
+
+    <com.bluehomestudio.luckywheel.LuckyWheel
+        android:id="@+id/lwv"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        app:image_padding="20dp"
+        LuckyWheel:background_color="@color/black"/>
+
+    <Button
+        android:id="@+id/spinButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:text="spin the wheel"></Button>
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/pointer"-->
+    <!--        android:layout_width="72dp"-->
+    <!--        android:layout_height="51dp"-->
+    <!--        android:layout_above="@+id/fortuneWheel"-->
+    <!--        android:layout_centerHorizontal="true"-->
+    <!--        android:layout_marginBottom="-25dp"-->
+    <!--        android:src="@drawable/pointer"></ImageView>-->
+
+
+</RelativeLayout>
