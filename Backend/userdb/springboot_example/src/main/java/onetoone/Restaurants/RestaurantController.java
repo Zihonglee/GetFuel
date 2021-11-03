@@ -3,6 +3,7 @@ package onetoone.Restaurants;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import onetoone.Cuisine.CuisineRepository;
@@ -35,7 +36,7 @@ public class RestaurantController
 	@GetMapping
 	public List<Restaurant> getAllRestaurant()
 	{
-		return restRepository.findAll();
+		return restRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
 	}
 
 	@GetMapping ("/{id}")
