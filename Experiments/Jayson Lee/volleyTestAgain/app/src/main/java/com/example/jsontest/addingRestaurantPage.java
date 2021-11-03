@@ -40,7 +40,9 @@ public class addingRestaurantPage extends AppCompatActivity {
     private AutoCompleteTextView cuisineSelection;
     private Button saveRestaurantBtn;
     private ArrayAdapter<String> arrayAdapter;
-    private ArrayList<String> cuisineList = new ArrayList<String>();
+    private ArrayList<String> cuisineList= new ArrayList<String>();
+    private ArrayList<String> cuisineIdList = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,7 @@ public class addingRestaurantPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                postRestaurant();
+               postRestaurant2();
             }
         });
 
@@ -84,8 +87,10 @@ public class addingRestaurantPage extends AppCompatActivity {
 
                                 JSONObject cuisines = response.getJSONObject(i);
                                 String cuisine = cuisines.getString("cuisineType");
+                                String cuisineID = cuisines.getString("id");
 
                                 cuisineList.add(cuisine);
+                                cuisineIdList.add(cuisineID);
 
                             }
                         } catch (JSONException e) {
@@ -109,17 +114,98 @@ public class addingRestaurantPage extends AppCompatActivity {
 
     }
 
+    private void postRestaurant2(){
+        final String cuisine;
+        RequestQueue restQueue = Volley.newRequestQueue(this);
+        int id = 25;
+        String cuisineUrl = "http://coms-309-059.cs.iastate.edu:8080/restaurant";
+
+        cuisine = cuisineSelection.getText().toString();
+
+        abstract class MyJsonArrayRequest extends JsonRequest<JSONArray> {
+
+
+            public MyJsonArrayRequest(int method, String url, JSONObject jsonRequest,
+                                      Response.Listener<JSONArray> listener, Response.ErrorListener errorListener) {
+                super(method, url, (jsonRequest == null) ? null : jsonRequest.toString(), listener,
+                        errorListener);
+            }
+        }
+
+        Map<String, String> cuisineTypes = new HashMap<String,String>();
+        for(int i = 0; i < cuisineList.size(); i++){
+            cuisineTypes.put(cuisineList.get(i), cuisineIdList.get(i));
+        }
+
+        String value = cuisineTypes.get(cuisine);
+
+        JSONObject object = new JSONObject();
+        JSONObject jsonCuisine = new JSONObject();
+
+
+        try{
+            jsonCuisine.put("cuisineType", cuisine);
+            object.put("cuisine", jsonCuisine);
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+
+        MyJsonArrayRequest jsonRequest = new MyJsonArrayRequest( Request.Method.PUT, cuisineUrl + "/" + id + "/"+ "cuisine" + "/"+ value, object,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Toast.makeText(addingRestaurantPage.this, "Restaurant successfully added to API", Toast.LENGTH_SHORT).show();
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(addingRestaurantPage.this, "Restaurant was not added to API", Toast.LENGTH_SHORT).show();
+
+            }
+        })
+
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+
+            @Override
+            protected Response<JSONArray> parseNetworkResponse(NetworkResponse response) {
+                String responseString;
+                JSONArray array = new JSONArray();
+                if (response != null) {
+
+                    try {
+                        responseString = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
+                        JSONObject obj = new JSONObject(responseString);
+                        (array).put(obj);
+                    } catch (Exception ex) {
+                    }
+                }
+                //return array;
+                return Response.success(array, HttpHeaderParser.parseCacheHeaders(response));
+            }
+
+        };
+        id++;
+        restQueue.add(jsonRequest);
+
+    }
 
     private void postRestaurant(){
 
-        final String restaurantName, price, rating, imageUrl, cuisine;
+        final String restaurantName, price, rating, imageUrl;
         RequestQueue restQueue = Volley.newRequestQueue(this);
         String restUrl = "http://coms-309-059.cs.iastate.edu:8080/restaurant";
 
         restaurantName= restaurantInput.getText().toString();
         price= priceInput.getText().toString();
         rating= ratingInput.getText().toString();
-        cuisine = cuisineSelection.getText().toString();
         imageUrl= imageUrlInput.getText().toString();
 
 
@@ -137,14 +223,11 @@ public class addingRestaurantPage extends AppCompatActivity {
 // need to do dropdown for cuisines, since we are fixed with a certain cuisine already
 // unless we are really adding a cuisine then we need to create a postCuisine method adding to cuisine url
         JSONObject object = new JSONObject();
-        JSONObject cuisineJSON = new JSONObject();
 
         try{
-            cuisineJSON.put("cuisineType", cuisine);
             object.put("name",restaurantName);
             object.put("price",price);
             object.put("rating", rating);
-            object.put("cuisine", cuisineJSON.getJSONObject("cuisine"));
             object.put("url", imageUrl);
 
 
@@ -156,10 +239,7 @@ public class addingRestaurantPage extends AppCompatActivity {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-
-
                         Toast.makeText(addingRestaurantPage.this, "Restaurant successfully added to API", Toast.LENGTH_SHORT).show();
-
 
                     }
                 }, new Response.ErrorListener() {

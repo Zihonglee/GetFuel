@@ -29,7 +29,7 @@ public class SearchPage extends AppCompatActivity {
     private ListView listView;
     private ArrayAdapter<String> arrayAdapter;
     ArrayList<String> cuisineList = new ArrayList<String>();
-    String[] list = {"Jayson", "Benedict", "Vincent", "Chee Hau", "Andy"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class SearchPage extends AppCompatActivity {
 
         searchView = findViewById(R.id.searchBar);
         listView = findViewById(R.id.listName);
-//
+
 //        arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, list);
 //        listView.setAdapter(arrayAdapter);
         restaurantGetRequest();

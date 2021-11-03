@@ -22,7 +22,7 @@
         android:layout_height="250dp"
         android:layout_centerInParent="true"
         app:image_padding="20dp"
-        LuckyWheel:background_color="@color/purple_200"/>
+        LuckyWheel:background_color="@color/black"/>
 
     <Button
         android:id="@+id/spinButton"
@@ -31,7 +31,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
-        android:onClick="onClickButtonRotation"
         android:text="spin the wheel"></Button>
 
 <!--    <ImageView-->

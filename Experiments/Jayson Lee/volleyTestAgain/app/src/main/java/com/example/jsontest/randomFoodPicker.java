@@ -38,6 +38,7 @@ public class randomFoodPicker extends AppCompatActivity {
         lw = findViewById(R.id.lwv);
         lw.addWheelItems(wheelItems);
         lw.setTarget(1);
+        Random rand = new Random();
 
         lw.setLuckyWheelReachTheTarget(new OnLuckyWheelReachTheTarget() {
             @Override
@@ -50,7 +51,7 @@ public class randomFoodPicker extends AppCompatActivity {
         spinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                lw.rotateWheelTo(1);
+                lw.rotateWheelTo(rand.nextInt(5));
             }
         });
     }
@@ -58,10 +59,18 @@ public class randomFoodPicker extends AppCompatActivity {
     private void generateWheelItems(){
 
         wheelItems = new ArrayList<>();
-        wheelItems.add(new WheelItem(Color.parseColor("#fc6c6c"), BitmapFactory.decodeResource(getResources(),R.drawable.pointer),
+        wheelItems.add(new WheelItem(Color.parseColor("#fc6c6c"), BitmapFactory.decodeResource(getResources(),R.drawable.ic_action_name),
                 "food"));
-        wheelItems.add(new WheelItem(Color.parseColor("#fc6c6c"), BitmapFactory.decodeResource(getResources(),R.drawable.pointer),
+        wheelItems.add(new WheelItem(Color.parseColor("red"), BitmapFactory.decodeResource(getResources(),R.drawable.ic_action_name),
                 "money"));
+        wheelItems.add(new WheelItem(Color.parseColor("black"), BitmapFactory.decodeResource(getResources(),R.drawable.ic_action_name),
+                "tasty"));
+        wheelItems.add(new WheelItem(Color.parseColor("gray"), BitmapFactory.decodeResource(getResources(),R.drawable.ic_action_name),
+                "redbull"));
+        wheelItems.add(new WheelItem(Color.parseColor("green"), BitmapFactory.decodeResource(getResources(),R.drawable.ic_action_name),
+                "drinks"));
+        wheelItems.add(new WheelItem(Color.parseColor("blue"), BitmapFactory.decodeResource(getResources(),R.drawable.ic_action_name),
+                "smiles"));
     }
 
 }
