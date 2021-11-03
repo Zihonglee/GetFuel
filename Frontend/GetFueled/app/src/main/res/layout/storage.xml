@@ -24,7 +24,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/restaurantName"
+                android:id="@+id/restaurantName2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -40,7 +40,7 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/restaurantCuisine"
+                android:id="@+id/restaurantCuisine2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -50,10 +50,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/restaurantName" />
+                app:layout_constraintTop_toBottomOf="@+id/restaurantName2" />
 
             <TextView
-                android:id="@+id/restaurantRating"
+                android:id="@+id/restaurantRating2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -63,7 +63,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/restaurantCuisine" />
+                app:layout_constraintTop_toBottomOf="@+id/restaurantCuisine2" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

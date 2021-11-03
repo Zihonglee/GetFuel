@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -30,8 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //@author-Andrea Gameros
-//added implements...
-public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteListener
+public class HomeScreen extends AppCompatActivity
 {
 
     RecyclerView recyclerView;
@@ -45,7 +43,6 @@ public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteLis
     private DrawerLayout dl;
     private ActionBarDrawerToggle abdt;
 
-    //private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -84,7 +81,7 @@ public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteLis
                 if(id == R.id.home)
                 {
                     //toast provides simple feedback about an operation of a small popup
-                    Toast.makeText(HomeScreen.this, "HomePage", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HomeScreen.this, "Home", Toast.LENGTH_SHORT).show();
                 }
 
                 if(id == R.id.search)
@@ -99,7 +96,7 @@ public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteLis
                 {
                     //toast provides simple feedback about an operation of a small popup
                     Toast.makeText(HomeScreen.this, "Map", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(HomeScreen.this, MapPage.class);
+                    Intent intent = new Intent(HomeScreen.this, MapScreen.class);
                     startActivity(intent);
                 }
 
@@ -146,11 +143,10 @@ public class HomeScreen extends AppCompatActivity //implements Adapter.OnNoteLis
                     {
                         JSONObject restaurantObject = response.getJSONObject(i);
 
-                        //Toast.makeText(HomeScreen.this, "Restaurant", Toast.LENGTH_LONG).show();
                         Restaurant restaurant = new Restaurant();
                         restaurant.setName(restaurantObject.getString("name").toString());
-                        restaurant.setCuisine(restaurantObject.getString("cuisine").toString());
-                        restaurant.setRating(restaurantObject.getString("rating").toString());
+                        //restaurant.setCuisine(restaurantObject.getString("cuisine").toString());
+                        //restaurant.setRating(restaurantObject.getString("rating").toString());
                         restaurants.add(restaurant);
                     }
                     } catch (JSONException e) {
