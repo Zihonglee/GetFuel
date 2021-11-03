@@ -124,8 +124,8 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
                 {
                     //toast provides simple feedback about an operation of a small popup
                     Toast.makeText(MapScreen.this, "FoodPicker", Toast.LENGTH_SHORT).show();
-                    //Intent intent = new Intent(HomeScreen.this, FoodPickerPage.class);
-                    //startActivity(intent);
+                    Intent intent = new Intent(MapScreen.this, FoodPicker.class);
+                    startActivity(intent);
                 }
 
                 if(id == R.id.logout)

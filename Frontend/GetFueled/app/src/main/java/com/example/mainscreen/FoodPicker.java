@@ -1,10 +1,15 @@
 package com.example.mainscreen;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -18,6 +23,7 @@ import com.android.volley.toolbox.Volley;
 import com.bluehomestudio.luckywheel.LuckyWheel;
 import com.bluehomestudio.luckywheel.OnLuckyWheelReachTheTarget;
 import com.bluehomestudio.luckywheel.WheelItem;
+import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +38,9 @@ public class FoodPicker extends AppCompatActivity {
     private LuckyWheel lw;
     ArrayList<WheelItem> wheelItems;
     ArrayList<String> randomRestaurants = new ArrayList<String>();
+
+    private DrawerLayout dl;
+    private ActionBarDrawerToggle abdt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +69,73 @@ public class FoodPicker extends AppCompatActivity {
                 lw.rotateWheelTo(rand.nextInt(5));
             }
         });
+
+        dl = (DrawerLayout)findViewById(R.id.dl);
+        abdt = new ActionBarDrawerToggle(this, dl, R.string.Open, R.string.Close);
+        abdt.setDrawerIndicatorEnabled(true);
+
+        dl.addDrawerListener(abdt);
+        abdt.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        final NavigationView nav_view = (NavigationView) findViewById(R.id.nav_view);
+
+        nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
+        {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item)
+            {
+                int id = item.getItemId();
+
+                if(id == R.id.home)
+                {
+                    //toast provides simple feedback about an operation of a small popup
+                    Toast.makeText(FoodPicker.this, "Home", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(FoodPicker.this, HomeScreen.class);
+                    startActivity(intent);
+                }
+
+                if(id == R.id.search)
+                {
+                    //toast provides simple feedback about an operation of a small popup
+                    Toast.makeText(FoodPicker.this, "Search", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(FoodPicker.this, SearchScreen.class);
+                    startActivity(intent);
+                }
+
+                if(id == R.id.map)
+                {
+                    //toast provides simple feedback about an operation of a small popup
+                    Toast.makeText(FoodPicker.this, "Map", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(FoodPicker.this, MapScreen.class);
+                    startActivity(intent);
+                }
+
+                if(id == R.id.foodpicker)
+                {
+                    //toast provides simple feedback about an operation of a small popup
+                    Toast.makeText(FoodPicker.this, "FoodPicker", Toast.LENGTH_SHORT).show();
+                }
+
+                if(id == R.id.logout)
+                {
+                    //toast provides simple feedback about an operation of a small popup
+                    Toast.makeText(FoodPicker.this, "Logout", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(FoodPicker.this, LoginScreen.class);
+                    startActivity(intent);
+                }
+
+
+                return true;
+            }
+        });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item)
+    {
+        return abdt.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
     private void generateWheelItems(){
