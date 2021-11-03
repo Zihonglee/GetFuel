@@ -118,6 +118,11 @@ public class FoodPicker extends AppCompatActivity {
                     Toast.makeText(FoodPicker.this, "FoodPicker", Toast.LENGTH_SHORT).show();
                 }
 
+                if(id == R.id.addRestaurant)
+                {
+                    Toast.makeText(FoodPicker.this, "Add Restaurant", Toast.LENGTH_SHORT).show();
+                }
+
                 if(id == R.id.logout)
                 {
                     //toast provides simple feedback about an operation of a small popup

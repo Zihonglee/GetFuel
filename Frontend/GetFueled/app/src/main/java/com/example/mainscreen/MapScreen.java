@@ -128,6 +128,11 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
                     startActivity(intent);
                 }
 
+                if(id == R.id.addRestaurant)
+                {
+                    Toast.makeText(MapScreen.this, "Add Restaurant", Toast.LENGTH_SHORT).show();
+                }
+
                 if(id == R.id.logout)
                 {
                     //toast provides simple feedback about an operation of a small popup
