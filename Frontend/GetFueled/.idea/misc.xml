@@ -25,6 +25,8 @@
         <entry key="app/src/main/res/layout/activity_food_picker.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_food_pickewr.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13728470111448834" />
+        <entry key="app/src/main/res/layout/recyclelayout.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/restaurant_screen.xml" value="0.1" />
       </map>
     </option>
   </component>

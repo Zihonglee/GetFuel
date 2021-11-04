@@ -30,15 +30,16 @@ import java.util.ArrayList;
 public class restaurantDatabase extends AppCompatActivity {
 
     ListView listView;
-
+    ArrayList<Restaurant> restaurantList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_database);
 
-        listView = findViewById(R.id.listView);
+        listView = findViewById(R.id.restaurantDataList);
         getRestaurants();
+
 
 
 
@@ -51,7 +52,7 @@ public class restaurantDatabase extends AppCompatActivity {
 
         String url = "http://coms-309-059.cs.iastate.edu:8080/restaurant";
 
-        ArrayList<Restaurant> restaurantList = new ArrayList<>();
+
 
         JsonArrayRequest jsonRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
@@ -72,6 +73,9 @@ public class restaurantDatabase extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+                        RestaurantListAdapter adapter = new RestaurantListAdapter(getApplicationContext(), R.layout.databaserow, restaurantList);
+                        listView.setAdapter(adapter);
+
                         queue.stop();
                     }
                 }, new Response.ErrorListener() {
@@ -82,8 +86,7 @@ public class restaurantDatabase extends AppCompatActivity {
             }
         });
 
-        RestaurantListAdapter adapter = new RestaurantListAdapter(this, R.layout.databaserow, restaurantList);
-        listView.setAdapter(adapter);
+
 
         queue.add(jsonRequest);
 
