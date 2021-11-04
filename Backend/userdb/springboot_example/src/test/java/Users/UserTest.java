@@ -70,7 +70,7 @@ public class UserTest
 
 
 
-        verify(userRepository, atMost(1)).getUserById(anyLong()); //since there is only one line of getrestaurantbyid that i mocked
+        verify(userRepository, atMost(1)).getUserById(anyLong()); 
         verify(userRepository, atMost(1)).deleteUserById(anyLong());
 
     }
