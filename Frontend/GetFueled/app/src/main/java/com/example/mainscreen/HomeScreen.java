@@ -104,8 +104,13 @@ public class HomeScreen extends AppCompatActivity
                 {
                     //toast provides simple feedback about an operation of a small popup
                     Toast.makeText(HomeScreen.this, "FoodPicker", Toast.LENGTH_SHORT).show();
-                    //Intent intent = new Intent(HomeScreen.this, FoodPickerPage.class);
-                    //startActivity(intent);
+                    Intent intent = new Intent(HomeScreen.this, FoodPicker.class);
+                    startActivity(intent);
+                }
+
+                if(id == R.id.addRestaurant)
+                {
+                    Toast.makeText(HomeScreen.this, "Add Restaurant", Toast.LENGTH_SHORT).show();
                 }
 
                 if(id == R.id.logout)

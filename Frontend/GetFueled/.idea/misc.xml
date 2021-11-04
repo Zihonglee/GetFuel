@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/drawable/white_border.xml" value="0.2625" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/activity_food_picker.xml" value="0.25416666666666665" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/activity_main.xml" value="0.26766304347826086" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/activity_test.xml" value="0.302536231884058" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/create_account_screen.xml" value="0.25" />
@@ -22,8 +23,9 @@
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/search_screen2.xml" value="0.23867753623188406" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/storage.xml" value="0.25" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/menu/navigation_header.xml" value="0.1" />
-        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/menu/navigation_menu.xml" value="0.1" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/menu/navigation_menu.xml" value="0.536" />
         <entry key="app/src/main/res/layout/activity_food_picker.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/activity_food_pickewr.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13728470111448834" />
       </map>
     </option>
