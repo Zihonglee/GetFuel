@@ -34,7 +34,7 @@ import java.util.Random;
 
 public class FoodPicker extends AppCompatActivity {
 
-
+    //@Author Jayson Lee
     private LuckyWheel lw;
     ArrayList<WheelItem> wheelItems;
     ArrayList<String> randomRestaurants = new ArrayList<String>();
