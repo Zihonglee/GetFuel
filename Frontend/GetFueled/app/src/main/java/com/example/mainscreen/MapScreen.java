@@ -18,10 +18,13 @@ import android.location.Location;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -39,6 +42,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 //@author-Andrea Gameros
@@ -53,6 +57,8 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
     double latitude;
     double longitude;
     private int PROXIMITY_RADIUS = 10000;
+
+    private EditText Search;
 
     private DrawerLayout dl;
     private ActionBarDrawerToggle abdt;
@@ -70,6 +76,8 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+
+        Search = (EditText)findViewById(R.id.locationSearchEdt);
 
         dl = (DrawerLayout)findViewById(R.id.dl);
         abdt = new ActionBarDrawerToggle(this, dl, R.string.Open, R.string.Close);
@@ -116,8 +124,13 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
                 {
                     //toast provides simple feedback about an operation of a small popup
                     Toast.makeText(MapScreen.this, "FoodPicker", Toast.LENGTH_SHORT).show();
-                    //Intent intent = new Intent(HomeScreen.this, FoodPickerPage.class);
-                    //startActivity(intent);
+                    Intent intent = new Intent(MapScreen.this, FoodPicker.class);
+                    startActivity(intent);
+                }
+
+                if(id == R.id.addRestaurant)
+                {
+                    Toast.makeText(MapScreen.this, "Add Restaurant", Toast.LENGTH_SHORT).show();
                 }
 
                 if(id == R.id.logout)
@@ -139,6 +152,7 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
         return abdt.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
+
     public void onClick(View v)
     {
         Toast.makeText(this, "Button pressed", Toast.LENGTH_SHORT).show();
@@ -146,7 +160,7 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
         //gets id of clicked button
         switch (v.getId())
         {
-            case R.id.locationSearchBtn:
+            case R.id.searchBtn2:
                     EditText locationSearch = (EditText) findViewById(R.id.locationSearchEdt);
                     String searchAddress = locationSearch.getText().toString();
 
@@ -157,17 +171,20 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
                     if(!TextUtils.isEmpty(searchAddress))
                     {
                         Geocoder geocoder = new Geocoder(this);
+                        int t = 1;
 
                         //gives 6 max results based on user input
                         try
                         {
-                            addressList = geocoder.getFromLocationName(searchAddress, 6);
+                            addressList = geocoder.getFromLocationName(searchAddress, 1);
+                            int n = 1;
 
                             if(addressList != null)
                             {
                                 for(int i = 0; i < addressList.size(); i++)
                                 {
                                     Address userAddress = addressList.get(i);
+                                    int s = 1;
 
                                     //creates latitute and longitute for every addresss
                                     LatLng latLng = new LatLng(userAddress.getLatitude(), userAddress.getLongitude());
@@ -189,6 +206,7 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
                         }
                         catch (IOException e)
                         {
+                            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
                             e.printStackTrace();
                         }
                     }
@@ -235,6 +253,8 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
             {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, ACCESS_LOCATION_REQUEST_CODE);
             }
+
+            //init();
         }
 
 
@@ -305,6 +325,8 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
             return;
         }
         Task<Location> locationTask = fusedLocationProviderClient.getLastLocation();
+        //Task<Location> locationTask = fusedLocationProviderClient.requestLocationUpdates();
+
         locationTask.addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location)
@@ -335,4 +357,65 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
             }
         }
     }
+
+    /**
+    private void init()
+    {
+        Search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent)
+            {
+                if(i == EditorInfo.IME_ACTION_SEARCH
+                        || i == EditorInfo.IME_ACTION_DONE
+                        || keyEvent.getAction() == KeyEvent.ACTION_DOWN
+                        || keyEvent.getAction() == keyEvent.KEYCODE_ENTER)
+                {
+                    geoLocate();
+                }
+
+                return false;
+            }
+        });
+    }
+
+    private void geoLocate()
+    {
+        String searchAddress = Search.getText().toString();
+
+        Geocoder geoCoder = new Geocoder(MapScreen.this);
+        List<Address> addressList = new ArrayList<>();
+        MarkerOptions userMarkerOptions = new MarkerOptions();
+
+        try {
+           addressList = geoCoder.getFromLocationName(searchAddress, 6);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if(addressList != null)
+        {
+            for(int i = 0; i < addressList.size(); i++)
+            {
+                Address userAddress = addressList.get(i);
+
+                //creates latitute and longitute for every addresss
+                LatLng latLng = new LatLng(userAddress.getLatitude(), userAddress.getLongitude());
+
+                userMarkerOptions.position(latLng);
+                userMarkerOptions.title(searchAddress);
+                userMarkerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+
+                mMap.addMarker(userMarkerOptions);
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+                mMap.animateCamera(CameraUpdateFactory.zoomTo(12));
+            }
+        }
+
+        else
+        {
+            Toast.makeText(this, "Location not found", Toast.LENGTH_SHORT).show();
+        }
+    }
+     **/
 }

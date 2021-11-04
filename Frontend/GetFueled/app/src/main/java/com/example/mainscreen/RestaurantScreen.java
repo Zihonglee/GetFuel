@@ -94,8 +94,13 @@ public class RestaurantScreen extends AppCompatActivity
                 {
                     //toast provides simple feedback about an operation of a small popup
                     Toast.makeText(RestaurantScreen.this, "FoodPicker", Toast.LENGTH_SHORT).show();
-                    //Intent intent = new Intent(HomeScreen.this, FoodPickerPage.class);
-                    //startActivity(intent);
+                    Intent intent = new Intent(RestaurantScreen.this, FoodPicker.class);
+                    startActivity(intent);
+                }
+
+                if(id == R.id.addRestaurant)
+                {
+                    Toast.makeText(RestaurantScreen.this, "Add Restaurant", Toast.LENGTH_SHORT).show();
                 }
 
                 if(id == R.id.logout)
@@ -160,6 +165,8 @@ public class RestaurantScreen extends AppCompatActivity
                                     JSONObject cuisine = restaurants.getJSONObject("cuisine");
                                     String cuisineJ = cuisine.getString("cuisineType");
                                     Cuisine.append(cuisineJ);
+
+                                    break;
                                 }
                             }
                         }

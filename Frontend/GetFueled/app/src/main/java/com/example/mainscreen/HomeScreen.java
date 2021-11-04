@@ -108,6 +108,11 @@ public class HomeScreen extends AppCompatActivity
                     startActivity(intent);
                 }
 
+                if(id == R.id.addRestaurant)
+                {
+                    Toast.makeText(HomeScreen.this, "Add Restaurant", Toast.LENGTH_SHORT).show();
+                }
+
                 if(id == R.id.logout)
                 {
                     //toast provides simple feedback about an operation of a small popup
