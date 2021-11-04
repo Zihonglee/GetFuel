@@ -13,33 +13,28 @@ import java.util.ArrayList;
 
 public class RestaurantListAdapter extends ArrayAdapter<Restaurant> {
 
-    private Context mContext;
+    private ArrayList<Restaurant> restaurantList;
     int mResource;
 
-    public RestaurantListAdapter(Context c , int resource, ArrayList<Restaurant> objects){
-        super(c, resource, objects);
-        mContext = c;
-        mResource = resource;
+    public RestaurantListAdapter(Context c , int resource, ArrayList<Restaurant> restaurantList){
+        super(c, resource);
+        this.restaurantList = restaurantList;
     }
 
 
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
+        int phraseIndex = position;
+        if(convertView == null){
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.databaserow,parent, false);
+        }
 
-        String id = getItem(position).getId();
-        String name = getItem(position).getName();
+        TextView idName =  convertView.findViewById(R.id.restaurantIdData);
+        TextView restName = convertView.findViewById(R.id.restaurantNameData);
 
-        Restaurant restaurant = new Restaurant (id, name);
-
-        LayoutInflater inflater = LayoutInflater.from(mContext);
-        convertView = inflater.inflate(mResource, parent, false);
-
-        TextView idName = (TextView) convertView.findViewById(R.id.restaurantIdData);
-        TextView restName = (TextView) convertView.findViewById(R.id.restaurantNameData);
-
-        idName.setText(id);
-        restName.setText(name);
+        idName.setText(restaurantList.get(position).getId());
+        restName.setText(restaurantList.get(position).getName());
 
         return convertView;
     }
