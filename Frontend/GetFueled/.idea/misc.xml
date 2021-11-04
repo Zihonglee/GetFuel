@@ -3,8 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/drawable/white_border.xml" value="0.2625" />
-        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/activity_food_picker.xml" value="0.25416666666666665" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/activity_main.xml" value="0.26766304347826086" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/activity_test.xml" value="0.302536231884058" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/add_user.xml" value="0.264" />
@@ -15,7 +13,7 @@
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/home_screen.xml" value="0.20742753623188406" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/home_screen2.xml" value="0.24320652173913043" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/login_screen.xml" value="0.22" />
-        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/map_page.xml" value="0.49270833333333336" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/map_page.xml" value="0.23020833333333332" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/map_page2.xml" value="0.23020833333333332" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/navigation_header.xml" value="0.1" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/recyclelayout.xml" value="0.23020833333333332" />
@@ -27,6 +25,7 @@
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/menu/navigation_header.xml" value="0.1" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/menu/navigation_menu.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.16979166666666667" />
+        <entry key="app/src/main/res/drawable/custom_button.xml" value="0.16979166666666667" />
         <entry key="app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.16979166666666667" />
         <entry key="app/src/main/res/drawable/ic_baseline_fastfood_24.xml" value="0.16979166666666667" />
         <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.16979166666666667" />
@@ -37,8 +36,16 @@
         <entry key="app/src/main/res/layout/activity_food_picker.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_food_pickewr.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13728470111448834" />
+        <entry key="app/src/main/res/layout/adding_restaurant_page.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/create_account_screen.xml" value="0.15172101449275363" />
         <entry key="app/src/main/res/layout/custom_list_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/database_restaurant.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/databaserow.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.22083333333333333" />
         <entry key="app/src/main/res/layout/home_screen.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/home_screen2.xml" value="0.19427083333333334" />
+        <entry key="app/src/main/res/layout/login_screen.xml" value="0.15172101449275363" />
+        <entry key="app/src/main/res/layout/map_page.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/navigation_header.xml" value="0.1" />
         <entry key="app/src/main/res/layout/recyclelayout.xml" value="0.165" />
         <entry key="app/src/main/res/layout/restaurant_screen.xml" value="0.1" />
