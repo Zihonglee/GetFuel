@@ -167,5 +167,6 @@ public class RestTest
 //		assertEquals(output, "success");
 //		assertEquals(repo.getRestaurantById(Long.valueOf(1)).getCuisine().getCuisineType(), "Japanese");
 //		//verify and for future use.
+// 		//not done yet 
 	}
 }

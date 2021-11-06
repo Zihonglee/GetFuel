@@ -1,6 +1,8 @@
 package onetoone.Reviews;
 
 import javax.persistence.*;
+
+import onetoone.Restaurants.Restaurant;
 import onetoone.Users.User;
 
 import java.time.LocalDateTime;
@@ -17,6 +19,9 @@ public class Review
     @ManyToOne(targetEntity = User.class)
     private User user;
 
+	@ManyToOne(targetEntity = Restaurant.class)
+	private Restaurant restaurant;
+	
     public Review(String comments) 
     {
         this.comments = comments;

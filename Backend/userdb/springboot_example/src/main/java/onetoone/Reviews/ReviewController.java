@@ -4,14 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import onetoone.Restaurants.Restaurant;
+import onetoone.Restaurants.RestaurantRepository;
 
 
 @RestController
@@ -20,11 +16,21 @@ public class ReviewController
 {
     @Autowired
     public ReviewRepository reviewRepository;
+    
+    @Autowired
+    public RestaurantRepository restRepository;
 
     @GetMapping
     public List<Review> getAllReview()
     {
-        return reviewRepository.findAll();
+    	if (reviewRepository.findAll() == null)
+    	{
+    		return null;
+    	}
+    	else
+    	{
+    		return reviewRepository.findAll();
+    	}
     }
 
     @GetMapping("/{id}")
@@ -46,7 +52,25 @@ public class ReviewController
         	return "success";
         }
     }
-
+    
+    @PutMapping("/review/{restaurantId}")
+    public String assignReviews(@PathVariable Long restaurantId, @RequestParam Review reviewByUser)
+    {
+		Restaurant restaurant = restRepository.getRestaurantById(restaurantId);
+		if(restaurant == null)
+		{
+			return "failure";
+		}
+		else
+		{
+			List<Review> getall = restaurant.getReviews();
+			getall.add(reviewByUser);
+			restaurant.setReviews(getall);
+			restRepository.save(restaurant);
+			return "success";
+		}
+	}
+    
     @PutMapping("/{id}")
     public String updateReview(@PathVariable Long id, @RequestBody Review request)
     {
@@ -71,4 +95,6 @@ public class ReviewController
         reviewRepository.deleteReviewById(id);
         return "Deleted successfully";
     }
+
+    //delete review method
 }
