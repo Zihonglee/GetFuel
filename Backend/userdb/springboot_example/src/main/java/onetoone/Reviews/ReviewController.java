@@ -63,23 +63,10 @@ public class ReviewController
 		}
 		else
 		{
-			List<Review> getAll = restaurant.getReviews();
-			test(getAll);
-			System.out.println("Before");
 			restaurant.addReviews(reviewByUser);
 			createReview(reviewByUser);
 			restRepository.save(restaurant);
-			System.out.println("after");
-			test(restaurant.getReviews());
 			return "success";
-		}
-	}
-
-	public void test(List<Review> getAll)
-	{
-		for (int i = 0; i < getAll.size(); ++i)
-		{
-			System.out.println(getAll.get(i).getComments());
 		}
 	}
 	
