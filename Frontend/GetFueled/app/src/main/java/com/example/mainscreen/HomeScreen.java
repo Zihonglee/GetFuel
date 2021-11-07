@@ -111,6 +111,8 @@ public class HomeScreen extends AppCompatActivity
                 if(id == R.id.addRestaurant)
                 {
                     Toast.makeText(HomeScreen.this, "Add Restaurant", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(HomeScreen.this, databaseRestaurant.class);
+                    startActivity(intent);
                 }
 
                 if(id == R.id.logout)

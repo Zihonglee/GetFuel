@@ -3,16 +3,13 @@ package com.example.mainscreen;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -30,46 +27,31 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class SearchScreen extends AppCompatActivity
-{
+public class databaseRestaurant extends AppCompatActivity {
 
-    private EditText Search;
-    private Button SearchButton;
-    private SearchView searchView;
-    private ListView listView;
-    private ArrayAdapter<String> arrayAdapter;
-    ArrayList<String> cuisineList = new ArrayList<String>();
+    ListView listView;
+    ArrayList<Restaurant> restaurantList = new ArrayList<>();
+    Button addRestaurantBtn;
     private DrawerLayout dl;
     private ActionBarDrawerToggle abdt;
 
-    //@Author - Jayson Lee
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.search_screen);
+        setContentView(R.layout.database_restaurant);
 
+        addRestaurantBtn = findViewById(R.id.addRestBtn);
+        listView = findViewById(R.id.restaurantDataList);
+        getRestaurants();
 
-        searchView = findViewById(R.id.searchBar);
-        listView = findViewById(R.id.listName);
-
-//        arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, list);
-//        listView.setAdapter(arrayAdapter);
-        restaurantGetRequest();
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        addRestaurantBtn.setOnClickListener(new View.OnClickListener(){
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                SearchScreen.this.arrayAdapter.getFilter().filter(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                SearchScreen.this.arrayAdapter.getFilter().filter(newText);
-                return false;
+            public void onClick(View v){
+                Intent intent = new Intent(databaseRestaurant.this, addingRestaurantPage.class);
+                startActivity(intent);
             }
         });
+
 
         dl = (DrawerLayout)findViewById(R.id.dl);
         abdt = new ActionBarDrawerToggle(this, dl, R.string.Open, R.string.Close);
@@ -92,43 +74,46 @@ public class SearchScreen extends AppCompatActivity
                 if(id == R.id.home)
                 {
                     //toast provides simple feedback about an operation of a small popup
-                    Toast.makeText(SearchScreen.this, "Home", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(SearchScreen.this, HomeScreen.class);
+                    Toast.makeText(databaseRestaurant.this, "Home", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(databaseRestaurant.this, HomeScreen.class);
                     startActivity(intent);
                 }
 
                 if(id == R.id.search)
                 {
                     //toast provides simple feedback about an operation of a small popup
-                    Toast.makeText(SearchScreen.this, "Search", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(databaseRestaurant.this, "Search", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(databaseRestaurant.this, SearchScreen.class);
+                    startActivity(intent);
                 }
 
                 if(id == R.id.map)
                 {
                     //toast provides simple feedback about an operation of a small popup
-                    Toast.makeText(SearchScreen.this, "Map", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(SearchScreen.this, MapScreen.class);
+                    Toast.makeText(databaseRestaurant.this, "Map", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(databaseRestaurant.this, MapScreen.class);
                     startActivity(intent);
                 }
 
                 if(id == R.id.foodpicker)
                 {
                     //toast provides simple feedback about an operation of a small popup
-                    Toast.makeText(SearchScreen.this, "FoodPicker", Toast.LENGTH_SHORT).show();
-                    //Intent intent = new Intent(HomeScreen.this, FoodPickerPage.class);
-                    //startActivity(intent);
+                    Toast.makeText(databaseRestaurant.this, "FoodPicker", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(databaseRestaurant.this, FoodPicker.class);
+                    startActivity(intent);
                 }
 
                 if(id == R.id.addRestaurant)
                 {
-                    Toast.makeText(SearchScreen.this, "Add Restaurant", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(databaseRestaurant.this, "Add Restaurant", Toast.LENGTH_SHORT).show();
+
                 }
 
                 if(id == R.id.logout)
                 {
                     //toast provides simple feedback about an operation of a small popup
-                    Toast.makeText(SearchScreen.this, "Logout", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(SearchScreen.this, LoginScreen.class);
+                    Toast.makeText(databaseRestaurant.this, "Logout", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(databaseRestaurant.this, LoginScreen.class);
                     startActivity(intent);
                 }
 
@@ -138,11 +123,13 @@ public class SearchScreen extends AppCompatActivity
         });
     }
 
-    //@Author - Jayson Lee
-    private void restaurantGetRequest(){
+
+    private void getRestaurants(){
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        String url = "http://coms-309-059.cs.iastate.edu:8080/cuisines";
+
+
+        String url = "http://coms-309-059.cs.iastate.edu:8080/restaurant";
 
 
 
@@ -150,20 +137,24 @@ public class SearchScreen extends AppCompatActivity
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
+//                        printResult.setText(response.toString());
                         try {
                             for(int i = 0; i < response.length(); i++) {
 
-                                JSONObject cuisines = response.getJSONObject(i);
+                                JSONObject restaurants = response.getJSONObject(i);
+                                String id = restaurants.getString("id");
+                                String restaurantName = restaurants.getString("name");
 
-                                String cuisine = cuisines.getString("cuisineType");
-
-                                cuisineList.add(cuisine);
+                                Restaurant restInfo = new Restaurant(id, restaurantName);
+                                restaurantList.add(restInfo);
 
                             }
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+                        RestaurantListAdapter adapter = new RestaurantListAdapter(getApplicationContext(), R.layout.databaserow, restaurantList);
+                        listView.setAdapter(adapter);
+
                         queue.stop();
                     }
                 }, new Response.ErrorListener() {
@@ -173,10 +164,12 @@ public class SearchScreen extends AppCompatActivity
                 queue.stop();
             }
         });
-        arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, cuisineList);
-        listView.setAdapter(arrayAdapter);
+
         queue.add(jsonRequest);
+
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item)

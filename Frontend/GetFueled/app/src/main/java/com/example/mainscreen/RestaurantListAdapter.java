@@ -1,4 +1,4 @@
-package com.example.jsontest;
+package com.example.mainscreen;
 
 import android.content.Context;
 import android.view.LayoutInflater;

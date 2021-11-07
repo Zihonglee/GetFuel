@@ -34,7 +34,7 @@ import java.util.Random;
 
 public class FoodPicker extends AppCompatActivity {
 
-
+    //@Author Jayson Lee
     private LuckyWheel lw;
     ArrayList<WheelItem> wheelItems;
     ArrayList<String> randomRestaurants = new ArrayList<String>();
@@ -121,6 +121,8 @@ public class FoodPicker extends AppCompatActivity {
                 if(id == R.id.addRestaurant)
                 {
                     Toast.makeText(FoodPicker.this, "Add Restaurant", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(FoodPicker.this, databaseRestaurant.class);
+                    startActivity(intent);
                 }
 
                 if(id == R.id.logout)

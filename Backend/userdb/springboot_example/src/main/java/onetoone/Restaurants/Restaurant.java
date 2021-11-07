@@ -4,6 +4,7 @@ import onetoone.Cuisine.Cuisine;
 import onetoone.Reviews.Review;
 
 import javax.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class Restaurant
 	@ManyToOne(targetEntity = Cuisine.class)
 	private Cuisine cuisine;
 
-	@OneToMany(mappedBy = "id")
+	@OneToMany(targetEntity = Review.class)
 	private List<Review> reviews;
 
 	public Restaurant(){
@@ -62,7 +63,8 @@ public class Restaurant
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(String price) 
+	{
 		this.price = price;
 	}
 
@@ -71,8 +73,8 @@ public class Restaurant
 		return rating;
 	}
 
-
-	public void setRating(String rating) {
+	public void setRating(String rating) 
+	{
 		this.rating = rating;
 	}
 
