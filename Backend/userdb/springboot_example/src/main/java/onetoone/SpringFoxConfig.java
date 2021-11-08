@@ -13,11 +13,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 @Configuration
 @EnableSwagger2WebMvc
 public class SpringFoxConfig 
-{                                    
+{
+	// to run the api (http://localhost:8080/swagger-ui.html#/)
     @Bean
     public Docket api() 
-    { 
-    	// to run the api (http://localhost:8080/swagger-ui.html#/)
+    {
         return new Docket(DocumentationType.SWAGGER_2)  
           .select()                                  
           .apis(RequestHandlerSelectors.any())              

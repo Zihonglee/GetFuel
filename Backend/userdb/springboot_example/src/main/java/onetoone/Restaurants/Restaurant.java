@@ -30,11 +30,11 @@ public class Restaurant
 	@ApiModelProperty(notes = "URL of this restaurant", name = "Url", required = true, value = "test url")
 	private String Url;
 
-	@ManyToOne(targetEntity = Cuisine.class) //cascade = CascadeType.ALL 
+	@ManyToOne(targetEntity = Cuisine.class, cascade = CascadeType.ALL) //cascade = CascadeType.ALL 
 	@ApiModelProperty(notes = "The cuisine of this specific restaurant", name = "cuisine", required = true, value = "test cuisine")
 	private Cuisine cuisine;
 
-	@OneToMany(targetEntity = Review.class) //cascade = CascadeType.ALL
+	@OneToMany(targetEntity = Review.class, cascade = CascadeType.ALL) //cascade = CascadeType.ALL
 	@ApiModelProperty(notes = "The list of reviews of this restaurant", name = "id", required = true, value = "test reviews")
 	private List<Review> reviews;
 

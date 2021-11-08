@@ -2,9 +2,10 @@ package onetoone.Reviews;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import io.swagger.annotations.ApiModelProperty;
 import onetoone.Restaurants.Restaurant;
-import onetoone.Users.User;
 
 import java.time.LocalDateTime;
 
@@ -22,11 +23,14 @@ public class Review
 	@ApiModelProperty(notes = "The time created when the review was created", name = "time Created", required = true, value = "test timeCreated")
     private LocalDateTime timeCreated = LocalDateTime.now();
 
-    @ManyToOne(targetEntity = User.class)
 	@ApiModelProperty(notes = "The user who gave the comments", name = "user", required = true, value = "test user")
-    private User user;
+    private String user;
+	
+	@ApiModelProperty(notes = "The iditification of user who gave the comments", name = "user", required = true, value = "test userId")
+	private Long userId;
 
-	@ManyToOne(targetEntity = Restaurant.class)
+	@ManyToOne(targetEntity = Restaurant.class, cascade = CascadeType.ALL)
+	@JsonIgnore
 	@ApiModelProperty(notes = "The restaurant that contain this review", name = "restaurant", required = true, value = "test restaurant")
 	private Restaurant restaurant;
 	
@@ -68,13 +72,34 @@ public class Review
         this.timeCreated = timeCreated;
     }
     
-    public User getUser() 
+    public String getUser() 
     {
         return user;
     }
-
-    public void setUser(User user) 
+    
+    public void setUser(String user) 
     {
         this.user = user;
+    }
+    
+    public void setUser(String user, Long userId) 
+    {
+        this.user = user;
+        this.userId = userId;
+    }
+    
+    public Long getUserId()
+    {
+    	return userId;
+    }
+    
+    public void setRestaurant(Restaurant rest)
+    {
+    	restaurant = rest;
+    }
+    
+    public Restaurant getRestaurant()
+    {
+    	return restaurant;
     }
 }

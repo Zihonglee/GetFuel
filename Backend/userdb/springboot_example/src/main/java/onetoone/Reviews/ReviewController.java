@@ -12,6 +12,8 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import onetoone.Restaurants.Restaurant;
 import onetoone.Restaurants.RestaurantRepository;
+import onetoone.Users.User;
+import onetoone.Users.UserRepository;
 
 @Api(value = "ReviewController", description = "REST APIs related to review Entity!!!!")
 @RestController
@@ -24,6 +26,9 @@ public class ReviewController
 	@Autowired
 	public ReviewRepository reviewRepository;
 
+	@Autowired
+	public UserRepository userRepository;
+	
 	@ApiOperation(value = "Get the list of reviews in the System ", response = Iterable.class)
 	@ApiResponses(value = { 
 	            @ApiResponse(code = 200, message = "Success|OK"),
@@ -81,18 +86,23 @@ public class ReviewController
 	            @ApiResponse(code = 401, message = "not authorized!"), 
 	            @ApiResponse(code = 403, message = "forbidden!!!"),
 	            @ApiResponse(code = 404, message = "not found!!!") })
-	@PostMapping("/review/{restaurantId}")
-	public String assignReviews(@PathVariable Long restaurantId, @RequestBody Review reviewByUser)
+	@PostMapping("/review/{restaurantId}/user/{userId}")
+	public String assignReviews(@PathVariable Long restaurantId, @RequestBody Review reviewByUser, @PathVariable Long userId)
 	{
 		Restaurant restaurant = restRepository.getRestaurantById(restaurantId);
-		if(restaurant == null)
+		User user = userRepository.getUserById(userId);
+		if(restaurant == null || user == null)
 		{
 			return "failure";
 		}
 		else
 		{
+			reviewByUser.setUser(user.getName(), userId);
+			reviewByUser.setRestaurant(restaurant);
+			user.addReview(reviewByUser);
 			restaurant.addReviews(reviewByUser);
 			createReview(reviewByUser);
+			userRepository.save(user);
 			restRepository.save(restaurant);
 			return "success";
 		}
@@ -128,11 +138,20 @@ public class ReviewController
 	            @ApiResponse(code = 401, message = "not authorized!"), 
 	            @ApiResponse(code = 403, message = "forbidden!!!"),
 	            @ApiResponse(code = 404, message = "not found!!!") })
-	@DeleteMapping("/{id}")
-	public String deleteReview(@PathVariable Long id)
+	@DeleteMapping("/{reviewId}")
+	public String deleteReview(@PathVariable Long reviewId)
 	{
-		reviewRepository.deleteReviewById(id);
-		return "Deleted successfully";
+		Review review = reviewRepository.getReviewById(reviewId);
+		if (review.getRestaurant() == null || review.getUserId() == null)
+		{
+			reviewRepository.deleteReviewById(reviewId);
+			return "Deleted successfully";
+		}
+		else
+		{
+			deleteReviewRestaurant(review.getRestaurant().getId(), reviewId, review.getUserId());
+			return "Deleted successfully";
+		}
 	}
 
 	@ApiOperation(value = "Delete a review located in the specific restaurant in the System", response = String.class)
@@ -141,13 +160,16 @@ public class ReviewController
 	            @ApiResponse(code = 401, message = "not authorized!"), 
 	            @ApiResponse(code = 403, message = "forbidden!!!"),
 	            @ApiResponse(code = 404, message = "not found!!!") })
-	@DeleteMapping("/{restaurantId}/review/{reviewId}")
-	public String deleteReviewRestaurant(@PathVariable Long restaurantId, @PathVariable Long reviewId)
+	@DeleteMapping("/{restaurantId}/review/{reviewId}/user/{userId}")
+	public String deleteReviewRestaurant(@PathVariable Long restaurantId, @PathVariable Long reviewId, @PathVariable Long userId)
 	{
 		Restaurant rest = restRepository.getRestaurantById(restaurantId);
+		User user = userRepository.getUserById(userId);
 		Review review = reviewRepository.getById(reviewId);
+		user.deletereview(review);
 		List<Review> getall = rest.getReviews();
 		getall.remove(review);
+		userRepository.save(user);
 		reviewRepository.deleteReviewById(reviewId);
 		restRepository.save(rest);
 		return "Delete success";

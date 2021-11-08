@@ -3,11 +3,14 @@ package onetoone.Users;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import io.swagger.annotations.ApiModelProperty;
 import onetoone.Reviews.Review;
@@ -15,7 +18,8 @@ import onetoone.Reviews.Review;
 @Entity
 public class User
 {
-	@OneToMany(targetEntity = Review.class)
+	@OneToMany(targetEntity = Review.class, cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<Review> reviews;
 	
 	@Id
@@ -49,11 +53,13 @@ public class User
 		this.roleType= roleType;
 	}
 
-	public void setName(String name) {
+	public void setName(String name) 
+	{
 		this.name = name;
 	}
 
-	public void setPassword(String password) {
+	public void setPassword(String password)
+	{
 		this.password = password;
 	}
 
@@ -61,7 +67,8 @@ public class User
 		return roleType;
 	}
 
-	public void setRoleType(String roleType) {
+	public void setRoleType(String roleType)
+	{
 		this.roleType = roleType;
 	}
 
