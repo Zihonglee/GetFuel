@@ -32,9 +32,17 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * The activity for the food picker feature. It is a wheel of fortune, that has restaurants in each sector of the wheel.
+ * Users may not know what to eat immediately. Therefore, they can click on the "Spin the wheel"
+ * button to decide on what restaurant to try out. After they spin the wheel, a Toast text will appear and
+ * tell them the name of the restaurant that they are going to eat.
+ *
+ */
+//@Author Jayson Lee
 public class FoodPicker extends AppCompatActivity {
 
-    //@Author Jayson Lee
+
     private LuckyWheel lw;
     ArrayList<WheelItem> wheelItems;
     ArrayList<String> randomRestaurants = new ArrayList<String>();
@@ -153,6 +161,11 @@ public class FoodPicker extends AppCompatActivity {
         return abdt.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
+
+    /**
+     * A private method used to generate the sector of the wheels, with names of restaurants
+     * from the database.
+     */
     private void generateWheelItems(){
 
 
