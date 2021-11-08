@@ -1,3 +1,4 @@
+
 2021-11-07 00:07:10.683  INFO 7448 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 7448 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
 2021-11-07 00:07:10.692  INFO 7448 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
 2021-11-07 00:07:10.829  INFO 7448 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
@@ -2519,3 +2520,4 @@ java.lang.StackOverflowError: null
 2021-11-07 01:28:40.485  INFO 13968 --- [RMI TCP Connection(28)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2021-11-07 01:28:40.486  INFO 13968 --- [RMI TCP Connection(28)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
 2021-11-07 01:28:40.608  INFO 13968 --- [RMI TCP Connection(28)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+
