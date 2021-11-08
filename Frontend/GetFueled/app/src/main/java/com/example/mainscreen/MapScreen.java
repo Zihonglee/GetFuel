@@ -45,6 +45,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Google map page of based on the users location. Asks for permission to access
+ * location if not already set and starts at the users locations. Allows user to search
+ * restaurants and look at what's around them.
+ * Uses Google Maps API and Google Places API.
+ * It also has a navigation bar for the user to click onto other screens.
+ */
 //@author-Andrea Gameros
 public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
 {
@@ -63,6 +70,11 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
     private DrawerLayout dl;
     private ActionBarDrawerToggle abdt;
 
+    /**
+     * Sets up google maps and other features based on map_page.xml and calls the api
+     * from the google_maps_api.xml
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -90,6 +102,9 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
 
         final NavigationView nav_view = (NavigationView) findViewById(R.id.nav_view);
 
+        /**
+         * Creates the navigation bar and allows user to click on any to get to corresponding screen
+         */
         nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
         {
             @Override
@@ -146,6 +161,11 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
         });
     }
 
+    /**
+     * Overrides navigation bar everytime it is clicked so user can open and close
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item)
     {
@@ -153,6 +173,12 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
     }
 
 
+    /**
+     * Allows user to search what's in search bar when clicked.
+     * Various options pop up based on what user searched.
+     * Zooms to the location user clicked.
+     * @param v
+     */
     public void onClick(View v)
     {
         Toast.makeText(this, "Button pressed", Toast.LENGTH_SHORT).show();
@@ -278,6 +304,15 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
         });
     }
 
+    /**
+     * Ignore this class for now. It will be used to call specifically nearby
+     * restaurants and have their own marker on map. Already have this with auto
+     * generated google maps so many not use.
+     * @param latitude
+     * @param longitude
+     * @param nearbyPlace
+     * @return
+     */
     private String getUrl(double latitude, double longitude, String nearbyPlace)
     {
         StringBuilder googlePlacesUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
@@ -299,6 +334,9 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
          mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
          **/
 
+    /**
+     * Looks for users location if permission is allowed
+     */
     private void enableUserLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -313,6 +351,9 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
         mMap.setMyLocationEnabled(true);
     }
 
+    /**
+     * Camera zooms to users location
+     */
     private void zoomToUserLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -338,6 +379,13 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback
         });
     }
 
+    /**
+     * If permission granted for accessing user location, opens google maps
+     * and zooms to users current location
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);

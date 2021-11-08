@@ -26,6 +26,10 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This is the activity for creating an account. It allows to user to input a username, email, password
+ * and adds it to the dataabse of users.
+ */
 //@author-Andrea Gameros
 public class CreateAccountScreen extends AppCompatActivity {
 
@@ -37,6 +41,10 @@ public class CreateAccountScreen extends AppCompatActivity {
     private Button SigninHere;
     RequestQueue requestQueue;
 
+    /**
+     * Creates screen for create account screen based on create_account_screen.xml
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,18 +57,21 @@ public class CreateAccountScreen extends AppCompatActivity {
         CreateAccount = (Button)findViewById(R.id.btnCreateAccount);
         SigninHere = (Button)findViewById(R.id.btnSigninHere);
 
-        //stores info into database
+        /**
+         * When create account button is clicked the info is put into the database with createAccount()
+         */
         CreateAccount.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                //Intent newIntent = new Intent(view.getContext(), LoginPage.class);
-                //startActivity(newIntent);
                 createAccount(Email.getText().toString(),UserName.getText().toString(), Password.getText().toString(), Password2.getText().toString());
             }
         });
 
+        /**
+         * When sign in here button is clicked, it brings the user back to the login screen.
+         */
         SigninHere.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -72,21 +83,34 @@ public class CreateAccountScreen extends AppCompatActivity {
         });
     }
 
+    /**
+     * Inputs everything into database
+     * @param email
+     * @param username
+     * @param password
+     * @param password2
+     */
     private void createAccount(String email, String username, String password, String password2)
     {
-        //sends alert
+        //if passwords don't match let user know
         if(checkPassword(password, password2) == false)
         {
             Toast.makeText(CreateAccountScreen.this,"Passwords don't match", Toast.LENGTH_LONG).show();
         }
 
+        //if passwords match send to database
         else
         {
-            //Toast.makeText(CreateAccountPage.this, "test", Toast.LENGTH_LONG).show();
             PostRequest();
         }
     }
 
+    /**
+     * Checks the passwords match
+     * @param password
+     * @param password2
+     * @return
+     */
     private boolean checkPassword(String password, String password2)
     {
         //then store all information to database
@@ -97,6 +121,9 @@ public class CreateAccountScreen extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * POST account to database based on given info
+     */
     private void PostRequest()
     {
         final String username, email, password;

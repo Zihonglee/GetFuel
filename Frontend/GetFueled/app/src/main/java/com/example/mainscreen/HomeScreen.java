@@ -28,6 +28,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The activity for a homepage. It holds the recycle view for the restaurants for
+ * the user to see and click. Clicking a restaurant will bring user to the restaurant
+ * screen where the corresponding info for the specific restaurant will appear. It also
+ * has a navigation bar for the user to click onto other screens.
+ */
 //@author-Andrea Gameros
 public class HomeScreen extends AppCompatActivity
 {
@@ -44,6 +50,10 @@ public class HomeScreen extends AppCompatActivity
     private ActionBarDrawerToggle abdt;
 
 
+    /**
+     * Creates screen for homepage based on homepage.xml
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -52,7 +62,8 @@ public class HomeScreen extends AppCompatActivity
 
         recyclerView = findViewById(R.id.recyclerView2);
         restaurants = new ArrayList<>();
-        
+
+        //sets up reycycle view
         extractRestaurants();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -71,6 +82,9 @@ public class HomeScreen extends AppCompatActivity
 
         final NavigationView nav_view = (NavigationView) findViewById(R.id.nav_view);
 
+        /**
+         * Creates the navigation bar and allows user to click on any to get to corresponding screen
+         */
         nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
         {
             @Override
@@ -130,6 +144,11 @@ public class HomeScreen extends AppCompatActivity
 
     }
 
+    /**
+     * Overrides navigation bar everytime it is clicked so user can open and close
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item)
     {
@@ -137,6 +156,10 @@ public class HomeScreen extends AppCompatActivity
     }
 
 
+    /**
+     * Calls the adapter to set up the recycle view and a holder for each restarant
+     * Uses Adapter class
+     */
     private void extractRestaurants()
     {
         RequestQueue queue = Volley.newRequestQueue(this);

@@ -36,6 +36,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The activity for adding a restaurant. Only admins can view this page and use this feature.
+ * Admins are allowed to key in the name, price, rating, cuisine, and image url of the restaurant
+ * they would like to add into the database. For adding cuisines of restaurants, a dropdown list
+ * will appear. Admins are allowed to select this limited list of cuisines suited to the restaurant
+ * that they want to add.
+ */
+//@author Jayson Lee
 public class addingRestaurantPage extends AppCompatActivity {
     private EditText restaurantInput, ratingInput, priceInput, imageUrlInput;
     private AutoCompleteTextView cuisineSelection;
@@ -71,6 +79,10 @@ public class addingRestaurantPage extends AppCompatActivity {
 
     }
 
+
+    /**
+     * Displays a dropdown list of cuisines by retrieving information contained in the database
+     */
     private void getCuisine(){
         RequestQueue queue = Volley.newRequestQueue(this);
 
@@ -115,6 +127,10 @@ public class addingRestaurantPage extends AppCompatActivity {
 
     }
 
+    /**
+     * A method used to assign a cuisine value to the restaurant being added to the database.
+     * This is because a cuisine can have many restaurants but a restaurant can only have one cuisine.
+     */
     private void postRestaurant2(){
         final String cuisine;
         RequestQueue restQueue = Volley.newRequestQueue(this);
@@ -198,6 +214,10 @@ public class addingRestaurantPage extends AppCompatActivity {
 
     }
 
+    /**
+     * A method used to post the values of the restaurant
+     * keyed in by the admin on the screen to the database.
+     */
     private void postRestaurant(){
 
         final String restaurantName, price, rating, imageUrl;

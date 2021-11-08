@@ -21,6 +21,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Starting screen every time user logs in. Allows user to login to account
+ */
 //@author-Andrea Gameros
 public class LoginScreen extends AppCompatActivity {
 
@@ -33,6 +36,10 @@ public class LoginScreen extends AppCompatActivity {
     private RequestQueue requestQueue;
     boolean accountFound = false;
 
+    /**
+     * Sets login screen based on login_screen.xml
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -47,6 +54,10 @@ public class LoginScreen extends AppCompatActivity {
 
         Info.setText("Number of attempts remaining: 3");
 
+        /**
+         * Looks for account in user database based on given info when login
+         * button is pressed
+         */
         Login.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -58,6 +69,10 @@ public class LoginScreen extends AppCompatActivity {
             }
         });
 
+        /**
+         * Brings user to create account screen when create account button
+         * is pressed
+         */
         CreateAccount.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -70,6 +85,9 @@ public class LoginScreen extends AppCompatActivity {
         });
     }
 
+    /**
+     * Looks for user account with GET REQUEST in the user database based on the given information.
+     */
     private void getUsers() {
         RequestQueue queue = Volley.newRequestQueue(this);
         //boolean accountFound = false;

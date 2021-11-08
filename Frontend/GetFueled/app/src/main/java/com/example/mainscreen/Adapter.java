@@ -15,6 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+/**
+ * This class is an adapted that goes binds each restaurant in the database and creates a recycleview
+ * for the Homepage. It also creates an onclick listener so each restaurant can be clicked on and brought
+ * to the restaurant screen where the corresponding info for the specific restaurant will appear.
+ *
+ * Each holder represents a restaurant
+ */
 //@author-Andrea Gameros
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
 {
@@ -22,12 +29,23 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
     private List<Restaurant> restaurants;
     public static String Name;
 
+    /**
+     *Creates the basic layout and arraylist of restaurants
+     * @param ctx the layout for the page
+     * @param restaurants arraylist of restaurants
+     */
     public Adapter(Context ctx, List<Restaurant> restaurants)
     {
         this.inflater = LayoutInflater.from(ctx);
         this.restaurants = restaurants;
     }
 
+    /**
+     * Creates the layout for each holder
+     * @param parent
+     * @param viewType
+     * @return the layout
+     */
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
@@ -36,6 +54,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
         return new ViewHolder(view);
     }
 
+    /**
+     *Calls the info from the backend for each restaurant and binds it to each holder
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position)
     {
@@ -45,6 +68,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
         //holder.restaurantRating.setText(String.valueOf(restaurants.get(position).getRating()));
         //Picasso.get().load(restaurants.get(position.getCoverImage().into(holder.restaurantImg);
 
+        /**
+         * Creates an onClickListener for each holder
+         */
         holder.itemView.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -59,14 +85,20 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
         });
     }
 
+    /**
+     * @return amount of items in the recycle view
+     */
     @Override
     public int getItemCount()
     {
         return restaurants.size();
     }
 
-    //added implements...
-    public class ViewHolder extends RecyclerView.ViewHolder //implements View.OnClickListener
+
+    /**
+     * Adds the name of the restaurant to each holder on the homepage
+     */
+    public class ViewHolder extends RecyclerView.ViewHolder
     {
         TextView restaurantName;
         //TextView restaurantCuisine;
@@ -75,7 +107,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
         //ImageView restaurantImg;
 
 
-        public ViewHolder(View itemView) //OnNoteListener onNoteListener)
+        public ViewHolder(View itemView)
         {
             super(itemView);
 

@@ -1,6 +1,10 @@
 package com.example.mainscreen;
 
-//@author-Andrea Gameros
+/**
+ * This class generates the contrustor for a restaurant. It is used to generate the homepage, restaurant
+ * info, and the edit restaurant for admin.
+ */
+//@author-Andrea Gameros and Jayson Lee
 public class Restaurant
 {
     public String id;

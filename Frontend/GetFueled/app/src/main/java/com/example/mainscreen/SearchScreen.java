@@ -30,6 +30,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+/**
+ * The activity for the search screen. It holds a list view of cuisines for
+ * users to click on then find restaurants related to the specific cuisine.
+ * Clicking on any cuisine will show users a recyclerview of restaurants related to the cuisine
+ * It also has a navigation bar for the user to click onto other screens.
+ */
+//@Author - Jayson Lee
 public class SearchScreen extends AppCompatActivity
 {
 
@@ -42,7 +49,7 @@ public class SearchScreen extends AppCompatActivity
     private DrawerLayout dl;
     private ActionBarDrawerToggle abdt;
 
-    //@Author - Jayson Lee
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -55,7 +62,7 @@ public class SearchScreen extends AppCompatActivity
 
 //        arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, list);
 //        listView.setAdapter(arrayAdapter);
-        restaurantGetRequest();
+        cuisineGetRequest();
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -82,6 +89,9 @@ public class SearchScreen extends AppCompatActivity
 
         final NavigationView nav_view = (NavigationView) findViewById(R.id.nav_view);
 
+        /**
+         * Creates the navigation bar and allows user to click on any to get to corresponding screen
+         */
         nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
         {
             @Override
@@ -138,8 +148,12 @@ public class SearchScreen extends AppCompatActivity
         });
     }
 
+    /**
+     * A private method that makes a JSONArrayRequest to obtain the cuisine data from the database
+     * and display it on the search screen.
+     */
     //@Author - Jayson Lee
-    private void restaurantGetRequest(){
+    private void cuisineGetRequest(){
         RequestQueue queue = Volley.newRequestQueue(this);
 
         String url = "http://coms-309-059.cs.iastate.edu:8080/cuisines";

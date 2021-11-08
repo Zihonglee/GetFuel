@@ -11,6 +11,10 @@ import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 
+/**
+ * Ignore this class. It was going to be used for the reycvle view restaurant adpater but didn't work.
+ * Replaced by Adapter class. This needs to be deleted.
+ */
 public class RestaurantListAdapter extends ArrayAdapter<Restaurant> {
 
     private ArrayList<Restaurant> restaurantList;
