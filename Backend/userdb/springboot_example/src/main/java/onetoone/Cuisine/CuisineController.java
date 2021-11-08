@@ -6,13 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
+import io.swagger.annotations.*;
+
+@Api(value = "CuisineController", description = "REST APIs related to Cuisine Entity!!!!")
 @RestController
 @RequestMapping(value = "/cuisines")
 public class CuisineController 
 {
 	@Autowired
 	public CuisineRepository cuisineRepository;
-
+	
+	@ApiOperation(value = "Get the list of cuisines in the System ", response = Iterable.class)
+	@ApiResponses(value = { 
+	            @ApiResponse(code = 200, message = "Success|OK"),
+	            @ApiResponse(code = 401, message = "not authorized!"), 
+	            @ApiResponse(code = 403, message = "forbidden!!!"),
+	            @ApiResponse(code = 404, message = "not found!!!") })
 	@GetMapping
 	public List<Cuisine> getAllCuisine()
 	{
@@ -20,12 +29,24 @@ public class CuisineController
 
 	}
 
+	@ApiOperation(value = "Get specific cuisine with the given identificatio in the System ", response = Cuisine.class)
+	@ApiResponses(value = { 
+            @ApiResponse(code = 200, message = "Success|OK"),
+            @ApiResponse(code = 401, message = "not authorized!"), 
+            @ApiResponse(code = 403, message = "forbidden!!!"),
+            @ApiResponse(code = 404, message = "not found!!!") })
 	@GetMapping("{id}")
 	public Cuisine getCuisineById(@PathVariable Long id)
 	{
 		return cuisineRepository.getCuisineById(id);
 	}
 
+	@ApiOperation(value = "Post a new cuisine in the System ", response = String.class)
+	@ApiResponses(value = { 
+            @ApiResponse(code = 200, message = "Success|OK"),
+            @ApiResponse(code = 401, message = "not authorized!"), 
+            @ApiResponse(code = 403, message = "forbidden!!!"),
+            @ApiResponse(code = 404, message = "not found!!!") })
 	@PostMapping
 	public String createCuisine(@RequestBody Cuisine cuisine)
 	{
@@ -40,6 +61,12 @@ public class CuisineController
 		}
 	}
 
+	@ApiOperation(value = "Put and replacing an old cuisine with a new cuisine in the System", response = String.class)
+	@ApiResponses(value = { 
+            @ApiResponse(code = 200, message = "Success|OK"),
+            @ApiResponse(code = 401, message = "not authorized!"), 
+            @ApiResponse(code = 403, message = "forbidden!!!"),
+            @ApiResponse(code = 404, message = "not found!!!") })
 	@PutMapping("/{id}")
 	public String updateCuisine(@PathVariable Long id, @RequestBody Cuisine request)
 	{
@@ -57,7 +84,12 @@ public class CuisineController
 		}
 	}
 
-
+	@ApiOperation(value = "Delete a specific cuisine with given identification in the System ", response = String.class)
+	@ApiResponses(value = { 
+            @ApiResponse(code = 200, message = "Success|OK"),
+            @ApiResponse(code = 401, message = "not authorized!"), 
+            @ApiResponse(code = 403, message = "forbidden!!!"),
+            @ApiResponse(code = 404, message = "not found!!!") })
 	@DeleteMapping("/{id}")
 	public String deleteCuisineById(@PathVariable Long id)
 	{

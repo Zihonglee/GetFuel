@@ -6,9 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import onetoone.Cuisine.CuisineRepository;
 import onetoone.Cuisine.Cuisine;
 
+@Api(value = "RestaurantController", description = "REST APIs related to restaurant Entity!!!!")
 @RestController
 @RequestMapping (value = "/restaurant")
 public class RestaurantController
@@ -18,7 +23,13 @@ public class RestaurantController
 
 	@Autowired
 	public CuisineRepository cuisineRepository;
-
+	
+	@ApiOperation(value = "Post a new restaurant in the System ", response = String.class)
+	@ApiResponses(value = { 
+            @ApiResponse(code = 200, message = "Success|OK"),
+            @ApiResponse(code = 401, message = "not authorized!"), 
+            @ApiResponse(code = 403, message = "forbidden!!!"),
+            @ApiResponse(code = 404, message = "not found!!!") })
 	@PostMapping
 	public String addRestaurant(@RequestBody Restaurant restaurant)
 	{
@@ -32,19 +43,37 @@ public class RestaurantController
 			return "Restaurant saved";
 		}
 	}
-
+	
+	@ApiOperation(value = "Get all restaurant in the System ", response = Iterable.class)
+	@ApiResponses(value = { 
+            @ApiResponse(code = 200, message = "Success|OK"),
+            @ApiResponse(code = 401, message = "not authorized!"), 
+            @ApiResponse(code = 403, message = "forbidden!!!"),
+            @ApiResponse(code = 404, message = "not found!!!") })
 	@GetMapping
 	public List<Restaurant> getAllRestaurant()
 	{
 		return restRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
 	}
 
+	@ApiOperation(value = "Get a specific restaurant with the given identification in the System ", response = Restaurant.class)
+	@ApiResponses(value = { 
+            @ApiResponse(code = 200, message = "Success|OK"),
+            @ApiResponse(code = 401, message = "not authorized!"), 
+            @ApiResponse(code = 403, message = "forbidden!!!"),
+            @ApiResponse(code = 404, message = "not found!!!") })
 	@GetMapping ("/{id}")
 	public Restaurant getRestaurantById(@PathVariable Long id)
 	{
 		return restRepository.getRestaurantById(id);
 	}
 
+	@ApiOperation(value = "Delete a specific restaurant in the System ", response = String.class)
+	@ApiResponses(value = { 
+            @ApiResponse(code = 200, message = "Success|OK"),
+            @ApiResponse(code = 401, message = "not authorized!"), 
+            @ApiResponse(code = 403, message = "forbidden!!!"),
+            @ApiResponse(code = 404, message = "not found!!!") })
 	@DeleteMapping ("/{id}")
 	public String deleteRestaurantById(@PathVariable Long id)
 	{
@@ -52,6 +81,12 @@ public class RestaurantController
 		return "Restaurant deleted";
 	}
 
+	@ApiOperation(value = "Put a restaurant to a specific cusiine in the System ", response = String.class)
+	@ApiResponses(value = { 
+            @ApiResponse(code = 200, message = "Success|OK"),
+            @ApiResponse(code = 401, message = "not authorized!"), 
+            @ApiResponse(code = 403, message = "forbidden!!!"),
+            @ApiResponse(code = 404, message = "not found!!!") })
 	@PutMapping("/{restaurantsId}/cuisine/{cuisineId}")
 	public String assigneCusinetoRest(@PathVariable Long restaurantsId, @PathVariable Long cuisineId)
 	{
@@ -96,6 +131,12 @@ public class RestaurantController
 		}
 	}
 
+	@ApiOperation(value = "Put and replacing an old restaurant with a new restaurant in the System ", response = String.class)
+	@ApiResponses(value = { 
+            @ApiResponse(code = 200, message = "Success|OK"),
+            @ApiResponse(code = 401, message = "not authorized!"), 
+            @ApiResponse(code = 403, message = "forbidden!!!"),
+            @ApiResponse(code = 404, message = "not found!!!") })
 	@PutMapping ("/{id}")
 	public String updateRestaurantById(@PathVariable Long id, @RequestBody Restaurant restaurantToUpdate)
 	{

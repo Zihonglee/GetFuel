@@ -5,6 +5,8 @@ import onetoone.Reviews.Review;
 
 import javax.persistence.*;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,16 +15,27 @@ public class Restaurant
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@ApiModelProperty(notes = "Identification of this restaurant", name = "id", required = true, value = "test id")
 	private Long id;
+	
+	@ApiModelProperty(notes = "Name of this restaurant", name = "name", required = true, value = "test name")
 	private String name;
+	
+	@ApiModelProperty(notes = "Average price for this restaurant", name = "price", required = true, value = "test price")
 	private String price;
+	
+	@ApiModelProperty(notes = "rating of this restaurant", name = "rating", required = true, value = "test rating")
 	private String rating;
+	
+	@ApiModelProperty(notes = "URL of this restaurant", name = "Url", required = true, value = "test url")
 	private String Url;
 
-	@ManyToOne(targetEntity = Cuisine.class)
+	@ManyToOne(targetEntity = Cuisine.class) //cascade = CascadeType.ALL 
+	@ApiModelProperty(notes = "The cuisine of this specific restaurant", name = "cuisine", required = true, value = "test cuisine")
 	private Cuisine cuisine;
 
-	@OneToMany(targetEntity = Review.class)
+	@OneToMany(targetEntity = Review.class) //cascade = CascadeType.ALL
+	@ApiModelProperty(notes = "The list of reviews of this restaurant", name = "id", required = true, value = "test reviews")
 	private List<Review> reviews;
 
 	public Restaurant(){
