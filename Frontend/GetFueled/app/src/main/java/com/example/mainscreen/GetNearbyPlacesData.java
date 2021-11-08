@@ -14,7 +14,10 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.List;
 
-
+/**
+ * Ignore this class for now. It was used when trying to get google maps working and
+ * I ended up not needing it. I'm keeping it for now just in case.
+ */
 public class GetNearbyPlacesData extends AsyncTask<Object, String, String>
 {
     private String googlePlaceData;

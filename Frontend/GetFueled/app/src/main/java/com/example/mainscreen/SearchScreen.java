@@ -82,6 +82,9 @@ public class SearchScreen extends AppCompatActivity
 
         final NavigationView nav_view = (NavigationView) findViewById(R.id.nav_view);
 
+        /**
+         * Creates the navigation bar and allows user to click on any to get to corresponding screen
+         */
         nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
         {
             @Override

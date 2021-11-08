@@ -23,6 +23,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Activity that shows the restaurant info based on the holder clicked on homepage. It allows
+ * users to view info about the restaurant from the database and view reviews as well as make reivews
+ * themselves. It also has a navigation bar for the user to click onto other screens.
+ */
 //@author-Andrea Gameros
 public class RestaurantScreen extends AppCompatActivity
 {
@@ -34,6 +39,10 @@ public class RestaurantScreen extends AppCompatActivity
     private DrawerLayout dl;
     private ActionBarDrawerToggle abdt;
 
+    /**
+     * Creates screen for restaurant based on restaurant_screen.xml
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -59,6 +68,9 @@ public class RestaurantScreen extends AppCompatActivity
 
         final NavigationView nav_view = (NavigationView) findViewById(R.id.nav_view);
 
+        /**
+         * Creates the navigation bar and allows user to click on any to get to corresponding screen
+         */
         nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
         {
             @Override
@@ -117,20 +129,34 @@ public class RestaurantScreen extends AppCompatActivity
         });
     }
 
+    /**
+     * Overrides navigation bar everytime it is clicked so user can open and close
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item)
     {
         return abdt.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
-    //how to pull info from homepage
-    //put into get info which is called when made
+    /**
+     * pulls the name of the restaurant click on from the homepage
+     * @return name of restuarant
+     */
     public String getRestaurant()
     {
         String name = Adapter.Name;
         return name;
     }
 
+    /**
+     * Generate info from the restaurant clicked on homepage
+     * based on the restaurant name.
+     * Looks in the database for the restaurant name and calls the
+     * matching info to it's location
+     * @param s restaurant name
+     */
     private void getInfo(String s)
     {
         RequestQueue queue = Volley.newRequestQueue(this);

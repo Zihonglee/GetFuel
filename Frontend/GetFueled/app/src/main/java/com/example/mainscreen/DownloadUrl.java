@@ -9,6 +9,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * Ignore this class for now. It might be necessary for displaying certain restaurants on google map.
+ *
+ * Code is useless for now.
+ */
 public class DownloadUrl
 {
 

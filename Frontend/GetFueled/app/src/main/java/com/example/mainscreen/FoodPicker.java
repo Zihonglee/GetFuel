@@ -81,6 +81,9 @@ public class FoodPicker extends AppCompatActivity {
 
         final NavigationView nav_view = (NavigationView) findViewById(R.id.nav_view);
 
+        /**
+         * Creates the navigation bar and allows user to click on any to get to corresponding screen
+         */
         nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
         {
             @Override
@@ -139,6 +142,11 @@ public class FoodPicker extends AppCompatActivity {
         });
     }
 
+    /**
+     * Overrides navigation bar everytime it is clicked so user can open and close
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item)
     {
