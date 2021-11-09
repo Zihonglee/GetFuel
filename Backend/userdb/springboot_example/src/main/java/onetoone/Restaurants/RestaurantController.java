@@ -77,8 +77,27 @@ public class RestaurantController
 	@DeleteMapping ("/{id}")
 	public String deleteRestaurantById(@PathVariable Long id)
 	{
-		restRepository.deleteRestaurantById(id);
-		return "Restaurant deleted";
+		Cuisine cuisine = cuisineRepository.getCuisineById(restRepository.getRestaurantById(id).getCuisine().getId());
+		Restaurant restaurant = restRepository.getRestaurantById(id);
+		if (cuisine == null && restaurant == null)
+		{
+			return "failure";
+		}
+		else
+		{
+			if (cuisine == null)
+			{
+				restRepository.deleteRestaurantById(id);
+				return "Restaurant deleted";
+			}
+			else
+			{
+				cuisine.getRestaurants().remove(restaurant);
+				cuisineRepository.save(cuisine);
+				restRepository.deleteRestaurantById(id);
+				return "Restaurant deleted";
+			}
+		}
 	}
 
 	@ApiOperation(value = "Put a restaurant to a specific cusiine in the System ", response = String.class)

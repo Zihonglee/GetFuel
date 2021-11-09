@@ -9,6 +9,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import onetoone.Reviews.Review;
+import onetoone.Reviews.ReviewController;
 
 @Api(value = "UserController", description = "REST APIs related to User Entity!!!!")
 @RestController
@@ -17,6 +19,9 @@ public class UserController
 {
 	@Autowired
 	public UserRepository userRepository;
+	
+	@Autowired
+	public ReviewController reviewController;
 	
 	@ApiOperation(value = "Post a new user in the System ", response = String.class)
 	@ApiResponses(value = { 
@@ -69,10 +74,31 @@ public class UserController
             @ApiResponse(code = 403, message = "forbidden!!!"),
             @ApiResponse(code = 404, message = "not found!!!") })
 	@DeleteMapping("/{id}")
-	public String deletePersonById(@PathVariable("id") Long id)
+	public String deletePersonById(@PathVariable Long id)
 	{
-		userRepository.deleteById(id);
-		return "User deleted";
+		User user = userRepository.getUserById(id);
+		if (user == null)
+		{
+			return "failure";
+		}
+		else
+		{
+			if (user.getAllReviews() == null)
+			{
+				userRepository.deleteUserById(id);
+				return "User deleted";
+			}
+			else
+			{
+				List<Review> listOfReview = user.getAllReviews();
+				int size = listOfReview.size();
+				for (int i = 0; i < size; ++i)
+				{
+					reviewController.deleteReview(listOfReview.get(0).getId());
+				}
+				return "User deleted";
+			}
+		}
 	}
 	
 	@ApiOperation(value = "Put and replacing an old user with a new user in the System", response = String.class)
