@@ -11,6 +11,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import onetoone.Cuisine.CuisineRepository;
+import onetoone.Reviews.Review;
+import onetoone.Reviews.ReviewController;
 import onetoone.Cuisine.Cuisine;
 
 @Api(value = "RestaurantController", description = "REST APIs related to restaurant Entity!!!!")
@@ -23,13 +25,19 @@ public class RestaurantController
 
 	@Autowired
 	public CuisineRepository cuisineRepository;
+
+	@Autowired
+	public ReviewController reviewController;
 	
+	@Autowired
+	public RestaurantController restController;
+
 	@ApiOperation(value = "Post a new restaurant in the System ", response = String.class)
 	@ApiResponses(value = { 
-            @ApiResponse(code = 200, message = "Success|OK"),
-            @ApiResponse(code = 401, message = "not authorized!"), 
-            @ApiResponse(code = 403, message = "forbidden!!!"),
-            @ApiResponse(code = 404, message = "not found!!!") })
+			@ApiResponse(code = 200, message = "Success|OK"),
+			@ApiResponse(code = 401, message = "not authorized!"), 
+			@ApiResponse(code = 403, message = "forbidden!!!"),
+			@ApiResponse(code = 404, message = "not found!!!") })
 	@PostMapping
 	public String addRestaurant(@RequestBody Restaurant restaurant)
 	{
@@ -43,13 +51,13 @@ public class RestaurantController
 			return "Restaurant saved";
 		}
 	}
-	
+
 	@ApiOperation(value = "Get all restaurant in the System ", response = Iterable.class)
 	@ApiResponses(value = { 
-            @ApiResponse(code = 200, message = "Success|OK"),
-            @ApiResponse(code = 401, message = "not authorized!"), 
-            @ApiResponse(code = 403, message = "forbidden!!!"),
-            @ApiResponse(code = 404, message = "not found!!!") })
+			@ApiResponse(code = 200, message = "Success|OK"),
+			@ApiResponse(code = 401, message = "not authorized!"), 
+			@ApiResponse(code = 403, message = "forbidden!!!"),
+			@ApiResponse(code = 404, message = "not found!!!") })
 	@GetMapping
 	public List<Restaurant> getAllRestaurant()
 	{
@@ -58,10 +66,10 @@ public class RestaurantController
 
 	@ApiOperation(value = "Get a specific restaurant with the given identification in the System ", response = Restaurant.class)
 	@ApiResponses(value = { 
-            @ApiResponse(code = 200, message = "Success|OK"),
-            @ApiResponse(code = 401, message = "not authorized!"), 
-            @ApiResponse(code = 403, message = "forbidden!!!"),
-            @ApiResponse(code = 404, message = "not found!!!") })
+			@ApiResponse(code = 200, message = "Success|OK"),
+			@ApiResponse(code = 401, message = "not authorized!"), 
+			@ApiResponse(code = 403, message = "forbidden!!!"),
+			@ApiResponse(code = 404, message = "not found!!!") })
 	@GetMapping ("/{id}")
 	public Restaurant getRestaurantById(@PathVariable Long id)
 	{
@@ -70,14 +78,14 @@ public class RestaurantController
 
 	@ApiOperation(value = "Delete a specific restaurant in the System ", response = String.class)
 	@ApiResponses(value = { 
-            @ApiResponse(code = 200, message = "Success|OK"),
-            @ApiResponse(code = 401, message = "not authorized!"), 
-            @ApiResponse(code = 403, message = "forbidden!!!"),
-            @ApiResponse(code = 404, message = "not found!!!") })
+			@ApiResponse(code = 200, message = "Success|OK"),
+			@ApiResponse(code = 401, message = "not authorized!"), 
+			@ApiResponse(code = 403, message = "forbidden!!!"),
+			@ApiResponse(code = 404, message = "not found!!!") })
 	@DeleteMapping ("/{id}")
 	public String deleteRestaurantById(@PathVariable Long id)
 	{
-		Cuisine cuisine = cuisineRepository.getCuisineById(restRepository.getRestaurantById(id).getCuisine().getId());
+		Cuisine cuisine = restRepository.getRestaurantById(id).getCuisine();
 		Restaurant restaurant = restRepository.getRestaurantById(id);
 		if (cuisine == null && restaurant == null)
 		{
@@ -85,27 +93,50 @@ public class RestaurantController
 		}
 		else
 		{
-			if (cuisine == null)
+			if (cuisine == null && restaurant.getReviews() == null)
 			{
 				restRepository.deleteRestaurantById(id);
 				return "Restaurant deleted";
 			}
 			else
 			{
-				cuisine.getRestaurants().remove(restaurant);
-				cuisineRepository.save(cuisine);
-				restRepository.deleteRestaurantById(id);
-				return "Restaurant deleted";
+				if (cuisine == null)
+				{
+					List<Review> reviews = restaurant.getReviews();
+					int size = reviews.size();
+					for (int i = 0; i < size; ++i)
+					{
+						reviewController.deleteReview(reviews.get(0).getId());
+					}
+					restController.getAllRestaurant().remove(restaurant);
+					restRepository.deleteRestaurantById(id);
+					return "Restaurant deleted";
+				}
+				else
+				{
+					List<Review> reviews = restaurant.getReviews();
+					int size = reviews.size();
+					for (int i = 0; i < size; ++i)
+					{
+						reviewController.deleteReview(reviews.get(0).getId());
+					}
+					restaurant.setCuisine(null);
+					List<Restaurant> list = cuisine.getRestaurants();
+					list.remove(restaurant);
+					cuisineRepository.save(cuisine);
+					restRepository.deleteRestaurantById(id);
+					return "Restaurant deleted";
+				}
 			}
 		}
 	}
 
 	@ApiOperation(value = "Put a restaurant to a specific cusiine in the System ", response = String.class)
 	@ApiResponses(value = { 
-            @ApiResponse(code = 200, message = "Success|OK"),
-            @ApiResponse(code = 401, message = "not authorized!"), 
-            @ApiResponse(code = 403, message = "forbidden!!!"),
-            @ApiResponse(code = 404, message = "not found!!!") })
+			@ApiResponse(code = 200, message = "Success|OK"),
+			@ApiResponse(code = 401, message = "not authorized!"), 
+			@ApiResponse(code = 403, message = "forbidden!!!"),
+			@ApiResponse(code = 404, message = "not found!!!") })
 	@PutMapping("/{restaurantsId}/cuisine/{cuisineId}")
 	public String assigneCusinetoRest(@PathVariable Long restaurantsId, @PathVariable Long cuisineId)
 	{
@@ -132,7 +163,7 @@ public class RestaurantController
 					restaurantsList.remove(store);
 					cuisine2.setRestaurants(restaurantsList);
 					cuisineRepository.save(cuisine2);
-					
+
 					store = new Restaurant(store.getName(), store.getPrice(), store.getRating(), cuisine, store.getUrl());
 					updateRestaurantById(restaurantsId, store);
 					return "success";					
@@ -152,10 +183,10 @@ public class RestaurantController
 
 	@ApiOperation(value = "Put and replacing an old restaurant with a new restaurant in the System ", response = String.class)
 	@ApiResponses(value = { 
-            @ApiResponse(code = 200, message = "Success|OK"),
-            @ApiResponse(code = 401, message = "not authorized!"), 
-            @ApiResponse(code = 403, message = "forbidden!!!"),
-            @ApiResponse(code = 404, message = "not found!!!") })
+			@ApiResponse(code = 200, message = "Success|OK"),
+			@ApiResponse(code = 401, message = "not authorized!"), 
+			@ApiResponse(code = 403, message = "forbidden!!!"),
+			@ApiResponse(code = 404, message = "not found!!!") })
 	@PutMapping ("/{id}")
 	public String updateRestaurantById(@PathVariable Long id, @RequestBody Restaurant restaurantToUpdate)
 	{

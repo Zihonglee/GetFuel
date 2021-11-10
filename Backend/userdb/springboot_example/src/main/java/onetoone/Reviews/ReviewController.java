@@ -165,7 +165,7 @@ public class ReviewController
 	{
 		Restaurant rest = restRepository.getRestaurantById(restaurantId);
 		User user = userRepository.getUserById(userId);
-		Review review = reviewRepository.getById(reviewId);
+		Review review = reviewRepository.getReviewById(reviewId);
 		user.deletereview(review);
 		List<Review> getall = rest.getReviews();
 		getall.remove(review);

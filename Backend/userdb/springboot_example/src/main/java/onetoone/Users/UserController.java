@@ -96,6 +96,7 @@ public class UserController
 				{
 					reviewController.deleteReview(listOfReview.get(0).getId());
 				}
+				userRepository.deleteUserById(id);
 				return "User deleted";
 			}
 		}

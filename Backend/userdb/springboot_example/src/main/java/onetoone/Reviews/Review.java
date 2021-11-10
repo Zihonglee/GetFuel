@@ -29,7 +29,7 @@ public class Review
 	@ApiModelProperty(notes = "The iditification of user who gave the comments", name = "user", required = true, value = "test userId")
 	private Long userId;
 
-	@ManyToOne(targetEntity = Restaurant.class, cascade = CascadeType.ALL)
+	@ManyToOne(targetEntity = Restaurant.class)
 	@JsonIgnore
 	@ApiModelProperty(notes = "The restaurant that contain this review", name = "restaurant", required = true, value = "test restaurant")
 	private Restaurant restaurant;

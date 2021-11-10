@@ -20,7 +20,7 @@ public class Cuisine
 	@ApiModelProperty(notes = "The name of the cuisine", name = "cuisineType", required = true, value = "test cuisineType")
 	private String cuisineType;
 
-	@OneToMany(targetEntity = Restaurant.class, cascade = CascadeType.ALL)
+	@OneToMany(targetEntity = Restaurant.class)
 	@JsonIgnore
 	@ApiModelProperty(notes = "The list of restaurant in this specific category of cuisine", name = "List of restaurant", required = true, value = "test restaurant")
 	private List<Restaurant> restaurants;
