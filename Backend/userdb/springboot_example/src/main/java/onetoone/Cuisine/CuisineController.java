@@ -7,6 +7,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.*;
+import onetoone.Restaurants.Restaurant;
+import onetoone.Restaurants.RestaurantController;
 
 @Api(value = "CuisineController", description = "REST APIs related to Cuisine Entity!!!!")
 @RestController
@@ -15,6 +17,9 @@ public class CuisineController
 {
 	@Autowired
 	public CuisineRepository cuisineRepository;
+	
+	@Autowired
+	public RestaurantController restController;
 	
 	@ApiOperation(value = "Get the list of cuisines in the System ", response = Iterable.class)
 	@ApiResponses(value = { 
@@ -93,7 +98,29 @@ public class CuisineController
 	@DeleteMapping("/{id}")
 	public String deleteCuisineById(@PathVariable Long id)
 	{
-		cuisineRepository.deleteCuisineById(id);
-		return "Deleted successfully";
+		Cuisine cuisine = cuisineRepository.getCuisineById(id);
+		if (cuisine == null)
+		{
+			return "failure";
+		}
+		else
+		{
+			if (cuisine.getRestaurants() == null)
+			{
+				cuisineRepository.deleteCuisineById(id);
+				return "Deleted successfully";
+			}
+			else
+			{
+				List<Restaurant> listOfRestaurant = cuisine.getRestaurants();
+				int size = listOfRestaurant.size();
+				for (int i = 0; i < size; ++i)
+				{
+					restController.deleteRestaurantById(listOfRestaurant.get(0).getId());
+				}
+				cuisineRepository.deleteCuisineById(id);				
+				return "Deleted successfully";
+			}
+		}
 	}
 }

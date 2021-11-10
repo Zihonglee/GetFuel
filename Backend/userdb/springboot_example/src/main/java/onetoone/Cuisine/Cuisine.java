@@ -5,8 +5,6 @@ import onetoone.Restaurants.Restaurant;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.util.List;
 
 @Entity
@@ -21,7 +19,6 @@ public class Cuisine
 	private String cuisineType;
 
 	@OneToMany(targetEntity = Restaurant.class)
-	@JsonIgnore
 	@ApiModelProperty(notes = "The list of restaurant in this specific category of cuisine", name = "List of restaurant", required = true, value = "test restaurant")
 	private List<Restaurant> restaurants;
 
