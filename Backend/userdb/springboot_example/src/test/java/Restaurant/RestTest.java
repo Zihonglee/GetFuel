@@ -73,16 +73,24 @@ public class RestTest
 	{
 		verify(repo, never()).deleteRestaurantById(anyLong());
 		List<Restaurant> emptylist = new ArrayList<>();
-		List<Review> emptylistReview = new ArrayList<>();
 		
 		when(repo.getRestaurantById(Long.valueOf(1))).thenReturn(new Restaurant("Pizza", "$10.00", "7.5", null, "https://www.google.com/search?client=firefox-b-1-d&q=pizza"));
 		doNothing().when(repo).deleteRestaurantById(Long.valueOf(1));
-		assertEquals(restService.getAllRestaurant(), emptylist);		
+		assertEquals(emptylist, restService.getAllRestaurant());		
 		
 		when(repo.getRestaurantById(Long.valueOf(1))).thenReturn(new Restaurant("Pizza", "$10.00", "7.5", new Cuisine("Japanese"), "https://www.google.com/search?client=firefox-b-1-d&q=pizza"));
 		doNothing().when(repo).deleteRestaurantById(Long.valueOf(1));
-		assertEquals(restService.getAllRestaurant(), emptylist);
+		assertEquals(emptylist, restService.getAllRestaurant());
 		
+		verify(repo, atMost(1)).getRestaurantById(anyLong()); //since there is only one line of getrestaurantbyid that i mocked
+		verify(repo, atMost(1)).deleteRestaurantById(anyLong());
+	}
+	
+	@Test
+	public void deleteRestaurantReviewTest() //delete restaurant, review should be gone
+	{
+		List<Restaurant> emptylist = new ArrayList<>();
+		List<Review> emptylistReview = new ArrayList<>();
 		when(userRepository.getUserById(Long.valueOf(1))).thenReturn(new User("testing", "testing@gmail.com", "Unknown", "user"));
 		when(userRepository.getUserById(Long.valueOf(2))).thenReturn(new User("testingnextaccount", "testing2@gmail.com", "Unknown", "user"));
 		when(reviewRepository.getReviewById(Long.valueOf(1))).thenReturn(new Review("Nice Restaurant"));
@@ -107,21 +115,19 @@ public class RestTest
 		reviewService.assignReviews(Long.valueOf(1), reviews4, Long.valueOf(2));
 		
 		List<Review> listOfOutput = repo.getRestaurantById(Long.valueOf(1)).getReviews();
-		assertEquals(listOfOutput.get(0), reviews);
-		assertEquals(listOfOutput.get(1), reviews2);
-		assertEquals(listOfOutput.get(2), reviews3);
-		assertEquals(listOfOutput.get(3), reviews4);
-		assertEquals(reviewRepository.getReviewById(Long.valueOf(1)), reviews);
-		assertEquals(reviewRepository.getReviewById(Long.valueOf(2)), reviews2);
-		assertEquals(reviewRepository.getReviewById(Long.valueOf(3)), reviews3);
-		assertEquals(reviewRepository.getReviewById(Long.valueOf(4)), reviews4);
+		assertEquals(reviews, listOfOutput.get(0));
+		assertEquals(reviews2, listOfOutput.get(1));
+		assertEquals(reviews3, listOfOutput.get(2));
+		assertEquals(reviews4, listOfOutput.get(3));
+		assertEquals(reviews, reviewRepository.getReviewById(Long.valueOf(1)));
+		assertEquals(reviews2, reviewRepository.getReviewById(Long.valueOf(2)));
+		assertEquals(reviews3, reviewRepository.getReviewById(Long.valueOf(3)));
+		assertEquals(reviews4, reviewRepository.getReviewById(Long.valueOf(4)));
 		
 		doNothing().when(repo).deleteRestaurantById(Long.valueOf(1));
-		assertEquals(restService.getAllRestaurant(), emptylist);
-		assertEquals(reviewService.getAllReview(), emptylistReview);
-		
-//		verify(repo, atMost(1)).getRestaurantById(anyLong()); //since there is only one line of getrestaurantbyid that i mocked
-//		verify(repo, atMost(1)).deleteRestaurantById(anyLong());
+		assertEquals(emptylist, restService.getAllRestaurant());
+		assertEquals(emptylistReview, reviewService.getAllReview());
+		//verify need to do
 	}
 
 	@Test
@@ -184,7 +190,7 @@ public class RestTest
 	}
 	
 	@Test
-	public void assignTest()
+	public void assignNullTest()
 	{
 		when(repo.getRestaurantById(Long.valueOf(1))).thenReturn(null);
 		when(crepo.getCuisineById(Long.valueOf(1))).thenReturn(null);
@@ -198,22 +204,29 @@ public class RestTest
 		when(repo.getRestaurantById(Long.valueOf(1))).thenReturn(new Restaurant("Thai kitchen", "$10.00", "7.00", new Cuisine("Japanese"), "https://www.thaikitchenames.com/"));
 		when(crepo.getCuisineById(Long.valueOf(1))).thenReturn(null);
 		output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(1)); //since one of them is still null
-		assertEquals(output, "failure");
+		assertEquals("failure", output);
 		
+		//verify need to do
+	}
+	
+	@Test
+	public void assignTest()
+	{
 		Cuisine cs = new Cuisine("Chinese");
 		when(repo.getRestaurantById(Long.valueOf(1))).thenReturn(new Restaurant("Thai kitchen", "$10.00", "7.00", null, "https://www.thaikitchenames.com/"));
 		when(crepo.getCuisineById(Long.valueOf(1))).thenReturn(cs);
 
-		output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(1));
+		String output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(1));
 		assertEquals(output, "success");
 		assertEquals(repo.getRestaurantById(Long.valueOf(1)).getCuisine().getCuisineType(), "Chinese");	
 		
 		cs = new Cuisine("Japanese");
 		when(crepo.getCuisineById(Long.valueOf(2))).thenReturn(cs);
 		output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(2));
-		assertEquals(output, "success");
+		assertEquals("success", output);
 		assertEquals(repo.getRestaurantById(Long.valueOf(1)).getCuisine().getCuisineType(), "Japanese");
-
+		
+		//verify need to do
 //		verify(crepo, times(5)).getCuisineById(anyLong()); //w5
 //		verify(repo, times(8)).getRestaurantById(anyLong());
 	}

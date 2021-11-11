@@ -13,9 +13,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import onetoone.Cuisine.Cuisine;
+import onetoone.Restaurants.Restaurant;
+import onetoone.Restaurants.RestaurantRepository;
 import onetoone.Reviews.Review;
 import onetoone.Reviews.ReviewController;
 import onetoone.Reviews.ReviewRepository;
+import onetoone.Users.User;
+import onetoone.Users.UserRepository;
 
 
 public class ReviewTest 
@@ -25,6 +30,12 @@ public class ReviewTest
 
 	@Mock
 	ReviewRepository repo;
+	
+	@Mock
+	RestaurantRepository restRepo;
+	
+	@Mock
+	UserRepository userRepository;
 	
 	@SuppressWarnings("deprecation") //not needed
 	@Before
@@ -57,7 +68,18 @@ public class ReviewTest
 		
 		verify(repo, atMost(1)).getReviewById(anyLong()); //since there is only one line of getreviewbyid that i mocked
 		verify(repo, atMost(1)).deleteReviewById(anyLong());
-		//added more in the reviewcontroller
+	}
+	
+	@Test
+	public void deleteReviewRestaurantTest()
+	{
+		List<Review> listOfReview = new ArrayList<>();
+		when(repo.getReviewById(Long.valueOf(1))).thenReturn(new Review("Well Done"));
+		when(restRepo.getRestaurantById(Long.valueOf(1))).thenReturn(new Restaurant("Thai kitchen", "$10.00", "7.00", null, "https://www.thaikitchenames.com/"));
+		when(userRepository.getUserById(Long.valueOf(1))).thenReturn(new User("testing", "testing@gmail.com", "Unknown", "user"));
+		userRepository.getUserById(Long.valueOf(1)).setReview(new ArrayList<>());
+		reviewService.assignReviews(Long.valueOf(1), repo.getReviewById(Long.valueOf(1)), Long.valueOf(1));
+		reviewService.deleteReview(null)
 	}
 
 	@Test
@@ -113,5 +135,45 @@ public class ReviewTest
 		verify(repo, times(3)).getReviewById(anyLong()); //running in class method as well
 	}
 	
-	//need do the assignreview method
+	@Test
+	public void assignNullReviewsTest()
+	{
+		when(restRepo.getRestaurantById(Long.valueOf(1))).thenReturn(null);
+		when(userRepository.getUserById(Long.valueOf(1))).thenReturn(null);
+		when(repo.getReviewById(Long.valueOf(1))).thenReturn(new Review("Well Done"));
+		
+		String output = reviewService.assignReviews(Long.valueOf(1), repo.getReviewById(Long.valueOf(1)), Long.valueOf(1));
+		assertEquals("failure", output);
+		
+		when(restRepo.getRestaurantById(Long.valueOf(1))).thenReturn(new Restaurant("Thai kitchen", "$10.00", "7.00", null, "https://www.thaikitchenames.com/"));
+		output = reviewService.assignReviews(Long.valueOf(1), repo.getReviewById(Long.valueOf(1)), Long.valueOf(1)); //since one of them is still null
+		assertEquals("failure", output);
+
+		when(userRepository.getUserById(Long.valueOf(1))).thenReturn(new User("testing", "testing@gmail.com", "Unknown", "user"));
+		when(restRepo.getRestaurantById(Long.valueOf(1))).thenReturn(null);
+		output = reviewService.assignReviews(Long.valueOf(1), repo.getReviewById(Long.valueOf(1)),Long.valueOf(1)); //since one of them is still null
+		assertEquals("failure", output);
+		
+		//verify need to do
+	}
+	
+	@Test
+	public void assinReviewsTest()
+	{
+		when(repo.getReviewById(Long.valueOf(1))).thenReturn(new Review("Well Done"));
+		when(restRepo.getRestaurantById(Long.valueOf(1))).thenReturn(new Restaurant("Thai kitchen", "$10.00", "7.00", null, "https://www.thaikitchenames.com/"));
+		when(userRepository.getUserById(Long.valueOf(1))).thenReturn(new User("testing", "testing@gmail.com", "Unknown", "user"));
+		userRepository.getUserById(Long.valueOf(1)).setReview(new ArrayList<>());
+		
+		String output = reviewService.assignReviews(Long.valueOf(1), repo.getReviewById(Long.valueOf(1)), Long.valueOf(1));
+		assertEquals("success", output);
+		
+		List<Review> listOfReview = new ArrayList<>();
+		listOfReview.add(repo.getReviewById(Long.valueOf(1)));
+		assertEquals(listOfReview, restRepo.getRestaurantById(Long.valueOf(1)).getReviews());
+		assertEquals(listOfReview, userRepository.getUserById(Long.valueOf(1)).getAllReviews());
+		//since there is only one comment by the user, then it will only return that otherwise it will include other more review
+		
+		//verify need to do
+	}
 }
