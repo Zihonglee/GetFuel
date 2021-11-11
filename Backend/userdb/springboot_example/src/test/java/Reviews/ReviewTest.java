@@ -61,7 +61,6 @@ public class ReviewTest
 		verify(repo, never()).deleteReviewById(anyLong());
 		when(repo.getReviewById(Long.valueOf(1))).thenReturn(new Review("Well done"));
 		
-		doNothing().when(repo).deleteReviewById(Long.valueOf(1));
 		String comments = reviewService.deleteReview(Long.valueOf(1));
 		
 		assertEquals("Deleted successfully", comments);
@@ -74,12 +73,17 @@ public class ReviewTest
 	public void deleteReviewRestaurantTest()
 	{
 		List<Review> listOfReview = new ArrayList<>();
-		when(repo.getReviewById(Long.valueOf(1))).thenReturn(new Review("Well Done"));
+		when(repo.getReviewById(Long.valueOf(1))).thenReturn(new Review("Well Done"));	
+		when(repo.getReviewById(Long.valueOf(2))).thenReturn(new Review("Good Job"));
 		when(restRepo.getRestaurantById(Long.valueOf(1))).thenReturn(new Restaurant("Thai kitchen", "$10.00", "7.00", null, "https://www.thaikitchenames.com/"));
 		when(userRepository.getUserById(Long.valueOf(1))).thenReturn(new User("testing", "testing@gmail.com", "Unknown", "user"));
 		userRepository.getUserById(Long.valueOf(1)).setReview(new ArrayList<>());
+		restRepo.getRestaurantById(Long.valueOf(1)).setReviews(listOfReview);
+		
 		reviewService.assignReviews(Long.valueOf(1), repo.getReviewById(Long.valueOf(1)), Long.valueOf(1));
-		//continue here test the 
+		reviewService.assignReviews(Long.valueOf(1), repo.getReviewById(Long.valueOf(2)), Long.valueOf(1));
+		String output = reviewService.deleteReview(Long.valueOf(1));
+		
 	}
 
 	@Test

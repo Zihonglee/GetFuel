@@ -1,40 +1,73 @@
 package onetoone.Users;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-import onetoone.Roles.Role;
+import io.swagger.annotations.ApiModelProperty;
+import onetoone.Reviews.Review;
 
 @Entity
 public class User
 {
+	@OneToMany(targetEntity = Review.class)
+	private List<Review> reviews;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@ApiModelProperty(notes = "Identification of this user", name = "id", required = true, value = "test id")
 	private Long id;
+
+	@ApiModelProperty(notes = "The name of this user", name = "name", required = true, value = "test name")
 	private String name;
+
+	@ApiModelProperty(notes = "The email of this user", name = "email", required = true, value = "test email")
     private String email;
+
+	@ApiModelProperty(notes = "The password of this user", name = "password", required = true, value = "test password")
 	private String password;
+	
+	@ApiModelProperty(notes = "The roleType of this user", name = "role type", required = true, value = "test roleType")
+	private String roleType;
+
+	@ApiModelProperty(notes = "The time when the this user accoutn was created", name = "time created", required = true, value = "test timeCreated")
     private LocalDateTime timeCreated = LocalDateTime.now();
 
-    @ManyToOne(targetEntity = Role.class)
-    private Role role;
-    
 	public User(){
 	}
 	
-	public User (String name, String email, String password)
+	public User (String name, String email, String password, String roleType)
 	{
-		role = new Role();
 		this.email = email;
 		this.name = name;
 		this.password = password;
+		this.roleType= roleType;
 	}
-	
+
+	public void setName(String name) 
+	{
+		this.name = name;
+	}
+
+	public void setPassword(String password)
+	{
+		this.password = password;
+	}
+
+	public String getRoleType() {
+		return roleType;
+	}
+
+	public void setRoleType(String roleType)
+	{
+		this.roleType = roleType;
+	}
+
 	public Long getId()
 	{
 		return id;
@@ -75,15 +108,25 @@ public class User
 		return password;
 	}
 
-    public Role getRole()
-    {
-        return role;
-    }
-
-    public void setRole(Role role) 
-    {
-        this.role = role;
-    }
+	public void addReview(Review reviewByUser)
+	{
+		reviews.add(reviewByUser);
+	}
+	
+	public void setReview(List<Review> ListOfReview)
+	{
+		this.reviews = ListOfReview;
+	}
+	
+	public List<Review> getAllReviews()
+	{
+		return reviews;
+	}
+	
+	public void deletereview(Review review)
+	{
+		reviews.remove(review);
+	}
 	
 	@Override
 	public String toString()

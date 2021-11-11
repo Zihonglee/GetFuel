@@ -1,9 +1,14 @@
 package onetoone.Restaurants;
 
-//import onetoone.Cuisine.Cuisine;
+import onetoone.Cuisine.Cuisine;
 import onetoone.Reviews.Review;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,22 +17,34 @@ public class Restaurant
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@ApiModelProperty(notes = "Identification of this restaurant", name = "id", required = true, value = "test id")
 	private Long id;
+	
+	@ApiModelProperty(notes = "Name of this restaurant", name = "name", required = true, value = "test name")
 	private String name;
+	
+	@ApiModelProperty(notes = "Average price for this restaurant", name = "price", required = true, value = "test price")
 	private String price;
+	
+	@ApiModelProperty(notes = "rating of this restaurant", name = "rating", required = true, value = "test rating")
 	private String rating;
+	
+	@ApiModelProperty(notes = "URL of this restaurant", name = "Url", required = true, value = "test url")
 	private String Url;
 
-//	@ManyToOne(targetEntity = Cuisine.class)
-	private String cuisine;
+	@ManyToOne(targetEntity = Cuisine.class) //cascade = CascadeType.ALL 
+	@JsonIgnore
+	@ApiModelProperty(notes = "The cuisine of this specific restaurant", name = "cuisine", required = true, value = "test cuisine")
+	private Cuisine cuisine;
 
-	@OneToMany(mappedBy = "id")
+	@OneToMany(targetEntity = Review.class) //cascade = CascadeType.ALL
+	@ApiModelProperty(notes = "The list of reviews of this restaurant", name = "id", required = true, value = "test reviews")
 	private List<Review> reviews;
 
 	public Restaurant(){
 	}
 
-	public Restaurant(String name, String price, String rating, String cuisine, String imageUrl)
+	public Restaurant(String name, String price, String rating, Cuisine cuisine, String imageUrl)
 	{
 		this.name = name;
 		this.price = price;
@@ -62,7 +79,8 @@ public class Restaurant
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(String price) 
+	{
 		this.price = price;
 	}
 
@@ -71,22 +89,17 @@ public class Restaurant
 		return rating;
 	}
 
-
-	public void setRating(String rating) {
+	public void setRating(String rating) 
+	{
 		this.rating = rating;
 	}
 
-	public String getCuisine()
+	public Cuisine getCuisine()
 	{
 		return cuisine;
 	}
 
-//	public void setCuisine(Cuisine cuisine)
-//	{
-//		this.cuisine = cuisine;
-//	}
-	
-	public void setCuisine(String cuisine)
+	public void setCuisine(Cuisine cuisine)
 	{
 		this.cuisine = cuisine;
 	}
