@@ -106,18 +106,19 @@ public class RestTest
 		Review reviews4 = reviewRepository.getReviewById(Long.valueOf(4));
 		reviewService.assignReviews(Long.valueOf(1), reviews4, Long.valueOf(2));
 		
-		List<Review> listOfOutput = restService.getRestaurantById(Long.valueOf(1)).getReviews();
+		List<Review> listOfOutput = repo.getRestaurantById(Long.valueOf(1)).getReviews();
 		assertEquals(listOfOutput.get(0), reviews);
 		assertEquals(listOfOutput.get(1), reviews2);
-		List<Review> listOfOutput2 = restService.getRestaurantById(Long.valueOf(2)).getReviews();
-		assertEquals(listOfOutput2.get(0), reviews3);
-		assertEquals(listOfOutput2.get(1), reviews4);
+		assertEquals(listOfOutput.get(2), reviews3);
+		assertEquals(listOfOutput.get(3), reviews4);
+		assertEquals(reviewRepository.getReviewById(Long.valueOf(1)), reviews);
+		assertEquals(reviewRepository.getReviewById(Long.valueOf(2)), reviews2);
+		assertEquals(reviewRepository.getReviewById(Long.valueOf(3)), reviews3);
+		assertEquals(reviewRepository.getReviewById(Long.valueOf(4)), reviews4);
 		
 		doNothing().when(repo).deleteRestaurantById(Long.valueOf(1));
 		assertEquals(restService.getAllRestaurant(), emptylist);
-		assertEquals(userRepository.getUserById(Long.valueOf(1)).getAllReviews(), emptylistReview);
-		emptylistReview.add(reviews3);
-		assertEquals(userRepository.getUserById(Long.valueOf(2)).getAllReviews(), emptylistReview);
+		assertEquals(reviewService.getAllReview(), emptylistReview);
 		
 //		verify(repo, atMost(1)).getRestaurantById(anyLong()); //since there is only one line of getrestaurantbyid that i mocked
 //		verify(repo, atMost(1)).deleteRestaurantById(anyLong());

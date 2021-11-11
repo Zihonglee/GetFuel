@@ -109,7 +109,6 @@ public class RestaurantController
 					{
 						reviewController.deleteReview(reviews.get(0).getId());
 					}
-					restController.getAllRestaurant().remove(restaurant);
 					restRepository.deleteRestaurantById(id);
 					return "Restaurant deleted";
 				}
