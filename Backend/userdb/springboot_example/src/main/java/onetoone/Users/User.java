@@ -113,6 +113,11 @@ public class User
 		reviews.add(reviewByUser);
 	}
 	
+	public void setReview(List<Review> ListOfReview)
+	{
+		this.reviews = ListOfReview;
+	}
+	
 	public List<Review> getAllReviews()
 	{
 		return reviews;

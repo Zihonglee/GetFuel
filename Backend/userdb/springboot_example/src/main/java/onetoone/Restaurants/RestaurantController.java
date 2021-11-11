@@ -1,5 +1,6 @@
 package onetoone.Restaurants;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class RestaurantController
 
 	@Autowired
 	public ReviewController reviewController;
-	
+
 	@Autowired
 	public RestaurantController restController;
 
@@ -148,35 +149,28 @@ public class RestaurantController
 		}
 		else
 		{
-			List<Restaurant> getall = cuisine.getRestaurants();
-			if (getall == null)
-			{
-				return "failure";
+			if (restaurant.getCuisine() != null)
+			{					
+				Restaurant store = restaurant;
+				Cuisine cuisine2 = restaurant.getCuisine();
+				List<Restaurant> restaurantsList = cuisine2.getRestaurants();
+				restaurantsList.remove(store);
+				cuisine2.setRestaurants(restaurantsList);
+				cuisineRepository.save(cuisine2);
+
+				store = new Restaurant(store.getName(), store.getPrice(), store.getRating(), cuisine, store.getUrl());
+				updateRestaurantById(restaurantsId, store);
+				return "success";					
 			}
 			else
 			{
-				if (restaurant.getCuisine() != null)
-				{					
-					Restaurant store = restaurant;
-					Cuisine cuisine2 = restaurant.getCuisine();
-					List<Restaurant> restaurantsList = cuisine2.getRestaurants();
-					restaurantsList.remove(store);
-					cuisine2.setRestaurants(restaurantsList);
-					cuisineRepository.save(cuisine2);
-
-					store = new Restaurant(store.getName(), store.getPrice(), store.getRating(), cuisine, store.getUrl());
-					updateRestaurantById(restaurantsId, store);
-					return "success";					
-				}
-				else
-				{
-					getall.add(restaurant);
-					cuisine.setRestaurants(getall);
-					restaurant.setCuisine(cuisine);
-					restRepository.save(restaurant);
-					cuisineRepository.save(cuisine);
-					return "success";
-				}
+				List<Restaurant> getall = new ArrayList<Restaurant>();
+				getall.add(restaurant);
+				cuisine.setRestaurants(getall);
+				restaurant.setCuisine(cuisine);
+				restRepository.save(restaurant);
+				cuisineRepository.save(cuisine);
+				return "success";
 			}
 		}
 	}

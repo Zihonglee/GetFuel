@@ -18,17 +18,31 @@ import onetoone.Cuisine.CuisineRepository;
 import onetoone.Restaurants.Restaurant;
 import onetoone.Restaurants.RestaurantController;
 import onetoone.Restaurants.RestaurantRepository;
+import onetoone.Reviews.Review;
+import onetoone.Reviews.ReviewController;
+import onetoone.Reviews.ReviewRepository;
+import onetoone.Users.User;
+import onetoone.Users.UserRepository;
 
 public class RestTest
 {
 	@InjectMocks
 	RestaurantController restService;
 
+	@InjectMocks
+	ReviewController reviewService;
+	
 	@Mock
 	CuisineRepository crepo;
 
 	@Mock
 	RestaurantRepository repo;
+	
+	@Mock
+	UserRepository userRepository;
+
+	@Mock
+	ReviewRepository reviewRepository;
 
 	@SuppressWarnings("deprecation") //not needed
 	@Before
@@ -58,15 +72,55 @@ public class RestTest
 	public void deleteRestaurantTest()
 	{
 		verify(repo, never()).deleteRestaurantById(anyLong());
+		List<Restaurant> emptylist = new ArrayList<>();
+		List<Review> emptylistReview = new ArrayList<>();
+		
+		when(repo.getRestaurantById(Long.valueOf(1))).thenReturn(new Restaurant("Pizza", "$10.00", "7.5", null, "https://www.google.com/search?client=firefox-b-1-d&q=pizza"));
+		doNothing().when(repo).deleteRestaurantById(Long.valueOf(1));
+		assertEquals(restService.getAllRestaurant(), emptylist);		
+		
 		when(repo.getRestaurantById(Long.valueOf(1))).thenReturn(new Restaurant("Pizza", "$10.00", "7.5", new Cuisine("Japanese"), "https://www.google.com/search?client=firefox-b-1-d&q=pizza"));
+		doNothing().when(repo).deleteRestaurantById(Long.valueOf(1));
+		assertEquals(restService.getAllRestaurant(), emptylist);
+		
+		when(userRepository.getUserById(Long.valueOf(1))).thenReturn(new User("testing", "testing@gmail.com", "Unknown", "user"));
+		when(userRepository.getUserById(Long.valueOf(2))).thenReturn(new User("testingnextaccount", "testing2@gmail.com", "Unknown", "user"));
+		when(reviewRepository.getReviewById(Long.valueOf(1))).thenReturn(new Review("Nice Restaurant"));
+		when(reviewRepository.getReviewById(Long.valueOf(2))).thenReturn(new Review("Cool Restaurant"));
+		when(reviewRepository.getReviewById(Long.valueOf(3))).thenReturn(new Review("Awesome Restaurant"));
+		when(reviewRepository.getReviewById(Long.valueOf(4))).thenReturn(new Review("Cool and Nice Restaurant"));
+		when(repo.getRestaurantById(Long.valueOf(1))).thenReturn(new Restaurant("Pizza", "$10.00", "7.5", new Cuisine("Japanese"), "https://www.google.com/search?client=firefox-b-1-d&q=pizza"));
+
+		User user1 = userRepository.getUserById(Long.valueOf(1));
+		user1.setReview(new ArrayList<>());
+		User user2 = userRepository.getUserById(Long.valueOf(2));
+		user2.setReview(new ArrayList<>());
+		userRepository.save(user1);
+		userRepository.save(user2);
+		Review reviews = reviewRepository.getReviewById(Long.valueOf(1));
+		reviewService.assignReviews(Long.valueOf(1), reviews, Long.valueOf(1));
+		Review reviews2 = reviewRepository.getReviewById(Long.valueOf(2));
+		reviewService.assignReviews(Long.valueOf(1), reviews2, Long.valueOf(1));
+		Review reviews3 = reviewRepository.getReviewById(Long.valueOf(3));
+		reviewService.assignReviews(Long.valueOf(1), reviews3, Long.valueOf(2));
+		Review reviews4 = reviewRepository.getReviewById(Long.valueOf(4));
+		reviewService.assignReviews(Long.valueOf(1), reviews4, Long.valueOf(2));
+		
+		List<Review> listOfOutput = restService.getRestaurantById(Long.valueOf(1)).getReviews();
+		assertEquals(listOfOutput.get(0), reviews);
+		assertEquals(listOfOutput.get(1), reviews2);
+		List<Review> listOfOutput2 = restService.getRestaurantById(Long.valueOf(2)).getReviews();
+		assertEquals(listOfOutput2.get(0), reviews3);
+		assertEquals(listOfOutput2.get(1), reviews4);
 		
 		doNothing().when(repo).deleteRestaurantById(Long.valueOf(1));
-		String rest = restService.deleteRestaurantById(Long.valueOf(1));
+		assertEquals(restService.getAllRestaurant(), emptylist);
+		assertEquals(userRepository.getUserById(Long.valueOf(1)).getAllReviews(), emptylistReview);
+		emptylistReview.add(reviews3);
+		assertEquals(userRepository.getUserById(Long.valueOf(2)).getAllReviews(), emptylistReview);
 		
-		assertEquals("Restaurant deleted", rest);
-		
-		verify(repo, atMost(1)).getRestaurantById(anyLong()); //since there is only one line of getrestaurantbyid that i mocked
-		verify(repo, atMost(1)).deleteRestaurantById(anyLong());
+//		verify(repo, atMost(1)).getRestaurantById(anyLong()); //since there is only one line of getrestaurantbyid that i mocked
+//		verify(repo, atMost(1)).deleteRestaurantById(anyLong());
 	}
 
 	@Test
@@ -150,23 +204,16 @@ public class RestTest
 		when(crepo.getCuisineById(Long.valueOf(1))).thenReturn(cs);
 
 		output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(1));
-		assertEquals(output, "failure"); //since the list is an empty list
-		
-		List<Restaurant> restaurants = new ArrayList<>();
-		restaurants.add(new Restaurant("Little Taipei", "$10.00", "6.00", cs, "https://www.ameslittletaipei.com/"));
-		cs.setRestaurants(restaurants);
-		crepo.save(cs);
-		
-		output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(1));
 		assertEquals(output, "success");
 		assertEquals(repo.getRestaurantById(Long.valueOf(1)).getCuisine().getCuisineType(), "Chinese");	
 		
-//		cs = new Cuisine("Japanese");
-//		when(crepo.getCuisineById(Long.valueOf(2))).thenReturn(cs);
-//		output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(1));
-//		assertEquals(output, "success");
-//		assertEquals(repo.getRestaurantById(Long.valueOf(1)).getCuisine().getCuisineType(), "Japanese");
-//		//verify and for future use.
-// 		//not done yet 
+		cs = new Cuisine("Japanese");
+		when(crepo.getCuisineById(Long.valueOf(2))).thenReturn(cs);
+		output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(2));
+		assertEquals(output, "success");
+		assertEquals(repo.getRestaurantById(Long.valueOf(1)).getCuisine().getCuisineType(), "Japanese");
+
+//		verify(crepo, times(5)).getCuisineById(anyLong()); //w5
+//		verify(repo, times(8)).getRestaurantById(anyLong());
 	}
 }
