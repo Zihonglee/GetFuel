@@ -3,7 +3,7 @@ package onetoone.Reviews;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.Api;
@@ -44,7 +44,7 @@ public class ReviewController
 		}
 		else
 		{
-			return reviewRepository.findAll();
+			return reviewRepository.findAll(Sort.by(Sort.Direction.ASC, "comments")); // a
 		}
 	}
 
