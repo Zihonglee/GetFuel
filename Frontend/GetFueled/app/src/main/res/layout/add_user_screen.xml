@@ -70,7 +70,7 @@
                 app:layout_constraintVertical_bias="0.177" />
 
             <Button
-                android:id="@+id/au_btnSave"
+                android:id="@+id/au_btnAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ADD"
@@ -120,19 +120,25 @@
                 app:layout_constraintTop_toBottomOf="@+id/aued_username"
                 app:layout_constraintVertical_bias="0.255" />
 
-            <EditText
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/aued_role"
-                android:layout_width="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:layout_marginStart="180dp"
+                android:layout_marginBottom="284dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.825"
-                app:layout_constraintStart_toEndOf="@+id/au_role"
-                app:layout_constraintTop_toBottomOf="@+id/aued_password"
-                app:layout_constraintVertical_bias="0.144" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aued_password">
 
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteTextView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:hint="Choose Role"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

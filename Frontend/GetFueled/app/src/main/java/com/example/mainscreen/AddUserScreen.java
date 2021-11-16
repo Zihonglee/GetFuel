@@ -2,8 +2,12 @@ package com.example.mainscreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+import android.app.role.RoleManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -15,24 +19,29 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.internal.bind.ReflectiveTypeAdapterFactory;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddUserScreen extends AppCompatActivity
+public class AddUserScreen extends AppCompatActivity implements AdapterView.OnItemClickListener
 {
-    private EditText Id;
     private EditText Username;
     private EditText Email;
     private EditText Password;
-    private EditText Role;
-    private Button Save;
+    private AutoCompleteTextView RoleSelect;
+    private Button Add;
+    private ArrayAdapter<String> arrayAdapter;
+    private ArrayList<String> roleList= new ArrayList<String>();
+    private String Role;
 
     RequestQueue requestQueue;
 
@@ -45,9 +54,22 @@ public class AddUserScreen extends AppCompatActivity
         Username = (EditText) findViewById(R.id.aued_username);
         Email = (EditText) findViewById(R.id.aued_email);
         Password = (EditText) findViewById(R.id.aued_password);
-        Role = (EditText) findViewById(R.id.aued_role);
-        Save = (Button) findViewById(R.id.au_btnSave);
+        RoleSelect = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView2);
+        Add = (Button) findViewById(R.id.au_btnAdd);
 
+        getRoleTypes();
+
+        RoleSelect.setAdapter(arrayAdapter);
+        RoleSelect.setOnItemClickListener(this);
+
+        Add.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                createAccount();
+            }
+        });
     }
 
     private void createAccount()
@@ -55,7 +77,6 @@ public class AddUserScreen extends AppCompatActivity
         String username = Username.getText().toString();
         String email = Email.getText().toString();
         String password = Password.getText().toString();
-        String role = Role.getText().toString();
 
         requestQueue = Volley.newRequestQueue(this);
         //String url = "https://8710b90a-ebe0-4f8f-956e-5c6998590fe8.mock.pstmn.io/Post";
@@ -76,10 +97,10 @@ public class AddUserScreen extends AppCompatActivity
 
         try
         {
+            object.put("roleType", Role);
             object.put("name", username);
             object.put("email", email);
             object.put("password", password);
-            object.put("roleType", role);
         }
 
         catch (JSONException e)
@@ -153,4 +174,60 @@ public class AddUserScreen extends AppCompatActivity
         requestQueue.add(jsonArrayRequest);
     }
 
+    public void getRoleTypes()
+    {
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        String url = "https://32d715de-7aad-4668-ae7a-e709501daf7a.mock.pstmn.io/roles";
+
+
+
+        JsonArrayRequest jsonRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+//                        printResult.setText(response.toString());
+                        try {
+                            for(int i = 0; i < response.length(); i++)
+                            {
+
+                                JSONObject roles = response.getJSONObject(i);
+                                String role = roles.getString("roleType");
+
+                                roleList.add(role);
+
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        queue.stop();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                queue.stop();
+            }
+        });
+
+        arrayAdapter = new ArrayAdapter<String>(this, R.layout.dropdown_item, roleList);
+        RoleSelect.setAdapter(arrayAdapter);
+
+
+        queue.add(jsonRequest);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
+    {
+        // fetch the user selected value
+        String item = adapterView.getItemAtPosition(i).toString();
+        Role = item;
+
+        // create Toast with user selected value
+        //Toast.makeText(AddUserScreen.this, "Selected Item is: \t" + item, Toast.LENGTH_LONG).show();
+
+        // set user selected value to the TextView
+        //tvDisplay.setText(item);
+    }
 }

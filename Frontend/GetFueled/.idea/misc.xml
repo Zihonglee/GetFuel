@@ -10,8 +10,12 @@
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/activity_test.xml" value="0.302536231884058" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/add_user.xml" value="0.264" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/add_user_screen.xml" value="0.36666666666666664" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/adding_restaurant_page.xml" value="0.2609375" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/create_account_screen.xml" value="0.25" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/custom_list_layout.xml" value="0.22" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/database_restaurant.xml" value="0.2609375" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/databaserow.xml" value="0.2609375" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/dropdown_item.xml" value="0.2609375" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/edit_users.xml" value="0.264" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/header_layout.xml" value="0.23867753623188406" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/home_screen.xml" value="0.20742753623188406" />
@@ -26,6 +30,7 @@
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/search_screen.xml" value="0.20742753623188406" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/search_screen2.xml" value="0.23867753623188406" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/storage.xml" value="0.25" />
+        <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/layout/user_database.xml" value="0.2609375" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/menu/navigation_header.xml" value="0.1" />
         <entry key="..\:/git_309/3_rk_2/Frontend/GetFueled/app/src/main/res/menu/navigation_menu.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.16979166666666667" />
