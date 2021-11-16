@@ -99,7 +99,7 @@ public class LoginPage extends AppCompatActivity
                             for(int i = 0; i < response.length(); i++)
                             {
                                 JSONObject users = response.getJSONObject(i);
-                                String usernameJ = users.getString("username");
+                                String usernameJ = users.getString("name");
                                 String emailJ = users.getString("email");
                                 String passwordJ = users.getString("password");
 

@@ -129,6 +129,13 @@ public class HomeScreen extends AppCompatActivity
                     startActivity(intent);
                 }
 
+                if(id == R.id.addUsers)
+                {
+                    Toast.makeText(HomeScreen.this, "Add User", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(HomeScreen.this, UserDatabase.class);
+                    startActivity(intent);
+                }
+
                 if(id == R.id.logout)
                 {
                     //toast provides simple feedback about an operation of a small popup

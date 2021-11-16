@@ -22,6 +22,12 @@
         android:theme="@style/Theme.MainScreen"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".UserDatabase"
+            android:exported="true" />
+        <activity
+            android:name=".AddUserScreen"
+            android:exported="true" />
+        <activity
             android:name=".addingRestaurantPage"
             android:exported="true" />
         <activity
