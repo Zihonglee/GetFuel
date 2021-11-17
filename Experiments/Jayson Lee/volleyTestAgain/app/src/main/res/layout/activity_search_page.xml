@@ -31,7 +31,7 @@
         app:iconifiedByDefault="false"
 
         app:queryBackground="@android:color/transparent"
-        app:queryHint="Enter Restaurant" />
+        app:queryHint="Enter Cuisine" />
 
     <ListView
         android:id="@+id/listName"

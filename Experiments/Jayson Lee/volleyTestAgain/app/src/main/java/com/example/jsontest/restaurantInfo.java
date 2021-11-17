@@ -23,7 +23,7 @@ import org.json.JSONObject;
 
 public class restaurantInfo extends AppCompatActivity {
     private TextView restaurantInfo;
-    private Button reviewPageBtn, addRestaurantBtn, searchBtn, foodPickerBtn;
+    private Button reviewPageBtn, addRestaurantBtn, searchBtn, foodPickerBtn, dataBaseBtn;
 
 
     @Override
@@ -36,6 +36,7 @@ public class restaurantInfo extends AppCompatActivity {
         addRestaurantBtn = findViewById(R.id.addRestBtn);
         searchBtn = findViewById(R.id.testSearch);
         foodPickerBtn = findViewById(R.id.foodPickerbutton);
+        dataBaseBtn = findViewById(R.id.databaseButton);
 
         restaurantGetRequest();
 
@@ -71,7 +72,13 @@ public class restaurantInfo extends AppCompatActivity {
             }
         });
 
-
+        dataBaseBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(restaurantInfo.this, restaurantDatabase.class);
+                startActivity(intent);
+            }
+        });
 
 
     }
@@ -96,9 +103,10 @@ public class restaurantInfo extends AppCompatActivity {
                                 String firstName = restaurants.getString("name");
                                 String price = restaurants.getString("price");
                                 String rating = restaurants.getString("rating");
+                                String cuisine = restaurants.getString("cuisine");
 
 
-                                restaurantInfo.append(i+1 + ". "+ firstName + ", " + price + ", "+ rating + "\n\n"); ;
+                                restaurantInfo.append(i+1 + ". "+ firstName + ", " + price + ", "+ rating + ", " + cuisine + "\n\n"); ;
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

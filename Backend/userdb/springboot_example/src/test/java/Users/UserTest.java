@@ -50,6 +50,8 @@ public class UserTest
 
         verify(userRepository, times(2)).getUserById(Long.valueOf(1));
         verify(userRepository, times(2)).getUserById(anyLong());
+
+
     }
 
     @Test
@@ -100,6 +102,15 @@ public class UserTest
         User user = null;
         String UserCon = userController.addPerson(user);
         assertEquals("Failure", UserCon);
+
+        user = new User("Cheehau","cheehau@cheehau.com","password","Admin");
+        UserCon = userController.addPerson(user);
+        assertEquals("User saved", UserCon);
+    }
+
+
+
+
 
         user = new User("Cheehau","cheehau@cheehau.com","password","Admin");
         UserCon = userController.addPerson(user);

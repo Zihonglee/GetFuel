@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity
     private TextView Price;
     private TextView Cuisine;
     private TextView Rating;
-    private Button button;
-    private TextView msgResponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,15 +42,13 @@ public class MainActivity extends AppCompatActivity
         Price = (TextView)findViewById(R.id.etPrice2);
         Cuisine = (TextView)findViewById(R.id.etCuisine2);
         Rating = (TextView)findViewById(R.id.etRating2);
-        button = (Button)findViewById(R.id.button);
-        msgResponse = (TextView)findViewById(R.id.msgResponse);
 
         r1.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                Toast.makeText(MainActivity.this, "Click 1", Toast.LENGTH_LONG);
+                Toast.makeText(MainActivity.this, "Click 1", Toast.LENGTH_LONG).show();
                 String r = r1.getText().toString();
                 //append(r);
                 getInfo(r);
@@ -64,21 +60,69 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+                Toast.makeText(MainActivity.this, "Click 2", Toast.LENGTH_LONG).show();
                 String r = r2.getText().toString();
-                append(r);
-            }
-        });
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                //append("Blaze");
-                getInfo("Blaze");
+                //append(r);
+                getInfo(r);
             }
         });
     }
 
+    private void getInfo(String s)
+    {
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        String url = "https://e29a5922-2c06-41b4-83a8-8141fc23a42b.mock.pstmn.io/restaurants";
+
+        JsonArrayRequest jsonRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response)
+                    {
+                        try {
+                            for(int i = 0; i < response.length(); i++)
+                            {
+                                JSONObject restaurants = response.getJSONObject(i);
+                                String nameJ = restaurants.getString("name");
+                                String priceJ = restaurants.getString("price");
+                                String cuisineJ = restaurants.getString("cuisine");
+                                String ratingJ = restaurants.getString("rating");
+
+
+                                if(s.equals(nameJ))
+                                {
+                                    Name.append(nameJ);
+                                    Price.append(priceJ);
+                                    Cuisine.append(cuisineJ);
+                                    Rating.append(ratingJ);
+                                   //Toast.makeText(MainActivity.this,"Equal found",Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        }
+
+                        catch (JSONException e)
+                        {
+                            e.printStackTrace();
+                        }
+
+                        queue.stop();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error)
+            {
+                Toast.makeText(MainActivity.this, "Error bitch", Toast.LENGTH_LONG).show();
+                error.printStackTrace();
+                queue.stop();
+            }
+        });
+
+        queue.add(jsonRequest);
+    }
+
+
+
+    /**
     private void append(String r)
     {
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -94,7 +138,7 @@ public class MainActivity extends AppCompatActivity
                         {
                             for(int i = 0; i < response.length(); i++ )
                             {
-                                Toast.makeText(MainActivity.this, "Ay", Toast.LENGTH_LONG);
+                                Toast.makeText(MainActivity.this, "Ay", Toast.LENGTH_LONG).show();
                                 JSONObject restaurants = response.getJSONObject(i);
                                 String nameJ = restaurants.getString("name");
                                 String priceJ = restaurants.getString("price");
@@ -102,7 +146,7 @@ public class MainActivity extends AppCompatActivity
                                 String ratingJ = restaurants.getString("rating");
 
                                 if(r.equals(nameJ)) {
-                                    Toast.makeText(MainActivity.this, "DOUBLE YAY", Toast.LENGTH_LONG);
+                                    Toast.makeText(MainActivity.this, "DOUBLE YAY", Toast.LENGTH_LONG).show();
                                     Name.append(nameJ);
                                     Price.append(priceJ);
                                     Cuisine.append(cuisineJ);
@@ -122,7 +166,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onErrorResponse(VolleyError error)
             {
-                Toast.makeText(MainActivity.this, "Error bitch", Toast.LENGTH_LONG);
+                Toast.makeText(MainActivity.this, "Error bitch", Toast.LENGTH_LONG).show();
                 error.printStackTrace();
                 queue.stop();
             }
@@ -130,70 +174,13 @@ public class MainActivity extends AppCompatActivity
 
         queue.add(jsonRequest);
     }
+    **/
 
-    private void getInfo(String s)
-    {
-        RequestQueue queue = Volley.newRequestQueue(this);
-        //boolean accountFound = false;
-
-        String url = "https://e29a5922-2c06-41b4-83a8-8141fc23a42b.mock.pstmn.io/restaurants";
-        String url2 = "https://8710b90a-ebe0-4f8f-956e-5c6998590fe8.mock.pstmn.io/Post";
-
-
-        JsonArrayRequest jsonRequest = new JsonArrayRequest(Request.Method.GET, url2, null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response)
-                    {
-                        try {
-                            for(int i = 0; i < response.length(); i++)
-                            {
-                                JSONObject restaurants = response.getJSONObject(i);
-                                String nameJ = restaurants.getString("name");
-                                String priceJ = restaurants.getString("price");
-                                String cuisineJ = restaurants.getString("cuisine");
-                                String ratingJ = restaurants.getString("rating");
-
-                                JSONObject users = response.getJSONObject(i);
-                                String usernameJ = users.getString("username");
-                                String emailJ = users.getString("email");
-                                String passwordJ = users.getString("password");
-
-                                if(s.equals(nameJ))
-                                {
-                                    Name.append(nameJ);
-                                    Price.append(priceJ);
-                                    Cuisine.append(cuisineJ);
-                                    Rating.append(ratingJ);
-                                    //msgResponse.append(nameJ);
-                                }
-
-                                msgResponse.append(usernameJ + " " + emailJ + " " + passwordJ);
-                            }
-                        }
-
-                        catch (JSONException e)
-                        {
-                            e.printStackTrace();
-                        }
-
-                        queue.stop();
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error)
-            {
-                error.printStackTrace();
-                queue.stop();
-            }
-        });
-
-        queue.add(jsonRequest);
-    }
-
+    /**
     public void onClick(View view)
     {
        // String r = this.getText().toString();
-        Toast.makeText(MainActivity.this, "Click 2", Toast.LENGTH_LONG);
+        Toast.makeText(MainActivity.this, "Click 2", Toast.LENGTH_LONG).show();
     }
+     **/
 }

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.JsonTest"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".restaurantDatabase"
+            android:exported="true" />
+        <activity
             android:name=".randomFoodPicker"
             android:exported="true" />
         <activity
