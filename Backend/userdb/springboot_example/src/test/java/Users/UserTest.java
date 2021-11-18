@@ -107,13 +107,4 @@ public class UserTest
         UserCon = userController.addPerson(user);
         assertEquals("User saved", UserCon);
     }
-
-
-
-
-
-        user = new User("Cheehau","cheehau@cheehau.com","password","Admin");
-        UserCon = userController.addPerson(user);
-        assertEquals("User saved", UserCon);
-    }
 }
