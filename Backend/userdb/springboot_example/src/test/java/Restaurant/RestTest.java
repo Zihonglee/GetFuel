@@ -227,7 +227,5 @@ public class RestTest
 		assertEquals(repo.getRestaurantById(Long.valueOf(1)).getCuisine().getCuisineType(), "Japanese");
 		
 		//verify need to do
-//		verify(crepo, times(5)).getCuisineById(anyLong()); //w5
-//		verify(repo, times(8)).getRestaurantById(anyLong());
 	}
 }

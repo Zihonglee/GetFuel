@@ -107,9 +107,4 @@ public class UserTest
         UserCon = userController.addPerson(user);
         assertEquals("User saved", UserCon);
     }
-
-
-
-
-
 }

@@ -13,7 +13,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import onetoone.Cuisine.Cuisine;
 import onetoone.Restaurants.Restaurant;
 import onetoone.Restaurants.RestaurantRepository;
 import onetoone.Reviews.Review;
@@ -77,13 +76,16 @@ public class ReviewTest
 		when(repo.getReviewById(Long.valueOf(2))).thenReturn(new Review("Good Job"));
 		when(restRepo.getRestaurantById(Long.valueOf(1))).thenReturn(new Restaurant("Thai kitchen", "$10.00", "7.00", null, "https://www.thaikitchenames.com/"));
 		when(userRepository.getUserById(Long.valueOf(1))).thenReturn(new User("testing", "testing@gmail.com", "Unknown", "user"));
-		userRepository.getUserById(Long.valueOf(1)).setReview(new ArrayList<>());
+		userRepository.getUserById(Long.valueOf(1)).setReview(listOfReview);
 		restRepo.getRestaurantById(Long.valueOf(1)).setReviews(listOfReview);
 		
 		reviewService.assignReviews(Long.valueOf(1), repo.getReviewById(Long.valueOf(1)), Long.valueOf(1));
 		reviewService.assignReviews(Long.valueOf(1), repo.getReviewById(Long.valueOf(2)), Long.valueOf(1));
-		String output = reviewService.deleteReview(Long.valueOf(1));
+		String output = reviewService.deleteReviewRestaurant(Long.valueOf(1), Long.valueOf(1), Long.valueOf(1));
 		
+		assertEquals("Delete success", output);
+		assertTrue(reviewService.getAllReview().isEmpty());
+		assertEquals(userRepository.getUserById(Long.valueOf(1)).getAllReviews(), listOfReview);		
 	}
 
 	@Test
