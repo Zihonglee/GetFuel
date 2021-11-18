@@ -81,8 +81,9 @@ public class LoginPage extends AppCompatActivity
         RequestQueue queue = Volley.newRequestQueue(this);
         //boolean accountFound = false;
 
-        String url = "https://8710b90a-ebe0-4f8f-956e-5c6998590fe8.mock.pstmn.io/Post";
+        //String url = "https://8710b90a-ebe0-4f8f-956e-5c6998590fe8.mock.pstmn.io/Post";
         //String url = "http://coms-309-059.cs.iastate.edu:8080/user";
+        String url = "https://2ae09dfa-c0e2-4a04-a9aa-66e4ada57766.mock.pstmn.io/users";
 
         String name = Name.getText().toString();
         String password = Password.getText().toString();
@@ -98,7 +99,7 @@ public class LoginPage extends AppCompatActivity
                             for(int i = 0; i < response.length(); i++)
                             {
                                 JSONObject users = response.getJSONObject(i);
-                                String usernameJ = users.getString("username");
+                                String usernameJ = users.getString("name");
                                 String emailJ = users.getString("email");
                                 String passwordJ = users.getString("password");
 
@@ -110,6 +111,8 @@ public class LoginPage extends AppCompatActivity
                                     accountFound = true;
                                     Intent newIntent = new Intent(LoginPage.this, HomePage.class);
                                     startActivity(newIntent);
+                                    String role = users.getString("role");
+                                    //checkRole(role);
                                 }
                             }
 
@@ -154,6 +157,13 @@ public class LoginPage extends AppCompatActivity
             Toast.makeText(LoginPage.this, "Account not found", Toast.LENGTH_LONG).show();
         }
         **/
+    }
+
+    //will give different permissions
+    //will enable more screen choices
+    public void checkRole()
+    {
+
     }
 
     /**

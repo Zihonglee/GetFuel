@@ -3,78 +3,130 @@ package com.example.jsontest;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.RotateAnimation;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+import com.bluehomestudio.luckywheel.LuckyWheel;
+import com.bluehomestudio.luckywheel.OnLuckyWheelReachTheTarget;
+import com.bluehomestudio.luckywheel.WheelItem;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-public class randomFoodPicker extends AppCompatActivity implements Animation.AnimationListener {
+public class randomFoodPicker extends AppCompatActivity {
 
-    boolean blnButtonRotation = true;
-    int intNumber = 6;
-    long lngDegrees = 0;
-    SharedPreferences sharedPreferences;
-    ImageView selected, imageRoulette;
-    private PreferenceManager PreferenceManaager;
-
-    Button spinBtn;
+    private LuckyWheel lw;
+    ArrayList<WheelItem> wheelItems;
+    ArrayList<String> randomRestaurants = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getWindow().addFlags(1024);
-        requestWindowFeature(1);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_food_picker);
 
-        spinBtn = (Button) findViewById(R.id.spinButton);
-        selected = (ImageView) findViewById(R.id.pointer);
-        imageRoulette = (ImageView) findViewById(R.id.fortuneWheel);
-        this.sharedPreferences = PreferenceManaager.getDefaultSharedPreferences(this);
-        this.intNumber = this.sharedPreferences.getInt("INT_NUMBER", 6);
+        generateWheelItems();
+        wheelList();
 
+        lw = findViewById(R.id.lwv);
+        lw.addWheelItems(wheelItems);
+        lw.setTarget(1);
+        Random rand = new Random();
+
+        lw.setLuckyWheelReachTheTarget(new OnLuckyWheelReachTheTarget() {
+            @Override
+            public void onReachTarget() {
+                Toast.makeText(randomFoodPicker.this, "Your restaurant", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        Button spinBtn = findViewById(R.id.spinButton);
+        spinBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lw.rotateWheelTo(rand.nextInt(5));
+            }
+        });
     }
 
-    @Override
-    public void onAnimationStart(Animation animation) {
-        this.blnButtonRotation = false;
-        spinBtn.setVisibility(View.VISIBLE);
+    private void generateWheelItems(){
+
+
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        String url = "http://coms-309-059.cs.iastate.edu:8080/restaurant";
+
+
+
+        JsonArrayRequest jsonRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+                            for(int i = 0; i < response.length(); i++) {
+
+                                JSONObject restaurants = response.getJSONObject(i);
+
+                                String restaurantName = restaurants.getString("name");
+                                randomRestaurants.add(restaurantName);
+
+
+
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        queue.stop();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                queue.stop();
+            }
+        });
+
+
+        queue.add(jsonRequest);
     }
 
-    @Override
-    public void onAnimationEnd(Animation animation) {
-        Toast toast = Toast.makeText(this, " " + String.valueOf((int) (((double)this.intNumber)
-                - Math.floor(((double) this.lngDegrees)/ (360.0d / ((double)this.intNumber)))))+ " ",0);
-        toast.setGravity(49,0,0);
-        toast.show();
-        this.blnButtonRotation = true;
-        spinBtn.setVisibility(View.VISIBLE);
+    private void wheelList(){
+        wheelItems = new ArrayList<>();
+        Random random = new Random();
+
+        wheelItems.add(new WheelItem(Color.parseColor("#fc6c6c"), BitmapFactory.decodeResource(getResources(),R.drawable.ic_action_name),
+                "Thai Kitchen"));
+        wheelItems.add(new WheelItem(Color.parseColor("red"), BitmapFactory.decodeResource(getResources(),R.drawable.ic_action_name),
+                "Taste Place"));
+        wheelItems.add(new WheelItem(Color.parseColor("black"), BitmapFactory.decodeResource(getResources(),R.drawable.ic_action_name),
+                "Ichiban"));
+        wheelItems.add(new WheelItem(Color.parseColor("gray"), BitmapFactory.decodeResource(getResources(),R.drawable.ic_action_name),
+                "Union Drive Marketplace"));
+        wheelItems.add(new WheelItem(Color.parseColor("green"), BitmapFactory.decodeResource(getResources(),R.drawable.ic_action_name),
+                "Friley Windows"));
+        wheelItems.add(new WheelItem(Color.parseColor("blue"), BitmapFactory.decodeResource(getResources(),R.drawable.ic_action_name),
+                "Freddy's"));
     }
 
-    @Override
-    public void onAnimationRepeat(Animation animation) {
-
-    }
-
-    public void onClickButtonRotation (View v){
-
-        if(this.blnButtonRotation){
-            int ran = new Random().nextInt(360) + 3600;
-            RotateAnimation rotateAnimation = new RotateAnimation((float)this.lngDegrees, (float)
-                    (this.lngDegrees + ((long) ran)),1,0.5f,1,0.5f);
-            this.lngDegrees = (this.lngDegrees + ((long)ran)) % 360;
-            rotateAnimation.setDuration((long) ran);
-            rotateAnimation.setFillAfter(true);
-            rotateAnimation.setInterpolator(new DecelerateInterpolator());
-            rotateAnimation.setAnimationListener(this);
-            imageRoulette.setAnimation(rotateAnimation);
-            imageRoulette.startAnimation(rotateAnimation);
-
-        }
-    }
 }

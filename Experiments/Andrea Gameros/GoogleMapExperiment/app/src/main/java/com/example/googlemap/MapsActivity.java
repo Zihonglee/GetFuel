@@ -24,13 +24,14 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.googlemap.databinding.ActivityMapsBinding;
 
 public class MapsActivity extends FragmentActivity implements
-        OnMapReadyCallback,
-        GoogleApi.ConnectionCallbacks,
-        GoogleApi.OnConnectionFailedListener,
-        LocationListener {
+        OnMapReadyCallback
+       // GoogleApi.ConnectionCallbacks,
+       // GoogleApi.OnConnectionFailedListener,
+       // LocationListener
+{
 
     private GoogleMap mMap;
-    private GoogleApiClient googleApiClient;
+    //private GoogleApiClient googleApiClient;
     private ActivityMapsBinding binding;
 
     @Override
@@ -56,11 +57,18 @@ public class MapsActivity extends FragmentActivity implements
      * installed Google Play services and returned to the app.
      */
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(GoogleMap googleMap)
+    {
         mMap = googleMap;
 
+        /**
+        LatLng sydney = new LatLng(-34, 151);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        **/
+
         //checks permission for location
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        //if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
@@ -70,9 +78,10 @@ public class MapsActivity extends FragmentActivity implements
             // for ActivityCompat#requestPermissions for more details.
             // return;
 
-            buildGoogleApiClient();
-            mMap.setMyLocationEnabled(true);
-        }
+            //buildGoogleApiClient();
+           // mMap.setMyLocationEnabled(true);
+        //}
+
 
     }
 
@@ -81,7 +90,7 @@ public class MapsActivity extends FragmentActivity implements
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-         **/
+
         protected synchronized void buildGoogleApiClient()
         {
             googleApiClient = new GoogleApi.Builder(this),
@@ -94,7 +103,9 @@ public class MapsActivity extends FragmentActivity implements
 
             googleApiClient.connect();
         }
+        **/
 
+     /**
     @Override
     public void onLocationChanged(@NonNull Location location)
     {
@@ -118,4 +129,5 @@ public class MapsActivity extends FragmentActivity implements
     {
 
     }
+    **/
 }

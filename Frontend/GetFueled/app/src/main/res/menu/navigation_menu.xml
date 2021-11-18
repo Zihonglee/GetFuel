@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/ic_baseline_home_24">
+
+    </item>
+
+    <item
+        android:id="@+id/search"
+        android:title="Search"
+        android:icon="@drawable/ic_baseline_search_24">
+    </item>
+
+    <item
+        android:id="@+id/map"
+        android:title="Map"
+        android:icon="@drawable/ic_baseline_map_24">
+    </item>
+
+    <item
+        android:id="@+id/foodpicker"
+        android:title="Food Picker"
+        android:icon="@drawable/ic_baseline_fastfood_24">
+    </item>
+
+    <item
+        android:id="@+id/addRestaurant"
+        android:title="Edit Restaurants"
+        android:icon="@drawable/ic_baseline_restaurant_24">
+    </item>
+
+    <item
+        android:id="@+id/addUsers"
+        android:title="Edit Users"
+        android:icon="@drawable/ic_baseline_person_24">
+    </item>
+
+    <item
+        android:id="@+id/logout"
+        android:title="Logout"
+        android:icon="@drawable/ic_baseline_login_24">
+    </item>
+
+</menu>
