@@ -86,6 +86,10 @@ public class ReviewTest
 		assertEquals("Delete success", output);
 		assertTrue(reviewService.getAllReview().isEmpty());
 		assertEquals(userRepository.getUserById(Long.valueOf(1)).getAllReviews(), listOfReview);		
+
+		verify(restRepo, times(4)).getRestaurantById(anyLong());
+		verify(repo, times(3)).getReviewById(anyLong());
+		verify(userRepository, times(5)).getUserById(anyLong());
 	}
 
 	@Test
@@ -160,7 +164,9 @@ public class ReviewTest
 		output = reviewService.assignReviews(Long.valueOf(1), repo.getReviewById(Long.valueOf(1)),Long.valueOf(1)); //since one of them is still null
 		assertEquals("failure", output);
 		
-		//verify need to do
+		verify(restRepo, times(3)).getRestaurantById(anyLong());
+		verify(repo, times(3)).getReviewById(anyLong());
+		verify(userRepository, times(3)).getUserById(anyLong());
 	}
 	
 	@Test
@@ -180,6 +186,8 @@ public class ReviewTest
 		assertEquals(listOfReview, userRepository.getUserById(Long.valueOf(1)).getAllReviews());
 		//since there is only one comment by the user, then it will only return that otherwise it will include other more review
 		
-		//verify need to do
+		verify(restRepo, times(2)).getRestaurantById(anyLong());
+		verify(repo, times(2)).getReviewById(anyLong());
+		verify(userRepository, times(3)).getUserById(anyLong());
 	}
 }

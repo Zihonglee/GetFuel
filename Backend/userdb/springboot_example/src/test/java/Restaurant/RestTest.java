@@ -127,7 +127,11 @@ public class RestTest
 		doNothing().when(repo).deleteRestaurantById(Long.valueOf(1));
 		assertEquals(emptylist, restService.getAllRestaurant());
 		assertEquals(emptylistReview, reviewService.getAllReview());
-		//verify need to do
+		
+
+		verify(reviewRepository, times(8)).getReviewById(anyLong());
+		verify(repo, times(5)).getRestaurantById(anyLong());
+		verify(userRepository, times(6)).getUserById(anyLong());
 	}
 
 	@Test
@@ -205,8 +209,9 @@ public class RestTest
 		when(crepo.getCuisineById(Long.valueOf(1))).thenReturn(null);
 		output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(1)); //since one of them is still null
 		assertEquals("failure", output);
-		
-		//verify need to do
+
+		verify(crepo, times(3)).getCuisineById(anyLong());
+		verify(repo, times(3)).getRestaurantById(anyLong());
 	}
 	
 	@Test
@@ -225,7 +230,8 @@ public class RestTest
 		output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(2));
 		assertEquals("success", output);
 		assertEquals(repo.getRestaurantById(Long.valueOf(1)).getCuisine().getCuisineType(), "Japanese");
-		
-		//verify need to do
+
+		verify(crepo, times(2)).getCuisineById(anyLong());
+		verify(repo, times(5)).getRestaurantById(anyLong());
 	}
 }

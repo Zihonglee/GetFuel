@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.*;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -46,7 +44,7 @@ public class ReviewController
 		}
 		else
 		{
-			return reviewRepository.findAll();
+			return reviewRepository.findAll(Sort.by(Sort.Direction.ASC, "comments"));
 		}
 	}
 

@@ -1,6 +1,7 @@
 package Cuisine;
 
 import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
@@ -86,7 +87,8 @@ public class CuisineTest
 		assertEquals("Japanese", repo.getCuisineById(Long.valueOf(1)).getCuisineType());
 		assertEquals(emptylist, repo.getCuisineById(Long.valueOf(1)).getRestaurants());
 		
-		//verify need to do
+		verify(restRepo, times(4)).getRestaurantById(anyLong());
+		verify(repo, times(4)).getCuisineById(anyLong());
 	}
 
 	@Test
