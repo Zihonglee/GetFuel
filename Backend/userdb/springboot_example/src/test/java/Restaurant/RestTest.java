@@ -220,6 +220,7 @@ public class RestTest
 		Cuisine cs = new Cuisine("Chinese");
 		when(repo.getRestaurantById(Long.valueOf(1))).thenReturn(new Restaurant("Thai kitchen", "$10.00", "7.00", null, "https://www.thaikitchenames.com/"));
 		when(crepo.getCuisineById(Long.valueOf(1))).thenReturn(cs);
+		crepo.getCuisineById(Long.valueOf(1)).setRestaurants(new ArrayList<Restaurant>());
 
 		String output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(1));
 		assertEquals(output, "success");
@@ -227,11 +228,12 @@ public class RestTest
 		
 		cs = new Cuisine("Japanese");
 		when(crepo.getCuisineById(Long.valueOf(2))).thenReturn(cs);
+		crepo.getCuisineById(Long.valueOf(2)).setRestaurants(new ArrayList<Restaurant>());
 		output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(2));
 		assertEquals("success", output);
-		assertEquals(repo.getRestaurantById(Long.valueOf(1)).getCuisine().getCuisineType(), "Japanese");
+		assertEquals("Japanese", repo.getRestaurantById(Long.valueOf(1)).getCuisine().getCuisineType());
 
-		verify(crepo, times(2)).getCuisineById(anyLong());
+		verify(crepo, times(4)).getCuisineById(anyLong());
 		verify(repo, times(5)).getRestaurantById(anyLong());
 	}
 }

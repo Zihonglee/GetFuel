@@ -1,6 +1,5 @@
 package onetoone.Restaurants;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -120,9 +119,10 @@ public class RestaurantController
 					{
 						reviewController.deleteReview(reviews.get(0).getId());
 					}
-					restaurant.setCuisine(null);
+					restaurant.getCuisine().setCuisineType(null);
 					List<Restaurant> list = cuisine.getRestaurants();
 					list.remove(restaurant);
+					cuisine.setRestaurants(list);
 					cuisineRepository.save(cuisine);
 					restRepository.deleteRestaurantById(id);
 					return "Restaurant deleted";
@@ -154,18 +154,17 @@ public class RestaurantController
 				Cuisine cuisine2 = restaurant.getCuisine();
 				List<Restaurant> restaurantsList = cuisine2.getRestaurants();
 				restaurantsList.remove(store);
-				cuisine2.setRestaurants(restaurantsList);
 				cuisineRepository.save(cuisine2);
 
 				store = new Restaurant(store.getName(), store.getPrice(), store.getRating(), cuisine, store.getUrl());
+				cuisine.getRestaurants().add(restaurant);
 				updateRestaurantById(restaurantsId, store);
+				cuisineRepository.save(cuisine);
 				return "success";					
 			}
 			else
 			{
-				List<Restaurant> getall = new ArrayList<Restaurant>();
-				getall.add(restaurant);
-				cuisine.setRestaurants(getall);
+				cuisine.getRestaurants().add(restaurant);
 				restaurant.setCuisine(cuisine);
 				restRepository.save(restaurant);
 				cuisineRepository.save(cuisine);

@@ -74,6 +74,7 @@ public class CuisineTest
 		List<Restaurant> emptylist = new ArrayList<>();
 		when(repo.getCuisineById(Long.valueOf(1))).thenReturn(new Cuisine("Asian"));
 		when(restRepo.getRestaurantById(Long.valueOf(1))).thenReturn(new Restaurant("Thai kitchen", "$10.00", "7.00", null, "https://www.thaikitchenames.com/"));
+		repo.getCuisineById(Long.valueOf(1)).setRestaurants(new ArrayList<Restaurant>());
 		restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(1));
 		doNothing().when(repo).deleteCuisineById(Long.valueOf(1));
 		assertEquals(emptylist, restService.getAllRestaurant());		
@@ -82,13 +83,13 @@ public class CuisineTest
 		//delete any restaurant then the restaurant will be gone in the cuisine but not the cuisine will not be deleted
 		when(repo.getCuisineById(Long.valueOf(1))).thenReturn(new Cuisine("Japanese"));
 		when(restRepo.getRestaurantById(Long.valueOf(1))).thenReturn(new Restaurant("Thai kitchen", "$10.00", "7.00", null, "https://www.thaikitchenames.com/"));
+		repo.getCuisineById(Long.valueOf(1)).setRestaurants(new ArrayList<Restaurant>());
 		restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(1));
 		restService.deleteRestaurantById(Long.valueOf(1));
-		assertEquals("Japanese", repo.getCuisineById(Long.valueOf(1)).getCuisineType());
 		assertEquals(emptylist, repo.getCuisineById(Long.valueOf(1)).getRestaurants());
 		
 		verify(restRepo, times(4)).getRestaurantById(anyLong());
-		verify(repo, times(4)).getCuisineById(anyLong());
+		verify(repo, times(5)).getCuisineById(anyLong());
 	}
 
 	@Test
