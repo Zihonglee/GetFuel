@@ -16,21 +16,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import onetoone.Restaurants.Restaurant;
 import onetoone.Users.User;
+import onetoone.Users.UserController;
+import onetoone.Users.UserRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@ServerEndpoint(value = "/websocket/{restaurant}")
+@ServerEndpoint(value = "/websocket/{userId}")
 @Component
 public class WebSocket
 {
+	UserController usercontroller;
 	private final Logger logger = LoggerFactory.getLogger(WebSocket.class);
 	private static Map < Session, User > sessionUserMap = new Hashtable < > ();
 	private static Map < User, Session > userSessionMap = new Hashtable < > ();
 
 	@OnOpen
-	public void onOpen(Session session, @RequestBody User user) throws IOException
+	public void onOpen(Session session, @PathParam("userId") int userId) throws IOException
 	{
+		Long integers = Long.valueOf(userId);
+		User user = usercontroller.getPersonById(integers);
 		logger.info("Client connected");
 
 		sessionUserMap.put(session, user);
@@ -39,10 +44,10 @@ public class WebSocket
 		String message = "User:" + user.getName() + " has Joined the application";
 		broadcast(message);	
 	}
-//here
+	
 	private void broadcast(String message) 
 	{
-		sessionUsernameMap.forEach((session, username) -> 
+		sessionUserMap.forEach((session, user) -> 
 		{
 			try 
 			{
@@ -55,67 +60,34 @@ public class WebSocket
 
 		});
 	}
-
 	@OnMessage
-	public void onMessage(Session session, Restaurant restaurant) throws IOException
+	public void onMessage(@RequestBody Restaurant restaurant) throws IOException
 	{
 		logger.info("Restaurant added");
-		sendMessage(session, "Server Received: " + restaurant.get);
+		broadcast("New Restaurant: " + restaurant.getName());
 	}
 
-	/**
-	 * This method is called when the connection between the client and server is
-	 * closed. It is also called after onError if client is disconnected due to the
-	 * error. You should use this method to clear any data and update any values you
-	 * need to before the client disconnects.
-	 *
-	 * ** Be careful about trying to send things to the client here as the client
-	 * has probably already disconnected and is not receiving anything. **
-	 * 
-	 * @param session the representation of the client
-	 */
 	@OnClose
 	public void onClose(Session session)
 	{
-		// No need to handle anything here
 		logger.info("Client disconnected");
+
+	    User username = sessionUserMap.get(session);
+	    sessionUserMap.remove(session);
+	    userSessionMap.remove(username);
+
+	    String message = username + " disconnected";
+	    broadcast(message);
 	}
-
-	/**
-	 * This method is called when an error has occurred between the client and the
-	 * server. If the error is fatal, the connection will also close.
-	 * 
-	 * @param session   the representation of the client
-	 * @param throwable The exception that was thrown
-	 */
-
+	
 	@OnError
 	public void onError(Session session, Throwable throwable) 
 	{
-		// If the app crashes/closes unexpectedly then the websocket will not get closed properly and will throw an error
-		// We are ignoring that exception in this situation because it clutters the console
 		if (!throwable.getClass().getSimpleName().equals("EOFException")) 
 		{
 			logger.debug("An error has occurred");
 			throwable.printStackTrace();
 		}
 	}
-
-	/**
-	 * Helper method to send a string to the given client
-	 * 
-	 * @param session The representation of the client
-	 * @param message The message to be sent
-	 */
-	private void sendMessage(Session session, String message) 
-	{
-		try {
-			session.getBasicRemote().sendText(message);
-		} catch (IOException e) 
-		{
-			e.printStackTrace();
-		}
-	}
-
 }
 
