@@ -20,7 +20,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     private String Role;
 
 
-    public UserAdapter(Context ctx, List<User> restaurants)
+    public UserAdapter(Context ctx, List<User> users)
     {
         this.inflater = LayoutInflater.from(ctx);
         this.users = users;
