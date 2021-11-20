@@ -3,39 +3,42 @@ import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Map;
 
-import javax.websocket.OnClose;
-import javax.websocket.OnError;
-import javax.websocket.OnMessage;
-import javax.websocket.OnOpen;
-import javax.websocket.Session;
-import javax.websocket.server.PathParam;
-import javax.websocket.server.ServerEndpoint;
+import javax.websocket.*;
+import javax.websocket.server.*;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import onetoone.Restaurants.Restaurant;
 import onetoone.Users.User;
-import onetoone.Users.UserController;
 import onetoone.Users.UserRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@ServerEndpoint(value = "/websocket/{userId}")
-@Component
+@ServerEndpoint(value = "/websocket/{userId}", configurator = WebSocketConfig.class)
+@Controller
+@ConditionalOnClass(value = WebSocketConfig.class)
 public class WebSocket
 {
-	UserController usercontroller;
+	private static UserRepository repo;
 	private final Logger logger = LoggerFactory.getLogger(WebSocket.class);
 	private static Map < Session, User > sessionUserMap = new Hashtable < > ();
 	private static Map < User, Session > userSessionMap = new Hashtable < > ();
 
+	@Autowired
+	public void setUserRepository(UserRepository repo) 
+	{
+		WebSocket.repo = repo;
+	}
+
 	@OnOpen
-	public void onOpen(Session session, @PathParam("userId") int userId) throws IOException
+	public void onOpen(Session session, @PathParam(value = "userId") int userId) throws IOException
 	{
 		Long integers = Long.valueOf(userId);
-		User user = usercontroller.getPersonById(integers);
+		User user = repo.getUserById(integers);
 		logger.info("Client connected");
 
 		sessionUserMap.put(session, user);
