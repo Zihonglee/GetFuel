@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+//adapter meant just for users
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder>
 {
     private LayoutInflater inflater;
