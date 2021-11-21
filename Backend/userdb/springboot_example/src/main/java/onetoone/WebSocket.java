@@ -88,25 +88,26 @@ public class WebSocket
 		User user = sessionUserMap.get(session);
 		if (user.getRoleType().equals("admin") || user.getRoleType().equals("maintainer"))
 		{
-			String[] list = new String[5];
-			Scanner scan = new Scanner(RestaurantInfo);
-			String wholeString = scan.next();
-			String store = "";
-			int number = 0;
-			for (int i = 0; i < wholeString.length(); ++i)
-			{
-				if (wholeString.charAt(i) == ',')
-				{
-					list[number] = store;
-					++number;
-					store = "";
-				}
-				else
-				{
-					store += wholeString.charAt(i);
-				}
-			}
-			list[number] = store;
+//			String[] list = new String[5];
+			String[] list = RestaurantInfo.split(",");
+//			Scanner scan = new Scanner(RestaurantInfo);
+//			String wholeString = scan.next();
+//			String store = "";
+//			int number = 0;
+//			for (int i = 0; i < wholeString.length(); ++i)
+//			{
+//				if (wholeString.charAt(i) == ',')
+//				{
+//					list[number] = store;
+//					++number;
+//					store = "";
+//				}
+//				else
+//				{
+//					store += wholeString.charAt(i);
+//				}
+//			}
+//			list[number] = store;
 			if (list[0] == null || list[1] == null || list[2] == null || list[3] == null || list[4] == null)
 			{
 				broadcast("The restaurant has not added: Insufficient information");
@@ -138,7 +139,7 @@ public class WebSocket
 					cuisineRepo.save(cs);
 					broadcast("New Restaurant Info \nName: " + list[0] + "\nPrice: " + list[1] + "\nRating: " + list[2] + "\nCuisine Type: " + list[3] + "\nAdded by: " + user.getName());
 				}
-				scan.close();
+//				scan.close();
 			}
 		}
 		else
