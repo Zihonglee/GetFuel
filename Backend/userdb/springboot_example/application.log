@@ -181,3 +181,1311 @@
 2021-11-21 00:24:51.828  INFO 19552 --- [RMI TCP Connection(110)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2021-11-21 00:24:51.829  INFO 19552 --- [RMI TCP Connection(110)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-46 - Shutdown initiated...
 2021-11-21 00:24:52.055  INFO 19552 --- [RMI TCP Connection(110)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-46 - Shutdown completed.
+2021-11-21 08:33:24.972  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 08:33:24.978  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 08:33:25.076  INFO 15012 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-11-21 08:33:25.076  INFO 15012 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-11-21 08:33:26.703  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 08:33:26.794  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 4 JPA repository interfaces.
+2021-11-21 08:33:27.511  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 08:33:27.521  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 08:33:27.521  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 08:33:27.624  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 08:33:27.624  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2547 ms
+2021-11-21 08:33:27.898  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 08:33:27.973  INFO 15012 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-11-21 08:33:28.180  INFO 15012 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-11-21 08:33:28.316  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-21 08:33:28.888  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-21 08:33:28.927  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 08:33:30.530  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 08:33:30.545  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:33:31.032  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 08:33:31.195  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 08:33:31.367  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 08:33:31.490  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 08:33:31.639  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 08:33:31.983  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 7.723 seconds (JVM running for 9.114)
+2021-11-21 08:33:33.969  INFO 15012 --- [RMI TCP Connection(3)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-21 08:33:33.970  INFO 15012 --- [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-21 08:33:33.971  INFO 15012 --- [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-11-21 08:34:16.592  INFO 15012 --- [http-nio-8080-exec-3] onetoone.WebSocket                       : Entered into Open
+2021-11-21 08:34:58.826  INFO 15012 --- [Thread-4] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:34:58.847  INFO 15012 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:34:58.855  INFO 15012 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-21 08:34:59.045  INFO 15012 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-21 08:34:59.252  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 08:34:59.252  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 08:35:00.078  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 08:35:00.106  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 4 JPA repository interfaces.
+2021-11-21 08:35:00.304  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 08:35:00.306  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 08:35:00.306  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 08:35:00.349  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 08:35:00.350  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1094 ms
+2021-11-21 08:35:00.460  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 08:35:00.470  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2021-11-21 08:35:00.725  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2021-11-21 08:35:00.726  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 08:35:01.559  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 08:35:01.561  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:35:01.801  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 08:35:01.926  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 08:35:02.034  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 08:35:02.083  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 08:35:02.196  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 08:35:02.315  INFO 15012 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-21 08:35:02.316  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-21 08:35:02.318  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-11-21 08:35:02.321  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Entered into Open
+2021-11-21 08:35:02.576  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 3.388 seconds (JVM running for 99.707)
+2021-11-21 08:35:02.579  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 08:36:52.974  INFO 15012 --- [Thread-8] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:36:52.988  INFO 15012 --- [Thread-8] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:36:52.990  INFO 15012 --- [Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2021-11-21 08:36:53.206  INFO 15012 --- [Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2021-11-21 08:36:53.319  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 08:36:53.320  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 08:36:53.715  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 08:36:53.728  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 4 JPA repository interfaces.
+2021-11-21 08:36:53.820  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 08:36:53.820  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 08:36:53.820  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 08:36:53.838  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 08:36:53.839  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 516 ms
+2021-11-21 08:36:53.901  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 08:36:53.907  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2021-11-21 08:36:54.187  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2021-11-21 08:36:54.189  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 08:36:55.017  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 08:36:55.018  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:36:55.201  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 08:36:55.268  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 08:36:55.365  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 08:36:55.403  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 08:36:55.499  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 08:36:55.702  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.421 seconds (JVM running for 212.833)
+2021-11-21 08:36:55.705  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 08:38:34.825  INFO 15012 --- [Thread-13] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:38:34.827  INFO 15012 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2021-11-21 08:38:35.005  INFO 15012 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2021-11-21 08:38:35.112  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 08:38:35.112  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 08:38:35.464  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 08:38:35.482  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 4 JPA repository interfaces.
+2021-11-21 08:38:35.598  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 08:38:35.599  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 08:38:35.599  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 08:38:35.621  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 08:38:35.621  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 506 ms
+2021-11-21 08:38:35.691  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 08:38:35.695  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2021-11-21 08:38:35.913  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2021-11-21 08:38:35.914  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 08:38:36.669  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 08:38:36.669  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:38:36.831  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 08:38:36.891  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 08:38:36.939  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 08:38:36.963  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 08:38:37.020  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 08:38:37.187  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.112 seconds (JVM running for 314.473)
+2021-11-21 08:38:37.189  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 08:39:24.819  INFO 15012 --- [Thread-17] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:39:24.820  INFO 15012 --- [Thread-17] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2021-11-21 08:39:25.011  INFO 15012 --- [Thread-17] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2021-11-21 08:39:25.194  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 08:39:25.194  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 08:39:25.879  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 08:39:25.910  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 4 JPA repository interfaces.
+2021-11-21 08:39:26.085  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 08:39:26.086  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 08:39:26.087  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 08:39:26.134  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 08:39:26.134  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 936 ms
+2021-11-21 08:39:26.226  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 08:39:26.230  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2021-11-21 08:39:26.447  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2021-11-21 08:39:26.448  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 08:39:27.231  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 08:39:27.231  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:39:27.494  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 08:39:27.602  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 08:39:27.679  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 08:39:27.729  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 08:39:27.841  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 08:39:28.209  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 3.078 seconds (JVM running for 365.648)
+2021-11-21 08:39:28.212  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 08:39:42.068  INFO 15012 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-21 08:39:42.068  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-21 08:39:42.070  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-11-21 08:39:42.073  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Entered into Open
+2021-11-21 08:41:04.894  INFO 15012 --- [http-nio-8080-exec-9] onetoone.WebSocket                       : Entered into Open
+2021-11-21 08:41:10.775  INFO 15012 --- [http-nio-8080-exec-9] onetoone.WebSocket                       : Entered into Message: Got Message:asdassda,3,4,AAaAA,asdsa.com
+2021-11-21 08:42:12.340  INFO 15012 --- [http-nio-8080-exec-5] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:42:23.296  INFO 15012 --- [http-nio-8080-exec-6] onetoone.WebSocket                       : Entered into Open
+2021-11-21 08:42:23.354  INFO 15012 --- [http-nio-8080-exec-6] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:42:23.363 ERROR 15012 --- [http-nio-8080-exec-6] o.a.t.websocket.pojo.PojoEndpointBase    : Failed to call onClose method of POJO end point for POJO of type [onetoone.WebSocket]
+
+java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onClose(PojoEndpointBase.java:107) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.fireEndpointOnClose(WsSession.java:759) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:708) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:666) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:653) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:647) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:96) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.doOnOpen(PojoEndpointBase.java:81) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointServer.onOpen(PojoEndpointServer.java:48) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.init(WsHttpUpgradeHandler.java:135) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:940) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+Caused by: java.lang.NullPointerException: Cannot invoke "Object.hashCode()" because "key" is null
+	at java.base/java.util.Hashtable.remove(Hashtable.java:508) ~[na:na]
+	at onetoone.WebSocket.onClose(WebSocket.java:161) ~[classes/:na]
+	... 21 common frames omitted
+
+2021-11-21 08:44:52.651  INFO 15012 --- [Thread-21] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:44:52.661  INFO 15012 --- [Thread-21] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:44:52.663  INFO 15012 --- [Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2021-11-21 08:44:52.856  INFO 15012 --- [Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2021-11-21 08:44:52.984  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 08:44:52.986  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 08:44:53.335  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 08:44:53.350  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 4 JPA repository interfaces.
+2021-11-21 08:44:53.431  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 08:44:53.432  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 08:44:53.432  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 08:44:53.450  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 08:44:53.450  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 462 ms
+2021-11-21 08:44:53.496  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 08:44:53.501  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2021-11-21 08:44:53.720  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2021-11-21 08:44:53.720  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 08:44:54.476  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 08:44:54.476  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:44:54.662  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 08:44:54.721  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 08:44:54.771  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 08:44:54.799  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 08:44:54.859  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 08:44:55.058  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.106 seconds (JVM running for 693.085)
+2021-11-21 08:44:55.060  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 08:47:21.043  INFO 15012 --- [Thread-26] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:47:21.045  INFO 15012 --- [Thread-26] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2021-11-21 08:47:21.247  INFO 15012 --- [Thread-26] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2021-11-21 08:47:21.416  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 08:47:21.417  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 08:47:21.848  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 08:47:21.860  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 4 JPA repository interfaces.
+2021-11-21 08:47:21.938  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 08:47:21.939  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 08:47:21.939  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 08:47:21.961  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 08:47:21.961  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 538 ms
+2021-11-21 08:47:22.021  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 08:47:22.026  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2021-11-21 08:47:22.296  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2021-11-21 08:47:22.297  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 08:47:23.097  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 08:47:23.098  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:47:23.307  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 08:47:23.358  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 08:47:23.399  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 08:47:23.427  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 08:47:23.483  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 08:47:23.646  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.285 seconds (JVM running for 841.673)
+2021-11-21 08:47:23.648  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 08:47:27.071  INFO 15012 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-21 08:47:27.072  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-21 08:47:27.075  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2021-11-21 08:47:27.077  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Entered into Open
+2021-11-21 08:47:27.137  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:47:27.138  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:47:27.140 ERROR 15012 --- [http-nio-8080-exec-1] o.a.t.websocket.pojo.PojoEndpointBase    : Failed to call onError method of POJO end point for POJO of type [onetoone.WebSocket]
+
+java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onError(PojoEndpointBase.java:134) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:94) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.doOnOpen(PojoEndpointBase.java:81) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointServer.onOpen(PojoEndpointServer.java:48) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.init(WsHttpUpgradeHandler.java:135) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:940) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+Caused by: java.lang.NullPointerException: Cannot invoke "Object.hashCode()" because "key" is null
+	at java.base/java.util.Hashtable.remove(Hashtable.java:508) ~[na:na]
+	at onetoone.WebSocket.onClose(WebSocket.java:166) ~[classes/:na]
+	at onetoone.WebSocket.onError(WebSocket.java:179) ~[classes/:na]
+	... 16 common frames omitted
+
+2021-11-21 08:47:27.141  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:47:27.142 ERROR 15012 --- [http-nio-8080-exec-1] o.a.t.websocket.pojo.PojoEndpointBase    : Failed to call onClose method of POJO end point for POJO of type [onetoone.WebSocket]
+
+java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onClose(PojoEndpointBase.java:107) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.fireEndpointOnClose(WsSession.java:759) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:708) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:666) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:653) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:647) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:96) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.doOnOpen(PojoEndpointBase.java:81) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointServer.onOpen(PojoEndpointServer.java:48) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.init(WsHttpUpgradeHandler.java:135) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:940) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+Caused by: java.lang.NullPointerException: Cannot invoke "Object.hashCode()" because "key" is null
+	at java.base/java.util.Hashtable.remove(Hashtable.java:508) ~[na:na]
+	at onetoone.WebSocket.onClose(WebSocket.java:166) ~[classes/:na]
+	... 21 common frames omitted
+
+2021-11-21 08:47:27.143  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:47:27.144 ERROR 15012 --- [http-nio-8080-exec-1] o.a.t.websocket.pojo.PojoEndpointBase    : Failed to call onError method of POJO end point for POJO of type [onetoone.WebSocket]
+
+java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onError(PojoEndpointBase.java:134) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:94) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onClose(PojoEndpointBase.java:112) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.fireEndpointOnClose(WsSession.java:759) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:708) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:666) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:653) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:647) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:96) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.doOnOpen(PojoEndpointBase.java:81) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointServer.onOpen(PojoEndpointServer.java:48) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.init(WsHttpUpgradeHandler.java:135) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:940) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+Caused by: java.lang.NullPointerException: Cannot invoke "Object.hashCode()" because "key" is null
+	at java.base/java.util.Hashtable.remove(Hashtable.java:508) ~[na:na]
+	at onetoone.WebSocket.onClose(WebSocket.java:166) ~[classes/:na]
+	at onetoone.WebSocket.onError(WebSocket.java:179) ~[classes/:na]
+	... 23 common frames omitted
+
+2021-11-21 08:48:54.063  INFO 15012 --- [Thread-30] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:48:54.064  INFO 15012 --- [Thread-30] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2021-11-21 08:48:54.249  INFO 15012 --- [Thread-30] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2021-11-21 08:48:54.387  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 08:48:54.387  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 08:48:54.747  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 08:48:54.759  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 4 JPA repository interfaces.
+2021-11-21 08:48:54.845  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 08:48:54.846  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 08:48:54.846  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 08:48:54.864  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 08:48:54.864  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 475 ms
+2021-11-21 08:48:54.909  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 08:48:54.913  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2021-11-21 08:48:55.147  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2021-11-21 08:48:55.149  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 08:48:55.923  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 08:48:55.924  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:48:56.074  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 08:48:56.125  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 08:48:56.167  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 08:48:56.188  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 08:48:56.233  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 08:48:56.401  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.049 seconds (JVM running for 934.428)
+2021-11-21 08:48:56.407  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 08:49:03.785  INFO 15012 --- [Thread-34] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:49:03.786  INFO 15012 --- [Thread-34] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2021-11-21 08:49:03.960  INFO 15012 --- [Thread-34] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2021-11-21 08:49:04.115  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 08:49:04.116  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 08:49:04.450  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 08:49:04.462  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 4 JPA repository interfaces.
+2021-11-21 08:49:04.538  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 08:49:04.539  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 08:49:04.539  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 08:49:04.556  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 08:49:04.556  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 438 ms
+2021-11-21 08:49:04.599  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 08:49:04.603  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2021-11-21 08:49:04.852  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2021-11-21 08:49:04.852  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 08:49:05.599  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 08:49:05.600  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:49:05.760  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 08:49:05.807  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 08:49:05.855  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 08:49:05.877  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 08:49:05.927  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 08:49:06.091  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.012 seconds (JVM running for 944.118)
+2021-11-21 08:49:06.093  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 08:49:11.252  INFO 15012 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-21 08:49:11.252  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-21 08:49:11.254  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-11-21 08:49:11.257  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Entered into Open
+2021-11-21 08:49:11.316  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:49:11.318 ERROR 15012 --- [http-nio-8080-exec-1] o.a.t.websocket.pojo.PojoEndpointBase    : Failed to call onError method of POJO end point for POJO of type [onetoone.WebSocket]
+
+java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onError(PojoEndpointBase.java:134) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:94) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.doOnOpen(PojoEndpointBase.java:81) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointServer.onOpen(PojoEndpointServer.java:48) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.init(WsHttpUpgradeHandler.java:135) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:940) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+Caused by: java.lang.NullPointerException: Cannot invoke "Object.hashCode()" because "key" is null
+	at java.base/java.util.Hashtable.remove(Hashtable.java:508) ~[na:na]
+	at onetoone.WebSocket.onClose(WebSocket.java:167) ~[classes/:na]
+	at onetoone.WebSocket.onError(WebSocket.java:180) ~[classes/:na]
+	... 16 common frames omitted
+
+2021-11-21 08:49:11.319  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:49:11.320 ERROR 15012 --- [http-nio-8080-exec-1] o.a.t.websocket.pojo.PojoEndpointBase    : Failed to call onClose method of POJO end point for POJO of type [onetoone.WebSocket]
+
+java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onClose(PojoEndpointBase.java:107) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.fireEndpointOnClose(WsSession.java:759) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:708) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:666) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:653) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:647) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:96) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.doOnOpen(PojoEndpointBase.java:81) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointServer.onOpen(PojoEndpointServer.java:48) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.init(WsHttpUpgradeHandler.java:135) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:940) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+Caused by: java.lang.NullPointerException: Cannot invoke "Object.hashCode()" because "key" is null
+	at java.base/java.util.Hashtable.remove(Hashtable.java:508) ~[na:na]
+	at onetoone.WebSocket.onClose(WebSocket.java:167) ~[classes/:na]
+	... 21 common frames omitted
+
+2021-11-21 08:49:11.320  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:49:11.321 ERROR 15012 --- [http-nio-8080-exec-1] o.a.t.websocket.pojo.PojoEndpointBase    : Failed to call onError method of POJO end point for POJO of type [onetoone.WebSocket]
+
+java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onError(PojoEndpointBase.java:134) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:94) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onClose(PojoEndpointBase.java:112) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.fireEndpointOnClose(WsSession.java:759) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:708) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:666) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:653) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:647) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:96) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.doOnOpen(PojoEndpointBase.java:81) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointServer.onOpen(PojoEndpointServer.java:48) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.init(WsHttpUpgradeHandler.java:135) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:940) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+Caused by: java.lang.NullPointerException: Cannot invoke "Object.hashCode()" because "key" is null
+	at java.base/java.util.Hashtable.remove(Hashtable.java:508) ~[na:na]
+	at onetoone.WebSocket.onClose(WebSocket.java:167) ~[classes/:na]
+	at onetoone.WebSocket.onError(WebSocket.java:180) ~[classes/:na]
+	... 23 common frames omitted
+
+2021-11-21 08:49:50.869  INFO 15012 --- [Thread-38] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:49:50.870  INFO 15012 --- [Thread-38] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2021-11-21 08:49:51.090  INFO 15012 --- [Thread-38] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
+2021-11-21 08:49:51.210  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 08:49:51.210  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 08:49:51.567  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 08:49:51.579  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 4 JPA repository interfaces.
+2021-11-21 08:49:51.656  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 08:49:51.656  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 08:49:51.656  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 08:49:51.675  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 08:49:51.675  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 463 ms
+2021-11-21 08:49:51.722  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 08:49:51.726  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Starting...
+2021-11-21 08:49:51.966  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Start completed.
+2021-11-21 08:49:51.967  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 08:49:53.056  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 08:49:53.057  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:49:53.212  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 08:49:53.262  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 08:49:53.303  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 08:49:53.324  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 08:49:53.372  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 08:49:53.525  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.346 seconds (JVM running for 991.552)
+2021-11-21 08:49:53.526  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 08:49:58.851  INFO 15012 --- [Thread-42] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:49:58.852  INFO 15012 --- [Thread-42] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown initiated...
+2021-11-21 08:49:59.030  INFO 15012 --- [Thread-42] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown completed.
+2021-11-21 08:49:59.167  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 08:49:59.167  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 08:49:59.553  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 08:49:59.572  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 4 JPA repository interfaces.
+2021-11-21 08:49:59.701  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 08:49:59.702  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 08:49:59.702  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 08:49:59.730  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 08:49:59.730  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 561 ms
+2021-11-21 08:49:59.793  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 08:49:59.799  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Starting...
+2021-11-21 08:50:00.009  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Start completed.
+2021-11-21 08:50:00.010  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 08:50:00.871  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 08:50:00.872  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:50:01.031  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 08:50:01.102  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 08:50:01.140  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 08:50:01.160  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 08:50:01.204  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 08:50:01.352  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.214 seconds (JVM running for 999.379)
+2021-11-21 08:50:01.353  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 08:50:08.703  INFO 15012 --- [Thread-46] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:50:08.703  INFO 15012 --- [Thread-46] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown initiated...
+2021-11-21 08:50:08.929  INFO 15012 --- [Thread-46] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown completed.
+2021-11-21 08:50:09.073  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 08:50:09.073  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 08:50:09.469  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 08:50:09.486  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 4 JPA repository interfaces.
+2021-11-21 08:50:09.745  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 08:50:09.746  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 08:50:09.747  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 08:50:09.793  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 08:50:09.793  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 716 ms
+2021-11-21 08:50:09.900  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 08:50:09.910  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Starting...
+2021-11-21 08:50:10.155  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Start completed.
+2021-11-21 08:50:10.156  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 08:50:11.045  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 08:50:11.046  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:50:11.476  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 08:50:11.590  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 08:50:11.689  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 08:50:11.738  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 08:50:11.818  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 08:50:12.056  INFO 15012 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-21 08:50:12.056  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-21 08:50:12.058  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-11-21 08:50:12.061  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Entered into Open
+2021-11-21 08:50:12.099  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 3.058 seconds (JVM running for 1010.127)
+2021-11-21 08:50:12.101  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 08:50:12.128  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:50:12.131 ERROR 15012 --- [http-nio-8080-exec-1] o.a.t.websocket.pojo.PojoEndpointBase    : Failed to call onError method of POJO end point for POJO of type [onetoone.WebSocket]
+
+java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onError(PojoEndpointBase.java:134) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:94) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.doOnOpen(PojoEndpointBase.java:81) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointServer.onOpen(PojoEndpointServer.java:48) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.init(WsHttpUpgradeHandler.java:135) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:940) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+Caused by: java.lang.NullPointerException: Cannot invoke "Object.hashCode()" because "key" is null
+	at java.base/java.util.Hashtable.remove(Hashtable.java:508) ~[na:na]
+	at onetoone.WebSocket.onClose(WebSocket.java:161) ~[classes/:na]
+	at onetoone.WebSocket.onError(WebSocket.java:174) ~[classes/:na]
+	... 16 common frames omitted
+
+2021-11-21 08:50:12.132  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:50:12.132 ERROR 15012 --- [http-nio-8080-exec-1] o.a.t.websocket.pojo.PojoEndpointBase    : Failed to call onClose method of POJO end point for POJO of type [onetoone.WebSocket]
+
+java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onClose(PojoEndpointBase.java:107) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.fireEndpointOnClose(WsSession.java:759) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:708) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:666) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:653) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:647) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:96) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.doOnOpen(PojoEndpointBase.java:81) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointServer.onOpen(PojoEndpointServer.java:48) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.init(WsHttpUpgradeHandler.java:135) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:940) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+Caused by: java.lang.NullPointerException: Cannot invoke "Object.hashCode()" because "key" is null
+	at java.base/java.util.Hashtable.remove(Hashtable.java:508) ~[na:na]
+	at onetoone.WebSocket.onClose(WebSocket.java:161) ~[classes/:na]
+	... 21 common frames omitted
+
+2021-11-21 08:50:12.133  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:50:12.134 ERROR 15012 --- [http-nio-8080-exec-1] o.a.t.websocket.pojo.PojoEndpointBase    : Failed to call onError method of POJO end point for POJO of type [onetoone.WebSocket]
+
+java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onError(PojoEndpointBase.java:134) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:94) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onClose(PojoEndpointBase.java:112) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.fireEndpointOnClose(WsSession.java:759) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:708) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:666) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:653) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:647) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:96) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.doOnOpen(PojoEndpointBase.java:81) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointServer.onOpen(PojoEndpointServer.java:48) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.init(WsHttpUpgradeHandler.java:135) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:940) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+Caused by: java.lang.NullPointerException: Cannot invoke "Object.hashCode()" because "key" is null
+	at java.base/java.util.Hashtable.remove(Hashtable.java:508) ~[na:na]
+	at onetoone.WebSocket.onClose(WebSocket.java:161) ~[classes/:na]
+	at onetoone.WebSocket.onError(WebSocket.java:174) ~[classes/:na]
+	... 23 common frames omitted
+
+2021-11-21 08:53:35.087  INFO 15012 --- [http-nio-8080-exec-2] onetoone.WebSocket                       : Entered into Open
+2021-11-21 08:53:42.181  INFO 15012 --- [http-nio-8080-exec-3] onetoone.WebSocket                       : Entered into Open
+2021-11-21 08:53:42.221  INFO 15012 --- [http-nio-8080-exec-3] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:53:42.222 ERROR 15012 --- [http-nio-8080-exec-3] o.a.t.websocket.pojo.PojoEndpointBase    : Failed to call onError method of POJO end point for POJO of type [onetoone.WebSocket]
+
+java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onError(PojoEndpointBase.java:134) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:94) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.doOnOpen(PojoEndpointBase.java:81) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointServer.onOpen(PojoEndpointServer.java:48) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.init(WsHttpUpgradeHandler.java:135) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:940) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+Caused by: java.lang.NullPointerException: Cannot invoke "Object.hashCode()" because "key" is null
+	at java.base/java.util.Hashtable.remove(Hashtable.java:508) ~[na:na]
+	at onetoone.WebSocket.onClose(WebSocket.java:161) ~[classes/:na]
+	at onetoone.WebSocket.onError(WebSocket.java:174) ~[classes/:na]
+	... 16 common frames omitted
+
+2021-11-21 08:53:42.223  INFO 15012 --- [http-nio-8080-exec-3] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:53:42.223 ERROR 15012 --- [http-nio-8080-exec-3] o.a.t.websocket.pojo.PojoEndpointBase    : Failed to call onClose method of POJO end point for POJO of type [onetoone.WebSocket]
+
+java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onClose(PojoEndpointBase.java:107) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.fireEndpointOnClose(WsSession.java:759) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:708) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:666) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:653) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:647) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:96) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.doOnOpen(PojoEndpointBase.java:81) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointServer.onOpen(PojoEndpointServer.java:48) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.init(WsHttpUpgradeHandler.java:135) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:940) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+Caused by: java.lang.NullPointerException: Cannot invoke "Object.hashCode()" because "key" is null
+	at java.base/java.util.Hashtable.remove(Hashtable.java:508) ~[na:na]
+	at onetoone.WebSocket.onClose(WebSocket.java:161) ~[classes/:na]
+	... 21 common frames omitted
+
+2021-11-21 08:53:42.223  INFO 15012 --- [http-nio-8080-exec-3] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:53:42.223 ERROR 15012 --- [http-nio-8080-exec-3] o.a.t.websocket.pojo.PojoEndpointBase    : Failed to call onError method of POJO end point for POJO of type [onetoone.WebSocket]
+
+java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onError(PojoEndpointBase.java:134) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:94) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onClose(PojoEndpointBase.java:112) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.fireEndpointOnClose(WsSession.java:759) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:708) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:666) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:653) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:647) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:96) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.doOnOpen(PojoEndpointBase.java:81) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointServer.onOpen(PojoEndpointServer.java:48) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.init(WsHttpUpgradeHandler.java:135) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:940) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+Caused by: java.lang.NullPointerException: Cannot invoke "Object.hashCode()" because "key" is null
+	at java.base/java.util.Hashtable.remove(Hashtable.java:508) ~[na:na]
+	at onetoone.WebSocket.onClose(WebSocket.java:161) ~[classes/:na]
+	at onetoone.WebSocket.onError(WebSocket.java:174) ~[classes/:na]
+	... 23 common frames omitted
+
+2021-11-21 08:54:18.351  INFO 15012 --- [Thread-50] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:54:18.364  INFO 15012 --- [Thread-50] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:54:18.366  INFO 15012 --- [Thread-50] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown initiated...
+2021-11-21 08:54:18.642  INFO 15012 --- [Thread-50] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown completed.
+2021-11-21 08:54:18.782  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 08:54:18.782  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 08:54:19.102  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 08:54:19.119  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 4 JPA repository interfaces.
+2021-11-21 08:54:19.242  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 08:54:19.242  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 08:54:19.242  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 08:54:19.266  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 08:54:19.266  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 482 ms
+2021-11-21 08:54:19.336  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 08:54:19.340  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Starting...
+2021-11-21 08:54:19.650  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Start completed.
+2021-11-21 08:54:19.651  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 08:54:20.619  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 08:54:20.620  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 08:54:20.794  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 08:54:20.862  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 08:54:20.909  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 08:54:20.931  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 08:54:20.979  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 08:54:21.174  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.421 seconds (JVM running for 1259.197)
+2021-11-21 08:54:21.176  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 08:54:41.331  INFO 15012 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-21 08:54:41.331  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-21 08:54:41.334  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-11-21 08:54:41.337  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Entered into Open
+2021-11-21 08:54:41.396  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:54:41.398 ERROR 15012 --- [http-nio-8080-exec-1] o.a.t.websocket.pojo.PojoEndpointBase    : Failed to call onClose method of POJO end point for POJO of type [onetoone.WebSocket]
+
+java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onClose(PojoEndpointBase.java:107) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.fireEndpointOnClose(WsSession.java:759) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:708) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:666) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:653) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:647) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:96) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.doOnOpen(PojoEndpointBase.java:81) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointServer.onOpen(PojoEndpointServer.java:48) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.init(WsHttpUpgradeHandler.java:135) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:940) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+Caused by: java.lang.NullPointerException: Cannot invoke "Object.hashCode()" because "key" is null
+	at java.base/java.util.Hashtable.remove(Hashtable.java:508) ~[na:na]
+	at onetoone.WebSocket.onClose(WebSocket.java:161) ~[classes/:na]
+	... 21 common frames omitted
+
+2021-11-21 08:54:54.435  INFO 15012 --- [http-nio-8080-exec-2] onetoone.WebSocket                       : Entered into Open
+2021-11-21 08:54:59.293  INFO 15012 --- [http-nio-8080-exec-3] onetoone.WebSocket                       : Entered into Open
+2021-11-21 08:55:06.433  INFO 15012 --- [http-nio-8080-exec-4] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:55:18.074  INFO 15012 --- [http-nio-8080-exec-5] onetoone.WebSocket                       : Entered into Open
+2021-11-21 08:55:18.131  INFO 15012 --- [http-nio-8080-exec-5] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:55:18.131 ERROR 15012 --- [http-nio-8080-exec-5] o.a.t.websocket.pojo.PojoEndpointBase    : Failed to call onClose method of POJO end point for POJO of type [onetoone.WebSocket]
+
+java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onClose(PojoEndpointBase.java:107) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.fireEndpointOnClose(WsSession.java:759) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:708) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:666) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:653) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:647) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:96) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.doOnOpen(PojoEndpointBase.java:81) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointServer.onOpen(PojoEndpointServer.java:48) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.init(WsHttpUpgradeHandler.java:135) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:940) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+Caused by: java.lang.NullPointerException: Cannot invoke "Object.hashCode()" because "key" is null
+	at java.base/java.util.Hashtable.remove(Hashtable.java:508) ~[na:na]
+	at onetoone.WebSocket.onClose(WebSocket.java:161) ~[classes/:na]
+	... 21 common frames omitted
+
+2021-11-21 08:55:20.364  INFO 15012 --- [http-nio-8080-exec-6] onetoone.WebSocket                       : Entered into Open
+2021-11-21 08:55:27.702  INFO 15012 --- [http-nio-8080-exec-7] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:55:27.702  INFO 15012 --- [http-nio-8080-exec-8] onetoone.WebSocket                       : Client disconnected
+2021-11-21 08:55:27.705 ERROR 15012 --- [http-nio-8080-exec-7] o.a.t.websocket.pojo.PojoEndpointBase    : Failed to call onClose method of POJO end point for POJO of type [onetoone.WebSocket]
+
+java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onClose(PojoEndpointBase.java:107) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.fireEndpointOnClose(WsSession.java:759) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsSession.onClose(WsSession.java:740) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsFrameBase.processDataControl(WsFrameBase.java:367) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsFrameBase.processData(WsFrameBase.java:296) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsFrameBase.processInputBuffer(WsFrameBase.java:133) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsFrameServer.onDataAvailable(WsFrameServer.java:85) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsFrameServer.doOnDataAvailable(WsFrameServer.java:183) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsFrameServer.notifyDataAvailable(WsFrameServer.java:162) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.upgradeDispatch(WsHttpUpgradeHandler.java:156) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.coyote.http11.upgrade.UpgradeProcessorInternal.dispatch(UpgradeProcessorInternal.java:60) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:59) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+Caused by: java.lang.IllegalStateException: Message will not be sent because the WebSocket session has been closed
+	at org.apache.tomcat.websocket.WsRemoteEndpointImplBase.writeMessagePart(WsRemoteEndpointImplBase.java:442) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsRemoteEndpointImplBase.sendMessageBlock(WsRemoteEndpointImplBase.java:314) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsRemoteEndpointImplBase.sendMessageBlock(WsRemoteEndpointImplBase.java:254) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsRemoteEndpointImplBase.sendString(WsRemoteEndpointImplBase.java:195) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.WsRemoteEndpointBasic.sendText(WsRemoteEndpointBasic.java:37) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at onetoone.WebSocket.lambda$0(WebSocket.java:82) ~[classes/:na]
+	at java.base/java.util.Hashtable.forEach(Hashtable.java:898) ~[na:na]
+	at onetoone.WebSocket.broadcast(WebSocket.java:78) ~[classes/:na]
+	at onetoone.WebSocket.onClose(WebSocket.java:164) ~[classes/:na]
+	... 23 common frames omitted
+
+2021-11-21 08:56:42.717  INFO 15012 --- [http-nio-8080-exec-9] onetoone.WebSocket                       : Entered into Open
+2021-11-21 08:56:57.863  INFO 15012 --- [http-nio-8080-exec-10] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:01:11.301  INFO 15012 --- [Thread-55] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:01:11.302  INFO 15012 --- [Thread-55] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:01:11.310  INFO 15012 --- [Thread-55] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:01:11.312  INFO 15012 --- [Thread-55] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown initiated...
+2021-11-21 09:01:11.498  INFO 15012 --- [Thread-55] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown completed.
+2021-11-21 09:01:11.654  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 09:01:11.654  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 09:01:11.986  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 09:01:11.996  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 4 JPA repository interfaces.
+2021-11-21 09:01:12.076  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 09:01:12.076  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 09:01:12.076  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 09:01:12.094  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 09:01:12.094  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 437 ms
+2021-11-21 09:01:12.138  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 09:01:12.141  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Starting...
+2021-11-21 09:01:12.389  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Start completed.
+2021-11-21 09:01:12.389  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 09:01:13.186  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 09:01:13.187  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:01:13.316  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 09:01:13.366  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 09:01:13.430  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 09:01:13.461  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 09:01:13.532  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 09:01:13.687  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.066 seconds (JVM running for 1671.71)
+2021-11-21 09:01:13.688  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 09:01:28.077  INFO 15012 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-21 09:01:28.077  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-21 09:01:28.079  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-11-21 09:01:28.081  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:01:31.385  INFO 15012 --- [http-nio-8080-exec-2] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:02:53.207  INFO 15012 --- [Thread-61] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:02:53.209  INFO 15012 --- [Thread-61] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:02:53.223  INFO 15012 --- [Thread-61] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:02:53.225  INFO 15012 --- [Thread-61] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Shutdown initiated...
+2021-11-21 09:02:53.405  INFO 15012 --- [Thread-61] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Shutdown completed.
+2021-11-21 09:02:53.573  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 09:02:53.573  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 09:02:53.900  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 09:02:53.915  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 4 JPA repository interfaces.
+2021-11-21 09:02:54.016  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 09:02:54.017  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 09:02:54.017  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 09:02:54.035  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 09:02:54.035  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 460 ms
+2021-11-21 09:02:54.092  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 09:02:54.096  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-15 - Starting...
+2021-11-21 09:02:54.317  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-15 - Start completed.
+2021-11-21 09:02:54.317  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 09:02:55.066  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 09:02:55.067  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:02:55.433  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 09:02:55.537  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 09:02:55.654  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 09:02:55.703  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 09:02:55.827  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 09:02:56.081  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.549 seconds (JVM running for 1774.104)
+2021-11-21 09:02:56.082  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 09:03:00.849  INFO 15012 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-21 09:03:00.850  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-21 09:03:00.853  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2021-11-21 09:03:00.855  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:03:04.304  INFO 15012 --- [http-nio-8080-exec-2] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:04:44.546  INFO 15012 --- [Thread-66] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:04:44.546  INFO 15012 --- [Thread-66] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:04:44.553  INFO 15012 --- [Thread-66] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:04:44.554  INFO 15012 --- [Thread-66] com.zaxxer.hikari.HikariDataSource       : HikariPool-15 - Shutdown initiated...
+2021-11-21 09:04:44.733  INFO 15012 --- [Thread-66] com.zaxxer.hikari.HikariDataSource       : HikariPool-15 - Shutdown completed.
+2021-11-21 09:04:44.876  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 09:04:44.876  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 09:04:45.221  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 09:04:45.232  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 4 JPA repository interfaces.
+2021-11-21 09:04:45.312  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 09:04:45.313  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 09:04:45.313  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 09:04:45.331  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 09:04:45.331  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 452 ms
+2021-11-21 09:04:45.388  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 09:04:45.392  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Starting...
+2021-11-21 09:04:45.631  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Start completed.
+2021-11-21 09:04:45.633  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 09:04:46.426  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 09:04:46.428  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:04:46.587  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 09:04:46.641  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 09:04:46.695  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 09:04:46.719  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 09:04:46.786  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 09:04:46.934  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.09 seconds (JVM running for 1884.957)
+2021-11-21 09:04:46.935  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 09:04:51.266  INFO 15012 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-21 09:04:51.266  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-21 09:04:51.268  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-11-21 09:04:51.270  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:04:54.570  INFO 15012 --- [http-nio-8080-exec-2] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:07:02.805  INFO 15012 --- [Thread-71] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:07:02.806  INFO 15012 --- [Thread-71] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:07:02.815  INFO 15012 --- [Thread-71] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:07:02.817  INFO 15012 --- [Thread-71] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Shutdown initiated...
+2021-11-21 09:07:03.037  INFO 15012 --- [Thread-71] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Shutdown completed.
+2021-11-21 09:07:03.229  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 09:07:03.230  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 09:07:03.816  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 09:07:03.840  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 4 JPA repository interfaces.
+2021-11-21 09:07:04.057  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 09:07:04.058  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 09:07:04.058  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 09:07:04.100  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 09:07:04.100  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 868 ms
+2021-11-21 09:07:04.220  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 09:07:04.229  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-17 - Starting...
+2021-11-21 09:07:04.501  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-17 - Start completed.
+2021-11-21 09:07:04.502  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 09:07:05.304  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 09:07:05.305  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:07:05.505  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 09:07:05.609  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 09:07:05.705  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 09:07:05.739  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 09:07:05.818  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 09:07:06.127  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.933 seconds (JVM running for 2024.15)
+2021-11-21 09:07:06.130  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 09:07:06.273  INFO 15012 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-21 09:07:06.274  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-21 09:07:06.278  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2021-11-21 09:07:06.281  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:07:08.641  INFO 15012 --- [http-nio-8080-exec-2] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:09:11.670  INFO 15012 --- [Thread-76] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:09:11.670  INFO 15012 --- [Thread-76] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:09:11.682  INFO 15012 --- [Thread-76] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:09:11.684  INFO 15012 --- [Thread-76] com.zaxxer.hikari.HikariDataSource       : HikariPool-17 - Shutdown initiated...
+2021-11-21 09:09:11.864  INFO 15012 --- [Thread-76] com.zaxxer.hikari.HikariDataSource       : HikariPool-17 - Shutdown completed.
+2021-11-21 09:09:12.090  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 09:09:12.090  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 09:09:12.566  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 09:09:12.578  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 4 JPA repository interfaces.
+2021-11-21 09:09:12.651  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 09:09:12.651  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 09:09:12.651  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 09:09:12.668  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 09:09:12.669  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 576 ms
+2021-11-21 09:09:12.711  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 09:09:12.714  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-18 - Starting...
+2021-11-21 09:09:12.952  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-18 - Start completed.
+2021-11-21 09:09:12.953  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 09:09:13.702  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 09:09:13.702  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:09:13.992  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 09:09:14.088  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 09:09:14.171  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 09:09:14.199  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 09:09:14.254  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 09:09:14.403  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.348 seconds (JVM running for 2152.421)
+2021-11-21 09:09:14.405  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 09:09:17.100  INFO 15012 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-21 09:09:17.101  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-21 09:09:17.102  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-11-21 09:09:17.105  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:09:20.012  INFO 15012 --- [http-nio-8080-exec-2] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:13:31.699  INFO 15012 --- [Thread-81] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:13:31.701  INFO 15012 --- [Thread-81] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:13:31.724  INFO 15012 --- [Thread-81] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:13:31.727  INFO 15012 --- [Thread-81] com.zaxxer.hikari.HikariDataSource       : HikariPool-18 - Shutdown initiated...
+2021-11-21 09:13:31.918  INFO 15012 --- [Thread-81] com.zaxxer.hikari.HikariDataSource       : HikariPool-18 - Shutdown completed.
+2021-11-21 09:13:32.113  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 09:13:32.114  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 09:13:32.467  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 09:13:32.477  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 4 JPA repository interfaces.
+2021-11-21 09:13:32.548  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 09:13:32.549  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 09:13:32.549  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 09:13:32.567  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 09:13:32.567  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 451 ms
+2021-11-21 09:13:32.619  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 09:13:32.623  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-19 - Starting...
+2021-11-21 09:13:32.853  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-19 - Start completed.
+2021-11-21 09:13:32.854  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 09:13:33.627  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 09:13:33.628  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:13:33.779  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 09:13:33.821  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 09:13:33.858  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 09:13:33.879  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 09:13:33.925  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 09:13:34.069  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 1.993 seconds (JVM running for 2412.08)
+2021-11-21 09:13:34.070  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 09:15:23.733  INFO 15012 --- [Thread-86] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:15:23.735  INFO 15012 --- [Thread-86] com.zaxxer.hikari.HikariDataSource       : HikariPool-19 - Shutdown initiated...
+2021-11-21 09:15:23.920  INFO 15012 --- [Thread-86] com.zaxxer.hikari.HikariDataSource       : HikariPool-19 - Shutdown completed.
+2021-11-21 09:15:24.121  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 09:15:24.121  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 09:15:24.817  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 09:15:24.841  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 4 JPA repository interfaces.
+2021-11-21 09:15:25.019  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 09:15:25.020  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 09:15:25.020  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 09:15:25.065  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 09:15:25.065  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 942 ms
+2021-11-21 09:15:25.171  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 09:15:25.179  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-20 - Starting...
+2021-11-21 09:15:25.424  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-20 - Start completed.
+2021-11-21 09:15:25.425  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 09:15:26.228  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 09:15:26.228  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:15:26.489  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 09:15:26.576  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 09:15:26.674  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 09:15:26.719  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 09:15:26.816  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 09:15:27.129  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 3.051 seconds (JVM running for 2525.141)
+2021-11-21 09:15:27.134  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 09:16:51.278  INFO 15012 --- [Thread-90] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:16:51.280  INFO 15012 --- [Thread-90] com.zaxxer.hikari.HikariDataSource       : HikariPool-20 - Shutdown initiated...
+2021-11-21 09:16:51.457  INFO 15012 --- [Thread-90] com.zaxxer.hikari.HikariDataSource       : HikariPool-20 - Shutdown completed.
+2021-11-21 09:16:51.612  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 09:16:51.612  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 09:16:51.992  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 09:16:52.024  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 4 JPA repository interfaces.
+2021-11-21 09:16:52.242  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 09:16:52.243  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 09:16:52.243  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 09:16:52.289  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 09:16:52.289  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 675 ms
+2021-11-21 09:16:52.391  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 09:16:52.401  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-21 - Starting...
+2021-11-21 09:16:52.642  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-21 - Start completed.
+2021-11-21 09:16:52.643  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 09:16:53.379  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 09:16:53.379  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:16:53.693  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 09:16:53.770  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 09:16:53.852  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 09:16:53.896  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 09:16:53.976  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 09:16:54.236  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.652 seconds (JVM running for 2612.247)
+2021-11-21 09:16:54.238  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 09:17:11.630  INFO 15012 --- [Thread-94] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:17:11.631  INFO 15012 --- [Thread-94] com.zaxxer.hikari.HikariDataSource       : HikariPool-21 - Shutdown initiated...
+2021-11-21 09:17:11.811  INFO 15012 --- [Thread-94] com.zaxxer.hikari.HikariDataSource       : HikariPool-21 - Shutdown completed.
+2021-11-21 09:17:11.994  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 09:17:11.994  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 09:17:12.349  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 09:17:12.359  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 4 JPA repository interfaces.
+2021-11-21 09:17:12.441  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 09:17:12.442  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 09:17:12.443  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 09:17:12.465  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 09:17:12.465  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 469 ms
+2021-11-21 09:17:12.507  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 09:17:12.511  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-22 - Starting...
+2021-11-21 09:17:12.718  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-22 - Start completed.
+2021-11-21 09:17:12.719  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 09:17:13.388  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 09:17:13.388  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:17:13.523  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 09:17:13.567  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 09:17:13.604  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 09:17:13.624  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 09:17:13.673  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 09:17:13.819  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 1.853 seconds (JVM running for 2631.83)
+2021-11-21 09:17:13.821  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 09:17:18.904  INFO 15012 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-21 09:17:18.904  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-21 09:17:18.907  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2021-11-21 09:17:18.909  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:17:21.636  INFO 15012 --- [http-nio-8080-exec-2] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:18:45.314  INFO 15012 --- [Thread-98] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:18:45.315  INFO 15012 --- [Thread-98] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:18:45.323  INFO 15012 --- [Thread-98] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:18:45.324  INFO 15012 --- [Thread-98] com.zaxxer.hikari.HikariDataSource       : HikariPool-22 - Shutdown initiated...
+2021-11-21 09:18:45.500  INFO 15012 --- [Thread-98] com.zaxxer.hikari.HikariDataSource       : HikariPool-22 - Shutdown completed.
+2021-11-21 09:18:45.706  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 09:18:45.707  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 09:18:46.320  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 09:18:46.332  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 4 JPA repository interfaces.
+2021-11-21 09:18:46.413  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 09:18:46.414  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 09:18:46.414  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 09:18:46.433  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 09:18:46.433  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 724 ms
+2021-11-21 09:18:46.477  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 09:18:46.481  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-23 - Starting...
+2021-11-21 09:18:46.733  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-23 - Start completed.
+2021-11-21 09:18:46.733  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 09:18:47.488  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 09:18:47.488  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:18:47.762  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 09:18:47.876  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 09:18:47.955  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 09:18:47.990  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 09:18:48.066  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 09:18:48.280  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.613 seconds (JVM running for 2726.291)
+2021-11-21 09:18:48.283  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 09:18:49.205  INFO 15012 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-21 09:18:49.205  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-21 09:18:49.208  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2021-11-21 09:18:49.210  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:18:51.824  INFO 15012 --- [http-nio-8080-exec-2] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:19:23.937  INFO 15012 --- [Thread-103] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:19:23.939  INFO 15012 --- [Thread-103] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:19:23.958  INFO 15012 --- [Thread-103] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:19:23.961  INFO 15012 --- [Thread-103] com.zaxxer.hikari.HikariDataSource       : HikariPool-23 - Shutdown initiated...
+2021-11-21 09:19:24.157  INFO 15012 --- [Thread-103] com.zaxxer.hikari.HikariDataSource       : HikariPool-23 - Shutdown completed.
+2021-11-21 09:19:24.350  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 09:19:24.351  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 09:19:24.897  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 09:19:24.921  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 4 JPA repository interfaces.
+2021-11-21 09:19:25.097  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 09:19:25.098  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 09:19:25.098  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 09:19:25.135  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 09:19:25.135  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 781 ms
+2021-11-21 09:19:25.210  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 09:19:25.220  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-24 - Starting...
+2021-11-21 09:19:25.453  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-24 - Start completed.
+2021-11-21 09:19:25.454  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 09:19:26.264  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 09:19:26.265  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:19:26.533  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 09:19:26.627  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 09:19:26.714  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 09:19:26.759  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 09:19:26.856  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 09:19:26.979  INFO 15012 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-21 09:19:26.979  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-21 09:19:26.981  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-11-21 09:19:26.982  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:19:27.101  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.79 seconds (JVM running for 2765.113)
+2021-11-21 09:19:27.104  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 09:19:29.105  INFO 15012 --- [http-nio-8080-exec-2] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:20:23.925  INFO 15012 --- [Thread-108] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:20:23.926  INFO 15012 --- [Thread-108] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:20:23.933  INFO 15012 --- [Thread-108] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:20:23.934  INFO 15012 --- [Thread-108] com.zaxxer.hikari.HikariDataSource       : HikariPool-24 - Shutdown initiated...
+2021-11-21 09:20:24.110  INFO 15012 --- [Thread-108] com.zaxxer.hikari.HikariDataSource       : HikariPool-24 - Shutdown completed.
+2021-11-21 09:20:24.296  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 09:20:24.296  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 09:20:24.586  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 09:20:24.595  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 4 JPA repository interfaces.
+2021-11-21 09:20:24.671  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 09:20:24.672  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 09:20:24.672  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 09:20:24.690  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 09:20:24.690  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 392 ms
+2021-11-21 09:20:24.737  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 09:20:24.741  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-25 - Starting...
+2021-11-21 09:20:24.968  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-25 - Start completed.
+2021-11-21 09:20:24.969  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 09:20:25.778  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 09:20:25.779  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:20:26.053  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 09:20:26.153  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 09:20:26.245  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 09:20:26.290  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 09:20:26.384  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 09:20:26.691  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.423 seconds (JVM running for 2824.703)
+2021-11-21 09:20:26.695  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 09:20:29.223  INFO 15012 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-21 09:20:29.223  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-21 09:20:29.225  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-11-21 09:20:29.227  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:20:32.819  INFO 15012 --- [http-nio-8080-exec-2] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:22:11.091  INFO 15012 --- [Thread-113] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:22:11.092  INFO 15012 --- [Thread-113] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:22:11.103  INFO 15012 --- [Thread-113] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:22:11.104  INFO 15012 --- [Thread-113] com.zaxxer.hikari.HikariDataSource       : HikariPool-25 - Shutdown initiated...
+2021-11-21 09:22:11.285  INFO 15012 --- [Thread-113] com.zaxxer.hikari.HikariDataSource       : HikariPool-25 - Shutdown completed.
+2021-11-21 09:22:11.500  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 09:22:11.501  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 09:22:12.186  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 09:22:12.211  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 4 JPA repository interfaces.
+2021-11-21 09:22:12.391  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 09:22:12.391  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 09:22:12.392  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 09:22:12.421  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 09:22:12.421  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 917 ms
+2021-11-21 09:22:12.499  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 09:22:12.505  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-26 - Starting...
+2021-11-21 09:22:12.768  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-26 - Start completed.
+2021-11-21 09:22:12.769  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 09:22:13.541  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 09:22:13.542  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:22:13.800  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 09:22:13.900  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 09:22:13.992  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 09:22:14.037  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 09:22:14.134  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 09:22:14.437  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.977 seconds (JVM running for 2932.449)
+2021-11-21 09:22:14.440  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 09:28:57.332  INFO 15012 --- [Thread-118] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:28:57.334  INFO 15012 --- [Thread-118] com.zaxxer.hikari.HikariDataSource       : HikariPool-26 - Shutdown initiated...
+2021-11-21 09:28:57.528  INFO 15012 --- [Thread-118] com.zaxxer.hikari.HikariDataSource       : HikariPool-26 - Shutdown completed.
+2021-11-21 09:28:57.805  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 09:28:57.806  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 09:28:58.394  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 09:28:58.418  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 4 JPA repository interfaces.
+2021-11-21 09:28:58.576  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 09:28:58.577  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 09:28:58.577  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 09:28:58.616  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 09:28:58.616  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 807 ms
+2021-11-21 09:28:58.690  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 09:28:58.698  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-27 - Starting...
+2021-11-21 09:28:58.944  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-27 - Start completed.
+2021-11-21 09:28:58.944  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 09:28:59.675  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 09:28:59.675  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:28:59.937  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 09:29:00.031  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 09:29:00.118  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 09:29:00.157  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 09:29:00.251  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 09:29:00.553  INFO 15012 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-21 09:29:00.553  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-21 09:29:00.555  INFO 15012 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-11-21 09:29:00.557  INFO 15012 --- [http-nio-8080-exec-1] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:29:00.558  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.798 seconds (JVM running for 3338.564)
+2021-11-21 09:29:00.562  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 09:29:03.543  INFO 15012 --- [http-nio-8080-exec-2] onetoone.WebSocket                       : Entered into Open
+2021-11-21 09:29:59.354  INFO 15012 --- [Thread-122] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:29:59.359  INFO 15012 --- [Thread-122] onetoone.WebSocket                       : Client disconnected
+2021-11-21 09:29:59.365  INFO 15012 --- [Thread-122] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:29:59.366  INFO 15012 --- [Thread-122] com.zaxxer.hikari.HikariDataSource       : HikariPool-27 - Shutdown initiated...
+2021-11-21 09:29:59.582  INFO 15012 --- [Thread-122] com.zaxxer.hikari.HikariDataSource       : HikariPool-27 - Shutdown completed.
+2021-11-21 09:29:59.799  INFO 15012 --- [restartedMain] onetoone.Main                            : Starting Main using Java 16.0.2 on coms-sco-067 with PID 15012 (C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example\target\classes started by vincet in C:\Users\vincet\coms309\3_rk_2\Backend\userdb\springboot_example)
+2021-11-21 09:29:59.800  INFO 15012 --- [restartedMain] onetoone.Main                            : No active profile set, falling back to default profiles: default
+2021-11-21 09:30:00.409  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 09:30:00.434  INFO 15012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 4 JPA repository interfaces.
+2021-11-21 09:30:00.762  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-21 09:30:00.763  INFO 15012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 09:30:00.763  INFO 15012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-11-21 09:30:00.811  INFO 15012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 09:30:00.812  INFO 15012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1009 ms
+2021-11-21 09:30:00.922  INFO 15012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 09:30:00.930  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-28 - Starting...
+2021-11-21 09:30:01.177  INFO 15012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-28 - Start completed.
+2021-11-21 09:30:01.178  INFO 15012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-21 09:30:01.996  INFO 15012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 09:30:01.996  INFO 15012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:30:02.177  WARN 15012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 09:30:02.219  INFO 15012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-11-21 09:30:02.268  INFO 15012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-21 09:30:02.290  WARN 15012 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-11-21 09:30:02.341  INFO 15012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-21 09:30:02.486  INFO 15012 --- [restartedMain] onetoone.Main                            : Started Main in 2.727 seconds (JVM running for 3400.491)
+2021-11-21 09:30:02.488  INFO 15012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-21 09:30:04.721  INFO 15012 --- [RMI TCP Connection(62)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-11-21 09:30:04.769  INFO 15012 --- [RMI TCP Connection(62)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 09:30:04.771  INFO 15012 --- [RMI TCP Connection(62)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-28 - Shutdown initiated...
+2021-11-21 09:30:04.955  INFO 15012 --- [RMI TCP Connection(62)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-28 - Shutdown completed.

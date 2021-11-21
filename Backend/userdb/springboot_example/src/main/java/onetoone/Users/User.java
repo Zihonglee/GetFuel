@@ -59,7 +59,8 @@ public class User
 		this.password = password;
 	}
 
-	public String getRoleType() {
+	public String getRoleType()
+	{
 		return roleType;
 	}
 

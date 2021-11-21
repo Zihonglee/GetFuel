@@ -69,8 +69,8 @@ public class WebSocket
 		sessionUserMap.put(session, user);
 		userSessionMap.put(user, session);
 
-		String message = "User:" + user.getName() + " has Joined the application";
-		broadcast(message);
+		String message = user.getRoleType() + ": " + user.getName() + " has Joined the application";
+		broadcast(message);	
 	}
 
 	private void broadcast(String message) 
@@ -92,57 +92,62 @@ public class WebSocket
 	@OnMessage
 	public void onMessage(Session session, String RestaurantInfo) throws IOException 
 	{
-		String[] list = new String[5];
-		Scanner scan = new Scanner(RestaurantInfo);
-		String wholeString = scan.next();
-		String store = "";
-		int number = 0;
-		for (int i = 0; i < wholeString.length(); ++i)
+		User user = sessionUserMap.get(session);
+		if (user.getRoleType().equals("admin") || user.getRoleType().equals("maintainer"))
 		{
-			if (wholeString.charAt(i) == ',')
+			String[] list = new String[5];
+			Scanner scan = new Scanner(RestaurantInfo);
+			String wholeString = scan.next();
+			String store = "";
+			int number = 0;
+			for (int i = 0; i < wholeString.length(); ++i)
 			{
-				list[number] = store;
-				++number;
-				store = "";
+				if (wholeString.charAt(i) == ',')
+				{
+					list[number] = store;
+					++number;
+					store = "";
+				}
+				else
+				{
+					store += wholeString.charAt(i);
+				}
+			}
+			list[number] = store;
+			Cuisine cs = null;
+			String check = list[3];
+			boolean checkIfCusineExist = false;
+			for (int i = 0; i < cuisineRepo.findAll().size(); ++i)
+			{
+				if (cuisineRepo.findAll().get(i).getCuisineType().equals(check))
+				{
+					cs = cuisineRepo.findAll().get(i);
+					checkIfCusineExist = true;
+					break;
+				}
+			}
+			logger.info("Entered into Message: Got Message:" + RestaurantInfo);
+			if (!checkIfCusineExist)
+			{
+				list[3] = null;
+				Restaurant rest = new Restaurant(list[0], list[1], list[2], null, list[4]);
+				restRepo.save(rest);
+				scan.close();
+				broadcast("New Restaurant Info \nName: " + list[0] + "\nPrice: " + list[1] + "\nRating: " + list[2] + "\nCuisine Type: " + list[3] + "\nAdded by: " + user.getName());
 			}
 			else
 			{
-				store += wholeString.charAt(i);
+				Restaurant rest = new Restaurant(list[0], list[1], list[2], cs, list[4]);
+				restRepo.save(rest);
+				cs.getRestaurants().add(rest);
+				cuisineRepo.save(cs);
+				scan.close();
+				broadcast("New Restaurant Info \nName: " + list[0] + "\nPrice: " + list[1] + "\nRating: " + list[2] + "\nCuisine Type: " + list[3] + "\nAdded by: " + user.getName());
 			}
-		}
-		list[number] = store;
-		Cuisine cs = null;
-		String check = list[3];
-		boolean checkIfCusineExist = false;
-		for (int i = 0; i < cuisineRepo.findAll().size(); ++i)
-		{
-			if (cuisineRepo.findAll().get(i).getCuisineType().equals(check))
-			{
-				cs = cuisineRepo.findAll().get(i);
-				checkIfCusineExist = true;
-				break;
-			}
-		}
-		if (!checkIfCusineExist)
-		{
-			list[3] = null;
-			Restaurant rest = new Restaurant(list[0], list[1], list[2], null, list[4]);
-			restRepo.save(rest);
-			scan.close();
-			logger.info("Entered into Message: Got Message:" + RestaurantInfo);
-			User username = sessionUserMap.get(session);
-			broadcast("New Restaurant Info \nName: " + list[0] + "\nPrice: " + list[1] + "\nRating: " + list[2] + "\nCuisine Type: " + list[3] + "\nAdded by: " + username.getName());
 		}
 		else
 		{
-			Restaurant rest = new Restaurant(list[0], list[1], list[2], cs, list[4]);
-			restRepo.save(rest);
-			cs.getRestaurants().add(rest);
-			cuisineRepo.save(cs);
-			scan.close();
-			logger.info("Entered into Message: Got Message:" + RestaurantInfo);
-			User username = sessionUserMap.get(session);
-			broadcast("New Restaurant Info \nName: " + list[0] + "\nPrice: " + list[1] + "\nRating: " + list[2] + "\nCuisine Type: " + list[3] + "\nAdded by: " + username.getName());
+			broadcast("Access Denied: Cannot add restaurant");
 		}
 	}
 
