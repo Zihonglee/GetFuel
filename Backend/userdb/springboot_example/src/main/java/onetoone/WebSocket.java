@@ -14,7 +14,7 @@ import org.springframework.stereotype.Controller;
 import onetoone.Cuisine.CuisineRepository;
 import onetoone.Restaurants.Restaurant;
 import onetoone.Restaurants.RestaurantController;
-//import onetoone.Restaurants.RestaurantRepository;
+import onetoone.Restaurants.RestaurantRepository;
 import onetoone.Users.User;
 import onetoone.Users.UserRepository;
 
@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
 @ServerEndpoint(value = "/websocket/{userId}")
 public class WebSocket 
 {
-//	private static RestaurantRepository restRepo; 
+	private static RestaurantRepository restRepo; 
 	private static UserRepository userRepo; 
 	private static CuisineRepository cuisineRepo;
 	private static RestaurantController restController;
@@ -41,11 +41,11 @@ public class WebSocket
 		restController = RestController;
 	}
 
-//	@Autowired
-//	public void setRestaurantRepository(RestaurantRepository repo) 
-//	{
-//		restRepo = repo;
-//	}
+	@Autowired
+	public void setRestaurantRepository(RestaurantRepository repo) 
+	{
+		restRepo = repo;
+	}
 
 	@Autowired
 	public void setUserRepository(UserRepository repo) 
@@ -110,19 +110,19 @@ public class WebSocket
 			}
 		}
 		list[number] = store;
-		store = null;		
-		Long Id = null;
-		String check = list[3];
-		for (int i = 0; i < cuisineRepo.findAll().size(); ++i)
-		{
-			if (cuisineRepo.findAll().get(i).getCuisineType().equals(check))
-			{
-				Id = cuisineRepo.findAll().get(i).getId();
-				break;
-			}
-		}
+//		Long Id = null;
+//		String check = list[3];
+//		for (int i = 0; i < cuisineRepo.findAll().size(); ++i)
+//		{
+//			if (cuisineRepo.findAll().get(i).getCuisineType().equals(check))
+//			{
+//				Id = cuisineRepo.findAll().get(i).getId();
+//				break;
+//			}
+//		}
+//		Restaurant rest = new Restaurant(list[0], list[1], list[2], cuisineRepo.getCuisineById(Id), list[4]);
+//		restRepo.save(rest);
 		scan.close();
-		restController.addRestaurant(new Restaurant(list[0], list[1], list[2], cuisineRepo.getCuisineById(Id), list[4]));
 		logger.info("Entered into Message: Got Message:" + RestaurantInfo);
 		User username = sessionUserMap.get(session);
 		broadcast("New Restaurant Info \nName: " + list[0] + "\nPrice: " + list[1] + "\nRating: " + list[2] + "\nCuisine Type: " + list[3] + "\nAdded by: " + username.getName());
@@ -137,7 +137,7 @@ public class WebSocket
 		sessionUserMap.remove(session);
 		userSessionMap.remove(username);
 
-		String message = username + " disconnected";
+		String message = username.getName() + " disconnected";
 		broadcast(message);
 	}
 
