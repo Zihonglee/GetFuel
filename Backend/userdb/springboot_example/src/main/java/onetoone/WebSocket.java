@@ -29,18 +29,11 @@ public class WebSocket
 	private static RestaurantRepository restRepo; 
 	private static UserRepository userRepo; 
 	private static CuisineRepository cuisineRepo;
-	//	private static RestaurantController restController;
 
 	private static Map<Session, User> sessionUserMap = new Hashtable<>();
 	private static Map<User, Session> userSessionMap = new Hashtable<>();
 
 	private final Logger logger = LoggerFactory.getLogger(WebSocket.class);
-
-	//	@Autowired
-	//	public void setRestaurantRepository(RestaurantController RestController) 
-	//	{
-	//		restController = RestController;
-	//	}
 
 	@Autowired
 	public void setRestaurantRepository(RestaurantRepository repo) 
@@ -114,35 +107,38 @@ public class WebSocket
 				}
 			}
 			list[number] = store;
-			Cuisine cs = null;
-			String check = list[3];
-			boolean checkIfCusineExist = false;
-			for (int i = 0; i < cuisineRepo.findAll().size(); ++i)
+			if (list[0] == null || list[1] == null || list[2] == null || list[3] == null || list[4] == null)
 			{
-				if (cuisineRepo.findAll().get(i).getCuisineType().equals(check))
-				{
-					cs = cuisineRepo.findAll().get(i);
-					checkIfCusineExist = true;
-					break;
-				}
-			}
-			logger.info("Entered into Message: Got Message:" + RestaurantInfo);
-			if (!checkIfCusineExist)
-			{
-				list[3] = null;
-				Restaurant rest = new Restaurant(list[0], list[1], list[2], null, list[4]);
-				restRepo.save(rest);
-				scan.close();
-				broadcast("New Restaurant Info \nName: " + list[0] + "\nPrice: " + list[1] + "\nRating: " + list[2] + "\nCuisine Type: " + list[3] + "\nAdded by: " + user.getName());
+				broadcast("The restaurant has not added: Insufficient information");
 			}
 			else
 			{
-				Restaurant rest = new Restaurant(list[0], list[1], list[2], cs, list[4]);
-				restRepo.save(rest);
-				cs.getRestaurants().add(rest);
-				cuisineRepo.save(cs);
+				Cuisine cs = null;
+				String check = list[3];
+				boolean checkIfCusineExist = false;
+				for (int i = 0; i < cuisineRepo.findAll().size(); ++i)
+				{
+					if (cuisineRepo.findAll().get(i).getCuisineType().equals(check))
+					{
+						cs = cuisineRepo.findAll().get(i);
+						checkIfCusineExist = true;
+						break;
+					}
+				}
+				logger.info("Entered into Message and got the message:" + RestaurantInfo);
+				if (!checkIfCusineExist)
+				{
+					broadcast("The restaurant has not added: Cuisine type does not exist");
+				}
+				else
+				{
+					Restaurant rest = new Restaurant(list[0], list[1], list[2], cs, list[4]);
+					restRepo.save(rest);
+					cs.getRestaurants().add(rest);
+					cuisineRepo.save(cs);
+					broadcast("New Restaurant Info \nName: " + list[0] + "\nPrice: " + list[1] + "\nRating: " + list[2] + "\nCuisine Type: " + list[3] + "\nAdded by: " + user.getName());
+				}
 				scan.close();
-				broadcast("New Restaurant Info \nName: " + list[0] + "\nPrice: " + list[1] + "\nRating: " + list[2] + "\nCuisine Type: " + list[3] + "\nAdded by: " + user.getName());
 			}
 		}
 		else
