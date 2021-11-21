@@ -47,8 +47,16 @@ public class RestaurantController
 		}
 		else
 		{
-			restRepository.save(restaurant);
-			return "Restaurant saved";
+			if (restaurant.getCuisine() == null)
+			{
+				restRepository.save(restaurant);
+				return "Restaurant saved";
+			}
+			else
+			{
+				assigneCusinetoRest(restaurant.getId(), restaurant.getCuisine().getId());
+				return "Restaurant saved";
+			}
 		}
 	}
 
