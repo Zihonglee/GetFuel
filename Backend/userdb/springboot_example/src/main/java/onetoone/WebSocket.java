@@ -11,9 +11,10 @@ import javax.websocket.server.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import onetoone.Cuisine.Cuisine;
 import onetoone.Cuisine.CuisineRepository;
 import onetoone.Restaurants.Restaurant;
-import onetoone.Restaurants.RestaurantController;
+//import onetoone.Restaurants.RestaurantController;
 import onetoone.Restaurants.RestaurantRepository;
 import onetoone.Users.User;
 import onetoone.Users.UserRepository;
@@ -28,18 +29,18 @@ public class WebSocket
 	private static RestaurantRepository restRepo; 
 	private static UserRepository userRepo; 
 	private static CuisineRepository cuisineRepo;
-	private static RestaurantController restController;
+	//	private static RestaurantController restController;
 
 	private static Map<Session, User> sessionUserMap = new Hashtable<>();
 	private static Map<User, Session> userSessionMap = new Hashtable<>();
 
 	private final Logger logger = LoggerFactory.getLogger(WebSocket.class);
 
-	@Autowired
-	public void setRestaurantRepository(RestaurantController RestController) 
-	{
-		restController = RestController;
-	}
+	//	@Autowired
+	//	public void setRestaurantRepository(RestaurantController RestController) 
+	//	{
+	//		restController = RestController;
+	//	}
 
 	@Autowired
 	public void setRestaurantRepository(RestaurantRepository repo) 
@@ -110,22 +111,39 @@ public class WebSocket
 			}
 		}
 		list[number] = store;
-//		Long Id = null;
-//		String check = list[3];
-//		for (int i = 0; i < cuisineRepo.findAll().size(); ++i)
-//		{
-//			if (cuisineRepo.findAll().get(i).getCuisineType().equals(check))
-//			{
-//				Id = cuisineRepo.findAll().get(i).getId();
-//				break;
-//			}
-//		}
-//		Restaurant rest = new Restaurant(list[0], list[1], list[2], cuisineRepo.getCuisineById(Id), list[4]);
-//		restRepo.save(rest);
-		scan.close();
-		logger.info("Entered into Message: Got Message:" + RestaurantInfo);
-		User username = sessionUserMap.get(session);
-		broadcast("New Restaurant Info \nName: " + list[0] + "\nPrice: " + list[1] + "\nRating: " + list[2] + "\nCuisine Type: " + list[3] + "\nAdded by: " + username.getName());
+		Cuisine cs = null;
+		String check = list[3];
+		boolean checkIfCusineExist = false;
+		for (int i = 0; i < cuisineRepo.findAll().size(); ++i)
+		{
+			if (cuisineRepo.findAll().get(i).getCuisineType().equals(check))
+			{
+				cs = cuisineRepo.findAll().get(i);
+				checkIfCusineExist = true;
+				break;
+			}
+		}
+		if (!checkIfCusineExist)
+		{
+			list[3] = null;
+			Restaurant rest = new Restaurant(list[0], list[1], list[2], null, list[4]);
+			restRepo.save(rest);
+			scan.close();
+			logger.info("Entered into Message: Got Message:" + RestaurantInfo);
+			User username = sessionUserMap.get(session);
+			broadcast("New Restaurant Info \nName: " + list[0] + "\nPrice: " + list[1] + "\nRating: " + list[2] + "\nCuisine Type: " + list[3] + "\nAdded by: " + username.getName());
+		}
+		else
+		{
+			Restaurant rest = new Restaurant(list[0], list[1], list[2], cs, list[4]);
+			restRepo.save(rest);
+			cs.getRestaurants().add(rest);
+			cuisineRepo.save(cs);
+			scan.close();
+			logger.info("Entered into Message: Got Message:" + RestaurantInfo);
+			User username = sessionUserMap.get(session);
+			broadcast("New Restaurant Info \nName: " + list[0] + "\nPrice: " + list[1] + "\nRating: " + list[2] + "\nCuisine Type: " + list[3] + "\nAdded by: " + username.getName());
+		}
 	}
 
 	@OnClose
@@ -151,19 +169,19 @@ public class WebSocket
 		}
 	}
 
-//	@SuppressWarnings("unused")// not necessary 
-//	private String getRestaurantAddedHistory() 
-//	{
-//		List<Restaurant> userList = restRepo.findAll();
-//
-//		StringBuilder sb = new StringBuilder();
-//		if(userList != null && userList.size() != 0) 
-//		{
-//			for (int i = 0; i < userList.size(); ++i)
-//			{
-//				sb.append(i + ") " + userList.get(i).getName() + "\n");
-//			}
-//		}
-//		return sb.toString();
-//	}
+	//	@SuppressWarnings("unused")// not necessary 
+	//	private String getRestaurantAddedHistory() 
+	//	{
+	//		List<Restaurant> userList = restRepo.findAll();
+	//
+	//		StringBuilder sb = new StringBuilder();
+	//		if(userList != null && userList.size() != 0) 
+	//		{
+	//			for (int i = 0; i < userList.size(); ++i)
+	//			{
+	//				sb.append(i + ") " + userList.get(i).getName() + "\n");
+	//			}
+	//		}
+	//		return sb.toString();
+	//	}
 }
