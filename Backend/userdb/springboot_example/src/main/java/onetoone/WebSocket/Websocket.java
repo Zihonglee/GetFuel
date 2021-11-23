@@ -32,7 +32,7 @@ public class Websocket {
 
     @Autowired
     public void setUserRepository(UserRepository repo){
-        userRepository = repo
+        userRepository = repo;
     }
 
     private static Map<Session,User> sessionIdMap = new Hashtable<>();
@@ -56,8 +56,8 @@ public class Websocket {
 
 
     @OnOpen
-    public void onOpen(Session session,@PathParam("userid") Long userid ) {
-        try {
+    public void onOpen(Session session,@PathParam("userid") Long userid )throws IOException {
+
 
 logger.info("User connected");
 User user = userRepository.getUserById(userid);
@@ -68,9 +68,7 @@ User user = userRepository.getUserById(userid);
             String message = "User:" +user.getName()+"open the application";
             broadcast(message);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
     }
 
     @OnMessage
@@ -86,6 +84,7 @@ for(int i = 0; i< userRepository.findAll().size(); i++){
         userexist= true;
     }
 }
+sc.close();
 if(userexist) {
     Long id = Long.parseLong(list[0]);
     User edituser = userRepository.getUserById(id);
@@ -94,9 +93,13 @@ if(userexist) {
     edituser.setPassword(list[3]);
     edituser.setRoleType(list[4]);
     userRepository.save(edituser);
+    logger.info("User Info : \n Name:"+ list[1]+"\nEmail:"+list[2]+"\nPassword"+list[3]+"\nRoletype"+list[4]+"Changed By User:"+user.getName());
+
 }else {
     User newuser = new User(list[1],list[2],list[3],list[4]);
     userRepository.save(newuser);
+    logger.info("User Info : \n Name:"+ list[1]+"\nEmail:"+list[2]+"\nPassword"+list[3]+"\nRoletype"+list[4]+"Added By User:"+user.getName());
+
 }
 
     }
