@@ -127,7 +127,11 @@ public class RestTest
 		doNothing().when(repo).deleteRestaurantById(Long.valueOf(1));
 		assertEquals(emptylist, restService.getAllRestaurant());
 		assertEquals(emptylistReview, reviewService.getAllReview());
-		//verify need to do
+		
+
+		verify(reviewRepository, times(8)).getReviewById(anyLong());
+		verify(repo, times(5)).getRestaurantById(anyLong());
+		verify(userRepository, times(6)).getUserById(anyLong());
 	}
 
 	@Test
@@ -205,8 +209,9 @@ public class RestTest
 		when(crepo.getCuisineById(Long.valueOf(1))).thenReturn(null);
 		output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(1)); //since one of them is still null
 		assertEquals("failure", output);
-		
-		//verify need to do
+
+		verify(crepo, times(3)).getCuisineById(anyLong());
+		verify(repo, times(3)).getRestaurantById(anyLong());
 	}
 	
 	@Test
@@ -215,6 +220,7 @@ public class RestTest
 		Cuisine cs = new Cuisine("Chinese");
 		when(repo.getRestaurantById(Long.valueOf(1))).thenReturn(new Restaurant("Thai kitchen", "$10.00", "7.00", null, "https://www.thaikitchenames.com/"));
 		when(crepo.getCuisineById(Long.valueOf(1))).thenReturn(cs);
+		crepo.getCuisineById(Long.valueOf(1)).setRestaurants(new ArrayList<Restaurant>());
 
 		String output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(1));
 		assertEquals(output, "success");
@@ -222,10 +228,12 @@ public class RestTest
 		
 		cs = new Cuisine("Japanese");
 		when(crepo.getCuisineById(Long.valueOf(2))).thenReturn(cs);
+		crepo.getCuisineById(Long.valueOf(2)).setRestaurants(new ArrayList<Restaurant>());
 		output = restService.assigneCusinetoRest(Long.valueOf(1), Long.valueOf(2));
 		assertEquals("success", output);
-		assertEquals(repo.getRestaurantById(Long.valueOf(1)).getCuisine().getCuisineType(), "Japanese");
-		
-		//verify need to do
+		assertEquals("Japanese", repo.getRestaurantById(Long.valueOf(1)).getCuisine().getCuisineType());
+
+		verify(crepo, times(4)).getCuisineById(anyLong());
+		verify(repo, times(5)).getRestaurantById(anyLong());
 	}
 }
