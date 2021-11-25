@@ -79,13 +79,23 @@ Scanner sc = new Scanner(UserInfo);
 String[] list = sc.delimiter().split(",");
 boolean userexist = false;
 
+boolean userIsAdmin = false;
+
+if(user.getRoleType().equals("admin")){
+    userIsAdmin = true;
+}else
+{
+    logger.info("User is not a admin");
+    return ;
+}
+
 for(int i = 0; i< userRepository.findAll().size(); i++){
     if(userRepository.findAll().get(i).getId().equals(list[0])){
         userexist= true;
     }
 }
 sc.close();
-if(userexist) {
+if(userexist && userIsAdmin) {
     Long id = Long.parseLong(list[0]);
     User edituser = userRepository.getUserById(id);
     edituser.setName(list[1]);
