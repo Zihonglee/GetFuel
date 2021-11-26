@@ -22,11 +22,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 
-@ServerEndpoint("/websocket/{userid}")
+@ServerEndpoint("/websocketUser/{userid}")
 @Component
-public class Websocket {
+public class WebSocketUser {
 
-    private final Logger logger1 = LoggerFactory.getLogger(Websocket.class);
+    private final Logger logger1 = LoggerFactory.getLogger(WebSocketUser.class);
     private static UserRepository userRepository;
     private LocalDateTime timeCreated = LocalDateTime.now();
 
