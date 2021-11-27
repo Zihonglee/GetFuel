@@ -1,7 +1,7 @@
 package onetoone.WebSocket;
 import java.io.IOException;
 import java.util.Hashtable;
-//import java.util.List;
+import java.util.List;
 import java.util.Map;
 
 import javax.websocket.*;
@@ -22,7 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Controller
-@ServerEndpoint(value = "/websocketRes/{userId}")
+@ServerEndpoint(value = "/websocketRest/{userId}")
 public class WebSocketRest
 {
     private static RestaurantRepository restRepo;
@@ -45,7 +45,6 @@ public class WebSocketRest
     {
         userRepo = repo;
     }
-
 
     @Autowired
     public void setCuisineRepository(CuisineRepository repo)
@@ -115,11 +114,12 @@ public class WebSocketRest
                 {
                     Restaurant rest = new Restaurant(list[0], list[1], list[2], cs, list[4]);
                     restRepo.save(rest);
-                    cs.getRestaurants().add(rest);
+                    List<Restaurant> getAllRest = cs.getRestaurants();
+                    getAllRest.add(rest);
+                    cs.setRestaurants(getAllRest);
                     cuisineRepo.save(cs);
                     broadcast("New Restaurant Info \nName: " + list[0] + "\nPrice: " + list[1] + "\nRating: " + list[2] + "\nCuisine Type: " + list[3] + "\nAdded by: " + user.getName());
                 }
-//				scan.close();
             }
         }
         else
