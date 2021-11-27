@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import onetoone.Cuisine.Cuisine;
 import onetoone.Cuisine.CuisineRepository;
 import onetoone.Restaurants.Restaurant;
-//import onetoone.Restaurants.RestaurantController;
 import onetoone.Restaurants.RestaurantRepository;
 import onetoone.Users.User;
 import onetoone.Users.UserRepository;
