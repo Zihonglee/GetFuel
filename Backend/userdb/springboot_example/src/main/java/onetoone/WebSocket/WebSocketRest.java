@@ -1,7 +1,7 @@
 package onetoone.WebSocket;
 import java.io.IOException;
 import java.util.Hashtable;
-//import java.util.List;
+import java.util.List;
 import java.util.Map;
 
 import javax.websocket.*;
@@ -22,8 +22,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Controller
-@ServerEndpoint(value = "/websocketRes/{userId}")
-public class WebSocketRes
+@ServerEndpoint(value = "/websocketRest/{userId}")
+public class WebSocketRest
 {
     private static RestaurantRepository restRepo;
     private static UserRepository userRepo;
@@ -45,7 +45,6 @@ public class WebSocketRes
     {
         userRepo = repo;
     }
-
 
     @Autowired
     public void setCuisineRepository(CuisineRepository repo)
