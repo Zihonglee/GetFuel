@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
 
 @Controller
 @ServerEndpoint(value = "/websocketRes/{userId}")
-public class WebSocketRest
+public class WebSocketRes
 {
     private static RestaurantRepository restRepo;
     private static UserRepository userRepo;
@@ -32,7 +32,7 @@ public class WebSocketRest
     private static Map<Session, User> sessionUserMap = new Hashtable<>();
     private static Map<User, Session> userSessionMap = new Hashtable<>();
 
-    private final Logger logger = LoggerFactory.getLogger(WebSocketRest.class);
+    private final Logger logger = LoggerFactory.getLogger(WebSocketRes.class);
 
     @Autowired
     public void setRestaurantRepository(RestaurantRepository repo)
@@ -87,7 +87,26 @@ public class WebSocketRest
         User user = sessionUserMap.get(session);
         if (user.getRoleType().equals("admin") || user.getRoleType().equals("maintainer"))
         {
+//			String[] list = new String[5];
             String[] list = RestaurantInfo.split(",");
+//			Scanner scan = new Scanner(RestaurantInfo);
+//			String wholeString = scan.next();
+//			String store = "";
+//			int number = 0;
+//			for (int i = 0; i < wholeString.length(); ++i)
+//			{
+//				if (wholeString.charAt(i) == ',')
+//				{
+//					list[number] = store;
+//					++number;
+//					store = "";
+//				}
+//				else
+//				{
+//					store += wholeString.charAt(i);
+//				}
+//			}
+//			list[number] = store;
             if (list[0] == null || list[1] == null || list[2] == null || list[3] == null || list[4] == null)
             {
                 broadcast("The restaurant has not added: Insufficient information");
@@ -150,4 +169,20 @@ public class WebSocketRest
             throwable.printStackTrace();
         }
     }
+
+    //	@SuppressWarnings("unused")// not necessary
+    //	private String getRestaurantAddedHistory() 
+    //	{
+    //		List<Restaurant> userList = restRepo.findAll();
+    //
+    //		StringBuilder sb = new StringBuilder();
+    //		if(userList != null && userList.size() != 0)
+    //		{
+    //			for (int i = 0; i < userList.size(); ++i)
+    //			{
+    //				sb.append(i + ") " + userList.get(i).getName() + "\n");
+    //			}
+    //		}
+    //		return sb.toString();
+    //	}
 }
