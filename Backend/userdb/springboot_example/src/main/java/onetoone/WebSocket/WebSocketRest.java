@@ -114,7 +114,9 @@ public class WebSocketRest
                 {
                     Restaurant rest = new Restaurant(list[0], list[1], list[2], cs, list[4]);
                     restRepo.save(rest);
-                    cs.getRestaurants().add(rest);
+                    List<Restaurant> getAllRest = cs.getRestaurants();
+                    getAllRest.add(rest);
+                    cs.setRestaurants(getAllRest);
                     cuisineRepo.save(cs);
                     broadcast("New Restaurant Info \nName: " + list[0] + "\nPrice: " + list[1] + "\nRating: " + list[2] + "\nCuisine Type: " + list[3] + "\nAdded by: " + user.getName());
                 }
