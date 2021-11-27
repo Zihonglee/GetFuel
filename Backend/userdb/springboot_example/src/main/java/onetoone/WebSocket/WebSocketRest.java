@@ -50,6 +50,7 @@ public class WebSocketRest
     {
         cuisineRepo = repo;
     }
+    
     @OnOpen
     public void onOpen(Session session, @PathParam("userId") Long userId) throws IOException
     {
