@@ -69,7 +69,7 @@ public class RestaurantController
 	@GetMapping
 	public List<Restaurant> getAllRestaurant()
 	{
-		return restRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
+		return restRepository.findAll();
 	}
 
 	@ApiOperation(value = "Get a specific restaurant with the given identification in the System ", response = Restaurant.class)
