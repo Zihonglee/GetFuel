@@ -31,7 +31,13 @@ public class CuisineController
 	public List<Cuisine> getAllCuisine()
 	{
 		return cuisineRepository.findAll(Sort.by(Sort.Direction.ASC, "cuisineType"));
-
+	}
+	
+	@GetMapping("/{id}/AllRestaurant")
+	public List<Restaurant> getRestaurants(@PathVariable Long id)
+	{
+		Cuisine cuisineType = cuisineRepository.getCuisineById(id);
+		return  cuisineType.getRestaurants();
 	}
 
 	@ApiOperation(value = "Get specific cuisine with the given identificatio in the System ", response = Cuisine.class)

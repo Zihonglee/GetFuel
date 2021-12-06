@@ -5,8 +5,6 @@ import onetoone.Reviews.Review;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.ArrayList;
@@ -33,7 +31,7 @@ public class Restaurant
 	private String Url;
 
 	@ManyToOne(targetEntity = Cuisine.class) //cascade = CascadeType.ALL 
-	@JsonIgnore
+//	@JsonIgnore
 	@ApiModelProperty(notes = "The cuisine of this specific restaurant", name = "cuisine", required = true, value = "test cuisine")
 	private Cuisine cuisine;
 
