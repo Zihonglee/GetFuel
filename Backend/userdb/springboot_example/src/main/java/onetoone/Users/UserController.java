@@ -55,6 +55,19 @@ public class UserController
 	{
 		return userRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
 	}
+
+	@ApiOperation(value = "Get all reviews from a specific user with the given identificatio in the System ", response = Iterable.class)
+	@ApiResponses(value = { 
+            @ApiResponse(code = 200, message = "Success|OK"),
+            @ApiResponse(code = 401, message = "not authorized!"), 
+            @ApiResponse(code = 403, message = "forbidden!!!"),
+            @ApiResponse(code = 404, message = "not found!!!") })
+	@GetMapping("/{id}/AllReviews")
+	public List<Review> getAllReviews(@PathVariable Long id)
+	{
+		User user = userRepository.getById(id);
+		return  user.getAllReviews();
+	}
 	
 	@ApiOperation(value = "Get specific user with the given identificatio in the System ", response = User.class)
 	@ApiResponses(value = { 
@@ -119,6 +132,9 @@ public class UserController
 		}
 		else
 		{
+			person.setName(personToUpdate.getName());
+			person.setId(personToUpdate.getId());
+			person.setPassword(personToUpdate.getPassword());
 			person.setTimeCreated(personToUpdate.getTimeCreated());
 			person.setRoleType(personToUpdate.getRoleType());
 			person.setEmail(personToUpdate.getEmail());

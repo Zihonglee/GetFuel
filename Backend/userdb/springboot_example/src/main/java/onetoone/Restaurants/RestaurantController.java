@@ -3,7 +3,6 @@ package onetoone.Restaurants;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.Api;
@@ -72,6 +71,19 @@ public class RestaurantController
 		return restRepository.findAll();
 	}
 
+	@ApiOperation(value = "Get all reviews of a specific restaurant with the given identification in the System ", response = Iterable.class)
+	@ApiResponses(value = { 
+			@ApiResponse(code = 200, message = "Success|OK"),
+			@ApiResponse(code = 401, message = "not authorized!"), 
+			@ApiResponse(code = 403, message = "forbidden!!!"),
+			@ApiResponse(code = 404, message = "not found!!!") })
+	@GetMapping("/{id}/AllReviews")
+	public List<Review> getAllReviews(@PathVariable Long id)
+	{
+		Restaurant restaurant = restRepository.getRestaurantById(id);
+		return  restaurant.getReviews();
+	}
+	
 	@ApiOperation(value = "Get a specific restaurant with the given identification in the System ", response = Restaurant.class)
 	@ApiResponses(value = { 
 			@ApiResponse(code = 200, message = "Success|OK"),
@@ -200,8 +212,6 @@ public class RestaurantController
 			restaurant.setName(restaurantToUpdate.getName());
 			restaurant.setPrice(restaurantToUpdate.getPrice());
 			restaurant.setRating(restaurantToUpdate.getRating());
-			restaurant.setCuisine(restaurantToUpdate.getCuisine());
-			restaurant.setReviews(restaurantToUpdate.getReviews());
 			restaurant.setUrl(restaurantToUpdate.getUrl());
 			restRepository.save(restaurant);
 			return "Replacement was successful";

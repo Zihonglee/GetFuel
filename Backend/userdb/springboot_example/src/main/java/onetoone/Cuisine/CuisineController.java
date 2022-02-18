@@ -33,6 +33,12 @@ public class CuisineController
 		return cuisineRepository.findAll(Sort.by(Sort.Direction.ASC, "cuisineType"));
 	}
 	
+	@ApiOperation(value = "Get all restaurant under specific cuisine with the given identificatio in the System ", response = Iterable.class)
+	@ApiResponses(value = { 
+            @ApiResponse(code = 200, message = "Success|OK"),
+            @ApiResponse(code = 401, message = "not authorized!"), 
+            @ApiResponse(code = 403, message = "forbidden!!!"),
+            @ApiResponse(code = 404, message = "not found!!!") })
 	@GetMapping("/{id}/AllRestaurant")
 	public List<Restaurant> getRestaurants(@PathVariable Long id)
 	{

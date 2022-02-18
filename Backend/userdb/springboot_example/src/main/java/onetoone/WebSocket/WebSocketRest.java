@@ -84,7 +84,7 @@ public class WebSocketRest
     public void onMessage(Session session, String RestaurantInfo) throws IOException
     {
         User user = sessionUserMap.get(session);
-        if (user.getRoleType().equals("admin") || user.getRoleType().equals("maintainer"))
+        if (user.getRoleType().equals("admin") || user.getRoleType().equals("support"))
         {
             String[] list = RestaurantInfo.split(",");
             if (list[0] == null || list[1] == null || list[2] == null || list[3] == null || list[4] == null)
